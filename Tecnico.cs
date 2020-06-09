@@ -17,27 +17,51 @@ namespace Agenda_OS
         public string cpf { get; set; }
         public string cnh { get; set; }
 
-        public bool SalvarTec()
+        public bool SalvarTec(string action)
         {
-            CMD("AddOrEditTecnico", CommandType.StoredProcedure);
-            AddPar("codTecnico", this.codigo);
-            AddPar("nome", this.nome);
-            AddPar("nome", this.nome);
-            AddPar("nasc", this.nasc);
-            AddPar("sexo", this.sexo);
-            AddPar("rg", this.rg);
-            AddPar("cpf", this.cpf);
-            AddPar("cnh", this.cnh);
-            long rtnId;
-            if (this.codigo < 1)
+            
+            if (action == "New")
             {
-                rtnId = ExeGetId();
-                this.codigo = rtnId;
+                return Cadastrar();
+            }
+            else if (action == "Edit")
+            {
+                return Atualizar();
+            }
+            return false;
+        }
+
+        private bool Cadastrar()
+        {
+            string sql = "INSERT INTO `tecnico` VALUES(0,@_nome,@_nasc,@_sexo,@_rg,@_cpf,@_cnh)";
+            NewCMD(sql, CommandType.Text);
+            AddPar("_nome", this.nome);
+            AddPar("_nasc", this.nasc);
+            AddPar("_sexo", this.sexo);
+            AddPar("_rg", this.rg);
+            AddPar("_cpf", this.cpf);
+            AddPar("_cnh", this.cnh);
+            if (ExeGetId())
+            {
+                this.codigo = Conexao.lastId;
                 return true;
             }
-            else
+            return false;
+        }
+
+        private bool Atualizar()
+        {
+            string sql = "UPDATE `tecnico` SET `nome`=@_nome,`nasc`=@_nasc,`sexo`=@_sexo,`rg`=@_rg,`cpf`=@_cpf,`cnh`=@_cnh WHERE `codTecnico`=@_id";
+            NewCMD(sql, CommandType.Text);
+            AddPar("_id", this.codigo);
+            AddPar("_nome", this.nome);
+            AddPar("_nasc", this.nasc);
+            AddPar("_sexo", this.sexo);
+            AddPar("_rg", this.rg);
+            AddPar("_cpf", this.cpf);
+            AddPar("_cnh", this.cnh);
+            if (ExecuteNQ())
             {
-                ExecuteNQ();
                 return true;
             }
             return false;

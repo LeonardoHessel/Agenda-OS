@@ -21,6 +21,7 @@ namespace Agenda_OS
         private string charset { get; set; }
         private string conLine { get; set; }
         public static string msg { get; set; }
+        public static long lastId { get; set; }
 
         // Define a linha de conexão.
         private void SetConLine()
@@ -92,27 +93,28 @@ namespace Agenda_OS
         }
 
         // Executa comando e retorna ultimo id.
-        protected long ExeGetId()
+        protected bool ExeGetId()
         {
             try
             {
                 this.cmd.Connection = Con();
                 this.cmd.ExecuteNonQuery();
-                long cod = this.cmd.LastInsertedId;
+                Conexao.lastId = this.cmd.LastInsertedId;
                 this.con.Close();
-                return cod;
+                // = rtnId;
+                return true;
             }
             catch (Exception e)
             {
                 msg = e.Message;
-                return 0;
+                return false;
             }
         }
 
 
 
         // Cria comando MySQL.
-        protected void CMD(string sql, CommandType cmdType)
+        protected void NewCMD(string sql, CommandType cmdType)
         {
             this.cmd = new MySqlCommand(sql);
             this.cmd.CommandType = cmdType;
