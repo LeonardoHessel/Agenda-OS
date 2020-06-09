@@ -101,7 +101,6 @@ namespace Agenda_OS
                 this.cmd.ExecuteNonQuery();
                 Conexao.lastId = this.cmd.LastInsertedId;
                 this.con.Close();
-                // = rtnId;
                 return true;
             }
             catch (Exception e)
