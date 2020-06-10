@@ -78,8 +78,8 @@ namespace Agenda_OS
             cmbSexo.Text = this.tecnico.sexo;
             dtpNasc.Value = this.tecnico.nasc;
             mtbRG.Text = this.tecnico.rg;
-            mtbCPF.Text = this.tecnico.nome;
-            mtbCNH.Text = this.tecnico.nome;
+            mtbCPF.Text = this.tecnico.cpf;
+            mtbCNH.Text = this.tecnico.cnh;
         }
 
         private string rtnNoMask(MaskedTextBox mtb)

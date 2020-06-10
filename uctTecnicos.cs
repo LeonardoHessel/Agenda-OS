@@ -13,7 +13,6 @@ namespace Agenda_OS
     public partial class uctTecnicos : UserControl
     {
         private static uctTecnicos _instancia;
-
         public static uctTecnicos instancia
         {
             get
@@ -25,6 +24,8 @@ namespace Agenda_OS
                 return _instancia;
             }
         }
+        
+        private List<Tecnico> ListaTecnico { get; set; }
 
         public uctTecnicos()
         {
@@ -56,16 +57,17 @@ namespace Agenda_OS
 
         private void CarregarTecnicos()
         {
-            dgvTecnico.DataSource = Tecnico.TabelaTodosTecnico().tb;
-            List<Tecnico> list = Tecnico.TabelaTodosTecnico().list;
+            this.ListaTecnico = Tecnico.TabelaTodosTecnico();
+            dgvTecnico.DataSource = Tecnico.TabelaTodosTecnico();
         }
 
         private void dgvTecnico_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
-            MessageBox.Show(id.ToString());
-            string sexo = dgvTecnico.CurrentRow.Cells["Sexo"].Value.ToString();
-            MessageBox.Show(sexo);
+            Tecnico tecnico = this.ListaTecnico.Find(x=>x.codigo == id);
+            frmTecnico frm = new frmTecnico(tecnico, "Show");
+            frm.ShowDialog();
+            CarregarTecnicos();
         }
     }
 }

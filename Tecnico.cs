@@ -68,7 +68,7 @@ namespace Agenda_OS
             return false;
         }
 
-        public static (DataTable tb, List<Tecnico> list) TabelaTodosTecnico()
+        public static List<Tecnico> TabelaTodosTecnico()
         {
             string sql = "SELECT * FROM `tecnico`";
             Tecnico tecnicos = new Tecnico();
@@ -86,7 +86,7 @@ namespace Agenda_OS
                 cnh = dr["cnh"].ToString()
             }).ToList();
             //
-            return (table, listaTecnico);
+            return listaTecnico;
         }
     }
 }
