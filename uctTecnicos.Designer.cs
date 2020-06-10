@@ -112,6 +112,7 @@
             this.dgvTecnico.ReadOnly = true;
             this.dgvTecnico.Size = new System.Drawing.Size(731, 365);
             this.dgvTecnico.TabIndex = 5;
+            this.dgvTecnico.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvTecnico_MouseDoubleClick);
             // 
             // ID
             // 

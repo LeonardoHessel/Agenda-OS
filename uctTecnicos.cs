@@ -56,7 +56,16 @@ namespace Agenda_OS
 
         private void CarregarTecnicos()
         {
-            dgvTecnico.DataSource = Tecnico.TabelaTodosTecnico();
+            dgvTecnico.DataSource = Tecnico.TabelaTodosTecnico().tb;
+            List<Tecnico> list = Tecnico.TabelaTodosTecnico().list;
+        }
+
+        private void dgvTecnico_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
+            MessageBox.Show(id.ToString());
+            string sexo = dgvTecnico.CurrentRow.Cells["Sexo"].Value.ToString();
+            MessageBox.Show(sexo);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -67,13 +68,25 @@ namespace Agenda_OS
             return false;
         }
 
-        public static DataTable TabelaTodosTecnico()
+        public static (DataTable tb, List<Tecnico> list) TabelaTodosTecnico()
         {
             string sql = "SELECT * FROM `tecnico`";
             Tecnico tecnicos = new Tecnico();
             tecnicos.NewCMD(sql, CommandType.Text);
             DataTable table = tecnicos.GetTable();
-            return table;
+            List<Tecnico> listaTecnico = new List<Tecnico>();
+            listaTecnico = (from DataRow dr in table.Rows select new Tecnico()
+            {
+                codigo = Convert.ToInt64(dr["codTecnico"]),
+                nome = dr["nome"].ToString(),
+                nasc = DateTime.Parse(dr["nasc"].ToString()),
+                sexo = dr["sexo"].ToString(),
+                rg = dr["rg"].ToString(),
+                cpf = dr["cpf"].ToString(),
+                cnh = dr["cnh"].ToString()
+            }).ToList();
+            //
+            return (table, listaTecnico);
         }
     }
 }
