@@ -66,5 +66,14 @@ namespace Agenda_OS
             }
             return false;
         }
+
+        public static DataTable TabelaTodosTecnico()
+        {
+            string sql = "SELECT * FROM `tecnico`";
+            Tecnico tecnicos = new Tecnico();
+            tecnicos.NewCMD(sql, CommandType.Text);
+            DataTable table = tecnicos.GetTable();
+            return table;
+        }
     }
 }

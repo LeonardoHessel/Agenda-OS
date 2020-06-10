@@ -33,12 +33,19 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTecnico = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.Selecionado = new System.Windows.Forms.Label();
             this.labNS = new System.Windows.Forms.Label();
             this.labNT = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTecnico)).BeginInit();
             this.SuspendLayout();
             // 
             // buscar
@@ -86,16 +93,76 @@
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // dataGridView1
+            // dgvTecnico
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 80);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(731, 365);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvTecnico.AllowUserToAddRows = false;
+            this.dgvTecnico.AllowUserToDeleteRows = false;
+            this.dgvTecnico.AllowUserToResizeRows = false;
+            this.dgvTecnico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTecnico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Nome,
+            this.Nascimento,
+            this.Sexo,
+            this.RG,
+            this.CPF,
+            this.CNH});
+            this.dgvTecnico.Location = new System.Drawing.Point(29, 80);
+            this.dgvTecnico.Name = "dgvTecnico";
+            this.dgvTecnico.ReadOnly = true;
+            this.dgvTecnico.Size = new System.Drawing.Size(731, 365);
+            this.dgvTecnico.TabIndex = 5;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "codTecnico";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 50;
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "nome";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 200;
+            // 
+            // Nascimento
+            // 
+            this.Nascimento.DataPropertyName = "nasc";
+            this.Nascimento.HeaderText = "Nascimento";
+            this.Nascimento.Name = "Nascimento";
+            this.Nascimento.ReadOnly = true;
+            // 
+            // Sexo
+            // 
+            this.Sexo.DataPropertyName = "sexo";
+            this.Sexo.HeaderText = "Sexo";
+            this.Sexo.Name = "Sexo";
+            this.Sexo.ReadOnly = true;
+            // 
+            // RG
+            // 
+            this.RG.DataPropertyName = "rg";
+            this.RG.HeaderText = "RG";
+            this.RG.Name = "RG";
+            this.RG.ReadOnly = true;
+            // 
+            // CPF
+            // 
+            this.CPF.DataPropertyName = "cpf";
+            this.CPF.HeaderText = "CPF";
+            this.CPF.Name = "CPF";
+            this.CPF.ReadOnly = true;
+            // 
+            // CNH
+            // 
+            this.CNH.DataPropertyName = "cnh";
+            this.CNH.HeaderText = "CNH";
+            this.CNH.Name = "CNH";
+            this.CNH.ReadOnly = true;
             // 
             // label1
             // 
@@ -143,7 +210,7 @@
             this.Controls.Add(this.labNT);
             this.Controls.Add(this.Selecionado);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvTecnico);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.textBox1);
@@ -151,7 +218,7 @@
             this.Controls.Add(this.buscar);
             this.Name = "uctTecnicos";
             this.Size = new System.Drawing.Size(800, 515);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTecnico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,10 +231,17 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTecnico;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Selecionado;
         private System.Windows.Forms.Label labNS;
         private System.Windows.Forms.Label labNT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nascimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sexo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNH;
     }
 }

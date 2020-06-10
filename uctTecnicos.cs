@@ -29,6 +29,7 @@ namespace Agenda_OS
         public uctTecnicos()
         {
             InitializeComponent();
+            CarregarTecnicos();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -36,6 +37,7 @@ namespace Agenda_OS
             Tecnico tec = new Tecnico();
             frmTecnico frm = new frmTecnico(tec,"New");
             frm.ShowDialog();
+            CarregarTecnicos();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -50,6 +52,11 @@ namespace Agenda_OS
             tec.cnh = "11122233344";
             frmTecnico frm = new frmTecnico(tec,"Edit");
             frm.ShowDialog();
+        }
+
+        private void CarregarTecnicos()
+        {
+            dgvTecnico.DataSource = Tecnico.TabelaTodosTecnico();
         }
     }
 }

@@ -110,6 +110,25 @@ namespace Agenda_OS
             }
         }
 
+        // Metodo retorna uma tabela.
+        protected DataTable GetTable()
+        {
+            DataTable table = new DataTable();
+            try
+            {
+                this.cmd.Connection = Con();
+                MySqlDataAdapter dta = new MySqlDataAdapter(this.cmd);
+                dta.Fill(table);
+                this.con.Close();
+                return table;
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+                return null;
+            }
+        }
+
 
 
         // Cria comando MySQL.
