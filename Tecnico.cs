@@ -75,18 +75,22 @@ namespace Agenda_OS
             tecnicos.NewCMD(sql, CommandType.Text);
             DataTable table = tecnicos.GetTable();
             List<Tecnico> listaTecnico = new List<Tecnico>();
-            listaTecnico = (from DataRow dr in table.Rows select new Tecnico()
+            if (table != null)
             {
-                codigo = Convert.ToInt64(dr["codTecnico"]),
-                nome = dr["nome"].ToString(),
-                nasc = DateTime.Parse(dr["nasc"].ToString()),
-                sexo = dr["sexo"].ToString(),
-                rg = dr["rg"].ToString(),
-                cpf = dr["cpf"].ToString(),
-                cnh = dr["cnh"].ToString()
-            }).ToList();
-            //
-            return listaTecnico;
+                listaTecnico = (from DataRow dr in table.Rows
+                                select new Tecnico()
+                                {
+                                    codigo = Convert.ToInt64(dr["codTecnico"]),
+                                    nome = dr["nome"].ToString(),
+                                    nasc = DateTime.Parse(dr["nasc"].ToString()),
+                                    sexo = dr["sexo"].ToString(),
+                                    rg = dr["rg"].ToString(),
+                                    cpf = dr["cpf"].ToString(),
+                                    cnh = dr["cnh"].ToString()
+                                }).ToList();
+                return listaTecnico;
+            }
+            return null;
         }
     }
 }

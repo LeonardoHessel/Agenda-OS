@@ -38,6 +38,7 @@ namespace Agenda_OS
         {
             if (this.Action == "New")
             {
+                cmbSexo.SelectedIndex = 0;
                 btnEditar.Enabled = false;
                 btnExcluir.Enabled = false;
                 btnSalvar.Enabled = true;
@@ -45,6 +46,12 @@ namespace Agenda_OS
             }
             else if (this.Action == "Show")
             {
+                txtNome.Enabled = false;
+                dtpNasc.Enabled = false;
+                cmbSexo.Enabled = false;
+                mtbRG.Enabled = false;
+                mtbCPF.Enabled = false;
+                mtbCNH.Enabled = false;
                 ShowUsuario();
                 btnEditar.Enabled = true;
                 btnExcluir.Enabled = true;
@@ -92,6 +99,7 @@ namespace Agenda_OS
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            btnSalvar.Enabled = false;
             SetUsuario();
             if (this.tecnico.SalvarTec(this.Action))
             {
@@ -100,6 +108,7 @@ namespace Agenda_OS
             else
             {
                 MessageBox.Show(Conexao.msg);
+                btnSalvar.Enabled = true;
             }
         }
 

@@ -73,7 +73,7 @@
             this.dtpNasc.Name = "dtpNasc";
             this.dtpNasc.Size = new System.Drawing.Size(117, 20);
             this.dtpNasc.TabIndex = 2;
-            this.dtpNasc.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.dtpNasc.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // Nasc
             // 
