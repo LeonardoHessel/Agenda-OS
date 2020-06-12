@@ -31,43 +31,58 @@ namespace Agenda_OS
         {
             InitializeComponent();
             CarregarTecnicos();
+            labNT.Text = this.ListaTecnico.Count.ToString();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
+            int rcBefore = dgvTecnico.Rows.Count;
             Tecnico tec = new Tecnico();
             frmTecnico frm = new frmTecnico(tec,"New");
             frm.ShowDialog();
             CarregarTecnicos();
+            int rcAfter = dgvTecnico.Rows.Count;
+            if (rcAfter > rcBefore)
+            {
+                int lasInserted = rcAfter - 1;
+                dgvTecnico.ClearSelection();
+                dgvTecnico.CurrentCell = dgvTecnico[0, lasInserted];
+                dgvTecnico.Rows[lasInserted].Selected = true;
+            }
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Tecnico tec = new Tecnico();
-            tec.codigo = 1;
-            tec.nome = "Leonardo Dias de Lemos Hessel";
-            tec.nasc = new DateTime();
-            tec.sexo = "Masculino";
-            tec.rg = "446668889";
-            tec.cpf = "11122233344";
-            tec.cnh = "11122233344";
-            frmTecnico frm = new frmTecnico(tec,"Edit");
+            int linha = dgvTecnico.CurrentRow.Index;
+            long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
+            Tecnico tecnico = this.ListaTecnico.Find(x => x.codigo == id);
+            frmTecnico frm = new frmTecnico(tecnico, "Edit");
             frm.ShowDialog();
+            CarregarTecnicos();
+            dgvTecnico.ClearSelection();
+            dgvTecnico.CurrentCell = dgvTecnico[0, linha];
+            dgvTecnico.Rows[linha].Selected = true;
         }
 
         private void CarregarTecnicos()
         {
             this.ListaTecnico = Tecnico.TabelaTodosTecnico();
             dgvTecnico.DataSource = Tecnico.TabelaTodosTecnico();
+            labNS.Text = this.ListaTecnico.Count.ToString();
         }
 
         private void dgvTecnico_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            int linha = dgvTecnico.CurrentRow.Index;
             long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
             Tecnico tecnico = this.ListaTecnico.Find(x=>x.codigo == id);
             frmTecnico frm = new frmTecnico(tecnico, "Show");
             frm.ShowDialog();
             CarregarTecnicos();
+            dgvTecnico.ClearSelection();
+            dgvTecnico.CurrentCell = dgvTecnico[0, linha];
+            dgvTecnico.Rows[linha].Selected = true;
         }
     }
 }

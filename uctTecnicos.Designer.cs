@@ -34,10 +34,6 @@
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvTecnico = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Selecionado = new System.Windows.Forms.Label();
-            this.labNS = new System.Windows.Forms.Label();
-            this.labNT = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +41,10 @@
             this.RG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Selecionado = new System.Windows.Forms.Label();
+            this.labNS = new System.Windows.Forms.Label();
+            this.labNT = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTecnico)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(685, 470);
+            this.btnNovo.Location = new System.Drawing.Point(710, 476);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
             this.btnNovo.TabIndex = 1;
@@ -76,7 +76,7 @@
             // 
             // btnDeletar
             // 
-            this.btnDeletar.Location = new System.Drawing.Point(523, 470);
+            this.btnDeletar.Location = new System.Drawing.Point(548, 476);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(75, 23);
             this.btnDeletar.TabIndex = 3;
@@ -85,7 +85,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(604, 470);
+            this.btnEditar.Location = new System.Drawing.Point(629, 476);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 4;
@@ -113,44 +113,6 @@
             this.dgvTecnico.Size = new System.Drawing.Size(782, 405);
             this.dgvTecnico.TabIndex = 5;
             this.dgvTecnico.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvTecnico_MouseDoubleClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(626, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Total:";
-            // 
-            // Selecionado
-            // 
-            this.Selecionado.AutoSize = true;
-            this.Selecionado.Location = new System.Drawing.Point(626, 40);
-            this.Selecionado.Name = "Selecionado";
-            this.Selecionado.Size = new System.Drawing.Size(69, 13);
-            this.Selecionado.TabIndex = 7;
-            this.Selecionado.Text = "Selecionado:";
-            // 
-            // labNS
-            // 
-            this.labNS.AutoSize = true;
-            this.labNS.Location = new System.Drawing.Point(747, 40);
-            this.labNS.Name = "labNS";
-            this.labNS.Size = new System.Drawing.Size(13, 13);
-            this.labNS.TabIndex = 9;
-            this.labNS.Text = "0";
-            this.labNS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // labNT
-            // 
-            this.labNT.AutoSize = true;
-            this.labNT.Location = new System.Drawing.Point(747, 19);
-            this.labNT.Name = "labNT";
-            this.labNT.Size = new System.Drawing.Size(13, 13);
-            this.labNT.TabIndex = 8;
-            this.labNT.Text = "0";
-            this.labNT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ID
             // 
@@ -202,6 +164,44 @@
             this.CNH.HeaderText = "CNH";
             this.CNH.Name = "CNH";
             this.CNH.ReadOnly = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(626, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Total:";
+            // 
+            // Selecionado
+            // 
+            this.Selecionado.AutoSize = true;
+            this.Selecionado.Location = new System.Drawing.Point(626, 40);
+            this.Selecionado.Name = "Selecionado";
+            this.Selecionado.Size = new System.Drawing.Size(69, 13);
+            this.Selecionado.TabIndex = 7;
+            this.Selecionado.Text = "Selecionado:";
+            // 
+            // labNS
+            // 
+            this.labNS.AutoSize = true;
+            this.labNS.Location = new System.Drawing.Point(747, 40);
+            this.labNS.Name = "labNS";
+            this.labNS.Size = new System.Drawing.Size(13, 13);
+            this.labNS.TabIndex = 9;
+            this.labNS.Text = "0";
+            this.labNS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labNT
+            // 
+            this.labNT.AutoSize = true;
+            this.labNT.Location = new System.Drawing.Point(747, 19);
+            this.labNT.Name = "labNT";
+            this.labNT.Size = new System.Drawing.Size(13, 13);
+            this.labNT.TabIndex = 8;
+            this.labNT.Text = "0";
+            this.labNT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // uctTecnicos
             // 

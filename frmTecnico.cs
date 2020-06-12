@@ -46,25 +46,33 @@ namespace Agenda_OS
             }
             else if (this.Action == "Show")
             {
+                ShowUsuario();
                 txtNome.Enabled = false;
                 dtpNasc.Enabled = false;
                 cmbSexo.Enabled = false;
                 mtbRG.Enabled = false;
                 mtbCPF.Enabled = false;
                 mtbCNH.Enabled = false;
-                ShowUsuario();
                 btnEditar.Enabled = true;
                 btnExcluir.Enabled = true;
                 btnSalvar.Enabled = false;
                 btnSalvar.Text = "Salvar";
+                btnEditar.Text = "Editar";
             }
             else if (this.Action == "Edit")
             {
                 ShowUsuario();
-                btnEditar.Enabled = false;
+                txtNome.Enabled = true;
+                dtpNasc.Enabled = true;
+                cmbSexo.Enabled = true;
+                mtbRG.Enabled = true;
+                mtbCPF.Enabled = true;
+                mtbCNH.Enabled = true;
+                btnEditar.Enabled = true;
                 btnExcluir.Enabled = false;
                 btnSalvar.Enabled = true;
                 btnSalvar.Text = "Salvar";
+                btnEditar.Text = "Cancelar";
             }
         }
 
@@ -82,7 +90,15 @@ namespace Agenda_OS
         {
             labCOD.Text = this.tecnico.codigo.ToString();
             txtNome.Text = this.tecnico.nome;
-            cmbSexo.Text = this.tecnico.sexo;
+            if (this.tecnico.sexo == "")
+            {
+                cmbSexo.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbSexo.Text = this.tecnico.sexo;
+            }
+            
             dtpNasc.Value = this.tecnico.nasc;
             mtbRG.Text = this.tecnico.rg;
             mtbCPF.Text = this.tecnico.cpf;
@@ -114,7 +130,46 @@ namespace Agenda_OS
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            this.Action = "Edit";
+            if (this.Action == "Edit")
+            {
+                this.Action = "Show";
+            }
+            else
+            {
+                this.Action = "Edit";
+            }
+        }
+
+        private void frmTecnico_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                if (btnEditar.Text == "Cancelar")
+                {
+                    btnEditar.PerformClick();
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
+            else if (e.KeyCode == Keys.F2 && btnEditar.Text == "Editar")
+            {
+                btnEditar.PerformClick();
+            }
+            else if (e.KeyCode == Keys.F5)
+            {
+                btnSalvar.PerformClick();
+            }
+            else if (e.KeyCode == Keys.Delete)
+            {
+                btnExcluir.PerformClick();
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("btnExcluir");
         }
     }
 }

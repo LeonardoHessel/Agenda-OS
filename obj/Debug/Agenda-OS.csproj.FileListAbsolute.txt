@@ -58,7 +58,6 @@ C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.csproj.CopyComplete
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.exe
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.pdb
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.frmTecnico.resources
-C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.csprojAssemblyReference.cache
 D:\Projetos\Agenda-OS\bin\Debug\Agenda-OS.exe.config
 D:\Projetos\Agenda-OS\bin\Debug\Agenda-OS.exe
 D:\Projetos\Agenda-OS\bin\Debug\Agenda-OS.pdb
