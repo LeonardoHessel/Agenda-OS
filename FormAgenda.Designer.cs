@@ -1,6 +1,6 @@
 ﻿namespace Agenda_OS
 {
-    partial class frmAgendaOs
+    partial class FormAgenda
     {
         /// <summary>
         /// Variável de designer necessária.

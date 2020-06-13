@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Agenda_OS
 {
-    public partial class frmAgendaOs : Form
+    public partial class FormAgenda : Form
     {
-        public frmAgendaOs()
+        public FormAgenda()
         {
             InitializeComponent();
         }

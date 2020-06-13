@@ -73,7 +73,9 @@ namespace Agenda_OS
             string sql = "SELECT * FROM `tecnico`";
             Tecnico tecnicos = new Tecnico();
             tecnicos.NewCMD(sql, CommandType.Text);
+
             DataTable table = tecnicos.GetTable();
+
             List<Tecnico> listaTecnico = new List<Tecnico>();
             if (table != null)
             {

@@ -46,7 +46,6 @@ C:\DevFiles\Agenda-OS_LEO\Agenda-OS\bin\Debug\System.Runtime.CompilerServices.Un
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\bin\Debug\System.Numerics.Vectors.dll
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\bin\Debug\MySql.Data.xml
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.exe.config
-C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.frmAgendaOs.resources
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.Properties.Resources.resources
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.uctAgendaOS.resources
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.uctClientes.resources
@@ -89,3 +88,5 @@ D:\Projetos\Agenda-OS\obj\Debug\Agenda-OS.csproj.CoreCompileInputs.cache
 D:\Projetos\Agenda-OS\obj\Debug\Agenda-OS.csproj.CopyComplete
 D:\Projetos\Agenda-OS\obj\Debug\Agenda-OS.exe
 D:\Projetos\Agenda-OS\obj\Debug\Agenda-OS.pdb
+C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.csprojAssemblyReference.cache
+C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.FormAgenda.resources

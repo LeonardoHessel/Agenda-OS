@@ -66,11 +66,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexao.cs" />
-    <Compile Include="frmAgendaOs.cs">
+    <Compile Include="FormAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAgendaOs.Designer.cs">
-      <DependentUpon>frmAgendaOs.cs</DependentUpon>
+    <Compile Include="FormAgenda.Designer.cs">
+      <DependentUpon>FormAgenda.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTecnico.cs">
       <SubType>Form</SubType>
@@ -105,8 +105,8 @@
     <Compile Include="uctTecnicos.Designer.cs">
       <DependentUpon>uctTecnicos.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmAgendaOs.resx">
-      <DependentUpon>frmAgendaOs.cs</DependentUpon>
+    <EmbeddedResource Include="FormAgenda.resx">
+      <DependentUpon>FormAgenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTecnico.resx">
       <DependentUpon>frmTecnico.cs</DependentUpon>
