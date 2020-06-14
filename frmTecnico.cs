@@ -14,7 +14,7 @@ namespace Agenda_OS
 {
     public partial class frmTecnico : Form
     {
-        private Tecnico tecnico;
+        private Usuario tecnico;
 
         private string action;
         private string Action
@@ -27,7 +27,7 @@ namespace Agenda_OS
             }
         }
         
-        public frmTecnico(Tecnico tecnico, string action)
+        public frmTecnico(Usuario tecnico, string action)
         {
             InitializeComponent();
             this.tecnico = tecnico;
@@ -88,7 +88,7 @@ namespace Agenda_OS
 
         private void ShowUsuario()
         {
-            labCOD.Text = this.tecnico.codigo.ToString();
+            labCOD.Text = this.tecnico.id.ToString();
             txtNome.Text = this.tecnico.nome;
             if (this.tecnico.sexo == "")
             {

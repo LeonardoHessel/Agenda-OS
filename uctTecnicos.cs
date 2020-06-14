@@ -25,7 +25,7 @@ namespace Agenda_OS
             }
         }
         
-        private List<Tecnico> ListaTecnico { get; set; }
+        private List<Usuario> ListaTecnico { get; set; }
 
         public uctTecnicos()
         {
@@ -37,7 +37,7 @@ namespace Agenda_OS
         private void btnNovo_Click(object sender, EventArgs e)
         {
             int rcBefore = dgvTecnico.Rows.Count;
-            Tecnico tec = new Tecnico();
+            Usuario tec = new Usuario();
             frmTecnico frm = new frmTecnico(tec,"New");
             frm.ShowDialog();
             CarregarTecnicos();
@@ -56,7 +56,7 @@ namespace Agenda_OS
         {
             int linha = dgvTecnico.CurrentRow.Index;
             long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
-            Tecnico tecnico = this.ListaTecnico.Find(x => x.codigo == id);
+            Usuario tecnico = this.ListaTecnico.Find(x => x.id == id);
             frmTecnico frm = new frmTecnico(tecnico, "Edit");
             frm.ShowDialog();
             CarregarTecnicos();
@@ -67,8 +67,8 @@ namespace Agenda_OS
 
         private void CarregarTecnicos()
         {
-            this.ListaTecnico = Tecnico.TabelaTodosTecnico();
-            dgvTecnico.DataSource = Tecnico.TabelaTodosTecnico();
+            this.ListaTecnico = Usuario.TabelaTodosTecnico();
+            dgvTecnico.DataSource = Usuario.TabelaTodosTecnico();
             labNS.Text = this.ListaTecnico.Count.ToString();
         }
 
@@ -76,7 +76,7 @@ namespace Agenda_OS
         {
             int linha = dgvTecnico.CurrentRow.Index;
             long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
-            Tecnico tecnico = this.ListaTecnico.Find(x=>x.codigo == id);
+            Usuario tecnico = this.ListaTecnico.Find(x=>x.id == id);
             frmTecnico frm = new frmTecnico(tecnico, "Show");
             frm.ShowDialog();
             CarregarTecnicos();

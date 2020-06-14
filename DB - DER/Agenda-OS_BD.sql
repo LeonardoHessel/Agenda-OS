@@ -110,14 +110,16 @@ BEGIN
 END $$
 DELIMITER ;
 
+-- Fim da Permissao automática
 
+/*
 DROP TABLE IF EXISTS `anotacao`;
 CREATE TABLE IF NOT EXISTS `anotacao`(
 	id int primary key auto_increment,
     texto varchar(250)
 )ENGINE = InnoDB;
+*/
 
--- Fim da Permissao automática
 
 
 

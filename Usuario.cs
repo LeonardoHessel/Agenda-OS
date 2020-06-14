@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Agenda_OS
 {
-    public class Tecnico:Conexao
+    public class Usuario:Conexao
     {
-        public long codigo { get; set; }
+        public long id { get; set; }
         public string nome { get; set; }
         public DateTime nasc { get; set; }
         public string sexo { get; set; }
@@ -34,17 +34,17 @@ namespace Agenda_OS
 
         private bool Cadastrar()
         {
-            string sql = "INSERT INTO `tecnico` VALUES(0,@_nome,@_nasc,@_sexo,@_rg,@_cpf,@_cnh)";
+            string sql = "INSERT INTO `usuario` (`nome`,`nasc`,`sexo`,`rg`,`cpf`,`cnh`) VALUES(@nome,@nasc,@sexo,@rg,@cpf,@cnh)";
             NewCMD(sql, CommandType.Text);
-            AddPar("_nome", this.nome);
-            AddPar("_nasc", this.nasc);
-            AddPar("_sexo", this.sexo);
-            AddPar("_rg", this.rg);
-            AddPar("_cpf", this.cpf);
-            AddPar("_cnh", this.cnh);
+            AddPar("nome", this.nome);
+            AddPar("nasc", this.nasc);
+            AddPar("sexo", this.sexo);
+            AddPar("rg", this.rg);
+            AddPar("cpf", this.cpf);
+            AddPar("cnh", this.cnh);
             if (ExeGetId())
             {
-                this.codigo = Conexao.lastId;
+                this.id = Conexao.lastId;
                 return true;
             }
             return false;
@@ -52,15 +52,15 @@ namespace Agenda_OS
 
         private bool Atualizar()
         {
-            string sql = "UPDATE `tecnico` SET `nome`=@_nome,`nasc`=@_nasc,`sexo`=@_sexo,`rg`=@_rg,`cpf`=@_cpf,`cnh`=@_cnh WHERE `codTecnico`=@_id";
+            string sql = "UPDATE `usuario` SET `nome`=@nome,`nasc`=@nasc,`sexo`=@sexo,`rg`=@rg,`cpf`=@cpf,`cnh`=@cnh WHERE `id`=@id";
             NewCMD(sql, CommandType.Text);
-            AddPar("_id", this.codigo);
-            AddPar("_nome", this.nome);
-            AddPar("_nasc", this.nasc);
-            AddPar("_sexo", this.sexo);
-            AddPar("_rg", this.rg);
-            AddPar("_cpf", this.cpf);
-            AddPar("_cnh", this.cnh);
+            AddPar("id", this.id);
+            AddPar("nome", this.nome);
+            AddPar("nasc", this.nasc);
+            AddPar("sexo", this.sexo);
+            AddPar("rg", this.rg);
+            AddPar("cpf", this.cpf);
+            AddPar("cnh", this.cnh);
             if (ExecuteNQ())
             {
                 return true;
@@ -68,21 +68,21 @@ namespace Agenda_OS
             return false;
         }
 
-        public static List<Tecnico> TabelaTodosTecnico()
+        public static List<Usuario> TabelaTodosTecnico()
         {
-            string sql = "SELECT * FROM `tecnico`";
-            Tecnico tecnicos = new Tecnico();
+            string sql = "SELECT * FROM `usuario`";
+            Usuario tecnicos = new Usuario();
             tecnicos.NewCMD(sql, CommandType.Text);
 
             DataTable table = tecnicos.GetTable();
 
-            List<Tecnico> listaTecnico = new List<Tecnico>();
+            List<Usuario> listaTecnico = new List<Usuario>();
             if (table != null)
             {
                 listaTecnico = (from DataRow dr in table.Rows
-                                select new Tecnico()
+                                select new Usuario()
                                 {
-                                    codigo = Convert.ToInt64(dr["codTecnico"]),
+                                    id = Convert.ToInt64(dr["id"]),
                                     nome = dr["nome"].ToString(),
                                     nasc = DateTime.Parse(dr["nasc"].ToString()),
                                     sexo = dr["sexo"].ToString(),

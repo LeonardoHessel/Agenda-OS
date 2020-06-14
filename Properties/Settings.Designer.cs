@@ -34,7 +34,7 @@ namespace Agenda_OS.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("agenda-os")]
+        [global::System.Configuration.DefaultSettingValueAttribute("agenda")]
         public string nomebd {
             get {
                 return ((string)(this["nomebd"]));
