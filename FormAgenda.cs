@@ -43,42 +43,42 @@ namespace Agenda_OS
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            if (!pnlUC.Controls.Contains(uctClientes.instancia))
+            if (!pnlUC.Controls.Contains(UctClientes.instancia))
             {
-                pnlUC.Controls.Add(uctClientes.instancia);
-                uctClientes.instancia.Dock = DockStyle.Fill;
+                pnlUC.Controls.Add(UctClientes.instancia);
+                UctClientes.instancia.Dock = DockStyle.Fill;
             }
-            uctClientes.instancia.BringToFront();
+            UctClientes.instancia.BringToFront();
         }
 
         private void btnAgendaOS_Click(object sender, EventArgs e)
         {
-            if (!pnlUC.Controls.Contains(uctAgendaOS.instancia))
+            if (!pnlUC.Controls.Contains(UctAgendaOS.instancia))
             {
-                pnlUC.Controls.Add(uctAgendaOS.instancia);
-                uctAgendaOS.instancia.Dock = DockStyle.Fill;
+                pnlUC.Controls.Add(UctAgendaOS.instancia);
+                UctAgendaOS.instancia.Dock = DockStyle.Fill;
             }
-            uctAgendaOS.instancia.BringToFront();
+            UctAgendaOS.instancia.BringToFront();
         }
 
         private void btnTecnicos_Click(object sender, EventArgs e)
         {
-            if (!pnlUC.Controls.Contains(uctTecnicos.instancia))
+            if (!pnlUC.Controls.Contains(UctUsuario.instancia))
             {
-                pnlUC.Controls.Add(uctTecnicos.instancia);
-                uctTecnicos.instancia.Dock = DockStyle.Fill;
+                pnlUC.Controls.Add(UctUsuario.instancia);
+                UctUsuario.instancia.Dock = DockStyle.Fill;
             }
-            uctTecnicos.instancia.BringToFront();
+            UctUsuario.instancia.BringToFront();
         }
 
         private void btnServicos_Click(object sender, EventArgs e)
         {
-            if (!pnlUC.Controls.Contains(uctServicos.instancia))
+            if (!pnlUC.Controls.Contains(UctServicos.instancia))
             {
-                pnlUC.Controls.Add(uctServicos.instancia);
-                uctServicos.instancia.Dock = DockStyle.Fill;
+                pnlUC.Controls.Add(UctServicos.instancia);
+                UctServicos.instancia.Dock = DockStyle.Fill;
             }
-            uctServicos.instancia.BringToFront();
+            UctServicos.instancia.BringToFront();
         }
 
         private void frmAgendaOs_KeyDown(object sender, KeyEventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace Agenda_OS
 {
-    partial class frmTecnico
+    partial class FormTecnico
     {
         /// <summary>
         /// Required designer variable.

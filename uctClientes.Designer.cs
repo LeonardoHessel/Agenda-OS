@@ -1,6 +1,6 @@
 ﻿namespace Agenda_OS
 {
-    partial class uctClientes
+    partial class UctClientes
     {
         /// <summary> 
         /// Variável de designer necessária.

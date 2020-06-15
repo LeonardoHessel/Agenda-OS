@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Agenda_OS
 {
-    public partial class uctTecnicos : UserControl
+    public partial class UctUsuario : UserControl
     {
-        private static uctTecnicos _instancia;
-        public static uctTecnicos instancia
+        private static UctUsuario _instancia;
+        public static UctUsuario instancia
         {
             get
             {
                 if (_instancia == null)
                 {
-                    _instancia = new uctTecnicos();
+                    _instancia = new UctUsuario();
                 }
                 return _instancia;
             }
@@ -27,7 +27,7 @@ namespace Agenda_OS
         
         private List<Usuario> ListaTecnico { get; set; }
 
-        public uctTecnicos()
+        public UctUsuario()
         {
             InitializeComponent();
             CarregarTecnicos();
@@ -38,7 +38,7 @@ namespace Agenda_OS
         {
             int rcBefore = dgvTecnico.Rows.Count;
             Usuario tec = new Usuario();
-            frmTecnico frm = new frmTecnico(tec,"New");
+            FormTecnico frm = new FormTecnico(tec,"New");
             frm.ShowDialog();
             CarregarTecnicos();
             int rcAfter = dgvTecnico.Rows.Count;
@@ -57,7 +57,7 @@ namespace Agenda_OS
             int linha = dgvTecnico.CurrentRow.Index;
             long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
             Usuario tecnico = this.ListaTecnico.Find(x => x.id == id);
-            frmTecnico frm = new frmTecnico(tecnico, "Edit");
+            FormTecnico frm = new FormTecnico(tecnico, "Edit");
             frm.ShowDialog();
             CarregarTecnicos();
             dgvTecnico.ClearSelection();
@@ -77,7 +77,7 @@ namespace Agenda_OS
             int linha = dgvTecnico.CurrentRow.Index;
             long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
             Usuario tecnico = this.ListaTecnico.Find(x=>x.id == id);
-            frmTecnico frm = new frmTecnico(tecnico, "Show");
+            FormTecnico frm = new FormTecnico(tecnico, "Show");
             frm.ShowDialog();
             CarregarTecnicos();
             dgvTecnico.ClearSelection();

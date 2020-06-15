@@ -50,13 +50,11 @@ C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.Properties.Resources.res
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.uctAgendaOS.resources
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.uctClientes.resources
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.uctServicos.resources
-C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.uctTecnicos.resources
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.csproj.GenerateResource.cache
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.csproj.CoreCompileInputs.cache
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.csproj.CopyComplete
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.exe
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.pdb
-C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.frmTecnico.resources
 D:\Projetos\Agenda-OS\bin\Debug\Agenda-OS.exe.config
 D:\Projetos\Agenda-OS\bin\Debug\Agenda-OS.exe
 D:\Projetos\Agenda-OS\bin\Debug\Agenda-OS.pdb
@@ -121,3 +119,5 @@ C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csproj.CoreCompileInputs.cache
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csproj.CopyComplete
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.exe
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.pdb
+C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.FormTecnico.resources
+C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.UctUsuario.resources

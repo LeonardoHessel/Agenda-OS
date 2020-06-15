@@ -10,23 +10,23 @@ using System.Windows.Forms;
 
 namespace Agenda_OS
 {
-    public partial class uctServicos : UserControl
+    public partial class UctServicos : UserControl
     {
-        private static uctServicos _instancia;
+        private static UctServicos _instancia;
 
-        public static uctServicos instancia
+        public static UctServicos instancia
         {
             get
             {
                 if (_instancia == null)
                 {
-                    _instancia = new uctServicos();
+                    _instancia = new UctServicos();
                 }
                 return _instancia;
             }
         }
 
-        public uctServicos()
+        public UctServicos()
         {
             InitializeComponent();
         }

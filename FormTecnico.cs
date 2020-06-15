@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Agenda_OS
 {
-    public partial class frmTecnico : Form
+    public partial class FormTecnico : Form
     {
         private Usuario tecnico;
 
@@ -27,7 +27,7 @@ namespace Agenda_OS
             }
         }
         
-        public frmTecnico(Usuario tecnico, string action)
+        public FormTecnico(Usuario tecnico, string action)
         {
             InitializeComponent();
             this.tecnico = tecnico;

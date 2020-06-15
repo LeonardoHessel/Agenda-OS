@@ -18,6 +18,8 @@ namespace Agenda_OS
         public string cpf { get; set; }
         public string cnh { get; set; }
 
+        
+
         public bool SalvarTec(string action)
         {
             
@@ -79,17 +81,15 @@ namespace Agenda_OS
             List<Usuario> listaTecnico = new List<Usuario>();
             if (table != null)
             {
-                listaTecnico = (from DataRow dr in table.Rows
-                                select new Usuario()
-                                {
-                                    id = Convert.ToInt64(dr["id"]),
-                                    nome = dr["nome"].ToString(),
-                                    nasc = DateTime.Parse(dr["nasc"].ToString()),
-                                    sexo = dr["sexo"].ToString(),
-                                    rg = dr["rg"].ToString(),
-                                    cpf = dr["cpf"].ToString(),
-                                    cnh = dr["cnh"].ToString()
-                                }).ToList();
+                listaTecnico = (from DataRow dr in table.Rows select new Usuario() {
+                    id = Convert.ToInt64(dr["id"]),
+                    nome = dr["nome"].ToString(),
+                    nasc = DateTime.Parse(dr["nasc"].ToString()),
+                    sexo = dr["sexo"].ToString(),
+                    rg = dr["rg"].ToString(),
+                    cpf = dr["cpf"].ToString(),
+                    cnh = dr["cnh"].ToString()
+                }).ToList();
                 return listaTecnico;
             }
             return null;

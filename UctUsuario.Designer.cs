@@ -1,6 +1,6 @@
 ﻿namespace Agenda_OS
 {
-    partial class uctTecnicos
+    partial class UctUsuario
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -181,6 +181,7 @@
             this.Sexo.HeaderText = "Sexo";
             this.Sexo.Name = "Sexo";
             this.Sexo.ReadOnly = true;
+            this.Sexo.Width = 75;
             // 
             // RG
             // 
