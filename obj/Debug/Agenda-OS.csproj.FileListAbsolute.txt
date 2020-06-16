@@ -86,7 +86,6 @@ D:\Projetos\Agenda-OS\obj\Debug\Agenda-OS.csproj.CoreCompileInputs.cache
 D:\Projetos\Agenda-OS\obj\Debug\Agenda-OS.csproj.CopyComplete
 D:\Projetos\Agenda-OS\obj\Debug\Agenda-OS.exe
 D:\Projetos\Agenda-OS\obj\Debug\Agenda-OS.pdb
-C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.csprojAssemblyReference.cache
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.FormAgenda.resources
 C:\DevFiles\Agenda-OS\bin\Debug\Agenda-OS.exe.config
 C:\DevFiles\Agenda-OS\bin\Debug\Agenda-OS.exe

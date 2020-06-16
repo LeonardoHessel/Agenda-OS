@@ -78,31 +78,35 @@ namespace Agenda_OS
 
         private void SetUsuario()
         {
-            this.tecnico.nome = txtNome.Text;
-            this.tecnico.nasc = dtpNasc.Value;
-            this.tecnico.sexo = cmbSexo.Text;
-            this.tecnico.rg = rtnNoMask(mtbRG);
-            this.tecnico.cpf = rtnNoMask(mtbCPF);
-            this.tecnico.cnh = rtnNoMask(mtbCNH);
+            this.tecnico.Login = txtLogin.Text;
+            this.tecnico.Senha = txtSenha.Text;
+            this.tecnico.Nome = txtNome.Text;
+            this.tecnico.Nasc = dtpNasc.Value;
+            this.tecnico.Sexo = cmbSexo.Text;
+            this.tecnico.RG = rtnNoMask(mtbRG);
+            this.tecnico.CPF = rtnNoMask(mtbCPF);
+            this.tecnico.CNH = rtnNoMask(mtbCNH);
         }
 
         private void ShowUsuario()
         {
-            labCOD.Text = this.tecnico.id.ToString();
-            txtNome.Text = this.tecnico.nome;
-            if (this.tecnico.sexo == "")
+            labCOD.Text = this.tecnico.ID.ToString();
+            txtLogin.Text = this.tecnico.Login;
+            txtSenha.Text = this.tecnico.Senha;
+            txtNome.Text = this.tecnico.Nome;
+            if (this.tecnico.Sexo == "")
             {
                 cmbSexo.SelectedIndex = 0;
             }
             else
             {
-                cmbSexo.Text = this.tecnico.sexo;
+                cmbSexo.Text = this.tecnico.Sexo;
             }
             
-            dtpNasc.Value = this.tecnico.nasc;
-            mtbRG.Text = this.tecnico.rg;
-            mtbCPF.Text = this.tecnico.cpf;
-            mtbCNH.Text = this.tecnico.cnh;
+            dtpNasc.Value = this.tecnico.Nasc;
+            mtbRG.Text = this.tecnico.RG;
+            mtbCPF.Text = this.tecnico.CPF;
+            mtbCNH.Text = this.tecnico.CNH;
         }
 
         private string rtnNoMask(MaskedTextBox mtb)
@@ -117,7 +121,7 @@ namespace Agenda_OS
         {
             btnSalvar.Enabled = false;
             SetUsuario();
-            if (this.tecnico.SalvarTec(this.Action))
+            if (this.tecnico.SalvarUsuario(this.Action))
             {
                 this.Action = "Show";
             }

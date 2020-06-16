@@ -10,17 +10,19 @@ namespace Agenda_OS
 {
     public class Usuario:Conexao
     {
-        public long id { get; set; }
-        public string nome { get; set; }
-        public DateTime nasc { get; set; }
-        public string sexo { get; set; }
-        public string rg { get; set; }
-        public string cpf { get; set; }
-        public string cnh { get; set; }
+        public long ID { get; set; }
+        public string Login { get; set; }
+        public string Senha { get; set; }
+        public string Nome { get; set; }
+        public DateTime Nasc { get; set; }
+        public string Sexo { get; set; }
+        public string RG { get; set; }
+        public string CPF { get; set; }
+        public string CNH { get; set; }
 
         
 
-        public bool SalvarTec(string action)
+        public bool SalvarUsuario(string action)
         {
             
             if (action == "New")
@@ -36,17 +38,19 @@ namespace Agenda_OS
 
         private bool Cadastrar()
         {
-            string sql = "INSERT INTO `usuario` (`nome`,`nasc`,`sexo`,`rg`,`cpf`,`cnh`) VALUES(@nome,@nasc,@sexo,@rg,@cpf,@cnh)";
+            string sql = "INSERT INTO `usuario` (`login`,`senha`,`nome`,`nasc`,`sexo`,`rg`,`cpf`,`cnh`) VALUES(@login,@senha,@nome,@nasc,@sexo,@rg,@cpf,@cnh)";
             NewCMD(sql, CommandType.Text);
-            AddPar("nome", this.nome);
-            AddPar("nasc", this.nasc);
-            AddPar("sexo", this.sexo);
-            AddPar("rg", this.rg);
-            AddPar("cpf", this.cpf);
-            AddPar("cnh", this.cnh);
+            AddPar("login", this.Login);
+            AddPar("senha", this.Senha);
+            AddPar("nome", this.Nome);
+            AddPar("nasc", this.Nasc);
+            AddPar("sexo", this.Sexo);
+            AddPar("rg", this.RG);
+            AddPar("cpf", this.CPF);
+            AddPar("cnh", this.CNH);
             if (ExeGetId())
             {
-                this.id = Conexao.lastId;
+                this.ID = Conexao.lastId;
                 return true;
             }
             return false;
@@ -54,15 +58,17 @@ namespace Agenda_OS
 
         private bool Atualizar()
         {
-            string sql = "UPDATE `usuario` SET `nome`=@nome,`nasc`=@nasc,`sexo`=@sexo,`rg`=@rg,`cpf`=@cpf,`cnh`=@cnh WHERE `id`=@id";
+            string sql = "UPDATE `usuario` SET `login`= @login, `senha`= @senha, `nome`= @nome,`nasc`= @nasc,`sexo`= @sexo,`rg`= @rg,`cpf`= @cpf,`cnh`= @cnh WHERE `id`= @id";
             NewCMD(sql, CommandType.Text);
-            AddPar("id", this.id);
-            AddPar("nome", this.nome);
-            AddPar("nasc", this.nasc);
-            AddPar("sexo", this.sexo);
-            AddPar("rg", this.rg);
-            AddPar("cpf", this.cpf);
-            AddPar("cnh", this.cnh);
+            AddPar("id", this.ID);
+            AddPar("login", this.Login);
+            AddPar("senha", this.Senha);
+            AddPar("nome", this.Nome);
+            AddPar("nasc", this.Nasc);
+            AddPar("sexo", this.Sexo);
+            AddPar("rg", this.RG);
+            AddPar("cpf", this.CPF);
+            AddPar("cnh", this.CNH);
             if (ExecuteNQ())
             {
                 return true;
@@ -70,27 +76,40 @@ namespace Agenda_OS
             return false;
         }
 
-        public static List<Usuario> TabelaTodosTecnico()
+        public static List<Usuario> BuscarUsuarios(string busca, bool deletados)
         {
-            string sql = "SELECT * FROM `usuario`";
-            Usuario tecnicos = new Usuario();
-            tecnicos.NewCMD(sql, CommandType.Text);
-
-            DataTable table = tecnicos.GetTable();
-
-            List<Usuario> listaTecnico = new List<Usuario>();
+            /*
+                SELECT * FROM `usuario` WHERE `login` like CONCAT('%','leo','%') OR 
+                `login` like CONCAT('%','leo','%') OR `nome` like CONCAT('%','leo','%') OR
+                `nasc` like CONCAT('%','leo','%') OR `sexo` like CONCAT('%','leo','%') OR
+                `rg` like CONCAT('%','leo','%') OR `cpf` like CONCAT('%','leo','%') OR
+                `cnh` like CONCAT('%','leo','%') AND `del` = true;
+            */
+            string sql = "SELECT * FROM `usuario` WHERE `login` like CONCAT('%',@busca,'%') OR " +
+                "`login` like CONCAT('%',@busca,'%') OR `nome` like CONCAT('%',@busca,'%') OR" +
+                "`nasc` like CONCAT('%',@busca,'%') OR `sexo` like CONCAT('%',@busca,'%') OR" +
+                "`rg` like CONCAT('%',@busca,'%') OR `cpf` like CONCAT('%',@busca,'%') OR" +
+                "`cnh` like CONCAT('%',@busca,'%')";
+            Usuario usuario = new Usuario();
+            usuario.NewCMD(sql, CommandType.Text);
+            usuario.AddPar("busca", busca);
+            //usuario.AddPar("del", deletados);
+            DataTable table = usuario.GetTable();
+            List<Usuario> listaUsuario = new List<Usuario>();
             if (table != null)
             {
-                listaTecnico = (from DataRow dr in table.Rows select new Usuario() {
-                    id = Convert.ToInt64(dr["id"]),
-                    nome = dr["nome"].ToString(),
-                    nasc = DateTime.Parse(dr["nasc"].ToString()),
-                    sexo = dr["sexo"].ToString(),
-                    rg = dr["rg"].ToString(),
-                    cpf = dr["cpf"].ToString(),
-                    cnh = dr["cnh"].ToString()
+                listaUsuario = (from DataRow dr in table.Rows select new Usuario() {
+                    ID = Convert.ToInt64(dr["id"]),
+                    Login = dr["login"].ToString(),
+                    Senha = dr["senha"].ToString(),
+                    Nome = dr["nome"].ToString(),
+                    Nasc = DateTime.Parse(dr["nasc"].ToString()),
+                    Sexo = dr["sexo"].ToString(),
+                    RG = dr["rg"].ToString(),
+                    CPF = dr["cpf"].ToString(),
+                    CNH = dr["cnh"].ToString()
                 }).ToList();
-                return listaTecnico;
+                return listaUsuario;
             }
             return null;
         }
