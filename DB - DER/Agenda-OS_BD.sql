@@ -5,7 +5,7 @@ USE `agenda`;
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario`(
 	`id` INT PRIMARY KEY AUTO_INCREMENT,
-    `login` VARCHAR(45) NOT NULL,
+    `login` VARCHAR(45) NOT NULL UNIQUE,
     `senha` VARCHAR(45) NOT NULL,
     `nome` VARCHAR(45),
     `nasc` DATE,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `usuario`(
     `rg` CHAR(9),
     `cpf` CHAR(11),
     `cnh` CHAR(11),
-    `del` BOOL
+    `del` BOOL DEFAULT FALSE
 )ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `modulo`;
@@ -21,14 +21,14 @@ CREATE TABLE IF NOT EXISTS `modulo`(
 	`id` INT PRIMARY KEY AUTO_INCREMENT,
     `grupo` VARCHAR(20),
     `descricao` VARCHAR(50),
-    `restricao` BOOL
+    `restricao` BOOL DEFAULT FALSE
 )ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `permissao`;
 CREATE TABLE IF NOT EXISTS `permissao`(
 	`usuario` INT,
     `modulo` INT,
-    `acesso` BOOL,
+    `acesso` BOOL DEFAULT FALSE,
     PRIMARY KEY(`usuario`,`modulo`),
     CONSTRAINT `fk_usuario` FOREIGN KEY (`usuario`) REFERENCES `usuario`(`id`),
     CONSTRAINT `fk_modulo` FOREIGN KEY (`modulo`) REFERENCES `modulo`(`id`)
@@ -37,7 +37,6 @@ CREATE TABLE IF NOT EXISTS `permissao`(
 --
 -- Criação de Permissões automática --
 --
-
 DROP TRIGGER IF EXISTS `AI_Usuario_Permissoes`;
 DELIMITER $$
 CREATE TRIGGER `AI_Usuario_Permissoes` 
@@ -109,8 +108,13 @@ BEGIN
 	END LOOP Loop_Busca;
 END $$
 DELIMITER ;
-
 -- Fim da Permissao automática
+
+
+
+
+
+
 
 /*
 DROP TABLE IF EXISTS `anotacao`;

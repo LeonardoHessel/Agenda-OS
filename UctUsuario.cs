@@ -31,7 +31,7 @@ namespace Agenda_OS
         {
             InitializeComponent();
             CarregarUsuarios();
-            //labNT.Text = Usuario.BuscarUsuarios(null,false).Count.ToString();
+            labNT.Text = Usuario.TodosUsuarios(null, true).Count.ToString();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -68,9 +68,10 @@ namespace Agenda_OS
         private void CarregarUsuarios()
         {
             string busca = txtBusca.Text;
-            this.ListaTecnico = Usuario.BuscarUsuarios(busca,chbDeletados.Checked);
+            bool checkDeletados = chbDeletados.Checked;
+            this.ListaTecnico = Usuario.TodosUsuarios(busca, checkDeletados);
+            labNS.Text = this.ListaTecnico.Count.ToString();
             dgvTecnico.DataSource = this.ListaTecnico;
-            //labNS.Text = this.ListaTecnico.Count.ToString();
         }
 
         private void dgvTecnico_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -87,6 +88,11 @@ namespace Agenda_OS
         }
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
+        {
+            CarregarUsuarios();
+        }
+
+        private void chbDeletados_CheckedChanged(object sender, EventArgs e)
         {
             CarregarUsuarios();
         }

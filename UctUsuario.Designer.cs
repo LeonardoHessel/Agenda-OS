@@ -34,10 +34,6 @@
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvTecnico = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Selecionado = new System.Windows.Forms.Label();
-            this.labNS = new System.Windows.Forms.Label();
-            this.labNT = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +43,10 @@
             this.RG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Selecionado = new System.Windows.Forms.Label();
+            this.labNS = new System.Windows.Forms.Label();
+            this.labNT = new System.Windows.Forms.Label();
             this.chbDeletados = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTecnico)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +65,7 @@
             // btnNovo
             // 
             this.btnNovo.Location = new System.Drawing.Point(703, 476);
-            this.btnNovo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNovo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(88, 30);
             this.btnNovo.TabIndex = 1;
@@ -77,16 +77,16 @@
             // 
             this.txtBusca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusca.Location = new System.Drawing.Point(89, 9);
-            this.txtBusca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBusca.Margin = new System.Windows.Forms.Padding(4);
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(327, 29);
-            this.txtBusca.TabIndex = 2;
+            this.txtBusca.TabIndex = 1;
             this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
             // btnDeletar
             // 
             this.btnDeletar.Location = new System.Drawing.Point(511, 476);
-            this.btnDeletar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeletar.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(88, 30);
             this.btnDeletar.TabIndex = 3;
@@ -96,7 +96,7 @@
             // btnEditar
             // 
             this.btnEditar.Location = new System.Drawing.Point(607, 476);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(88, 30);
             this.btnEditar.TabIndex = 4;
@@ -121,58 +121,12 @@
             this.CPF,
             this.CNH});
             this.dgvTecnico.Location = new System.Drawing.Point(9, 46);
-            this.dgvTecnico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvTecnico.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTecnico.Name = "dgvTecnico";
             this.dgvTecnico.ReadOnly = true;
             this.dgvTecnico.Size = new System.Drawing.Size(782, 422);
             this.dgvTecnico.TabIndex = 5;
             this.dgvTecnico.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvTecnico_MouseDoubleClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(537, 13);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 21);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Total:";
-            // 
-            // Selecionado
-            // 
-            this.Selecionado.AutoSize = true;
-            this.Selecionado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Selecionado.Location = new System.Drawing.Point(658, 13);
-            this.Selecionado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Selecionado.Name = "Selecionado";
-            this.Selecionado.Size = new System.Drawing.Size(66, 21);
-            this.Selecionado.TabIndex = 7;
-            this.Selecionado.Text = "Filtrado:";
-            // 
-            // labNS
-            // 
-            this.labNS.AutoSize = true;
-            this.labNS.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labNS.Location = new System.Drawing.Point(732, 13);
-            this.labNS.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labNS.Name = "labNS";
-            this.labNS.Size = new System.Drawing.Size(19, 21);
-            this.labNS.TabIndex = 9;
-            this.labNS.Text = "0";
-            this.labNS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // labNT
-            // 
-            this.labNT.AutoSize = true;
-            this.labNT.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labNT.Location = new System.Drawing.Point(590, 13);
-            this.labNT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labNT.Name = "labNT";
-            this.labNT.Size = new System.Drawing.Size(19, 21);
-            this.labNT.TabIndex = 8;
-            this.labNT.Text = "0";
-            this.labNT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ID
             // 
@@ -241,15 +195,62 @@
             this.CNH.Name = "CNH";
             this.CNH.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(537, 13);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 21);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Total:";
+            // 
+            // Selecionado
+            // 
+            this.Selecionado.AutoSize = true;
+            this.Selecionado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Selecionado.Location = new System.Drawing.Point(658, 13);
+            this.Selecionado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Selecionado.Name = "Selecionado";
+            this.Selecionado.Size = new System.Drawing.Size(66, 21);
+            this.Selecionado.TabIndex = 7;
+            this.Selecionado.Text = "Filtrado:";
+            // 
+            // labNS
+            // 
+            this.labNS.AutoSize = true;
+            this.labNS.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labNS.Location = new System.Drawing.Point(732, 13);
+            this.labNS.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labNS.Name = "labNS";
+            this.labNS.Size = new System.Drawing.Size(19, 21);
+            this.labNS.TabIndex = 9;
+            this.labNS.Text = "0";
+            this.labNS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labNT
+            // 
+            this.labNT.AutoSize = true;
+            this.labNT.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labNT.Location = new System.Drawing.Point(590, 13);
+            this.labNT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labNT.Name = "labNT";
+            this.labNT.Size = new System.Drawing.Size(19, 21);
+            this.labNT.TabIndex = 8;
+            this.labNT.Text = "0";
+            this.labNT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // chbDeletados
             // 
             this.chbDeletados.AutoSize = true;
             this.chbDeletados.Location = new System.Drawing.Point(423, 14);
             this.chbDeletados.Name = "chbDeletados";
             this.chbDeletados.Size = new System.Drawing.Size(86, 21);
-            this.chbDeletados.TabIndex = 10;
+            this.chbDeletados.TabIndex = 2;
             this.chbDeletados.Text = "Deletados";
             this.chbDeletados.UseVisualStyleBackColor = true;
+            this.chbDeletados.CheckedChanged += new System.EventHandler(this.chbDeletados_CheckedChanged);
             // 
             // UctUsuario
             // 
@@ -267,7 +268,7 @@
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.labBuscar);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UctUsuario";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(800, 515);

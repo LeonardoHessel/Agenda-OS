@@ -52,6 +52,7 @@
             this.labSenha = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.labLogin = new System.Windows.Forms.Label();
+            this.labResetarLoginSenha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).BeginInit();
             this.gbxAcesso.SuspendLayout();
             this.SuspendLayout();
@@ -274,6 +275,7 @@
             // 
             // txtSenha
             // 
+            this.txtSenha.Enabled = false;
             this.txtSenha.Location = new System.Drawing.Point(63, 51);
             this.txtSenha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSenha.Name = "txtSenha";
@@ -292,6 +294,7 @@
             // 
             // txtLogin
             // 
+            this.txtLogin.Enabled = false;
             this.txtLogin.Location = new System.Drawing.Point(63, 18);
             this.txtLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLogin.Name = "txtLogin";
@@ -307,11 +310,23 @@
             this.labLogin.TabIndex = 22;
             this.labLogin.Text = "Login:";
             // 
+            // labResetarLoginSenha
+            // 
+            this.labResetarLoginSenha.AutoSize = true;
+            this.labResetarLoginSenha.ForeColor = System.Drawing.Color.Blue;
+            this.labResetarLoginSenha.Location = new System.Drawing.Point(13, 290);
+            this.labResetarLoginSenha.Name = "labResetarLoginSenha";
+            this.labResetarLoginSenha.Size = new System.Drawing.Size(82, 17);
+            this.labResetarLoginSenha.TabIndex = 23;
+            this.labResetarLoginSenha.Text = "resetar login";
+            this.labResetarLoginSenha.Click += new System.EventHandler(this.labResetarLoginSenha_Click);
+            // 
             // FormTecnico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 317);
+            this.Controls.Add(this.labResetarLoginSenha);
             this.Controls.Add(this.gbxAcesso);
             this.Controls.Add(this.labCOD);
             this.Controls.Add(this.tcod);
@@ -375,5 +390,6 @@
         private System.Windows.Forms.Label labSenha;
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.Label labLogin;
+        private System.Windows.Forms.Label labResetarLoginSenha;
     }
 }

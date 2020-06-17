@@ -39,6 +39,8 @@ namespace Agenda_OS
             if (this.Action == "New")
             {
                 cmbSexo.SelectedIndex = 0;
+                txtLogin.Enabled = true;
+                txtSenha.Enabled = true;
                 btnEditar.Enabled = false;
                 btnExcluir.Enabled = false;
                 btnSalvar.Enabled = true;
@@ -47,6 +49,8 @@ namespace Agenda_OS
             else if (this.Action == "Show")
             {
                 ShowUsuario();
+                txtLogin.Enabled = false;
+                txtSenha.Enabled = false;
                 txtNome.Enabled = false;
                 dtpNasc.Enabled = false;
                 cmbSexo.Enabled = false;
@@ -62,6 +66,8 @@ namespace Agenda_OS
             else if (this.Action == "Edit")
             {
                 ShowUsuario();
+                txtLogin.Enabled = false;
+                txtSenha.Enabled = false;
                 txtNome.Enabled = true;
                 dtpNasc.Enabled = true;
                 cmbSexo.Enabled = true;
@@ -121,13 +127,21 @@ namespace Agenda_OS
         {
             btnSalvar.Enabled = false;
             SetUsuario();
-            if (this.tecnico.SalvarUsuario(this.Action))
+            if (this.tecnico.VerificarLogin() == 0 || this.tecnico.VerificarLogin() == 0)
             {
-                this.Action = "Show";
+                if (this.tecnico.SalvarUsuario(this.Action))
+                {
+                    this.Action = "Show";
+                }
+                else
+                {
+                    MessageBox.Show(Conexao.msg);
+                    btnSalvar.Enabled = true;
+                }
             }
             else
             {
-                MessageBox.Show(Conexao.msg);
+                MessageBox.Show("Login não disponivel.\n Escolha outro para continuar o cadastro.");
                 btnSalvar.Enabled = true;
             }
         }
@@ -174,6 +188,11 @@ namespace Agenda_OS
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             MessageBox.Show("btnExcluir");
+        }
+
+        private void labResetarLoginSenha_Click(object sender, EventArgs e)
+        {
+            txtSenha.Text = "";
         }
     }
 }
