@@ -12,9 +12,12 @@ namespace Agenda_OS
 {
     public partial class FormAgenda : Form
     {
-        public FormAgenda()
+        public Usuario Usuario { get; set; }
+
+        public FormAgenda(Usuario usuario)
         {
             InitializeComponent();
+            Usuario = usuario;
         }
         private void frmAgendaOs_Load(object sender, EventArgs e)
         {

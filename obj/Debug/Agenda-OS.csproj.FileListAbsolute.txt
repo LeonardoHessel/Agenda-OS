@@ -121,3 +121,4 @@ C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.pdb
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.FormTecnico.resources
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.UctUsuario.resources
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.FormLogin.resources
+C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.csprojAssemblyReference.cache

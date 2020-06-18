@@ -16,7 +16,8 @@ namespace Agenda_OS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
+            FormAgenda form = new FormAgenda(null);
+            Application.Run(form);
         }
     }
 }

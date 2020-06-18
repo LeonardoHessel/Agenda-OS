@@ -14,10 +14,13 @@ namespace Agenda_OS
     public partial class FormLogin : Form
     {
         private List<Usuario> TodosUsuarios { get; set; }
-        private Usuario Usuario { get; set; }
-        public FormLogin()
+
+        private Form NextForm { get; set; }
+        
+        public FormLogin( Form form)
         {
             InitializeComponent();
+            NextForm = form;
             CarregarUsuarios();
         }
 
@@ -43,23 +46,17 @@ namespace Agenda_OS
             labSenhaInvalida.Hide();
             string login = cbLogin.Text;
             string senha = txtSenha.Text;
-            bool acesso = false;
             foreach (Usuario user in TodosUsuarios)
             {
                 if (user.Login == login && user.Senha == senha)
                 {
-                    acesso = true;
-                    Usuario = user;
+                    FormAgenda form = new FormAgenda(user);
+                    this.Hide();
+                    form.ShowDialog();
+                    this.Close();
                 }
             }
-            if (acesso)
-            {
-                MessageBox.Show("Sucesso");
-            }
-            else
-            {
-                labSenhaInvalida.Show();
-            }
+            labSenhaInvalida.Show();
         }
 
         private void CarregarUsuarios()
