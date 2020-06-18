@@ -39,6 +39,8 @@ namespace Agenda_OS
             if (this.Action == "New")
             {
                 cmbSexo.SelectedIndex = 0;
+                labResetarLoginSenha.Hide();
+                labResetarLoginSenha.Enabled = false;
                 txtLogin.Enabled = true;
                 txtSenha.Enabled = true;
                 btnEditar.Enabled = false;
@@ -49,6 +51,8 @@ namespace Agenda_OS
             else if (this.Action == "Show")
             {
                 ShowUsuario();
+                labResetarLoginSenha.Hide();
+                labResetarLoginSenha.Enabled = false;
                 txtLogin.Enabled = false;
                 txtSenha.Enabled = false;
                 txtNome.Enabled = false;
@@ -66,6 +70,8 @@ namespace Agenda_OS
             else if (this.Action == "Edit")
             {
                 ShowUsuario();
+                labResetarLoginSenha.Show();
+                labResetarLoginSenha.Enabled = true;
                 txtLogin.Enabled = false;
                 txtSenha.Enabled = false;
                 txtNome.Enabled = true;
@@ -127,7 +133,7 @@ namespace Agenda_OS
         {
             btnSalvar.Enabled = false;
             SetUsuario();
-            if (this.tecnico.VerificarLogin() == 0 || this.tecnico.VerificarLogin() == 0)
+            if (this.tecnico.VerificarLogin() == 0 || this.Action == "Edit")
             {
                 if (this.tecnico.SalvarUsuario(this.Action))
                 {
