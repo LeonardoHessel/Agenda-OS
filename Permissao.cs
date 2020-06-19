@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Agenda_OS
 {
-    class Permissao:Conexao
+    public class Permissao:Conexao
     {
         private long ID_Usuario { get; set; }
         private long ID_Modulo { get; set; }

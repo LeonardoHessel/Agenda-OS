@@ -14,14 +14,13 @@ namespace Agenda_OS
     public partial class FormLogin : Form
     {
         private List<Usuario> TodosUsuarios { get; set; }
+        private Modulo modulo;
 
-        private Form NextForm { get; set; }
-        
-        public FormLogin( Form form)
+        public FormLogin()
         {
             InitializeComponent();
-            NextForm = form;
             CarregarUsuarios();
+            this.modulo = Modulo.CarregarModulo(1);
         }
 
         private void FormLogin_KeyDown(object sender, KeyEventArgs e)
@@ -50,7 +49,8 @@ namespace Agenda_OS
             {
                 if (user.Login == login && user.Senha == senha)
                 {
-                    FormAgenda form = new FormAgenda(user);
+                    FormAgenda form = new FormAgenda();
+                    form.Usuario = user;
                     this.Hide();
                     form.ShowDialog();
                     this.Close();

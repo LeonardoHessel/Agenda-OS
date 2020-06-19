@@ -85,6 +85,7 @@ namespace Agenda_OS
                 btnSalvar.Enabled = true;
                 btnSalvar.Text = "Salvar";
                 btnEditar.Text = "Cancelar";
+                VerificarUsuario();
             }
         }
 
@@ -98,6 +99,17 @@ namespace Agenda_OS
             this.tecnico.RG = rtnNoMask(mtbRG);
             this.tecnico.CPF = rtnNoMask(mtbCPF);
             this.tecnico.CNH = rtnNoMask(mtbCNH);
+        }
+
+        private void VerificarUsuario()
+        {
+            if (FormAgenda.usuario.ID == tecnico.ID)
+            {
+                labResetarLoginSenha.Hide();
+                labResetarLoginSenha.Enabled = false;
+                txtLogin.Enabled = true;
+                txtSenha.Enabled = true;
+            }
         }
 
         private void ShowUsuario()

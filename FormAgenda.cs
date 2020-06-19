@@ -12,12 +12,22 @@ namespace Agenda_OS
 {
     public partial class FormAgenda : Form
     {
-        public Usuario Usuario { get; set; }
+        public static Usuario usuario;
+        public static List<Permissao> Permissoes { get; set; }
+        public Usuario Usuario
+        {
+            get => FormAgenda.usuario;
+            set
+            {
+                FormAgenda.usuario = value;
+                labUsuarioMone.Text = value.Nome;
+            }
+        }
 
-        public FormAgenda(Usuario usuario)
+
+        public FormAgenda()
         {
             InitializeComponent();
-            Usuario = usuario;
         }
         private void frmAgendaOs_Load(object sender, EventArgs e)
         {
@@ -82,6 +92,8 @@ namespace Agenda_OS
                 UctServicos.instancia.Dock = DockStyle.Fill;
             }
             UctServicos.instancia.BringToFront();
+
+            
         }
 
         private void frmAgendaOs_KeyDown(object sender, KeyEventArgs e)

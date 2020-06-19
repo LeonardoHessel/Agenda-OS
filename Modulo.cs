@@ -7,12 +7,27 @@ using System.Threading.Tasks;
 
 namespace Agenda_OS
 {
-    class Modulo:Conexao
+    public class Modulo:Conexao
     {
         private long ID_Modulo { get; set; }
         private string Grupo { get; set; }
         private string Descricao { get; set; }
         private bool Restrito { get; set; }
+
+
+        public static Modulo CarregarModulo(long id_modulo)
+        {
+            string sql = "SELECT * FROM `modulo` WHERE `id`=@id_modulo";
+            Modulo modulo = new Modulo();
+            modulo.NewCMD(sql, CommandType.Text);
+            modulo.AddPar("id_modulo", id_modulo);
+            DataRow linha = modulo.GetTable().Rows[1];
+            modulo.ID_Modulo = linha.Field<long>("id");
+            modulo.Grupo = linha.Field<string>("grupo");
+            modulo.Descricao = linha.Field<string>("descricao");
+            modulo.Restrito = linha.Field<bool>("restricao");
+            return modulo;
+        }
 
         public static List<Modulo> CarregarModulos()
         {
