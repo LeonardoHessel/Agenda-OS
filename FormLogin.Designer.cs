@@ -37,8 +37,10 @@
             this.btnAcessar = new System.Windows.Forms.Button();
             this.labLogin = new System.Windows.Forms.Label();
             this.labSenha = new System.Windows.Forms.Label();
-            this.labSenhaInvalida = new System.Windows.Forms.Label();
+            this.labNotificacao = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pTitulo
@@ -138,16 +140,25 @@
             this.labSenha.TabIndex = 5;
             this.labSenha.Text = "Senha:";
             // 
-            // labSenhaInvalida
+            // labNotificacao
             // 
-            this.labSenhaInvalida.AutoSize = true;
-            this.labSenhaInvalida.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labSenhaInvalida.ForeColor = System.Drawing.Color.DarkRed;
-            this.labSenhaInvalida.Location = new System.Drawing.Point(211, 307);
-            this.labSenhaInvalida.Name = "labSenhaInvalida";
-            this.labSenhaInvalida.Size = new System.Drawing.Size(113, 21);
-            this.labSenhaInvalida.TabIndex = 6;
-            this.labSenhaInvalida.Text = "Senha inválida";
+            this.labNotificacao.AutoSize = true;
+            this.labNotificacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labNotificacao.ForeColor = System.Drawing.Color.DarkRed;
+            this.labNotificacao.Location = new System.Drawing.Point(211, 307);
+            this.labNotificacao.Name = "labNotificacao";
+            this.labNotificacao.Size = new System.Drawing.Size(0, 21);
+            this.labNotificacao.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Agenda_OS.Properties.Resources.Agenda_OS;
+            this.pictureBox1.Location = new System.Drawing.Point(119, 90);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(141, 135);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // FormLogin
             // 
@@ -156,7 +167,8 @@
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.CancelButton = this.btnFechar;
             this.ClientSize = new System.Drawing.Size(379, 494);
-            this.Controls.Add(this.labSenhaInvalida);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.labNotificacao);
             this.Controls.Add(this.labSenha);
             this.Controls.Add(this.labLogin);
             this.Controls.Add(this.btnAcessar);
@@ -174,6 +186,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormLogin_KeyDown);
             this.pTitulo.ResumeLayout(false);
             this.pTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +203,7 @@
         private System.Windows.Forms.Label labLogin;
         private System.Windows.Forms.Label labSenha;
         private System.Windows.Forms.Button btnFechar;
-        private System.Windows.Forms.Label labSenhaInvalida;
+        private System.Windows.Forms.Label labNotificacao;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

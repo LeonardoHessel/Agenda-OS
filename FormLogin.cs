@@ -13,14 +13,13 @@ namespace Agenda_OS
 {
     public partial class FormLogin : Form
     {
+        private const long ID_Modulo = 1;
         private List<Usuario> TodosUsuarios { get; set; }
-        private Modulo modulo;
 
         public FormLogin()
         {
             InitializeComponent();
             CarregarUsuarios();
-            this.modulo = Modulo.CarregarModulo(1);
         }
 
         private void FormLogin_KeyDown(object sender, KeyEventArgs e)
@@ -42,26 +41,41 @@ namespace Agenda_OS
 
         private void btnAcessar_Click(object sender, EventArgs e)
         {
-            labSenhaInvalida.Hide();
+            labNotificacao.Hide();
             string login = cbLogin.Text;
             string senha = txtSenha.Text;
             foreach (Usuario user in TodosUsuarios)
             {
                 if (user.Login == login && user.Senha == senha)
                 {
-                    FormAgenda form = new FormAgenda();
-                    form.Usuario = user;
-                    this.Hide();
-                    form.ShowDialog();
-                    this.Close();
+                    user.LoadPermissoesUsuario();
+                    foreach (Permissao permissao in user.Permissoes)
+                    {
+                        if (permissao.ID_Modulo == ID_Modulo)
+                        {
+                            if (permissao.Acesso)
+                            {
+                                FormAgenda form = new FormAgenda();
+                                form.Usuario = user;
+                                this.Hide();
+                                form.ShowDialog();
+                                this.Close();
+                            }
+                            labNotificacao.Text = "Acesso Negado";
+                        }
+                    }
+                }
+                else
+                {
+                    labNotificacao.Text = "Senha Inválida";
                 }
             }
-            labSenhaInvalida.Show();
+            labNotificacao.Show();
         }
 
         private void CarregarUsuarios()
         {
-            labSenhaInvalida.Hide();
+            labNotificacao.Hide();
             TodosUsuarios = Usuario.TodosUsuarios(null, false);
             foreach (Usuario user in TodosUsuarios)
             {

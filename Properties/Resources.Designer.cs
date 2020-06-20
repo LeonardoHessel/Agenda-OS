@@ -63,6 +63,16 @@ namespace Agenda_OS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Agenda_OS {
+            get {
+                object obj = ResourceManager.GetObject("Agenda OS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baseline_add_a_photo_black_48dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_add_a_photo_black_48dp", resourceCulture);

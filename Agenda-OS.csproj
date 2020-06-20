@@ -84,7 +84,6 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modulo.cs" />
     <Compile Include="Permissao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,6 +173,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LogoRevenda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Agenda OS.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,10 +12,10 @@ namespace Agenda_OS
     public class Permissao:Conexao
     {
         private long ID_Usuario { get; set; }
-        private long ID_Modulo { get; set; }
-        private bool Acesso { get; set; }
+        public long ID_Modulo { get; set; }
+        public bool Acesso { get; set; }
 
-        public static List<Permissao> CarregarPermissoes(int id_usuario)
+        public static List<Permissao> CarregarPermissoes(long id_usuario)
         {
             string sql;
             sql = "SELECT `usuario` AS 'id_usuario',`modulo` AS 'id_modulo',`acesso` ";

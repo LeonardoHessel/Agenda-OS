@@ -107,12 +107,10 @@ C:\DevFiles\Agenda-OS\bin\Debug\MySql.Data.xml
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csprojAssemblyReference.cache
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.exe.config
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormAgenda.resources
-C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.frmTecnico.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.Properties.Resources.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.uctAgendaOS.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.uctClientes.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.uctServicos.resources
-C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.uctTecnicos.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csproj.GenerateResource.cache
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csproj.CoreCompileInputs.cache
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csproj.CopyComplete
@@ -122,3 +120,6 @@ C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.FormTecnico.resources
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.UctUsuario.resources
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda_OS.FormLogin.resources
 C:\DevFiles\Agenda-OS_LEO\Agenda-OS\obj\Debug\Agenda-OS.csprojAssemblyReference.cache
+C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormLogin.resources
+C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormTecnico.resources
+C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.UctUsuario.resources

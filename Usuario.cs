@@ -19,8 +19,13 @@ namespace Agenda_OS
         public string RG { get; set; }
         public string CPF { get; set; }
         public string CNH { get; set; }
+        public List<Permissao> Permissoes { get; set; }
 
-        
+        public void LoadPermissoesUsuario()
+        {
+            this.Permissoes = Permissao.CarregarPermissoes(this.ID);
+        }
+
 
         public bool SalvarUsuario(string action)
         {
@@ -62,29 +67,8 @@ namespace Agenda_OS
             NewCMD(sql, CommandType.Text);
             AddPar("login", this.Login);
             DataTable table = GetTable();
-            int cadastros = table.Rows.Count;
-            return cadastros;
-            /*
-            List<Usuario> Usuario = new List<Usuario>();
-            if (table != null)
-            {
-                Usuario = (from DataRow dr in table.Rows
-                                select new Usuario()
-                                {
-                                    ID = Convert.ToInt64(dr["id"]),
-                                    Login = dr["login"].ToString(),
-                                    Senha = dr["senha"].ToString(),
-                                    Nome = dr["nome"].ToString(),
-                                    Nasc = DateTime.Parse(dr["nasc"].ToString()),
-                                    Sexo = dr["sexo"].ToString(),
-                                    RG = dr["rg"].ToString(),
-                                    CPF = dr["cpf"].ToString(),
-                                    CNH = dr["cnh"].ToString()
-                                }).ToList();
-                return listaUsuario;
-            }
-            return null;
-            */
+            int cadastro = table.Rows.Count;
+            return cadastro;
         }
 
         private bool Atualizar()
