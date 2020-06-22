@@ -8,6 +8,8 @@ namespace Agenda_OS
 {
     static class Program
     {
+        public static Usuario Usuario { get; set; }
+        public static bool Acesso { get; set; }
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
@@ -16,7 +18,22 @@ namespace Agenda_OS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
+
+            Login_Sistema:
+                
+                Usuario = null;
+                Application.Run(new FormLogin());
+                if (Usuario != null)
+                {
+                    FormAgenda form = new FormAgenda();
+                    form.Usuario = Usuario;
+                    DialogResult resp = form.ShowDialog();
+
+                    if (!(resp == DialogResult.Ignore))
+                    {
+                        goto Login_Sistema;
+                    }
+                }
         }
     }
 }

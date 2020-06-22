@@ -15,6 +15,7 @@ namespace Agenda_OS
     {
         private const long ID_Modulo = 1;
         private List<Usuario> TodosUsuarios { get; set; }
+        private string Acao { get; set; }
 
         public FormLogin()
         {
@@ -55,10 +56,7 @@ namespace Agenda_OS
                         {
                             if (permissao.Acesso)
                             {
-                                FormAgenda form = new FormAgenda();
-                                form.Usuario = user;
-                                this.Hide();
-                                form.ShowDialog();
+                                Program.Usuario = user;
                                 this.Close();
                             }
                             labNotificacao.Text = "Acesso Negado";
