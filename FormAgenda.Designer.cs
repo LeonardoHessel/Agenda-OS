@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.labUsuarioMone = new System.Windows.Forms.Label();
+            this.labUsuario = new System.Windows.Forms.Label();
             this.btnServicos = new System.Windows.Forms.Button();
             this.btnTecnicos = new System.Windows.Forms.Button();
             this.btnAgendaOS = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.pnlUC = new System.Windows.Forms.Panel();
-            this.labUsuario = new System.Windows.Forms.Label();
-            this.labUsuarioMone = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
             // 
+            this.pnlMenu.Controls.Add(this.btnLogout);
             this.pnlMenu.Controls.Add(this.labUsuarioMone);
             this.pnlMenu.Controls.Add(this.labUsuario);
             this.pnlMenu.Controls.Add(this.btnServicos);
@@ -52,6 +54,23 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(800, 75);
             this.pnlMenu.TabIndex = 0;
+            // 
+            // labUsuarioMone
+            // 
+            this.labUsuarioMone.AutoSize = true;
+            this.labUsuarioMone.Location = new System.Drawing.Point(703, 13);
+            this.labUsuarioMone.Name = "labUsuarioMone";
+            this.labUsuarioMone.Size = new System.Drawing.Size(0, 13);
+            this.labUsuarioMone.TabIndex = 6;
+            // 
+            // labUsuario
+            // 
+            this.labUsuario.AutoSize = true;
+            this.labUsuario.Location = new System.Drawing.Point(651, 13);
+            this.labUsuario.Name = "labUsuario";
+            this.labUsuario.Size = new System.Drawing.Size(46, 13);
+            this.labUsuario.TabIndex = 5;
+            this.labUsuario.Text = "Usuario:";
             // 
             // btnServicos
             // 
@@ -101,22 +120,15 @@
             this.pnlUC.Size = new System.Drawing.Size(800, 515);
             this.pnlUC.TabIndex = 1;
             // 
-            // labUsuario
+            // btnLogout
             // 
-            this.labUsuario.AutoSize = true;
-            this.labUsuario.Location = new System.Drawing.Point(651, 13);
-            this.labUsuario.Name = "labUsuario";
-            this.labUsuario.Size = new System.Drawing.Size(46, 13);
-            this.labUsuario.TabIndex = 5;
-            this.labUsuario.Text = "Usuario:";
-            // 
-            // labUsuarioMone
-            // 
-            this.labUsuarioMone.AutoSize = true;
-            this.labUsuarioMone.Location = new System.Drawing.Point(703, 13);
-            this.labUsuarioMone.Name = "labUsuarioMone";
-            this.labUsuarioMone.Size = new System.Drawing.Size(0, 13);
-            this.labUsuarioMone.TabIndex = 6;
+            this.btnLogout.Location = new System.Drawing.Point(725, 52);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // FormAgenda
             // 
@@ -131,7 +143,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agenda-Os";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAgendaOs_FormClosing);
-            this.Load += new System.EventHandler(this.frmAgendaOs_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAgendaOs_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmAgendaOs_KeyPress);
             this.pnlMenu.ResumeLayout(false);
@@ -150,6 +161,7 @@
         private System.Windows.Forms.Button btnServicos;
         private System.Windows.Forms.Label labUsuarioMone;
         private System.Windows.Forms.Label labUsuario;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
 

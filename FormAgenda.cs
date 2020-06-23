@@ -29,10 +29,6 @@ namespace Agenda_OS
         {
             InitializeComponent();
         }
-        private void frmAgendaOs_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void frmAgendaOs_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -101,6 +97,10 @@ namespace Agenda_OS
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
+            } 
+            else if (e.KeyCode == Keys.F12)
+            {
+                btnLogout.PerformClick();
             }
         }
 
@@ -112,6 +112,12 @@ namespace Agenda_OS
             {
                 e.Cancel = true;
             }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Ignore;
+            this.Close();
         }
     }
 }

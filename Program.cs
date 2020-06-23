@@ -29,7 +29,7 @@ namespace Agenda_OS
                     form.Usuario = Usuario;
                     DialogResult resp = form.ShowDialog();
 
-                    if (!(resp == DialogResult.Ignore))
+                    if (resp == DialogResult.Ignore)
                     {
                         goto Login_Sistema;
                     }
