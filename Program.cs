@@ -18,9 +18,11 @@ namespace Agenda_OS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            Login_Sistema:
-                
+            
+            bool exit = true;
+            while (exit)
+            {
+                exit = false;
                 Usuario = null;
                 Application.Run(new FormLogin());
                 if (Usuario != null)
@@ -28,12 +30,12 @@ namespace Agenda_OS
                     FormAgenda form = new FormAgenda();
                     form.Usuario = Usuario;
                     DialogResult resp = form.ShowDialog();
-
                     if (resp == DialogResult.Ignore)
                     {
-                        goto Login_Sistema;
+                        exit = true;
                     }
                 }
+            }
         }
     }
 }
