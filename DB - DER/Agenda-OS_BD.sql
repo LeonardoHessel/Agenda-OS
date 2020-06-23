@@ -2,6 +2,13 @@ DROP DATABASE IF EXISTS `agenda`;
 CREATE DATABASE `agenda`;
 USE `agenda`;
 
+DROP TABLE IF EXISTS `log`;
+CREATE TABLE `log` (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    datahora DATETIME NOT NULL,
+    descricao TEXT
+)ENGINE = InnoDB;
+
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario`(
 	`id` INT PRIMARY KEY AUTO_INCREMENT,
@@ -34,46 +41,8 @@ CREATE TABLE IF NOT EXISTS `permissao`(
     CONSTRAINT `fk_modulo` FOREIGN KEY (`modulo`) REFERENCES `modulo`(`id`)
 )ENGINE = InnoDB;
 
---
--- Criação de Permissões automática --
---
-DROP TRIGGER IF EXISTS `AI_Usuario_Permissoes`;
-DELIMITER $$
-CREATE TRIGGER `AI_Usuario_Permissoes` 
-AFTER INSERT ON `usuario` FOR EACH ROW
-BEGIN
-	CALL `AdcPermissoes` (new.id,'M');
-END $$
-DELIMITER ;
 
-DROP TRIGGER IF EXISTS `AI_Modulo_Permissoes`;
-DELIMITER $$
-CREATE TRIGGER `AI_Modulo_Permissoes` 
-AFTER INSERT ON `modulo` FOR EACH ROW
-BEGIN
-	CALL `AdcPermissoes` (new.id,'U');
-END $$
-DELIMITER ;
-
-DROP TRIGGER IF EXISTS `BD_Usuario_Permissoes`;
-DELIMITER $$
-CREATE TRIGGER `BD_Usuario_Permissoes` 
-BEFORE DELETE ON `usuario` FOR EACH ROW
-BEGIN
-	DELETE FROM `permissao` WHERE `usuario` = old.id;
-END $$
-DELIMITER ;
-
-DROP TRIGGER IF EXISTS `BD_Modulo_Permissoes`;
-DELIMITER $$
-CREATE TRIGGER `BD_Modulo_Permissoes` 
-BEFORE DELETE ON `modulo` FOR EACH ROW
-BEGIN
-	DELETE FROM `permissao` WHERE `modulo` = old.id;
-END $$
-DELIMITER ;
-
-
+-- Procedimentos --
 DROP PROCEDURE IF EXISTS `AdcPermissoes`;
 DELIMITER $$
 CREATE PROCEDURE `AdcPermissoes` (UsuMod INT,Busca CHAR(1))
@@ -108,7 +77,104 @@ BEGIN
 	END LOOP Loop_Busca;
 END $$
 DELIMITER ;
--- Fim da Permissao automática
+
+
+-- TRIGGERS --
+-- Usuário --
+DROP TRIGGER IF EXISTS `AI_Usuario`;
+DELIMITER $$
+CREATE TRIGGER `AI_Usuario` 
+AFTER INSERT ON `usuario` FOR EACH ROW
+BEGIN
+	INSERT INTO `log` VALUES (0,NOW(),CONCAT(
+		"Novo usuário ( ",
+        new.id," | ",new.login," | ",new.nome," | ",
+        new.nasc," | ",new.sexo," | ",new.rg," | ",
+        new.cpf," | ",new.cnh," )"));
+	CALL `AdcPermissoes` (new.id,'M');
+END $$
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS `AU_Usuario`;
+DELIMITER $$
+CREATE TRIGGER `AU_Usuario` 
+AFTER UPDATE ON `usuario` FOR EACH ROW
+BEGIN
+	INSERT INTO `log` VALUES (0,NOW(),CONCAT(
+		"Usuário alterado de (",
+        old.id," | ",old.login," | ",old.nome," | ",
+        old.nasc," | ",old.sexo," | ",old.rg," | ",
+        old.cpf," | ",old.cnh," ) para ( ",
+        new.id," | ",new.login," | ",new.nome," | ",
+        new.nasc," | ",new.sexo," | ",new.rg," | ",
+        new.cpf," | ",new.cnh," )"));
+END $$
+DELIMITER ;
+
+-- Usuário não pode ser deletado --
+/*
+DROP TRIGGER IF EXISTS `AD_Usuario`;
+DELIMITER $$
+CREATE TRIGGER `AD_Usuario` 
+AFTER UPDATE ON `usuario` FOR EACH ROW
+BEGIN
+	INSERT INTO `log` VALUES (0,NOW(),CONCAT(
+		"Usuário deletado MANUALMENTE (",
+        old.id," | ",old.login," | ",old.nome," | ",
+        old.nasc," | ",old.sexo," | ",old.rg," | ",
+        old.cpf," | ",old.cnh," )"));
+END $$
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS `BD_Usuario`;
+DELIMITER $$
+CREATE TRIGGER `BD_Usuario` 
+BEFORE DELETE ON `usuario` FOR EACH ROW
+BEGIN
+	INSERT INTO `log` VALUES (0,NOW(),CONCAT(
+		"Usuário deletado ( ",
+        old.id," | ",old.login," | ",old.nome," | ",
+        old.nasc," | ",old.sexo," | ",old.rg," | ",
+        old.cpf," | ",old.cnh," )"));
+	DELETE FROM `permissao` WHERE `usuario` = old.id;
+END $$
+DELIMITER ;
+*/
+
+-- Modulo --
+DROP TRIGGER IF EXISTS `AI_Modulo`;
+DELIMITER $$
+CREATE TRIGGER `AI_Modulo` 
+AFTER INSERT ON `modulo` FOR EACH ROW
+BEGIN
+	CALL `AdcPermissoes` (new.id,'U');
+END $$
+DELIMITER ;
+--  Modulo nãp pode ser deletado --
+/*
+DROP TRIGGER IF EXISTS `BD_Modulo_Permissoes`;
+DELIMITER $$
+CREATE TRIGGER `BD_Modulo_Permissoes` 
+BEFORE DELETE ON `modulo` FOR EACH ROW
+BEGIN
+	DELETE FROM `permissao` WHERE `modulo` = old.id;
+END $$
+DELIMITER ;
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 INSERT INTO `usuario` VALUES (0,'Default','123','Default','2020-01-01','Outro','000000000','0000000000','00000000000',FALSE);
 

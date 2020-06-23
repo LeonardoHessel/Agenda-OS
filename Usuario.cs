@@ -26,6 +26,17 @@ namespace Agenda_OS
             this.Permissoes = Permissao.CarregarPermissoes(this.ID);
         }
 
+        public bool VerifPermissao(long ID_modulo)
+        {
+            foreach (Permissao permissao in Permissoes)
+            {
+                if (permissao.ID_Modulo == ID_modulo)
+                {
+                    return permissao.Acesso;
+                }
+            }
+            return false;
+        }
 
         public bool SalvarUsuario(string action)
         {

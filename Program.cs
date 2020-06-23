@@ -24,11 +24,13 @@ namespace Agenda_OS
             {
                 exit = false;
                 Usuario = null;
-                Application.Run(new FormLogin());
+                FormLogin login = new FormLogin();
+                login.Action = "Login";
+                Application.Run(login);
                 if (Usuario != null)
                 {
                     FormAgenda form = new FormAgenda();
-                    form.Usuario = Usuario;
+                    form.Usuario = Usuario;                    
                     DialogResult resp = form.ShowDialog();
                     if (resp == DialogResult.Ignore)
                     {

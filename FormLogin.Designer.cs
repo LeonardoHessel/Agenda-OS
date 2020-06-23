@@ -77,9 +77,9 @@
             this.labTitulo.ForeColor = System.Drawing.Color.White;
             this.labTitulo.Location = new System.Drawing.Point(12, 9);
             this.labTitulo.Name = "labTitulo";
-            this.labTitulo.Size = new System.Drawing.Size(79, 32);
+            this.labTitulo.Size = new System.Drawing.Size(77, 32);
             this.labTitulo.TabIndex = 1;
-            this.labTitulo.Text = "Login";
+            this.labTitulo.Text = "titulo";
             // 
             // pFooter
             // 
@@ -147,8 +147,9 @@
             this.labNotificacao.ForeColor = System.Drawing.Color.DarkRed;
             this.labNotificacao.Location = new System.Drawing.Point(211, 307);
             this.labNotificacao.Name = "labNotificacao";
-            this.labNotificacao.Size = new System.Drawing.Size(0, 21);
+            this.labNotificacao.Size = new System.Drawing.Size(87, 21);
             this.labNotificacao.TabIndex = 6;
+            this.labNotificacao.Text = "notificação";
             // 
             // pictureBox1
             // 

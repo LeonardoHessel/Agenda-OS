@@ -14,8 +14,8 @@ namespace Agenda_OS
     public partial class FormLogin : Form
     {
         private const long ID_Modulo = 1;
+        public String Action { get; set; }
         private List<Usuario> TodosUsuarios { get; set; }
-        private string Acao { get; set; }
 
         public FormLogin()
         {
@@ -50,30 +50,31 @@ namespace Agenda_OS
                 if (user.Login == login && user.Senha == senha)
                 {
                     user.LoadPermissoesUsuario();
-                    foreach (Permissao permissao in user.Permissoes)
+                    if (this.Action == "Login")
                     {
-                        if (permissao.ID_Modulo == ID_Modulo)
+                        if (user.VerifPermissao(ID_Modulo))
                         {
-                            if (permissao.Acesso)
-                            {
-                                Program.Usuario = user;
-                                this.Close();
-                            }
-                            labNotificacao.Text = "Acesso Negado";
+                            
+                        }
+                        else
+                        {
+                            labNotificacao.Text = "Usuário sem permissão";
+                            labNotificacao.Show();
                         }
                     }
                 }
                 else
                 {
                     labNotificacao.Text = "Senha Inválida";
+                    labNotificacao.Show();
                 }
             }
-            labNotificacao.Show();
         }
 
         private void CarregarUsuarios()
         {
             labNotificacao.Hide();
+            labTitulo.Text = this.Action;
             TodosUsuarios = Usuario.TodosUsuarios(null, false);
             foreach (Usuario user in TodosUsuarios)
             {
