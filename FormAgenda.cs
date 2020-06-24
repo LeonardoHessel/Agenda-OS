@@ -76,7 +76,7 @@ namespace Agenda_OS
             {
                 FormLogin login = new FormLogin();
                 login.ID_Modulo = 1;
-                login.Action = "Login";
+                login.Action = "Acesso";
                 DialogResult respLog = login.ShowDialog();
                 if (respLog == DialogResult.Yes)
                 {

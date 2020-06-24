@@ -178,5 +178,8 @@
   <ItemGroup>
     <None Include="Resources\Agenda OS.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\user.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.labUsuarioMone = new System.Windows.Forms.Label();
             this.labUsuario = new System.Windows.Forms.Label();
             this.btnServicos = new System.Windows.Forms.Button();
@@ -36,12 +37,14 @@
             this.btnAgendaOS = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.pnlUC = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
             // 
+            this.pnlMenu.Controls.Add(this.pictureBox1);
             this.pnlMenu.Controls.Add(this.btnLogout);
             this.pnlMenu.Controls.Add(this.labUsuarioMone);
             this.pnlMenu.Controls.Add(this.labUsuario);
@@ -55,18 +58,29 @@
             this.pnlMenu.Size = new System.Drawing.Size(800, 75);
             this.pnlMenu.TabIndex = 0;
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(462, 3);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // labUsuarioMone
             // 
             this.labUsuarioMone.AutoSize = true;
-            this.labUsuarioMone.Location = new System.Drawing.Point(703, 13);
+            this.labUsuarioMone.Location = new System.Drawing.Point(543, 41);
             this.labUsuarioMone.Name = "labUsuarioMone";
-            this.labUsuarioMone.Size = new System.Drawing.Size(0, 13);
+            this.labUsuarioMone.Size = new System.Drawing.Size(74, 13);
             this.labUsuarioMone.TabIndex = 6;
+            this.labUsuarioMone.Text = "Usuario Nome";
             // 
             // labUsuario
             // 
             this.labUsuario.AutoSize = true;
-            this.labUsuario.Location = new System.Drawing.Point(651, 13);
+            this.labUsuario.Location = new System.Drawing.Point(491, 41);
             this.labUsuario.Name = "labUsuario";
             this.labUsuario.Size = new System.Drawing.Size(46, 13);
             this.labUsuario.TabIndex = 5;
@@ -74,7 +88,7 @@
             // 
             // btnServicos
             // 
-            this.btnServicos.Location = new System.Drawing.Point(520, 0);
+            this.btnServicos.Location = new System.Drawing.Point(330, 0);
             this.btnServicos.Name = "btnServicos";
             this.btnServicos.Size = new System.Drawing.Size(100, 75);
             this.btnServicos.TabIndex = 4;
@@ -84,7 +98,7 @@
             // 
             // btnTecnicos
             // 
-            this.btnTecnicos.Location = new System.Drawing.Point(414, 0);
+            this.btnTecnicos.Location = new System.Drawing.Point(224, 0);
             this.btnTecnicos.Name = "btnTecnicos";
             this.btnTecnicos.Size = new System.Drawing.Size(100, 75);
             this.btnTecnicos.TabIndex = 3;
@@ -94,7 +108,7 @@
             // 
             // btnAgendaOS
             // 
-            this.btnAgendaOS.Location = new System.Drawing.Point(308, 0);
+            this.btnAgendaOS.Location = new System.Drawing.Point(118, 0);
             this.btnAgendaOS.Name = "btnAgendaOS";
             this.btnAgendaOS.Size = new System.Drawing.Size(100, 75);
             this.btnAgendaOS.TabIndex = 2;
@@ -104,7 +118,7 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(202, 0);
+            this.btnClientes.Location = new System.Drawing.Point(12, 0);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(100, 75);
             this.btnClientes.TabIndex = 1;
@@ -120,15 +134,16 @@
             this.pnlUC.Size = new System.Drawing.Size(800, 515);
             this.pnlUC.TabIndex = 1;
             // 
-            // btnLogout
+            // pictureBox1
             // 
-            this.btnLogout.Location = new System.Drawing.Point(725, 52);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(75, 23);
-            this.btnLogout.TabIndex = 2;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::Agenda_OS.Properties.Resources.user1;
+            this.pictureBox1.Location = new System.Drawing.Point(725, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // FormAgenda
             // 
@@ -147,6 +162,7 @@
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmAgendaOs_KeyPress);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -162,6 +178,7 @@
         private System.Windows.Forms.Label labUsuarioMone;
         private System.Windows.Forms.Label labUsuario;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
