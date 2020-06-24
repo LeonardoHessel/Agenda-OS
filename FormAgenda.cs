@@ -72,6 +72,25 @@ namespace Agenda_OS
 
         private void btnTecnicos_Click(object sender, EventArgs e)
         {
+            if (Modulo.TemRestricao(2))
+            {
+                FormLogin login = new FormLogin();
+                login.ID_Modulo = 1;
+                login.Action = "Login";
+                DialogResult respLog = login.ShowDialog();
+                if (respLog == DialogResult.Yes)
+                {
+                    UctUsuarios();
+                }
+            }
+            else
+            {
+                UctUsuarios();
+            }
+        }
+
+        private void UctUsuarios()
+        {
             if (!pnlUC.Controls.Contains(UctUsuario.instancia))
             {
                 pnlUC.Controls.Add(UctUsuario.instancia);

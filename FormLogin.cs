@@ -13,9 +13,11 @@ namespace Agenda_OS
 {
     public partial class FormLogin : Form
     {
-        private const long ID_Modulo = 1;
+        public long ID_Modulo { get; set; }
         public String Action { get; set; }
         private List<Usuario> TodosUsuarios { get; set; }
+        public Usuario Usuario { get; set; }
+        public Boolean Permissao { get; set; }
 
         public FormLogin()
         {
@@ -42,6 +44,7 @@ namespace Agenda_OS
 
         private void btnAcessar_Click(object sender, EventArgs e)
         {
+            this.Permissao = false;
             labNotificacao.Hide();
             string login = cbLogin.Text;
             string senha = txtSenha.Text;
@@ -49,26 +52,18 @@ namespace Agenda_OS
             {
                 if (user.Login == login && user.Senha == senha)
                 {
+                    this.Usuario = user;
                     user.LoadPermissoesUsuario();
-                    if (this.Action == "Login")
+                    bool perm = user.VerifPermissao(ID_Modulo);
+                    if (perm)
                     {
-                        if (user.VerifPermissao(ID_Modulo))
-                        {
-                            
-                        }
-                        else
-                        {
-                            labNotificacao.Text = "Usuário sem permissão";
-                            labNotificacao.Show();
-                        }
+                        this.Permissao = true;
+                        this.DialogResult = DialogResult.Yes;
+                        this.Close();
                     }
                 }
-                else
-                {
-                    labNotificacao.Text = "Senha Inválida";
-                    labNotificacao.Show();
-                }
             }
+            labNotificacao.Show();
         }
 
         private void CarregarUsuarios()

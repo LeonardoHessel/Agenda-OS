@@ -142,14 +142,16 @@
             // 
             // labNotificacao
             // 
+            this.labNotificacao.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labNotificacao.AutoSize = true;
             this.labNotificacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labNotificacao.ForeColor = System.Drawing.Color.DarkRed;
-            this.labNotificacao.Location = new System.Drawing.Point(211, 307);
+            this.labNotificacao.Location = new System.Drawing.Point(104, 426);
             this.labNotificacao.Name = "labNotificacao";
-            this.labNotificacao.Size = new System.Drawing.Size(87, 21);
+            this.labNotificacao.Size = new System.Drawing.Size(171, 42);
             this.labNotificacao.TabIndex = 6;
-            this.labNotificacao.Text = "notificação";
+            this.labNotificacao.Text = "Usuário sem permissão\r\nou senha incorreta.";
+            this.labNotificacao.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
             // 

@@ -75,7 +75,7 @@ namespace Agenda_OS
             }
         }
 
-        // Executa comando.
+        // Executa comando sem retorno.
         protected bool ExecuteNQ()
         {
             try
@@ -102,6 +102,23 @@ namespace Agenda_OS
                 Conexao.lastId = this.cmd.LastInsertedId;
                 this.con.Close();
                 return true;
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+                return false;
+            }
+        }
+
+        // Executa comando.
+        protected bool ExecuteGetBool(string campo)
+        {
+            try
+            {
+                this.cmd.Connection = Con();
+                MySqlDataReader data = this.cmd.ExecuteReader();
+                this.con.Close();
+                return data.GetBoolean(campo);
             }
             catch (Exception e)
             {
