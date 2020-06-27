@@ -28,99 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnUsuario = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.labUsuarioMone = new System.Windows.Forms.Label();
-            this.labUsuario = new System.Windows.Forms.Label();
             this.btnServicos = new System.Windows.Forms.Button();
-            this.btnTecnicos = new System.Windows.Forms.Button();
-            this.btnAgendaOS = new System.Windows.Forms.Button();
+            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.btnOS = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.pnlUC = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pPerfilUsuario = new System.Windows.Forms.Panel();
+            this.btnEditarUsuario = new System.Windows.Forms.Button();
+            this.tPerfilHide = new System.Windows.Forms.Timer(this.components);
             this.pnlMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pPerfilUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
             // 
-            this.pnlMenu.Controls.Add(this.pictureBox1);
-            this.pnlMenu.Controls.Add(this.btnLogout);
-            this.pnlMenu.Controls.Add(this.labUsuarioMone);
-            this.pnlMenu.Controls.Add(this.labUsuario);
             this.pnlMenu.Controls.Add(this.btnServicos);
-            this.pnlMenu.Controls.Add(this.btnTecnicos);
-            this.pnlMenu.Controls.Add(this.btnAgendaOS);
+            this.pnlMenu.Controls.Add(this.btnUsuarios);
+            this.pnlMenu.Controls.Add(this.btnOS);
             this.pnlMenu.Controls.Add(this.btnClientes);
-            this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(800, 75);
+            this.pnlMenu.Size = new System.Drawing.Size(557, 75);
             this.pnlMenu.TabIndex = 0;
+            // 
+            // btnUsuario
+            // 
+            this.btnUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUsuario.BackColor = System.Drawing.Color.DarkGray;
+            this.btnUsuario.FlatAppearance.BorderSize = 0;
+            this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuario.Image = global::Agenda_OS.Properties.Resources.icons8_user_64px;
+            this.btnUsuario.Location = new System.Drawing.Point(725, 0);
+            this.btnUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Size = new System.Drawing.Size(75, 75);
+            this.btnUsuario.TabIndex = 7;
+            this.btnUsuario.UseVisualStyleBackColor = false;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(462, 3);
+            this.btnLogout.BackColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(0, 149);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(0);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.Size = new System.Drawing.Size(124, 29);
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // labUsuarioMone
             // 
             this.labUsuarioMone.AutoSize = true;
-            this.labUsuarioMone.Location = new System.Drawing.Point(543, 41);
+            this.labUsuarioMone.ForeColor = System.Drawing.Color.White;
+            this.labUsuarioMone.Location = new System.Drawing.Point(3, 9);
             this.labUsuarioMone.Name = "labUsuarioMone";
-            this.labUsuarioMone.Size = new System.Drawing.Size(74, 13);
+            this.labUsuarioMone.Size = new System.Drawing.Size(93, 17);
             this.labUsuarioMone.TabIndex = 6;
             this.labUsuarioMone.Text = "Usuario Nome";
             // 
-            // labUsuario
-            // 
-            this.labUsuario.AutoSize = true;
-            this.labUsuario.Location = new System.Drawing.Point(491, 41);
-            this.labUsuario.Name = "labUsuario";
-            this.labUsuario.Size = new System.Drawing.Size(46, 13);
-            this.labUsuario.TabIndex = 5;
-            this.labUsuario.Text = "Usuario:";
-            // 
             // btnServicos
             // 
-            this.btnServicos.Location = new System.Drawing.Point(330, 0);
+            this.btnServicos.Location = new System.Drawing.Point(338, 0);
+            this.btnServicos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnServicos.Name = "btnServicos";
-            this.btnServicos.Size = new System.Drawing.Size(100, 75);
+            this.btnServicos.Size = new System.Drawing.Size(75, 75);
             this.btnServicos.TabIndex = 4;
             this.btnServicos.Text = "Serviços";
             this.btnServicos.UseVisualStyleBackColor = true;
             this.btnServicos.Click += new System.EventHandler(this.btnServicos_Click);
             // 
-            // btnTecnicos
+            // btnUsuarios
             // 
-            this.btnTecnicos.Location = new System.Drawing.Point(224, 0);
-            this.btnTecnicos.Name = "btnTecnicos";
-            this.btnTecnicos.Size = new System.Drawing.Size(100, 75);
-            this.btnTecnicos.TabIndex = 3;
-            this.btnTecnicos.Text = "Técnicos";
-            this.btnTecnicos.UseVisualStyleBackColor = true;
-            this.btnTecnicos.Click += new System.EventHandler(this.btnTecnicos_Click);
+            this.btnUsuarios.Location = new System.Drawing.Point(257, 0);
+            this.btnUsuarios.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Size = new System.Drawing.Size(75, 75);
+            this.btnUsuarios.TabIndex = 3;
+            this.btnUsuarios.Text = "Usuários";
+            this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnTecnicos_Click);
             // 
-            // btnAgendaOS
+            // btnOS
             // 
-            this.btnAgendaOS.Location = new System.Drawing.Point(118, 0);
-            this.btnAgendaOS.Name = "btnAgendaOS";
-            this.btnAgendaOS.Size = new System.Drawing.Size(100, 75);
-            this.btnAgendaOS.TabIndex = 2;
-            this.btnAgendaOS.Text = "Agenda - OS";
-            this.btnAgendaOS.UseVisualStyleBackColor = true;
-            this.btnAgendaOS.Click += new System.EventHandler(this.btnAgendaOS_Click);
+            this.btnOS.Location = new System.Drawing.Point(95, 0);
+            this.btnOS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnOS.Name = "btnOS";
+            this.btnOS.Size = new System.Drawing.Size(75, 75);
+            this.btnOS.TabIndex = 2;
+            this.btnOS.Text = "OS";
+            this.btnOS.UseVisualStyleBackColor = true;
+            this.btnOS.Click += new System.EventHandler(this.btnAgendaOS_Click);
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(12, 0);
+            this.btnClientes.Location = new System.Drawing.Point(176, 0);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(100, 75);
+            this.btnClientes.Size = new System.Drawing.Size(75, 75);
             this.btnClientes.TabIndex = 1;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = true;
@@ -128,31 +144,65 @@
             // 
             // pnlUC
             // 
-            this.pnlUC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlUC.Location = new System.Drawing.Point(0, 75);
+            this.pnlUC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlUC.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlUC.Location = new System.Drawing.Point(0, 76);
+            this.pnlUC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUC.Name = "pnlUC";
             this.pnlUC.Size = new System.Drawing.Size(800, 515);
             this.pnlUC.TabIndex = 1;
             // 
-            // pictureBox1
+            // pPerfilUsuario
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::Agenda_OS.Properties.Resources.user1;
-            this.pictureBox1.Location = new System.Drawing.Point(725, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 75);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.pPerfilUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pPerfilUsuario.BackColor = System.Drawing.Color.DarkGray;
+            this.pPerfilUsuario.Controls.Add(this.btnEditarUsuario);
+            this.pPerfilUsuario.Controls.Add(this.btnLogout);
+            this.pPerfilUsuario.Controls.Add(this.labUsuarioMone);
+            this.pPerfilUsuario.Location = new System.Drawing.Point(676, 0);
+            this.pPerfilUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pPerfilUsuario.Name = "pPerfilUsuario";
+            this.pPerfilUsuario.Size = new System.Drawing.Size(124, 178);
+            this.pPerfilUsuario.TabIndex = 0;
+            this.pPerfilUsuario.Visible = false;
+            this.pPerfilUsuario.MouseEnter += new System.EventHandler(this.pPerfilUsuario_MouseEnter);
+            this.pPerfilUsuario.MouseLeave += new System.EventHandler(this.pPerfilUsuario_MouseLeave);
+            // 
+            // btnEditarUsuario
+            // 
+            this.btnEditarUsuario.BackColor = System.Drawing.Color.DarkGray;
+            this.btnEditarUsuario.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnEditarUsuario.FlatAppearance.BorderSize = 0;
+            this.btnEditarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnEditarUsuario.Location = new System.Drawing.Point(0, 120);
+            this.btnEditarUsuario.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEditarUsuario.Name = "btnEditarUsuario";
+            this.btnEditarUsuario.Size = new System.Drawing.Size(124, 29);
+            this.btnEditarUsuario.TabIndex = 7;
+            this.btnEditarUsuario.Text = "Editar";
+            this.btnEditarUsuario.UseVisualStyleBackColor = false;
+            // 
+            // tPerfilHide
+            // 
+            this.tPerfilHide.Interval = 1000;
+            this.tPerfilHide.Tick += new System.EventHandler(this.tPerfilHide_Tick);
             // 
             // FormAgenda
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 590);
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.ClientSize = new System.Drawing.Size(800, 591);
+            this.Controls.Add(this.pPerfilUsuario);
             this.Controls.Add(this.pnlUC);
+            this.Controls.Add(this.btnUsuario);
             this.Controls.Add(this.pnlMenu);
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormAgenda";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -161,8 +211,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAgendaOs_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmAgendaOs_KeyPress);
             this.pnlMenu.ResumeLayout(false);
-            this.pnlMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pPerfilUsuario.ResumeLayout(false);
+            this.pPerfilUsuario.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -170,15 +220,17 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlMenu;
-        private System.Windows.Forms.Button btnTecnicos;
-        private System.Windows.Forms.Button btnAgendaOS;
+        private System.Windows.Forms.Button btnUsuarios;
+        private System.Windows.Forms.Button btnOS;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Panel pnlUC;
         private System.Windows.Forms.Button btnServicos;
         private System.Windows.Forms.Label labUsuarioMone;
-        private System.Windows.Forms.Label labUsuario;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnUsuario;
+        private System.Windows.Forms.Panel pPerfilUsuario;
+        private System.Windows.Forms.Button btnEditarUsuario;
+        private System.Windows.Forms.Timer tPerfilHide;
     }
 }
 

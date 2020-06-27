@@ -83,6 +83,16 @@ namespace Agenda_OS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_user_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_user_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoRevenda {
             get {
                 object obj = ResourceManager.GetObject("LogoRevenda", resourceCulture);

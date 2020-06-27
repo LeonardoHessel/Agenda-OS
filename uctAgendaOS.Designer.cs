@@ -44,36 +44,36 @@
             // Busca
             // 
             this.Busca.AutoSize = true;
-            this.Busca.Location = new System.Drawing.Point(43, 23);
+            this.Busca.Location = new System.Drawing.Point(3, 13);
             this.Busca.Name = "Busca";
-            this.Busca.Size = new System.Drawing.Size(40, 13);
+            this.Busca.Size = new System.Drawing.Size(44, 17);
             this.Busca.TabIndex = 0;
             this.Busca.Text = "Busca:";
             // 
             // Total
             // 
             this.Total.AutoSize = true;
-            this.Total.Location = new System.Drawing.Point(586, 34);
+            this.Total.Location = new System.Drawing.Point(586, 18);
             this.Total.Name = "Total";
-            this.Total.Size = new System.Drawing.Size(34, 13);
+            this.Total.Size = new System.Drawing.Size(39, 17);
             this.Total.TabIndex = 1;
             this.Total.Text = "Total:";
             // 
             // Filtrados
             // 
             this.Filtrados.AutoSize = true;
-            this.Filtrados.Location = new System.Drawing.Point(586, 66);
+            this.Filtrados.Location = new System.Drawing.Point(682, 18);
             this.Filtrados.Name = "Filtrados";
-            this.Filtrados.Size = new System.Drawing.Size(49, 13);
+            this.Filtrados.Size = new System.Drawing.Size(61, 17);
             this.Filtrados.TabIndex = 2;
             this.Filtrados.Text = "Filtrados:";
             // 
             // labNT
             // 
             this.labNT.AutoSize = true;
-            this.labNT.Location = new System.Drawing.Point(755, 66);
+            this.labNT.Location = new System.Drawing.Point(758, 18);
             this.labNT.Name = "labNT";
-            this.labNT.Size = new System.Drawing.Size(13, 13);
+            this.labNT.Size = new System.Drawing.Size(15, 17);
             this.labNT.TabIndex = 4;
             this.labNT.Text = "0";
             this.labNT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -81,18 +81,19 @@
             // labNF
             // 
             this.labNF.AutoSize = true;
-            this.labNF.Location = new System.Drawing.Point(755, 34);
+            this.labNF.Location = new System.Drawing.Point(644, 18);
             this.labNF.Name = "labNF";
-            this.labNF.Size = new System.Drawing.Size(13, 13);
+            this.labNF.Size = new System.Drawing.Size(15, 17);
             this.labNF.TabIndex = 3;
             this.labNF.Text = "0";
             this.labNF.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(89, 20);
+            this.textBox1.Location = new System.Drawing.Point(53, 10);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(393, 20);
+            this.textBox1.Size = new System.Drawing.Size(458, 25);
             this.textBox1.TabIndex = 5;
             // 
             // dataGridView1
@@ -100,42 +101,46 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(33, 98);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 44);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(735, 340);
+            this.dataGridView1.Size = new System.Drawing.Size(793, 420);
             this.dataGridView1.TabIndex = 6;
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(693, 467);
+            this.btnNovo.Location = new System.Drawing.Point(709, 472);
+            this.btnNovo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.Size = new System.Drawing.Size(87, 30);
             this.btnNovo.TabIndex = 7;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
             // 
             // btnDeletar
             // 
-            this.btnDeletar.Location = new System.Drawing.Point(531, 467);
+            this.btnDeletar.Location = new System.Drawing.Point(520, 472);
+            this.btnDeletar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletar.Size = new System.Drawing.Size(87, 30);
             this.btnDeletar.TabIndex = 8;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = true;
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(612, 467);
+            this.btnEditar.Location = new System.Drawing.Point(615, 472);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.Size = new System.Drawing.Size(87, 30);
             this.btnEditar.TabIndex = 9;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             // 
-            // uctAgendaOS
+            // UctAgendaOS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnDeletar);
@@ -147,7 +152,9 @@
             this.Controls.Add(this.Filtrados);
             this.Controls.Add(this.Total);
             this.Controls.Add(this.Busca);
-            this.Name = "uctAgendaOS";
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "UctAgendaOS";
             this.Size = new System.Drawing.Size(800, 515);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

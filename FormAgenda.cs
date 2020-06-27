@@ -38,11 +38,11 @@ namespace Agenda_OS
             }
             else if (e.KeyChar == '2')
             {
-                btnAgendaOS.PerformClick();
+                btnOS.PerformClick();
             }
             else if (e.KeyChar == '3')
             {
-                btnTecnicos.PerformClick();
+                btnUsuarios.PerformClick();
             }
             else if (e.KeyChar == '4')
             {
@@ -137,6 +137,27 @@ namespace Agenda_OS
         {
             this.DialogResult = DialogResult.Ignore;
             this.Close();
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            pPerfilUsuario.Show();
+        }
+
+        private void pPerfilUsuario_MouseLeave(object sender, EventArgs e)
+        {
+            tPerfilHide.Start();
+        }
+
+        private void tPerfilHide_Tick(object sender, EventArgs e)
+        {
+            tPerfilHide.Stop();
+            pPerfilUsuario.Hide();
+        }
+
+        private void pPerfilUsuario_MouseEnter(object sender, EventArgs e)
+        {
+            tPerfilHide.Stop();
         }
     }
 }

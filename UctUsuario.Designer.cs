@@ -64,6 +64,7 @@
             // 
             // btnNovo
             // 
+            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNovo.Location = new System.Drawing.Point(703, 476);
             this.btnNovo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNovo.Name = "btnNovo";
@@ -85,6 +86,8 @@
             // 
             // btnDeletar
             // 
+            this.btnDeletar.AccessibleDescription = "Inativa um usuário";
+            this.btnDeletar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeletar.Location = new System.Drawing.Point(511, 476);
             this.btnDeletar.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletar.Name = "btnDeletar";
@@ -95,6 +98,7 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.Location = new System.Drawing.Point(607, 476);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
@@ -109,6 +113,9 @@
             this.dgvTecnico.AllowUserToAddRows = false;
             this.dgvTecnico.AllowUserToDeleteRows = false;
             this.dgvTecnico.AllowUserToResizeRows = false;
+            this.dgvTecnico.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTecnico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTecnico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -256,6 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Controls.Add(this.chbDeletados);
             this.Controls.Add(this.labNS);
             this.Controls.Add(this.labNT);
