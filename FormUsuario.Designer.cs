@@ -1,6 +1,6 @@
 ﻿namespace Agenda_OS
 {
-    partial class FormTecnico
+    partial class FormUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -53,6 +53,7 @@
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.labLogin = new System.Windows.Forms.Label();
             this.labResetarLoginSenha = new System.Windows.Forms.Label();
+            this.ofdImagenPerfil = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).BeginInit();
             this.gbxAcesso.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +73,7 @@
             this.txtNome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(312, 25);
-            this.txtNome.TabIndex = 1;
+            this.txtNome.TabIndex = 3;
             // 
             // dtpNasc
             // 
@@ -81,7 +82,7 @@
             this.dtpNasc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpNasc.Name = "dtpNasc";
             this.dtpNasc.Size = new System.Drawing.Size(122, 25);
-            this.dtpNasc.TabIndex = 2;
+            this.dtpNasc.TabIndex = 4;
             this.dtpNasc.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // Nasc
@@ -104,11 +105,13 @@
             this.pbxFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbxFoto.TabIndex = 4;
             this.pbxFoto.TabStop = false;
+            this.pbxFoto.Click += new System.EventHandler(this.pbxFoto_Click);
             // 
             // cmbSexo
             // 
             this.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSexo.FormattingEnabled = true;
+            this.cmbSexo.ItemHeight = 17;
             this.cmbSexo.Items.AddRange(new object[] {
             "Selecione:",
             "Feminino",
@@ -141,7 +144,7 @@
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(87, 30);
-            this.btnSalvar.TabIndex = 7;
+            this.btnSalvar.TabIndex = 9;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -156,7 +159,7 @@
             this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(87, 30);
-            this.btnEditar.TabIndex = 8;
+            this.btnEditar.TabIndex = 10;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -171,7 +174,7 @@
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(87, 30);
-            this.btnExcluir.TabIndex = 9;
+            this.btnExcluir.TabIndex = 11;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -183,7 +186,7 @@
             this.mtbRG.Mask = "99.999.999-9";
             this.mtbRG.Name = "mtbRG";
             this.mtbRG.Size = new System.Drawing.Size(122, 25);
-            this.mtbRG.TabIndex = 12;
+            this.mtbRG.TabIndex = 6;
             // 
             // mtbCPF
             // 
@@ -192,7 +195,7 @@
             this.mtbCPF.Mask = "999.999.999-99";
             this.mtbCPF.Name = "mtbCPF";
             this.mtbCPF.Size = new System.Drawing.Size(136, 25);
-            this.mtbCPF.TabIndex = 13;
+            this.mtbCPF.TabIndex = 7;
             // 
             // mtbCNH
             // 
@@ -201,7 +204,7 @@
             this.mtbCNH.Mask = "999 999 999 99";
             this.mtbCNH.Name = "mtbCNH";
             this.mtbCNH.Size = new System.Drawing.Size(122, 25);
-            this.mtbCNH.TabIndex = 14;
+            this.mtbCNH.TabIndex = 8;
             // 
             // cnh
             // 
@@ -281,7 +284,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '•';
             this.txtSenha.Size = new System.Drawing.Size(312, 25);
-            this.txtSenha.TabIndex = 25;
+            this.txtSenha.TabIndex = 2;
             // 
             // labSenha
             // 
@@ -299,7 +302,7 @@
             this.txtLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(312, 25);
-            this.txtLogin.TabIndex = 23;
+            this.txtLogin.TabIndex = 0;
             // 
             // labLogin
             // 
@@ -317,11 +320,15 @@
             this.labResetarLoginSenha.Location = new System.Drawing.Point(13, 290);
             this.labResetarLoginSenha.Name = "labResetarLoginSenha";
             this.labResetarLoginSenha.Size = new System.Drawing.Size(82, 17);
-            this.labResetarLoginSenha.TabIndex = 23;
+            this.labResetarLoginSenha.TabIndex = 12;
             this.labResetarLoginSenha.Text = "resetar login";
             this.labResetarLoginSenha.Click += new System.EventHandler(this.labResetarLoginSenha_Click);
             // 
-            // FormTecnico
+            // ofdImagenPerfil
+            // 
+            this.ofdImagenPerfil.Title = "Imagem Perfil";
+            // 
+            // FormUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -350,11 +357,11 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FormTecnico";
+            this.Name = "FormUsuario";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro Técnico";
+            this.Text = "Cadastro Usuário";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmTecnico_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).EndInit();
             this.gbxAcesso.ResumeLayout(false);
@@ -391,5 +398,6 @@
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.Label labLogin;
         private System.Windows.Forms.Label labResetarLoginSenha;
+        private System.Windows.Forms.OpenFileDialog ofdImagenPerfil;
     }
 }

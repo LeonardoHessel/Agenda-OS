@@ -38,7 +38,7 @@ namespace Agenda_OS
         {
             int rcBefore = dgvTecnico.Rows.Count;
             Usuario tec = new Usuario();
-            FormTecnico frm = new FormTecnico(tec,"New");
+            FormUsuario frm = new FormUsuario(tec,"New");
             frm.ShowDialog();
             CarregarUsuarios();
             int rcAfter = dgvTecnico.Rows.Count;
@@ -57,7 +57,7 @@ namespace Agenda_OS
             int linha = dgvTecnico.CurrentRow.Index;
             long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
             Usuario tecnico = this.ListaTecnico.Find(usuario => usuario.ID == id);
-            FormTecnico frm = new FormTecnico(tecnico, "Edit");
+            FormUsuario frm = new FormUsuario(tecnico, "Edit");
             frm.ShowDialog();
             CarregarUsuarios();
             dgvTecnico.ClearSelection();
@@ -79,7 +79,7 @@ namespace Agenda_OS
             int linha = dgvTecnico.CurrentRow.Index;
             long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
             Usuario tecnico = this.ListaTecnico.Find(usuario => usuario.ID == id);
-            FormTecnico frm = new FormTecnico(tecnico, "Show");
+            FormUsuario frm = new FormUsuario(tecnico, "Show");
             frm.ShowDialog();
             CarregarUsuarios();
             dgvTecnico.ClearSelection();

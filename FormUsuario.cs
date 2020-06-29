@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Agenda_OS
 {
-    public partial class FormTecnico : Form
+    public partial class FormUsuario : Form
     {
         private Usuario tecnico;
 
@@ -27,7 +27,7 @@ namespace Agenda_OS
             }
         }
         
-        public FormTecnico(Usuario tecnico, string action)
+        public FormUsuario(Usuario tecnico, string action)
         {
             InitializeComponent();
             this.tecnico = tecnico;
@@ -99,6 +99,9 @@ namespace Agenda_OS
             this.tecnico.RG = rtnNoMask(mtbRG);
             this.tecnico.CPF = rtnNoMask(mtbCPF);
             this.tecnico.CNH = rtnNoMask(mtbCNH);
+
+
+            //System.IO.File.Copy("source", "destination");
         }
 
         private void VerificarUsuario()
@@ -211,6 +214,14 @@ namespace Agenda_OS
         private void labResetarLoginSenha_Click(object sender, EventArgs e)
         {
             txtSenha.Text = "";
+        }
+
+        private void pbxFoto_Click(object sender, EventArgs e)
+        {
+            if (this.Action == "Edit")
+            {
+                ofdImagenPerfil.ShowDialog();
+            }
         }
     }
 }

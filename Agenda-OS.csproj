@@ -72,11 +72,11 @@
     <Compile Include="FormAgenda.Designer.cs">
       <DependentUpon>FormAgenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTecnico.cs">
+    <Compile Include="FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTecnico.Designer.cs">
-      <DependentUpon>FormTecnico.cs</DependentUpon>
+    <Compile Include="FormUsuario.Designer.cs">
+      <DependentUpon>FormUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -119,8 +119,8 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTecnico.resx">
-      <DependentUpon>FormTecnico.cs</DependentUpon>
+    <EmbeddedResource Include="FormUsuario.resx">
+      <DependentUpon>FormUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -183,6 +183,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_user_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Imagens\usuarios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Imagens\icones\icons8_add_file.ico" />
+    <Content Include="Imagens\icones\icons8_edit.ico" />
+    <Content Include="Imagens\icones\icons8_save.ico" />
+    <Content Include="Imagens\icones\icons8_trash.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
