@@ -9,13 +9,23 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Agenda_OS
 {
     public partial class FormUsuario : Form
     {
         private Usuario tecnico;
-
+        private string perfilIMG;
+        private string PerfilIMG
+        {
+            get { return this.perfilIMG; }
+            set
+            {
+                this.perfilIMG = value;
+                //pbxFoto.Image = Image.FromFile(this.perfilIMG);
+            }
+        }
         private string action;
         private string Action
         {
@@ -99,9 +109,18 @@ namespace Agenda_OS
             this.tecnico.RG = rtnNoMask(mtbRG);
             this.tecnico.CPF = rtnNoMask(mtbCPF);
             this.tecnico.CNH = rtnNoMask(mtbCNH);
+            // Foto Perfil
+            string caminho = @"..\..\Imagens\usuarios\";
+            string nome = this.tecnico.ID.ToString();
 
-
-            //System.IO.File.Copy("source", "destination");
+            if (caminho + nome != PerfilIMG)
+            {
+                // this.PerfilIMG = caminho + "user.png";
+                // pbxFoto.Image = Image.FromFile(caminho + "user.png");
+                System.IO.File.Copy(PerfilIMG, caminho + nome, true);
+                this.tecnico.PerfilIMG = caminho + nome;
+            }
+            // fim
         }
 
         private void VerificarUsuario()
@@ -134,6 +153,8 @@ namespace Agenda_OS
             mtbRG.Text = this.tecnico.RG;
             mtbCPF.Text = this.tecnico.CPF;
             mtbCNH.Text = this.tecnico.CNH;
+            this.PerfilIMG = this.tecnico.PerfilIMG;
+            pbxFoto.Image = Image.FromFile(this.perfilIMG);
         }
 
         private string rtnNoMask(MaskedTextBox mtb)
@@ -220,7 +241,11 @@ namespace Agenda_OS
         {
             if (this.Action == "Edit")
             {
-                ofdImagenPerfil.ShowDialog();
+                DialogResult res = ofdImagenPerfil.ShowDialog();
+                if (res == DialogResult.OK)
+                {
+                    this.PerfilIMG = ofdImagenPerfil.FileName;
+                }
             }
         }
     }

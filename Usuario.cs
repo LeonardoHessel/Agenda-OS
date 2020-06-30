@@ -19,6 +19,7 @@ namespace Agenda_OS
         public string RG { get; set; }
         public string CPF { get; set; }
         public string CNH { get; set; }
+        public string PerfilIMG { get; set; }
         public List<Permissao> Permissoes { get; set; }
 
         public void LoadPermissoesUsuario()
@@ -54,7 +55,7 @@ namespace Agenda_OS
 
         private bool Cadastrar()
         {
-            string sql = "INSERT INTO `usuario` (`login`,`senha`,`nome`,`nasc`,`sexo`,`rg`,`cpf`,`cnh`) VALUES(@login,@senha,@nome,@nasc,@sexo,@rg,@cpf,@cnh)";
+            string sql = "INSERT INTO `usuario` (`login`,`senha`,`nome`,`nasc`,`sexo`,`rg`,`cpf`,`cnh`,`imgperfil`) VALUES(@login,@senha,@nome,@nasc,@sexo,@rg,@cpf,@cnh,@img)";
             NewCMD(sql, CommandType.Text);
             AddPar("login", this.Login);
             AddPar("senha", this.Senha);
@@ -64,6 +65,7 @@ namespace Agenda_OS
             AddPar("rg", this.RG);
             AddPar("cpf", this.CPF);
             AddPar("cnh", this.CNH);
+            AddPar("img", this.PerfilIMG);
             if (ExeGetId())
             {
                 this.ID = Conexao.lastId;
@@ -84,7 +86,7 @@ namespace Agenda_OS
 
         private bool Atualizar()
         {
-            string sql = "UPDATE `usuario` SET `login`= @login, `senha`= @senha, `nome`= @nome,`nasc`= @nasc,`sexo`= @sexo,`rg`= @rg,`cpf`= @cpf,`cnh`= @cnh WHERE `id`= @id";
+            string sql = "UPDATE `usuario` SET `login`= @login, `senha`= @senha, `nome`= @nome,`nasc`= @nasc,`sexo`= @sexo,`rg`= @rg,`cpf`= @cpf,`cnh`= @cnh, `imgperfil`= @img WHERE `id`= @id";
             NewCMD(sql, CommandType.Text);
             AddPar("id", this.ID);
             AddPar("login", this.Login);
@@ -95,6 +97,7 @@ namespace Agenda_OS
             AddPar("rg", this.RG);
             AddPar("cpf", this.CPF);
             AddPar("cnh", this.CNH);
+            AddPar("img", this.PerfilIMG);
             if (ExecuteNQ())
             {
                 return true;
@@ -138,7 +141,8 @@ namespace Agenda_OS
                     Sexo = dr["sexo"].ToString(),
                     RG = dr["rg"].ToString(),
                     CPF = dr["cpf"].ToString(),
-                    CNH = dr["cnh"].ToString()
+                    CNH = dr["cnh"].ToString(),
+                    PerfilIMG = dr["imgperfil"].ToString(),
                 }).ToList();
                 return listaUsuario;
             }

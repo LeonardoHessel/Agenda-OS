@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS `usuario`(
     `rg` CHAR(9),
     `cpf` CHAR(11),
     `cnh` CHAR(11),
+    `imgperfil` varchar(250),
     `del` BOOL DEFAULT FALSE
 )ENGINE = InnoDB;
 
@@ -111,36 +112,6 @@ BEGIN
 END $$
 DELIMITER ;
 
--- Usuário não pode ser deletado --
-/*
-DROP TRIGGER IF EXISTS `AD_Usuario`;
-DELIMITER $$
-CREATE TRIGGER `AD_Usuario` 
-AFTER UPDATE ON `usuario` FOR EACH ROW
-BEGIN
-	INSERT INTO `log` VALUES (0,NOW(),CONCAT(
-		"Usuário deletado MANUALMENTE (",
-        old.id," | ",old.login," | ",old.nome," | ",
-        old.nasc," | ",old.sexo," | ",old.rg," | ",
-        old.cpf," | ",old.cnh," )"));
-END $$
-DELIMITER ;
-
-DROP TRIGGER IF EXISTS `BD_Usuario`;
-DELIMITER $$
-CREATE TRIGGER `BD_Usuario` 
-BEFORE DELETE ON `usuario` FOR EACH ROW
-BEGIN
-	INSERT INTO `log` VALUES (0,NOW(),CONCAT(
-		"Usuário deletado ( ",
-        old.id," | ",old.login," | ",old.nome," | ",
-        old.nasc," | ",old.sexo," | ",old.rg," | ",
-        old.cpf," | ",old.cnh," )"));
-	DELETE FROM `permissao` WHERE `usuario` = old.id;
-END $$
-DELIMITER ;
-*/
-
 -- Modulo --
 DROP TRIGGER IF EXISTS `AI_Modulo`;
 DELIMITER $$
@@ -150,17 +121,6 @@ BEGIN
 	CALL `AdcPermissoes` (new.id,'U');
 END $$
 DELIMITER ;
---  Modulo nãp pode ser deletado --
-/*
-DROP TRIGGER IF EXISTS `BD_Modulo_Permissoes`;
-DELIMITER $$
-CREATE TRIGGER `BD_Modulo_Permissoes` 
-BEFORE DELETE ON `modulo` FOR EACH ROW
-BEGIN
-	DELETE FROM `permissao` WHERE `modulo` = old.id;
-END $$
-DELIMITER ;
-*/
 
 
 
@@ -176,12 +136,12 @@ DELIMITER ;
 
 
 
-INSERT INTO `usuario` VALUES (0,'Default','123','Default','2020-01-01','Outro','000000000','0000000000','00000000000',FALSE);
+INSERT INTO `usuario` VALUES (0,'Default','123','Default','2020-01-01','Outro','000000000','0000000000','00000000000','',FALSE);
 
 INSERT INTO `modulo` VALUES (0,'Geral','Login',true);
-INSERT INTO `modulo` VALUES (0,'Usuários','Ler Usuários',true);
-INSERT INTO `modulo` VALUES (0,'Usuários','Gravar Usuários',true);
-INSERT INTO `modulo` VALUES (0,'Usuários','Inativar Usuários',true);
+INSERT INTO `modulo` VALUES (0,'Usuários','Ler Usuários',false);
+INSERT INTO `modulo` VALUES (0,'Usuários','Gravar Usuários',false);
+INSERT INTO `modulo` VALUES (0,'Usuários','Inativar Usuários',false);
 
 
 

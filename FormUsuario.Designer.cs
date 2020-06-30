@@ -32,7 +32,6 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.dtpNasc = new System.Windows.Forms.DateTimePicker();
             this.Nasc = new System.Windows.Forms.Label();
-            this.pbxFoto = new System.Windows.Forms.PictureBox();
             this.cmbSexo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -54,8 +53,9 @@
             this.labLogin = new System.Windows.Forms.Label();
             this.labResetarLoginSenha = new System.Windows.Forms.Label();
             this.ofdImagenPerfil = new System.Windows.Forms.OpenFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).BeginInit();
+            this.pbxFoto = new System.Windows.Forms.PictureBox();
             this.gbxAcesso.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // Nome
@@ -93,19 +93,6 @@
             this.Nasc.Size = new System.Drawing.Size(40, 17);
             this.Nasc.TabIndex = 3;
             this.Nasc.Text = "Nasc.";
-            // 
-            // pbxFoto
-            // 
-            this.pbxFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbxFoto.Image = global::Agenda_OS.Properties.Resources.baseline_add_a_photo_black_48dp;
-            this.pbxFoto.Location = new System.Drawing.Point(406, 14);
-            this.pbxFoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pbxFoto.Name = "pbxFoto";
-            this.pbxFoto.Size = new System.Drawing.Size(173, 222);
-            this.pbxFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbxFoto.TabIndex = 4;
-            this.pbxFoto.TabStop = false;
-            this.pbxFoto.Click += new System.EventHandler(this.pbxFoto_Click);
             // 
             // cmbSexo
             // 
@@ -326,7 +313,22 @@
             // 
             // ofdImagenPerfil
             // 
+            this.ofdImagenPerfil.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|All files " +
+    "(*.*)|*.*";
             this.ofdImagenPerfil.Title = "Imagem Perfil";
+            // 
+            // pbxFoto
+            // 
+            this.pbxFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbxFoto.Image = global::Agenda_OS.Properties.Resources.baseline_add_a_photo_black_48dp;
+            this.pbxFoto.Location = new System.Drawing.Point(406, 14);
+            this.pbxFoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbxFoto.Name = "pbxFoto";
+            this.pbxFoto.Size = new System.Drawing.Size(173, 222);
+            this.pbxFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbxFoto.TabIndex = 4;
+            this.pbxFoto.TabStop = false;
+            this.pbxFoto.Click += new System.EventHandler(this.pbxFoto_Click);
             // 
             // FormUsuario
             // 
@@ -363,9 +365,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Usuário";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmTecnico_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).EndInit();
             this.gbxAcesso.ResumeLayout(false);
             this.gbxAcesso.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
