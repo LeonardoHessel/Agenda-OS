@@ -136,7 +136,7 @@ DELIMITER ;
 
 
 
-INSERT INTO `usuario` VALUES (0,'Default','123','Default','2020-01-01','Outro','000000000','0000000000','00000000000','',FALSE);
+INSERT INTO `usuario` VALUES (0,'Default','123','Default','2020-01-01','Outro','000000000','0000000000','00000000000','..\\..\\Imagens\\usuarios\\user.png',FALSE);
 
 INSERT INTO `modulo` VALUES (0,'Geral','Login',true);
 INSERT INTO `modulo` VALUES (0,'Usuários','Ler Usuários',false);

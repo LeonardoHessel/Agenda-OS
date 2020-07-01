@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -16,16 +17,7 @@ namespace Agenda_OS
     public partial class FormUsuario : Form
     {
         private Usuario tecnico;
-        private string perfilIMG;
-        private string PerfilIMG
-        {
-            get { return this.perfilIMG; }
-            set
-            {
-                this.perfilIMG = value;
-                //pbxFoto.Image = Image.FromFile(this.perfilIMG);
-            }
-        }
+        
         private string action;
         private string Action
         {
@@ -112,11 +104,10 @@ namespace Agenda_OS
             // Foto Perfil
             string caminho = @"..\..\Imagens\usuarios\";
             string nome = this.tecnico.ID.ToString();
-
+            Image novaIMG
             if (caminho + nome != PerfilIMG)
             {
-                // this.PerfilIMG = caminho + "user.png";
-                // pbxFoto.Image = Image.FromFile(caminho + "user.png");
+                //this.tecnico.PerfilIMG
                 System.IO.File.Copy(PerfilIMG, caminho + nome, true);
                 this.tecnico.PerfilIMG = caminho + nome;
             }
@@ -153,8 +144,7 @@ namespace Agenda_OS
             mtbRG.Text = this.tecnico.RG;
             mtbCPF.Text = this.tecnico.CPF;
             mtbCNH.Text = this.tecnico.CNH;
-            this.PerfilIMG = this.tecnico.PerfilIMG;
-            pbxFoto.Image = Image.FromFile(this.perfilIMG);
+            pbxFoto.Image = Image.FromFile(this.tecnico.PerfilIMG);
         }
 
         private string rtnNoMask(MaskedTextBox mtb)
@@ -244,7 +234,7 @@ namespace Agenda_OS
                 DialogResult res = ofdImagenPerfil.ShowDialog();
                 if (res == DialogResult.OK)
                 {
-                    this.PerfilIMG = ofdImagenPerfil.FileName;
+                    pbxFoto.Image = Image.FromFile(ofdImagenPerfil.FileName);
                 }
             }
         }
