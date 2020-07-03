@@ -83,6 +83,36 @@ namespace Agenda_OS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CloseX32 {
+            get {
+                object obj = ResourceManager.GetObject("CloseX32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CloseX64 {
+            get {
+                object obj = ResourceManager.GetObject("CloseX64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditX32 {
+            get {
+                object obj = ResourceManager.GetObject("EditX32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_user_64px {
             get {
                 object obj = ResourceManager.GetObject("icons8_user_64px", resourceCulture);
@@ -96,6 +126,36 @@ namespace Agenda_OS.Properties {
         internal static System.Drawing.Bitmap LogoRevenda {
             get {
                 object obj = ResourceManager.GetObject("LogoRevenda", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveX32 {
+            get {
+                object obj = ResourceManager.GetObject("SaveX32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SearchX16 {
+            get {
+                object obj = ResourceManager.GetObject("SearchX16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TrashX32 {
+            get {
+                object obj = ResourceManager.GetObject("TrashX32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

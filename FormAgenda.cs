@@ -34,11 +34,11 @@ namespace Agenda_OS
         {
             if (e.KeyChar == '1')
             {
-                btnClientes.PerformClick();
+                btnOS.PerformClick();
             }
             else if (e.KeyChar == '2')
             {
-                btnOS.PerformClick();
+                btnClientes.PerformClick();
             }
             else if (e.KeyChar == '3')
             {

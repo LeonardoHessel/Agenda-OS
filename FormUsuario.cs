@@ -10,13 +10,27 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using System.Windows.Forms.VisualStyles;
+using System.Windows.Media.Imaging;
 
 namespace Agenda_OS
 {
     public partial class FormUsuario : Form
     {
         private Usuario tecnico;
+        private String imagem;
+        private String EnderecoIMG
+        {
+            get { return imagem; }
+            set
+            {
+                this.imagem = value;
+                var stream = File.OpenRead(this.imagem);
+                pbxFoto.Image = Image.FromStream(stream);
+                stream.Dispose();
+            }
+        }
         
         private string action;
         private string Action
@@ -104,11 +118,9 @@ namespace Agenda_OS
             // Foto Perfil
             string caminho = @"..\..\Imagens\usuarios\";
             string nome = this.tecnico.ID.ToString();
-            Image novaIMG
-            if (caminho + nome != PerfilIMG)
+            if (caminho + nome != this.EnderecoIMG)
             {
-                //this.tecnico.PerfilIMG
-                System.IO.File.Copy(PerfilIMG, caminho + nome, true);
+                File.Copy(EnderecoIMG, caminho + nome, true);
                 this.tecnico.PerfilIMG = caminho + nome;
             }
             // fim
@@ -139,12 +151,12 @@ namespace Agenda_OS
             {
                 cmbSexo.Text = this.tecnico.Sexo;
             }
-            
+
             dtpNasc.Value = this.tecnico.Nasc;
             mtbRG.Text = this.tecnico.RG;
             mtbCPF.Text = this.tecnico.CPF;
             mtbCNH.Text = this.tecnico.CNH;
-            pbxFoto.Image = Image.FromFile(this.tecnico.PerfilIMG);
+            EnderecoIMG = this.tecnico.PerfilIMG;
         }
 
         private string rtnNoMask(MaskedTextBox mtb)
@@ -234,7 +246,7 @@ namespace Agenda_OS
                 DialogResult res = ofdImagenPerfil.ShowDialog();
                 if (res == DialogResult.OK)
                 {
-                    pbxFoto.Image = Image.FromFile(ofdImagenPerfil.FileName);
+                    EnderecoIMG = ofdImagenPerfil.FileName;
                 }
             }
         }

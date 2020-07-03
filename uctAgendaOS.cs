@@ -30,5 +30,11 @@ namespace Agenda_OS
         {
             InitializeComponent();
         }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            FormOS os = new FormOS();
+            os.ShowDialog();
+        }
     }
 }

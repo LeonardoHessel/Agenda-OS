@@ -52,6 +52,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 8.0.20\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -63,6 +64,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexao.cs" />
@@ -71,6 +73,12 @@
     </Compile>
     <Compile Include="FormAgenda.Designer.cs">
       <DependentUpon>FormAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOS.Designer.cs">
+      <DependentUpon>FormOS.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUsuario.cs">
       <SubType>Form</SubType>
@@ -123,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOS.resx">
+      <DependentUpon>FormOS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>
@@ -186,6 +197,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Imagens\icones\TrashX32.png" />
+    <None Include="Imagens\icones\SaveX32.png" />
+    <None Include="Imagens\icones\SearchX16.png" />
+    <None Include="Imagens\icones\CloseX64.png" />
+    <None Include="Imagens\icones\CloseX32.png" />
+    <None Include="Imagens\icones\EditX32.png" />
     <Content Include="Imagens\icones\icons8_add_file.ico" />
     <Content Include="Imagens\icones\icons8_edit.ico" />
     <Content Include="Imagens\icones\icons8_save.ico" />
