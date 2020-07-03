@@ -10,25 +10,31 @@ using System.Windows.Forms;
 
 namespace Agenda_OS
 {
-    public partial class uctAgendaOS : UserControl
+    public partial class UctAgendaOS : UserControl
     {
-        private static uctAgendaOS _instancia;
+        private static UctAgendaOS _instancia;
 
-        public static uctAgendaOS instancia
+        public static UctAgendaOS instancia
         {
             get
             {
                 if (_instancia == null)
                 {
-                    _instancia = new uctAgendaOS();
+                    _instancia = new UctAgendaOS();
                 }
                 return _instancia;
             }
         }
 
-        public uctAgendaOS()
+        public UctAgendaOS()
         {
             InitializeComponent();
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            FormOS os = new FormOS();
+            os.ShowDialog();
         }
     }
 }

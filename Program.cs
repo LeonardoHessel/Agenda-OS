@@ -16,7 +16,27 @@ namespace Agenda_OS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAgendaOs());
+            
+            bool exit = true;
+            while (exit)
+            {
+                exit = false;
+                FormLogin login = new FormLogin();
+                login.ID_Modulo = 1;
+                login.Action = "Login";
+                DialogResult respLog = login.ShowDialog();
+                
+                if (respLog == DialogResult.Yes)
+                {
+                    FormAgenda Agenda = new FormAgenda();
+                    Agenda.Usuario = login.Usuario;
+                    DialogResult respOS = Agenda.ShowDialog();
+                    if (respOS == DialogResult.Ignore)
+                    {
+                        exit = true;
+                    }
+                }
+            }
         }
     }
 }
