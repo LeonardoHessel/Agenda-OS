@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.pTitulo = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Button();
             this.labTitulo = new System.Windows.Forms.Label();
@@ -45,7 +46,7 @@
             // 
             // pTitulo
             // 
-            this.pTitulo.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(68)))), ((int)(((byte)(78)))));
             this.pTitulo.Controls.Add(this.btnFechar);
             this.pTitulo.Controls.Add(this.labTitulo);
             this.pTitulo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -56,12 +57,12 @@
             // 
             // btnFechar
             // 
-            this.btnFechar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(68)))), ((int)(((byte)(78)))));
             this.btnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnFechar.FlatAppearance.BorderSize = 0;
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFechar.ForeColor = System.Drawing.Color.White;
+            this.btnFechar.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnFechar.Location = new System.Drawing.Point(297, 0);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(80, 60);
@@ -73,35 +74,36 @@
             // labTitulo
             // 
             this.labTitulo.AutoSize = true;
-            this.labTitulo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labTitulo.Font = new System.Drawing.Font("Roboto Cn", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labTitulo.ForeColor = System.Drawing.Color.White;
-            this.labTitulo.Location = new System.Drawing.Point(12, 9);
+            this.labTitulo.Location = new System.Drawing.Point(12, 15);
             this.labTitulo.Name = "labTitulo";
-            this.labTitulo.Size = new System.Drawing.Size(77, 32);
+            this.labTitulo.Size = new System.Drawing.Size(67, 29);
             this.labTitulo.TabIndex = 1;
-            this.labTitulo.Text = "titulo";
+            this.labTitulo.Text = "Login";
             // 
             // pFooter
             // 
-            this.pFooter.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(68)))), ((int)(((byte)(78)))));
             this.pFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pFooter.Location = new System.Drawing.Point(0, 484);
+            this.pFooter.Location = new System.Drawing.Point(0, 434);
             this.pFooter.Name = "pFooter";
-            this.pFooter.Size = new System.Drawing.Size(379, 10);
+            this.pFooter.Size = new System.Drawing.Size(379, 60);
             this.pFooter.TabIndex = 1;
             // 
             // cbLogin
             // 
             this.cbLogin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLogin.FormattingEnabled = true;
-            this.cbLogin.Location = new System.Drawing.Point(57, 270);
+            this.cbLogin.Location = new System.Drawing.Point(57, 228);
             this.cbLogin.Name = "cbLogin";
             this.cbLogin.Size = new System.Drawing.Size(265, 29);
             this.cbLogin.TabIndex = 0;
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(57, 331);
+            this.txtSenha.ForeColor = System.Drawing.Color.Black;
+            this.txtSenha.Location = new System.Drawing.Point(57, 289);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '●';
             this.txtSenha.Size = new System.Drawing.Size(265, 29);
@@ -109,12 +111,12 @@
             // 
             // btnAcessar
             // 
-            this.btnAcessar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAcessar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(68)))), ((int)(((byte)(78)))));
             this.btnAcessar.FlatAppearance.BorderSize = 0;
             this.btnAcessar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcessar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcessar.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcessar.ForeColor = System.Drawing.Color.White;
-            this.btnAcessar.Location = new System.Drawing.Point(134, 386);
+            this.btnAcessar.Location = new System.Drawing.Point(134, 343);
             this.btnAcessar.Name = "btnAcessar";
             this.btnAcessar.Size = new System.Drawing.Size(111, 37);
             this.btnAcessar.TabIndex = 2;
@@ -125,7 +127,8 @@
             // labLogin
             // 
             this.labLogin.AutoSize = true;
-            this.labLogin.Location = new System.Drawing.Point(53, 246);
+            this.labLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.labLogin.Location = new System.Drawing.Point(53, 204);
             this.labLogin.Name = "labLogin";
             this.labLogin.Size = new System.Drawing.Size(52, 21);
             this.labLogin.TabIndex = 4;
@@ -134,7 +137,8 @@
             // labSenha
             // 
             this.labSenha.AutoSize = true;
-            this.labSenha.Location = new System.Drawing.Point(53, 307);
+            this.labSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.labSenha.Location = new System.Drawing.Point(53, 265);
             this.labSenha.Name = "labSenha";
             this.labSenha.Size = new System.Drawing.Size(56, 21);
             this.labSenha.TabIndex = 5;
@@ -145,8 +149,8 @@
             this.labNotificacao.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labNotificacao.AutoSize = true;
             this.labNotificacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labNotificacao.ForeColor = System.Drawing.Color.DarkRed;
-            this.labNotificacao.Location = new System.Drawing.Point(104, 426);
+            this.labNotificacao.ForeColor = System.Drawing.Color.Red;
+            this.labNotificacao.Location = new System.Drawing.Point(107, 389);
             this.labNotificacao.Name = "labNotificacao";
             this.labNotificacao.Size = new System.Drawing.Size(171, 42);
             this.labNotificacao.TabIndex = 6;
@@ -155,10 +159,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Agenda_OS.Properties.Resources.Agenda_OS;
-            this.pictureBox1.Location = new System.Drawing.Point(119, 90);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(134, 90);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(141, 135);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -170,8 +174,8 @@
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.CancelButton = this.btnFechar;
             this.ClientSize = new System.Drawing.Size(379, 494);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labNotificacao);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labSenha);
             this.Controls.Add(this.labLogin);
             this.Controls.Add(this.btnAcessar);
