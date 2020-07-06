@@ -12,6 +12,18 @@ namespace Agenda_OS
 {
     public partial class FormOS : Form
     {
+        private string action;
+
+        public string Action
+        {
+            get { return action; }
+            set { action = value; }
+        }
+
+        public Empresa Empresa { get; set; }
+
+        public Usuario Usuario { get; set; }
+
         public FormOS()
         {
             InitializeComponent();

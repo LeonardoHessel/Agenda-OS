@@ -122,7 +122,35 @@ BEGIN
 END $$
 DELIMITER ;
 
+DROP TABLE IF EXISTS `empresa`;
+CREATE TABLE IF NOT EXISTS `empresa`(
+	`id` INT,
+    `cnpj` CHAR(14),
+    `razao` VARCHAR(60),
+    `nome` VARCHAR(60),
+    `del` BOOL,
+    PRIMARY KEY(`id`)
+)ENGINE = InnoDB;
 
+DROP TABLE IF EXISTS `os`;
+CREATE TABLE IF NOT EXISTS `os`(
+	`id` INT,
+    `empresa` INT,
+    `solicitante` VARCHAR(45),
+    `usuario` INT,
+    `assunto` VARCHAR(50),
+    `descricao` TEXT,
+    `solucao` TEXT,
+    `produto` VARCHAR(20),
+    `atendimento` VARCHAR(20),
+    `abertura` DATETIME,
+    `fechamento` DATETIME,
+    `situacao` VARCHAR(20),
+    `del` BOOL,
+    PRIMARY KEY(`id`),
+    CONSTRAINT `fk_empresa` FOREIGN KEY (`empresa`) REFERENCES `empresa`(`id`),
+    CONSTRAINT `fk_usuario_OS` FOREIGN KEY (`usuario`) REFERENCES `usuario`(`id`)
+)ENGINE = InnoDB;
 
 
 

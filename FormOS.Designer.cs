@@ -68,7 +68,7 @@
             // cbUsuario
             // 
             this.cbUsuario.FormattingEnabled = true;
-            this.cbUsuario.Location = new System.Drawing.Point(12, 81);
+            this.cbUsuario.Location = new System.Drawing.Point(338, 81);
             this.cbUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbUsuario.Name = "cbUsuario";
             this.cbUsuario.Size = new System.Drawing.Size(320, 25);
@@ -76,7 +76,7 @@
             // 
             // txtAssunto
             // 
-            this.txtAssunto.Location = new System.Drawing.Point(12, 136);
+            this.txtAssunto.Location = new System.Drawing.Point(338, 136);
             this.txtAssunto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAssunto.Name = "txtAssunto";
             this.txtAssunto.Size = new System.Drawing.Size(320, 25);
@@ -84,7 +84,7 @@
             // 
             // txtEmpresa
             // 
-            this.txtEmpresa.Location = new System.Drawing.Point(338, 81);
+            this.txtEmpresa.Location = new System.Drawing.Point(12, 81);
             this.txtEmpresa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmpresa.Name = "txtEmpresa";
             this.txtEmpresa.Size = new System.Drawing.Size(289, 25);
@@ -93,11 +93,12 @@
             // txtCNPJ
             // 
             this.txtCNPJ.Enabled = false;
-            this.txtCNPJ.Location = new System.Drawing.Point(338, 136);
+            this.txtCNPJ.Location = new System.Drawing.Point(12, 136);
             this.txtCNPJ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCNPJ.Name = "txtCNPJ";
             this.txtCNPJ.Size = new System.Drawing.Size(140, 25);
             this.txtCNPJ.TabIndex = 3;
+            this.txtCNPJ.TabStop = false;
             this.txtCNPJ.Text = "00.000.000/0000-00";
             // 
             // pTitulo
@@ -164,7 +165,7 @@
             // 
             this.pRodape.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pRodape.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pRodape.Location = new System.Drawing.Point(0, 427);
+            this.pRodape.Location = new System.Drawing.Point(0, 424);
             this.pRodape.Name = "pRodape";
             this.pRodape.Size = new System.Drawing.Size(670, 20);
             this.pRodape.TabIndex = 5;
@@ -179,7 +180,7 @@
             // 
             // txtQuem
             // 
-            this.txtQuem.Location = new System.Drawing.Point(484, 136);
+            this.txtQuem.Location = new System.Drawing.Point(158, 136);
             this.txtQuem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtQuem.Name = "txtQuem";
             this.txtQuem.Size = new System.Drawing.Size(174, 25);
@@ -206,7 +207,7 @@
             // labUsuario
             // 
             this.labUsuario.AutoSize = true;
-            this.labUsuario.Location = new System.Drawing.Point(9, 60);
+            this.labUsuario.Location = new System.Drawing.Point(335, 60);
             this.labUsuario.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labUsuario.Name = "labUsuario";
             this.labUsuario.Size = new System.Drawing.Size(53, 17);
@@ -216,7 +217,7 @@
             // labEmpresa
             // 
             this.labEmpresa.AutoSize = true;
-            this.labEmpresa.Location = new System.Drawing.Point(335, 60);
+            this.labEmpresa.Location = new System.Drawing.Point(9, 60);
             this.labEmpresa.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labEmpresa.Name = "labEmpresa";
             this.labEmpresa.Size = new System.Drawing.Size(59, 17);
@@ -226,7 +227,7 @@
             // labAssunto
             // 
             this.labAssunto.AutoSize = true;
-            this.labAssunto.Location = new System.Drawing.Point(9, 115);
+            this.labAssunto.Location = new System.Drawing.Point(335, 115);
             this.labAssunto.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labAssunto.Name = "labAssunto";
             this.labAssunto.Size = new System.Drawing.Size(54, 17);
@@ -236,7 +237,7 @@
             // labCNPJ
             // 
             this.labCNPJ.AutoSize = true;
-            this.labCNPJ.Location = new System.Drawing.Point(335, 115);
+            this.labCNPJ.Location = new System.Drawing.Point(9, 115);
             this.labCNPJ.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labCNPJ.Name = "labCNPJ";
             this.labCNPJ.Size = new System.Drawing.Size(37, 17);
@@ -246,7 +247,7 @@
             // labQuem
             // 
             this.labQuem.AutoSize = true;
-            this.labQuem.Location = new System.Drawing.Point(481, 115);
+            this.labQuem.Location = new System.Drawing.Point(155, 115);
             this.labQuem.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labQuem.Name = "labQuem";
             this.labQuem.Size = new System.Drawing.Size(98, 17);
@@ -332,7 +333,7 @@
             // labProduto
             // 
             this.labProduto.AutoSize = true;
-            this.labProduto.Location = new System.Drawing.Point(12, 288);
+            this.labProduto.Location = new System.Drawing.Point(9, 288);
             this.labProduto.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labProduto.Name = "labProduto";
             this.labProduto.Size = new System.Drawing.Size(55, 17);
@@ -400,7 +401,7 @@
             this.btnPesquisa.FlatAppearance.BorderSize = 0;
             this.btnPesquisa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisa.Image = global::Agenda_OS.Properties.Resources.SearchX16;
-            this.btnPesquisa.Location = new System.Drawing.Point(633, 81);
+            this.btnPesquisa.Location = new System.Drawing.Point(307, 81);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(25, 25);
             this.btnPesquisa.TabIndex = 8;
@@ -410,7 +411,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 447);
+            this.ClientSize = new System.Drawing.Size(670, 444);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnSalvar);
