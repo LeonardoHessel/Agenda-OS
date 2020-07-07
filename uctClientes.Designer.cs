@@ -40,10 +40,14 @@
             this.ilBotoes = new System.Windows.Forms.ImageList(this.components);
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.cbInativos = new System.Windows.Forms.CheckBox();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnpjcpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbInativos = new System.Windows.Forms.CheckBox();
+            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,6 +123,7 @@
             this.btnNovo.Size = new System.Drawing.Size(50, 50);
             this.btnNovo.TabIndex = 6;
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // ilBotoes
             // 
@@ -155,12 +160,26 @@
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.cnpjcpf,
-            this.Nome});
+            this.Nome,
+            this.Endereco,
+            this.CEP,
+            this.Telefone,
+            this.Celular});
             this.dgvClientes.Location = new System.Drawing.Point(8, 43);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.Size = new System.Drawing.Size(784, 408);
             this.dgvClientes.TabIndex = 9;
+            // 
+            // cbInativos
+            // 
+            this.cbInativos.AutoSize = true;
+            this.cbInativos.Location = new System.Drawing.Point(364, 13);
+            this.cbInativos.Name = "cbInativos";
+            this.cbInativos.Size = new System.Drawing.Size(106, 21);
+            this.cbInativos.TabIndex = 10;
+            this.cbInativos.Text = "Listar inativos";
+            this.cbInativos.UseVisualStyleBackColor = true;
             // 
             // ID
             // 
@@ -181,15 +200,29 @@
             this.Nome.Name = "Nome";
             this.Nome.ReadOnly = true;
             // 
-            // cbInativos
+            // Endereco
             // 
-            this.cbInativos.AutoSize = true;
-            this.cbInativos.Location = new System.Drawing.Point(364, 13);
-            this.cbInativos.Name = "cbInativos";
-            this.cbInativos.Size = new System.Drawing.Size(106, 21);
-            this.cbInativos.TabIndex = 10;
-            this.cbInativos.Text = "Listar inativos";
-            this.cbInativos.UseVisualStyleBackColor = true;
+            this.Endereco.HeaderText = "Endereço";
+            this.Endereco.Name = "Endereco";
+            this.Endereco.ReadOnly = true;
+            // 
+            // CEP
+            // 
+            this.CEP.HeaderText = "CEP";
+            this.CEP.Name = "CEP";
+            this.CEP.ReadOnly = true;
+            // 
+            // Telefone
+            // 
+            this.Telefone.HeaderText = "Telefone";
+            this.Telefone.Name = "Telefone";
+            this.Telefone.ReadOnly = true;
+            // 
+            // Celular
+            // 
+            this.Celular.HeaderText = "Celular";
+            this.Celular.Name = "Celular";
+            this.Celular.ReadOnly = true;
             // 
             // UctClientes
             // 
@@ -229,9 +262,13 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.ImageList ilBotoes;
+        private System.Windows.Forms.CheckBox cbInativos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn cnpjcpf;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.CheckBox cbInativos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Endereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Celular;
     }
 }

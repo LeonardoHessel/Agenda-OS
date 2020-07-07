@@ -42,6 +42,42 @@ CREATE TABLE IF NOT EXISTS `permissao`(
     CONSTRAINT `fk_modulo` FOREIGN KEY (`modulo`) REFERENCES `modulo`(`id`)
 )ENGINE = InnoDB;
 
+<<<<<<< Updated upstream
+=======
+DROP TABLE IF EXISTS `empresa`;
+CREATE TABLE IF NOT EXISTS `empresa`(
+	id INT PRIMARY key auto_increment,
+    cnpj CHAR(14),
+    razao VARCHAR(60),
+    nome VARCHAR(60),
+    endereco VARCHAR(300),
+    cep varchar(8),
+    telefone CHAR(10),
+    celular CHAR(11),
+    del BOOL
+)ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `os`;
+CREATE TABLE IF NOT EXISTS `os`(
+	`id` INT,
+    `empresa` INT,
+    `solicitante` VARCHAR(45),
+    `usuario` INT,
+    `assunto` VARCHAR(50),
+    `descricao` TEXT,
+    `solucao` TEXT,
+    `produto` VARCHAR(20),
+    `atendimento` VARCHAR(20),
+    `abertura` DATETIME,
+    `fechamento` DATETIME,
+    `situacao` VARCHAR(20),
+    `del` BOOL,
+    PRIMARY KEY(`id`),
+    FOREIGN KEY (`empresa`) REFERENCES `empresa`(`id`),
+    FOREIGN KEY (`usuario`) REFERENCES `usuario`(`id`)
+)ENGINE = InnoDB;
+
+>>>>>>> Stashed changes
 
 -- Procedimentos --
 DROP PROCEDURE IF EXISTS `AdcPermissoes`;
@@ -122,6 +158,7 @@ BEGIN
 END $$
 DELIMITER ;
 
+<<<<<<< Updated upstream
 
 
 
@@ -137,16 +174,15 @@ DELIMITER ;
 
 
 INSERT INTO `usuario` VALUES (0,'Default','123','Default','2020-01-01','Outro','000000000','0000000000','00000000000','..\\..\\Imagens\\usuarios\\user.png',FALSE);
+=======
+-- Inserts --
+INSERT INTO `usuario` VALUES (0,'Default','123','Default','2020-01-01','','000000000','00000000000','00000000000','..\\..\\Imagens\\usuarios\\user.png',FALSE);
+>>>>>>> Stashed changes
 
 INSERT INTO `modulo` VALUES (0,'Geral','Login',true);
 INSERT INTO `modulo` VALUES (0,'Usuários','Ler Usuários',false);
 INSERT INTO `modulo` VALUES (0,'Usuários','Gravar Usuários',false);
 INSERT INTO `modulo` VALUES (0,'Usuários','Inativar Usuários',false);
-
-
-
-
-
 
 /*
 DROP TABLE IF EXISTS `anotacao`;
@@ -155,10 +191,6 @@ CREATE TABLE IF NOT EXISTS `anotacao`(
     texto varchar(250)
 )ENGINE = InnoDB;
 */
-
-
-
-
 
 /*
 DROP TABLE IF EXISTS ``;

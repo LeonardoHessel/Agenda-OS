@@ -16,7 +16,7 @@ namespace Agenda_OS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+
             bool exit = true;
             while (exit)
             {
