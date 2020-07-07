@@ -1,0 +1,2 @@
+AZUL -> HEX #026878
+CINZA alguns textos -> HEX#666666 
