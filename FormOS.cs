@@ -38,8 +38,13 @@ namespace Agenda_OS
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Close();
+                btnFechar.PerformClick();
             }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

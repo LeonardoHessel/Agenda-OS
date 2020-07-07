@@ -4,9 +4,10 @@ USE `agenda`;
 
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log` (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    datahora DATETIME NOT NULL,
-    descricao TEXT
+	`id` INT AUTO_INCREMENT,
+    `datahora` DATETIME NOT NULL,
+    `descricao` TEXT,
+	PRIMARY KEY (`id`)
 )ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `usuario`;
@@ -16,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `usuario`(
     `senha` VARCHAR(45) NOT NULL,
     `nome` VARCHAR(45),
     `nasc` DATE,
-    `sexo` SET('Feminino','Masculino','Outro'),
+    `sexo` SET('Feminino','Masculino'),
     `rg` CHAR(9),
     `cpf` CHAR(11),
     `cnh` CHAR(11),
@@ -38,9 +39,41 @@ CREATE TABLE IF NOT EXISTS `permissao`(
     `modulo` INT,
     `acesso` BOOL DEFAULT FALSE,
     PRIMARY KEY(`usuario`,`modulo`),
-    CONSTRAINT `fk_usuario` FOREIGN KEY (`usuario`) REFERENCES `usuario`(`id`),
-    CONSTRAINT `fk_modulo` FOREIGN KEY (`modulo`) REFERENCES `modulo`(`id`)
+    FOREIGN KEY (`usuario`) REFERENCES `usuario`(`id`),
+    FOREIGN KEY (`modulo`) REFERENCES `modulo`(`id`)
 )ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `empresa`;
+CREATE TABLE IF NOT EXISTS `empresa`(
+	`id` INT,
+    `cnpj` CHAR(14),
+    `razao` VARCHAR(60),
+    `nome` VARCHAR(60),
+    `del` BOOL,
+    PRIMARY KEY(`id`)
+)ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `os`;
+CREATE TABLE IF NOT EXISTS `os`(
+	`id` INT,
+    `empresa` INT,
+    `solicitante` VARCHAR(45),
+    `usuario` INT,
+    `assunto` VARCHAR(50),
+    `descricao` TEXT,
+    `solucao` TEXT,
+    `produto` VARCHAR(20),
+    `atendimento` VARCHAR(20),
+    `abertura` DATETIME,
+    `fechamento` DATETIME,
+    `situacao` VARCHAR(20),
+    `del` BOOL,
+    PRIMARY KEY(`id`),
+    FOREIGN KEY (`empresa`) REFERENCES `empresa`(`id`),
+    FOREIGN KEY (`usuario`) REFERENCES `usuario`(`id`)
+)ENGINE = InnoDB;
+
+
 
 
 -- Procedimentos --
@@ -122,49 +155,10 @@ BEGIN
 END $$
 DELIMITER ;
 
-DROP TABLE IF EXISTS `empresa`;
-CREATE TABLE IF NOT EXISTS `empresa`(
-	`id` INT,
-    `cnpj` CHAR(14),
-    `razao` VARCHAR(60),
-    `nome` VARCHAR(60),
-    `del` BOOL,
-    PRIMARY KEY(`id`)
-)ENGINE = InnoDB;
-
-DROP TABLE IF EXISTS `os`;
-CREATE TABLE IF NOT EXISTS `os`(
-	`id` INT,
-    `empresa` INT,
-    `solicitante` VARCHAR(45),
-    `usuario` INT,
-    `assunto` VARCHAR(50),
-    `descricao` TEXT,
-    `solucao` TEXT,
-    `produto` VARCHAR(20),
-    `atendimento` VARCHAR(20),
-    `abertura` DATETIME,
-    `fechamento` DATETIME,
-    `situacao` VARCHAR(20),
-    `del` BOOL,
-    PRIMARY KEY(`id`),
-    CONSTRAINT `fk_empresa` FOREIGN KEY (`empresa`) REFERENCES `empresa`(`id`),
-    CONSTRAINT `fk_usuario_OS` FOREIGN KEY (`usuario`) REFERENCES `usuario`(`id`)
-)ENGINE = InnoDB;
 
 
-
-
-
-
-
-
-
-
-
-
-
-INSERT INTO `usuario` VALUES (0,'Default','123','Default','2020-01-01','Outro','000000000','0000000000','00000000000','..\\..\\Imagens\\usuarios\\user.png',FALSE);
+-- Inserts --
+INSERT INTO `usuario` VALUES (0,'Default','123','Default','2020-01-01','','000000000','00000000000','00000000000','..\\..\\Imagens\\usuarios\\user.png',FALSE);
 
 INSERT INTO `modulo` VALUES (0,'Geral','Login',true);
 INSERT INTO `modulo` VALUES (0,'Usuários','Ler Usuários',false);

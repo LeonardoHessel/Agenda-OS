@@ -160,6 +160,7 @@
             this.btnFechar.Size = new System.Drawing.Size(50, 50);
             this.btnFechar.TabIndex = 0;
             this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // pRodape
             // 
