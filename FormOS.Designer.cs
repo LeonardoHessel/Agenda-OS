@@ -36,7 +36,6 @@
             this.labId = new System.Windows.Forms.Label();
             this.labTitulo = new System.Windows.Forms.Label();
             this.labOSid = new System.Windows.Forms.Label();
-            this.btnFechar = new System.Windows.Forms.Button();
             this.pRodape = new System.Windows.Forms.Panel();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtQuem = new System.Windows.Forms.TextBox();
@@ -58,10 +57,11 @@
             this.labProduto = new System.Windows.Forms.Label();
             this.labAtendimento = new System.Windows.Forms.Label();
             this.cbAtendimento = new System.Windows.Forms.ComboBox();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnPesquisa = new System.Windows.Forms.Button();
+            this.btnFechar = new System.Windows.Forms.Button();
             this.pTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,20 +147,6 @@
             this.labOSid.Size = new System.Drawing.Size(63, 25);
             this.labOSid.TabIndex = 2;
             this.labOSid.Text = "OS nº";
-            // 
-            // btnFechar
-            // 
-            this.btnFechar.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnFechar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnFechar.FlatAppearance.BorderSize = 0;
-            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechar.Image = global::Agenda_OS.Properties.Resources.CloseX32;
-            this.btnFechar.Location = new System.Drawing.Point(620, 0);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(50, 50);
-            this.btnFechar.TabIndex = 0;
-            this.btnFechar.UseVisualStyleBackColor = false;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // pRodape
             // 
@@ -360,18 +346,6 @@
             this.cbAtendimento.Size = new System.Drawing.Size(261, 25);
             this.cbAtendimento.TabIndex = 29;
             // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Image = global::Agenda_OS.Properties.Resources.EditX32;
-            this.btnEditar.Location = new System.Drawing.Point(552, 364);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(50, 50);
-            this.btnEditar.TabIndex = 33;
-            this.btnEditar.UseVisualStyleBackColor = false;
-            // 
             // btnDeletar
             // 
             this.btnDeletar.BackColor = System.Drawing.Color.DarkRed;
@@ -383,6 +357,18 @@
             this.btnDeletar.Size = new System.Drawing.Size(50, 50);
             this.btnDeletar.TabIndex = 34;
             this.btnDeletar.UseVisualStyleBackColor = false;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Image = global::Agenda_OS.Properties.Resources.EditX32;
+            this.btnEditar.Location = new System.Drawing.Point(552, 364);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(50, 50);
+            this.btnEditar.TabIndex = 33;
+            this.btnEditar.UseVisualStyleBackColor = false;
             // 
             // btnSalvar
             // 
@@ -407,6 +393,20 @@
             this.btnPesquisa.Size = new System.Drawing.Size(25, 25);
             this.btnPesquisa.TabIndex = 8;
             this.btnPesquisa.UseVisualStyleBackColor = false;
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnFechar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnFechar.FlatAppearance.BorderSize = 0;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Image = global::Agenda_OS.Properties.Resources.CloseX32;
+            this.btnFechar.Location = new System.Drawing.Point(620, 0);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(50, 50);
+            this.btnFechar.TabIndex = 0;
+            this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // FormOS
             // 

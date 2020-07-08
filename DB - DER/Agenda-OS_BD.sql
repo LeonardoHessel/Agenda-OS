@@ -46,11 +46,25 @@ CREATE TABLE IF NOT EXISTS `permissao`(
 DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE IF NOT EXISTS `empresa`(
 	`id` INT,
-    `cnpj` CHAR(14),
+    `cnpj` CHAR(14) UNIQUE,
+    `ie` CHAR(12) UNIQUE,
     `razao` VARCHAR(60),
     `nome` VARCHAR(60),
+    `regime` SET('Lucro','Simples'),
+    `contador` INT,
+    `logradouro` VARCHAR(60),
+    `numero` VARCHAR(6),
+    `complemento` VARCHAR(20),
+    `cep` CHAR(8),
+    `bairro` VARCHAR(45),
+    `municipio` VARCHAR(45),
+    `uf` CHAR(2),
+    `email` VARCHAR(250),
+    `telefone` VARCHAR(60),
+    `observacao` TEXT,
     `del` BOOL,
     PRIMARY KEY(`id`)
+    -- FOREIGN KEY (`contador`) REFERENCES `contador`(`id`)
 )ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `os`;
