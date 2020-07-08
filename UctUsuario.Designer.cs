@@ -57,7 +57,7 @@
             // 
             this.labBuscar.AutoSize = true;
             this.labBuscar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labBuscar.Location = new System.Drawing.Point(8, 14);
+            this.labBuscar.Location = new System.Drawing.Point(8, 43);
             this.labBuscar.Name = "labBuscar";
             this.labBuscar.Size = new System.Drawing.Size(44, 17);
             this.labBuscar.TabIndex = 0;
@@ -71,7 +71,7 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.ImageIndex = 0;
             this.btnNovo.ImageList = this.ilBotoes;
-            this.btnNovo.Location = new System.Drawing.Point(742, 457);
+            this.btnNovo.Location = new System.Drawing.Point(83, 104);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(50, 50);
             this.btnNovo.TabIndex = 1;
@@ -90,7 +90,7 @@
             // txtBusca
             // 
             this.txtBusca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusca.Location = new System.Drawing.Point(58, 8);
+            this.txtBusca.Location = new System.Drawing.Point(58, 37);
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(300, 29);
             this.txtBusca.TabIndex = 1;
@@ -104,7 +104,7 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.ImageIndex = 1;
             this.btnEditar.ImageList = this.ilBotoes;
-            this.btnEditar.Location = new System.Drawing.Point(686, 457);
+            this.btnEditar.Location = new System.Drawing.Point(27, 104);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
             this.btnEditar.TabIndex = 4;
@@ -120,6 +120,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTecnico.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvTecnico.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTecnico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTecnico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -131,10 +132,10 @@
             this.RG,
             this.CPF,
             this.CNH});
-            this.dgvTecnico.Location = new System.Drawing.Point(8, 43);
+            this.dgvTecnico.Location = new System.Drawing.Point(0, 199);
             this.dgvTecnico.Name = "dgvTecnico";
             this.dgvTecnico.ReadOnly = true;
-            this.dgvTecnico.Size = new System.Drawing.Size(784, 408);
+            this.dgvTecnico.Size = new System.Drawing.Size(660, 398);
             this.dgvTecnico.TabIndex = 5;
             this.dgvTecnico.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvTecnico_MouseDoubleClick);
             // 
@@ -210,7 +211,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(553, 14);
+            this.label1.Location = new System.Drawing.Point(413, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 17);
             this.label1.TabIndex = 6;
@@ -221,7 +222,7 @@
             this.Selecionado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Selecionado.AutoSize = true;
             this.Selecionado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Selecionado.Location = new System.Drawing.Point(675, 14);
+            this.Selecionado.Location = new System.Drawing.Point(535, 43);
             this.Selecionado.Name = "Selecionado";
             this.Selecionado.Size = new System.Drawing.Size(61, 17);
             this.Selecionado.TabIndex = 7;
@@ -232,7 +233,7 @@
             this.labNS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labNS.AutoSize = true;
             this.labNS.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labNS.Location = new System.Drawing.Point(742, 14);
+            this.labNS.Location = new System.Drawing.Point(602, 43);
             this.labNS.Name = "labNS";
             this.labNS.Size = new System.Drawing.Size(15, 17);
             this.labNS.TabIndex = 9;
@@ -244,7 +245,7 @@
             this.labNT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labNT.AutoSize = true;
             this.labNT.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labNT.Location = new System.Drawing.Point(598, 14);
+            this.labNT.Location = new System.Drawing.Point(458, 43);
             this.labNT.Name = "labNT";
             this.labNT.Size = new System.Drawing.Size(15, 17);
             this.labNT.TabIndex = 8;
@@ -254,7 +255,7 @@
             // chbDeletados
             // 
             this.chbDeletados.AutoSize = true;
-            this.chbDeletados.Location = new System.Drawing.Point(364, 13);
+            this.chbDeletados.Location = new System.Drawing.Point(364, 42);
             this.chbDeletados.Name = "chbDeletados";
             this.chbDeletados.Size = new System.Drawing.Size(106, 21);
             this.chbDeletados.TabIndex = 2;
@@ -281,7 +282,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UctUsuario";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(800, 515);
+            this.Size = new System.Drawing.Size(660, 597);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTecnico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
