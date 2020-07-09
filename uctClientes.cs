@@ -26,9 +26,21 @@ namespace Agenda_OS
             }
         }
 
+        private List<Empresa> listarempresa { get; set; }
+  
+
+        private void CarregarEmpresa()
+        {
+            this.listarempresa = Empresa.ListaEmpresa();
+            dgvClientes.DataSource = this.listarempresa;
+            
+        }
+
         public UctClientes()
         {
             InitializeComponent();
+            CarregarEmpresa();
+            
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -37,6 +49,5 @@ namespace Agenda_OS
             frmclientes.ShowDialog();
         }
 
-        
     }
 }

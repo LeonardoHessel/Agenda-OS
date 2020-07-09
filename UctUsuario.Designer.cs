@@ -36,15 +36,6 @@
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvTecnico = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.Selecionado = new System.Windows.Forms.Label();
             this.labNS = new System.Windows.Forms.Label();
@@ -66,7 +57,7 @@
             // btnNovo
             // 
             this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNovo.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnNovo.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.btnNovo.FlatAppearance.BorderSize = 0;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.ImageIndex = 0;
@@ -122,16 +113,6 @@
             this.dgvTecnico.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvTecnico.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTecnico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTecnico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Login,
-            this.Senha,
-            this.Nome,
-            this.Nascimento,
-            this.Sexo,
-            this.RG,
-            this.CPF,
-            this.CNH});
             this.dgvTecnico.Location = new System.Drawing.Point(0, 199);
             this.dgvTecnico.Name = "dgvTecnico";
             this.dgvTecnico.ReadOnly = true;
@@ -139,79 +120,12 @@
             this.dgvTecnico.TabIndex = 5;
             this.dgvTecnico.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvTecnico_MouseDoubleClick);
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "id";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
-            // 
-            // Login
-            // 
-            this.Login.DataPropertyName = "login";
-            this.Login.HeaderText = "Login";
-            this.Login.Name = "Login";
-            this.Login.ReadOnly = true;
-            // 
-            // Senha
-            // 
-            this.Senha.DataPropertyName = "senha";
-            this.Senha.HeaderText = "Senha";
-            this.Senha.Name = "Senha";
-            this.Senha.ReadOnly = true;
-            this.Senha.Visible = false;
-            // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "nome";
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 150;
-            // 
-            // Nascimento
-            // 
-            this.Nascimento.DataPropertyName = "nasc";
-            this.Nascimento.HeaderText = "Nascimento";
-            this.Nascimento.Name = "Nascimento";
-            this.Nascimento.ReadOnly = true;
-            // 
-            // Sexo
-            // 
-            this.Sexo.DataPropertyName = "sexo";
-            this.Sexo.HeaderText = "Sexo";
-            this.Sexo.Name = "Sexo";
-            this.Sexo.ReadOnly = true;
-            this.Sexo.Width = 75;
-            // 
-            // RG
-            // 
-            this.RG.DataPropertyName = "rg";
-            this.RG.HeaderText = "RG";
-            this.RG.Name = "RG";
-            this.RG.ReadOnly = true;
-            // 
-            // CPF
-            // 
-            this.CPF.DataPropertyName = "cpf";
-            this.CPF.HeaderText = "CPF";
-            this.CPF.Name = "CPF";
-            this.CPF.ReadOnly = true;
-            // 
-            // CNH
-            // 
-            this.CNH.DataPropertyName = "cnh";
-            this.CNH.HeaderText = "CNH";
-            this.CNH.Name = "CNH";
-            this.CNH.ReadOnly = true;
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(413, 43);
+            this.label1.Location = new System.Drawing.Point(431, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 17);
             this.label1.TabIndex = 6;
@@ -222,7 +136,7 @@
             this.Selecionado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Selecionado.AutoSize = true;
             this.Selecionado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Selecionado.Location = new System.Drawing.Point(535, 43);
+            this.Selecionado.Location = new System.Drawing.Point(548, 137);
             this.Selecionado.Name = "Selecionado";
             this.Selecionado.Size = new System.Drawing.Size(61, 17);
             this.Selecionado.TabIndex = 7;
@@ -233,7 +147,7 @@
             this.labNS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labNS.AutoSize = true;
             this.labNS.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labNS.Location = new System.Drawing.Point(602, 43);
+            this.labNS.Location = new System.Drawing.Point(615, 137);
             this.labNS.Name = "labNS";
             this.labNS.Size = new System.Drawing.Size(15, 17);
             this.labNS.TabIndex = 9;
@@ -245,7 +159,7 @@
             this.labNT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labNT.AutoSize = true;
             this.labNT.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labNT.Location = new System.Drawing.Point(458, 43);
+            this.labNT.Location = new System.Drawing.Point(479, 137);
             this.labNT.Name = "labNT";
             this.labNT.Size = new System.Drawing.Size(15, 17);
             this.labNT.TabIndex = 8;
@@ -300,15 +214,6 @@
         private System.Windows.Forms.Label Selecionado;
         private System.Windows.Forms.Label labNS;
         private System.Windows.Forms.Label labNT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Login;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Senha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nascimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sexo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNH;
         private System.Windows.Forms.CheckBox chbDeletados;
         private System.Windows.Forms.ImageList ilBotoes;
     }

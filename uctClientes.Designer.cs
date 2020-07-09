@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UctClientes));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtbuscar = new System.Windows.Forms.TextBox();
             this.Total = new System.Windows.Forms.Label();
             this.Filtrados = new System.Windows.Forms.Label();
             this.labNT = new System.Windows.Forms.Label();
@@ -40,13 +40,14 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cnpjcpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNPJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbInativos = new System.Windows.Forms.CheckBox();
+            this.cblinativos = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,14 +55,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtbuscar
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(78, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 29);
-            this.textBox1.TabIndex = 0;
+            this.txtbuscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtbuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbuscar.Location = new System.Drawing.Point(78, 39);
+            this.txtbuscar.Name = "txtbuscar";
+            this.txtbuscar.Size = new System.Drawing.Size(300, 29);
+            this.txtbuscar.TabIndex = 0;
             // 
             // Total
             // 
@@ -153,7 +154,8 @@
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.cnpjcpf,
+            this.CNPJ,
+            this.razao,
             this.Nome,
             this.Endereco,
             this.CEP,
@@ -172,11 +174,17 @@
             this.ID.ReadOnly = true;
             this.ID.Width = 50;
             // 
-            // cnpjcpf
+            // CNPJ
             // 
-            this.cnpjcpf.HeaderText = "CNPJ / CPF";
-            this.cnpjcpf.Name = "cnpjcpf";
-            this.cnpjcpf.ReadOnly = true;
+            this.CNPJ.HeaderText = "CNPJ";
+            this.CNPJ.Name = "CNPJ";
+            this.CNPJ.ReadOnly = true;
+            // 
+            // razao
+            // 
+            this.razao.HeaderText = "Razao";
+            this.razao.Name = "razao";
+            this.razao.ReadOnly = true;
             // 
             // Nome
             // 
@@ -208,16 +216,16 @@
             this.Celular.Name = "Celular";
             this.Celular.ReadOnly = true;
             // 
-            // cbInativos
+            // cblinativos
             // 
-            this.cbInativos.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbInativos.AutoSize = true;
-            this.cbInativos.Location = new System.Drawing.Point(384, 44);
-            this.cbInativos.Name = "cbInativos";
-            this.cbInativos.Size = new System.Drawing.Size(106, 21);
-            this.cbInativos.TabIndex = 10;
-            this.cbInativos.Text = "Listar inativos";
-            this.cbInativos.UseVisualStyleBackColor = true;
+            this.cblinativos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cblinativos.AutoSize = true;
+            this.cblinativos.Location = new System.Drawing.Point(384, 44);
+            this.cblinativos.Name = "cblinativos";
+            this.cblinativos.Size = new System.Drawing.Size(106, 21);
+            this.cblinativos.TabIndex = 10;
+            this.cblinativos.Text = "Listar inativos";
+            this.cblinativos.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -258,7 +266,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.cbInativos);
+            this.Controls.Add(this.cblinativos);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNovo);
@@ -266,7 +274,7 @@
             this.Controls.Add(this.labNT);
             this.Controls.Add(this.Filtrados);
             this.Controls.Add(this.Total);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtbuscar);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UctClientes";
@@ -281,7 +289,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtbuscar;
         private System.Windows.Forms.Label Total;
         private System.Windows.Forms.Label Filtrados;
         private System.Windows.Forms.Label labNT;
@@ -290,16 +298,17 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.ImageList ilBotoes;
-        private System.Windows.Forms.CheckBox cbInativos;
+        private System.Windows.Forms.CheckBox cblinativos;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cnpjcpf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNPJ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn razao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Endereco;
         private System.Windows.Forms.DataGridViewTextBoxColumn CEP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn Celular;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
     }
 }

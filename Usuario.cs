@@ -130,6 +130,7 @@ namespace Agenda_OS
             }
             DataTable table = usuario.GetTable();
             List<Usuario> listaUsuario = new List<Usuario>();
+
             if (table != null)
             {
                 listaUsuario = (from DataRow dr in table.Rows select new Usuario() {

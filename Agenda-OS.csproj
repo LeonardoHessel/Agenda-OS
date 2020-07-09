@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexao.cs" />
+    <Compile Include="Empresa.cs" />
     <Compile Include="FormAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
