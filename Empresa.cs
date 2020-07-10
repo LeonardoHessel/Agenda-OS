@@ -51,28 +51,26 @@ namespace Agenda_OS
             string sql;
             Empresa empresa = new Empresa();
            
-            sql = "SELECT * FROM `empresa`";
+            sql = "SELECT id, cnpj, razao, nome, endereco, cep, telefone, celular FROM empresa";
             empresa.NewCMD(sql, CommandType.Text);
             
             DataTable table = empresa.GetTable();
             List<Empresa> listarempresa = new List<Empresa>();
 
-                listarempresa = (from DataRow dr in table.Rows
-                                 select new Empresa()
-                                 {
-                                     ID = Convert.ToInt64(dr["id"]),
-                                     CNPJ = dr["cnpj"].ToString(),
-                                     Razao = dr["razao"].ToString(),
-                                     Nome = dr["nome"].ToString(),
-                                     Endereco = dr["endereco"].ToString(),
-                                     CEP = dr["cep"].ToString(),
-                                     Telefone = dr["telefone"].ToString(),
-                                     Celular = dr["celular"].ToString(),
-                                 }).ToList();
-                return listarempresa;
-  
-               
-           
+            listarempresa = (from DataRow dr in table.Rows
+                             select new Empresa()
+                             {
+                                 ID = Convert.ToInt64(dr["id"]),
+                                 CNPJ = dr["cnpj"].ToString(),
+                                 Razao = dr["razao"].ToString(),
+                                 Nome = dr["nome"].ToString(),
+                                 Endereco = dr["endereco"].ToString(),
+                                 CEP = dr["cep"].ToString(),
+                                 Telefone = dr["telefone"].ToString(),
+                                 Celular = dr["celular"].ToString(),
+                             }).ToList();
+            return listarempresa;
+ 
         }
     }
 }

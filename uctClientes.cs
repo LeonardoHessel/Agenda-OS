@@ -12,7 +12,7 @@ namespace Agenda_OS
 {
     public partial class UctClientes : UserControl
     {
-        private static UctClientes _instancia;
+        private static UctClientes _instancia;        
 
         public static UctClientes instancia
         {
@@ -27,20 +27,31 @@ namespace Agenda_OS
         }
 
         private List<Empresa> listarempresa { get; set; }
-  
 
+        private void RemoverCampos() {
+            dgvClientes.Columns.Remove("id");
+            dgvClientes.Columns.Remove("razao");
+            dgvClientes.Columns.Remove("cnpj");
+            dgvClientes.Columns.Remove("nome");
+            dgvClientes.Columns.Remove("endereco");
+            dgvClientes.Columns.Remove("celular");
+            dgvClientes.Columns.Remove("telefone");
+            dgvClientes.Columns.Remove("cep");
+        }
         private void CarregarEmpresa()
         {
             this.listarempresa = Empresa.ListaEmpresa();
             dgvClientes.DataSource = this.listarempresa;
-            
         }
 
         public UctClientes()
         {
             InitializeComponent();
             CarregarEmpresa();
-            
+            RemoverCampos();
+
+
+
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
