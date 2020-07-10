@@ -119,6 +119,7 @@
             this.btnNovo.Size = new System.Drawing.Size(50, 50);
             this.btnNovo.TabIndex = 6;
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // ilBotoes
             // 

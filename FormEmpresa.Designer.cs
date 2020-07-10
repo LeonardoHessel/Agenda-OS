@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.labId = new System.Windows.Forms.Label();
+            this.labID = new System.Windows.Forms.Label();
             this.labNum = new System.Windows.Forms.Label();
             this.labTitulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,39 +40,29 @@
             this.labRazao = new System.Windows.Forms.Label();
             this.txtCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.txtRazao = new System.Windows.Forms.TextBox();
-            this.txtFantasia = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.txtIE = new System.Windows.Forms.MaskedTextBox();
             this.labFantasia = new System.Windows.Forms.Label();
             this.labCNPJ = new System.Windows.Forms.Label();
             this.labIE = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbRegime = new System.Windows.Forms.ComboBox();
             this.labRegime = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTelefone = new System.Windows.Forms.TextBox();
             this.labTelefone = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.labEmail = new System.Windows.Forms.Label();
             this.labContador = new System.Windows.Forms.Label();
-            this.Contador = new System.Windows.Forms.ComboBox();
-            this.tab = new System.Windows.Forms.TabControl();
-            this.tabContato = new System.Windows.Forms.TabPage();
-            this.tabContador = new System.Windows.Forms.TabPage();
-            this.gbTelefones = new System.Windows.Forms.GroupBox();
-            this.gbEmail = new System.Windows.Forms.GroupBox();
-            this.tabObservacao = new System.Windows.Forms.TabPage();
+            this.cbContador = new System.Windows.Forms.ComboBox();
             this.txtObservacao = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.labObservacao = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.tab.SuspendLayout();
-            this.tabContato.SuspendLayout();
-            this.gbTelefones.SuspendLayout();
-            this.tabObservacao.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panel1.Controls.Add(this.btnFechar);
-            this.panel1.Controls.Add(this.labId);
+            this.panel1.Controls.Add(this.labID);
             this.panel1.Controls.Add(this.labNum);
             this.panel1.Controls.Add(this.labTitulo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -94,18 +84,19 @@
             this.btnFechar.Size = new System.Drawing.Size(50, 50);
             this.btnFechar.TabIndex = 6;
             this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // labId
+            // labID
             // 
-            this.labId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labId.AutoSize = true;
-            this.labId.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labId.ForeColor = System.Drawing.Color.White;
-            this.labId.Location = new System.Drawing.Point(493, 9);
-            this.labId.Name = "labId";
-            this.labId.Size = new System.Drawing.Size(23, 25);
-            this.labId.TabIndex = 5;
-            this.labId.Text = "0";
+            this.labID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labID.AutoSize = true;
+            this.labID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labID.ForeColor = System.Drawing.Color.White;
+            this.labID.Location = new System.Drawing.Point(493, 9);
+            this.labID.Name = "labID";
+            this.labID.Size = new System.Drawing.Size(23, 25);
+            this.labID.TabIndex = 5;
+            this.labID.Text = "0";
             // 
             // labNum
             // 
@@ -134,7 +125,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 529);
+            this.panel2.Location = new System.Drawing.Point(0, 458);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(624, 20);
@@ -147,7 +138,7 @@
             this.btnDeletar.FlatAppearance.BorderSize = 0;
             this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletar.Image = global::Agenda_OS.Properties.Resources.TrashX32;
-            this.btnDeletar.Location = new System.Drawing.Point(434, 456);
+            this.btnDeletar.Location = new System.Drawing.Point(450, 400);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(50, 50);
             this.btnDeletar.TabIndex = 37;
@@ -160,7 +151,7 @@
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Image = global::Agenda_OS.Properties.Resources.EditX32;
-            this.btnEditar.Location = new System.Drawing.Point(490, 456);
+            this.btnEditar.Location = new System.Drawing.Point(506, 400);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
             this.btnEditar.TabIndex = 36;
@@ -173,11 +164,12 @@
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Image = global::Agenda_OS.Properties.Resources.SaveX32;
-            this.btnSalvar.Location = new System.Drawing.Point(546, 456);
+            this.btnSalvar.Location = new System.Drawing.Point(562, 400);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(50, 50);
             this.btnSalvar.TabIndex = 35;
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // labRazao
             // 
@@ -191,12 +183,12 @@
             // 
             // txtCNPJ
             // 
+            this.txtCNPJ.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtCNPJ.Location = new System.Drawing.Point(298, 80);
             this.txtCNPJ.Mask = " 99,999,999/9999-99";
             this.txtCNPJ.Name = "txtCNPJ";
             this.txtCNPJ.Size = new System.Drawing.Size(154, 25);
             this.txtCNPJ.TabIndex = 39;
-            this.txtCNPJ.Text = "45913696000185";
             // 
             // txtRazao
             // 
@@ -205,21 +197,21 @@
             this.txtRazao.Size = new System.Drawing.Size(280, 25);
             this.txtRazao.TabIndex = 40;
             // 
-            // txtFantasia
+            // txtNome
             // 
-            this.txtFantasia.Location = new System.Drawing.Point(12, 133);
-            this.txtFantasia.Name = "txtFantasia";
-            this.txtFantasia.Size = new System.Drawing.Size(280, 25);
-            this.txtFantasia.TabIndex = 42;
+            this.txtNome.Location = new System.Drawing.Point(12, 133);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(280, 25);
+            this.txtNome.TabIndex = 42;
             // 
             // txtIE
             // 
+            this.txtIE.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtIE.Location = new System.Drawing.Point(458, 80);
             this.txtIE.Mask = " 999,999,999,999";
             this.txtIE.Name = "txtIE";
             this.txtIE.Size = new System.Drawing.Size(154, 25);
             this.txtIE.TabIndex = 41;
-            this.txtIE.Text = "669071366117";
             // 
             // labFantasia
             // 
@@ -251,17 +243,17 @@
             this.labIE.TabIndex = 47;
             this.labIE.Text = "IE";
             // 
-            // comboBox2
+            // cbRegime
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbRegime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRegime.FormattingEnabled = true;
+            this.cbRegime.Items.AddRange(new object[] {
             "Lucro",
             "Simples"});
-            this.comboBox2.Location = new System.Drawing.Point(298, 133);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(154, 25);
-            this.comboBox2.TabIndex = 48;
+            this.cbRegime.Location = new System.Drawing.Point(298, 133);
+            this.cbRegime.Name = "cbRegime";
+            this.cbRegime.Size = new System.Drawing.Size(154, 25);
+            this.cbRegime.TabIndex = 48;
             // 
             // labRegime
             // 
@@ -273,12 +265,12 @@
             this.labRegime.TabIndex = 49;
             this.labRegime.Text = "Regime";
             // 
-            // textBox1
+            // txtTelefone
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 186);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(280, 25);
-            this.textBox1.TabIndex = 50;
+            this.txtTelefone.Location = new System.Drawing.Point(12, 186);
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(280, 25);
+            this.txtTelefone.TabIndex = 50;
             // 
             // labTelefone
             // 
@@ -290,12 +282,12 @@
             this.labTelefone.TabIndex = 51;
             this.labTelefone.Text = "Telefone";
             // 
-            // textBox2
+            // txtEmail
             // 
-            this.textBox2.Location = new System.Drawing.Point(298, 186);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(314, 25);
-            this.textBox2.TabIndex = 52;
+            this.txtEmail.Location = new System.Drawing.Point(298, 186);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(314, 25);
+            this.txtEmail.TabIndex = 52;
             // 
             // labEmail
             // 
@@ -317,124 +309,55 @@
             this.labContador.TabIndex = 55;
             this.labContador.Text = "Contador";
             // 
-            // Contador
+            // cbContador
             // 
-            this.Contador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Contador.FormattingEnabled = true;
-            this.Contador.Items.AddRange(new object[] {
+            this.cbContador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbContador.FormattingEnabled = true;
+            this.cbContador.Items.AddRange(new object[] {
             "Lucro",
             "Simples"});
-            this.Contador.Location = new System.Drawing.Point(458, 133);
-            this.Contador.Name = "Contador";
-            this.Contador.Size = new System.Drawing.Size(154, 25);
-            this.Contador.TabIndex = 54;
-            // 
-            // tab
-            // 
-            this.tab.Controls.Add(this.tabContato);
-            this.tab.Controls.Add(this.tabContador);
-            this.tab.Controls.Add(this.tabObservacao);
-            this.tab.Location = new System.Drawing.Point(12, 217);
-            this.tab.Name = "tab";
-            this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(600, 233);
-            this.tab.TabIndex = 56;
-            // 
-            // tabContato
-            // 
-            this.tabContato.Controls.Add(this.gbEmail);
-            this.tabContato.Controls.Add(this.gbTelefones);
-            this.tabContato.Location = new System.Drawing.Point(4, 26);
-            this.tabContato.Name = "tabContato";
-            this.tabContato.Padding = new System.Windows.Forms.Padding(3);
-            this.tabContato.Size = new System.Drawing.Size(592, 203);
-            this.tabContato.TabIndex = 1;
-            this.tabContato.Text = "Contato";
-            this.tabContato.UseVisualStyleBackColor = true;
-            // 
-            // tabContador
-            // 
-            this.tabContador.Location = new System.Drawing.Point(4, 26);
-            this.tabContador.Name = "tabContador";
-            this.tabContador.Size = new System.Drawing.Size(592, 203);
-            this.tabContador.TabIndex = 2;
-            this.tabContador.Text = "Contador";
-            this.tabContador.UseVisualStyleBackColor = true;
-            // 
-            // gbTelefones
-            // 
-            this.gbTelefones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbTelefones.Controls.Add(this.textBox3);
-            this.gbTelefones.Location = new System.Drawing.Point(6, 6);
-            this.gbTelefones.Name = "gbTelefones";
-            this.gbTelefones.Size = new System.Drawing.Size(270, 191);
-            this.gbTelefones.TabIndex = 0;
-            this.gbTelefones.TabStop = false;
-            this.gbTelefones.Text = "Telefones";
-            // 
-            // gbEmail
-            // 
-            this.gbEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbEmail.Location = new System.Drawing.Point(282, 6);
-            this.gbEmail.Name = "gbEmail";
-            this.gbEmail.Size = new System.Drawing.Size(304, 191);
-            this.gbEmail.TabIndex = 1;
-            this.gbEmail.TabStop = false;
-            this.gbEmail.Text = "Telefones";
-            // 
-            // tabObservacao
-            // 
-            this.tabObservacao.Controls.Add(this.txtObservacao);
-            this.tabObservacao.Location = new System.Drawing.Point(4, 26);
-            this.tabObservacao.Name = "tabObservacao";
-            this.tabObservacao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabObservacao.Size = new System.Drawing.Size(592, 203);
-            this.tabObservacao.TabIndex = 3;
-            this.tabObservacao.Text = "Observações";
-            this.tabObservacao.UseVisualStyleBackColor = true;
+            this.cbContador.Location = new System.Drawing.Point(458, 133);
+            this.cbContador.Name = "cbContador";
+            this.cbContador.Size = new System.Drawing.Size(154, 25);
+            this.cbContador.TabIndex = 54;
             // 
             // txtObservacao
             // 
-            this.txtObservacao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtObservacao.Location = new System.Drawing.Point(6, 6);
+            this.txtObservacao.Location = new System.Drawing.Point(12, 239);
             this.txtObservacao.Multiline = true;
             this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(580, 191);
-            this.txtObservacao.TabIndex = 0;
+            this.txtObservacao.Size = new System.Drawing.Size(600, 150);
+            this.txtObservacao.TabIndex = 56;
             // 
-            // textBox3
+            // labObservacao
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 24);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(258, 161);
-            this.textBox3.TabIndex = 0;
-            this.textBox3.Text = "3259-0000\r\n996328576\r\n32132132\r\n";
+            this.labObservacao.AutoSize = true;
+            this.labObservacao.Location = new System.Drawing.Point(9, 219);
+            this.labObservacao.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.labObservacao.Name = "labObservacao";
+            this.labObservacao.Size = new System.Drawing.Size(78, 17);
+            this.labObservacao.TabIndex = 57;
+            this.labObservacao.Text = "Observação";
             // 
             // FormEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 549);
-            this.Controls.Add(this.tab);
+            this.ClientSize = new System.Drawing.Size(624, 478);
+            this.Controls.Add(this.labObservacao);
+            this.Controls.Add(this.txtObservacao);
             this.Controls.Add(this.labContador);
-            this.Controls.Add(this.Contador);
+            this.Controls.Add(this.cbContador);
             this.Controls.Add(this.labEmail);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.labTelefone);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.labRegime);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cbRegime);
             this.Controls.Add(this.labIE);
             this.Controls.Add(this.labCNPJ);
             this.Controls.Add(this.labFantasia);
-            this.Controls.Add(this.txtFantasia);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtIE);
             this.Controls.Add(this.txtRazao);
             this.Controls.Add(this.txtCNPJ);
@@ -452,14 +375,9 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empresa";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormEmpresa_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tab.ResumeLayout(false);
-            this.tabContato.ResumeLayout(false);
-            this.gbTelefones.ResumeLayout(false);
-            this.gbTelefones.PerformLayout();
-            this.tabObservacao.ResumeLayout(false);
-            this.tabObservacao.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -470,7 +388,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labTitulo;
-        private System.Windows.Forms.Label labId;
+        private System.Windows.Forms.Label labID;
         private System.Windows.Forms.Label labNum;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button btnDeletar;
@@ -479,26 +397,20 @@
         private System.Windows.Forms.Label labRazao;
         private System.Windows.Forms.MaskedTextBox txtCNPJ;
         private System.Windows.Forms.TextBox txtRazao;
-        private System.Windows.Forms.TextBox txtFantasia;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.MaskedTextBox txtIE;
         private System.Windows.Forms.Label labFantasia;
         private System.Windows.Forms.Label labCNPJ;
         private System.Windows.Forms.Label labIE;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbRegime;
         private System.Windows.Forms.Label labRegime;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.Label labTelefone;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label labEmail;
         private System.Windows.Forms.Label labContador;
-        private System.Windows.Forms.ComboBox Contador;
-        private System.Windows.Forms.TabControl tab;
-        private System.Windows.Forms.TabPage tabContato;
-        private System.Windows.Forms.GroupBox gbEmail;
-        private System.Windows.Forms.GroupBox gbTelefones;
-        private System.Windows.Forms.TabPage tabContador;
-        private System.Windows.Forms.TabPage tabObservacao;
+        private System.Windows.Forms.ComboBox cbContador;
         private System.Windows.Forms.TextBox txtObservacao;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label labObservacao;
     }
 }

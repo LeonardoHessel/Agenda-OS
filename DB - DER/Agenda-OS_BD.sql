@@ -43,9 +43,18 @@ CREATE TABLE IF NOT EXISTS `permissao`(
     FOREIGN KEY (`modulo`) REFERENCES `modulo`(`id`)
 )ENGINE = InnoDB;
 
+DROP TABLE IF EXISTS `contador`;
+CREATE TABLE IF NOT EXISTS `contador`(
+	`id` INT,
+    `nome` VARCHAR(250),
+    `telefone` VARCHAR(250),
+    `email` VARCHAR(250),
+    PRIMARY KEY(`id`)
+)ENGINE = InnoDB;
+
 DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE IF NOT EXISTS `empresa`(
-	`id` INT,
+	`id` INT AUTO_INCREMENT,
     `cnpj` CHAR(14) UNIQUE,
     `ie` CHAR(12) UNIQUE,
     `razao` VARCHAR(60),
@@ -62,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `empresa`(
     `email` VARCHAR(250),
     `telefone` VARCHAR(60),
     `observacao` TEXT,
-    `del` BOOL,
+    `del` BOOL DEFAULT FALSE,
     PRIMARY KEY(`id`)
     -- FOREIGN KEY (`contador`) REFERENCES `contador`(`id`)
 )ENGINE = InnoDB;

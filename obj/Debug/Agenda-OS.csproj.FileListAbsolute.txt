@@ -124,3 +124,4 @@ C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.UctUsuario.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormUsuario.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csprojAssemblyReference.cache
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormOS.resources
+C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormEmpresa.resources
