@@ -166,6 +166,8 @@
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.Size = new System.Drawing.Size(660, 398);
             this.dgvClientes.TabIndex = 9;
+            this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
+           
             // 
             // ID
             // 

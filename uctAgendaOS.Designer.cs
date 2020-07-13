@@ -31,17 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UctAgendaOS));
             this.labNT = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labNF = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Filtrados = new System.Windows.Forms.Label();
-            this.Total = new System.Windows.Forms.Label();
-            this.cbInativos = new System.Windows.Forms.CheckBox();
+            this.dtv_listar_os = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Solicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +45,17 @@
             this.Fechamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inativado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labNF = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Filtrados = new System.Windows.Forms.Label();
+            this.Total = new System.Windows.Forms.Label();
+            this.cbInativos = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dtv_listar_os)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,14 +77,14 @@
             this.textBox1.Size = new System.Drawing.Size(300, 25);
             this.textBox1.TabIndex = 5;
             // 
-            // dataGridView1
+            // dtv_listar_os
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtv_listar_os.AllowUserToAddRows = false;
+            this.dtv_listar_os.AllowUserToDeleteRows = false;
+            this.dtv_listar_os.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dtv_listar_os.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtv_listar_os.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtv_listar_os.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Empresa,
             this.Solicitante,
@@ -98,12 +98,90 @@
             this.Fechamento,
             this.Situacao,
             this.Inativado});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 199);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(661, 398);
-            this.dataGridView1.TabIndex = 6;
+            this.dtv_listar_os.Location = new System.Drawing.Point(0, 199);
+            this.dtv_listar_os.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtv_listar_os.Name = "dtv_listar_os";
+            this.dtv_listar_os.ReadOnly = true;
+            this.dtv_listar_os.Size = new System.Drawing.Size(661, 398);
+            this.dtv_listar_os.TabIndex = 6;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Empresa
+            // 
+            this.Empresa.HeaderText = "Empresa";
+            this.Empresa.Name = "Empresa";
+            this.Empresa.ReadOnly = true;
+            // 
+            // Solicitante
+            // 
+            this.Solicitante.HeaderText = "Solicitante";
+            this.Solicitante.Name = "Solicitante";
+            this.Solicitante.ReadOnly = true;
+            // 
+            // Usuario
+            // 
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            // 
+            // Assunto
+            // 
+            this.Assunto.HeaderText = "Assunto";
+            this.Assunto.Name = "Assunto";
+            this.Assunto.ReadOnly = true;
+            // 
+            // Descricao
+            // 
+            this.Descricao.HeaderText = "Descrição";
+            this.Descricao.Name = "Descricao";
+            this.Descricao.ReadOnly = true;
+            // 
+            // Solucao
+            // 
+            this.Solucao.HeaderText = "Solução";
+            this.Solucao.Name = "Solucao";
+            this.Solucao.ReadOnly = true;
+            // 
+            // Produto
+            // 
+            this.Produto.HeaderText = "Produto";
+            this.Produto.Name = "Produto";
+            this.Produto.ReadOnly = true;
+            // 
+            // Atendimento
+            // 
+            this.Atendimento.HeaderText = "Atendimento ";
+            this.Atendimento.Name = "Atendimento";
+            this.Atendimento.ReadOnly = true;
+            // 
+            // Abertura
+            // 
+            this.Abertura.HeaderText = "Abertura";
+            this.Abertura.Name = "Abertura";
+            this.Abertura.ReadOnly = true;
+            // 
+            // Fechamento
+            // 
+            this.Fechamento.HeaderText = "Fechamento";
+            this.Fechamento.Name = "Fechamento";
+            this.Fechamento.ReadOnly = true;
+            // 
+            // Situacao
+            // 
+            this.Situacao.HeaderText = "Situação";
+            this.Situacao.Name = "Situacao";
+            this.Situacao.ReadOnly = true;
+            // 
+            // Inativado
+            // 
+            this.Inativado.HeaderText = "Inativado";
+            this.Inativado.Name = "Inativado";
+            this.Inativado.ReadOnly = true;
             // 
             // label2
             // 
@@ -215,84 +293,6 @@
             this.cbInativos.Text = "Listar inativos";
             this.cbInativos.UseVisualStyleBackColor = true;
             // 
-            // Id
-            // 
-            this.Id.HeaderText = "id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Empresa
-            // 
-            this.Empresa.HeaderText = "Empresa";
-            this.Empresa.Name = "Empresa";
-            this.Empresa.ReadOnly = true;
-            // 
-            // Solicitante
-            // 
-            this.Solicitante.HeaderText = "Solicitante";
-            this.Solicitante.Name = "Solicitante";
-            this.Solicitante.ReadOnly = true;
-            // 
-            // Usuario
-            // 
-            this.Usuario.HeaderText = "Usuario";
-            this.Usuario.Name = "Usuario";
-            this.Usuario.ReadOnly = true;
-            // 
-            // Assunto
-            // 
-            this.Assunto.HeaderText = "Assunto";
-            this.Assunto.Name = "Assunto";
-            this.Assunto.ReadOnly = true;
-            // 
-            // Descricao
-            // 
-            this.Descricao.HeaderText = "Descrição";
-            this.Descricao.Name = "Descricao";
-            this.Descricao.ReadOnly = true;
-            // 
-            // Solucao
-            // 
-            this.Solucao.HeaderText = "Solução";
-            this.Solucao.Name = "Solucao";
-            this.Solucao.ReadOnly = true;
-            // 
-            // Produto
-            // 
-            this.Produto.HeaderText = "Produto";
-            this.Produto.Name = "Produto";
-            this.Produto.ReadOnly = true;
-            // 
-            // Atendimento
-            // 
-            this.Atendimento.HeaderText = "Atendimento ";
-            this.Atendimento.Name = "Atendimento";
-            this.Atendimento.ReadOnly = true;
-            // 
-            // Abertura
-            // 
-            this.Abertura.HeaderText = "Abertura";
-            this.Abertura.Name = "Abertura";
-            this.Abertura.ReadOnly = true;
-            // 
-            // Fechamento
-            // 
-            this.Fechamento.HeaderText = "Fechamento";
-            this.Fechamento.Name = "Fechamento";
-            this.Fechamento.ReadOnly = true;
-            // 
-            // Situacao
-            // 
-            this.Situacao.HeaderText = "Situação";
-            this.Situacao.Name = "Situacao";
-            this.Situacao.ReadOnly = true;
-            // 
-            // Inativado
-            // 
-            this.Inativado.HeaderText = "Inativado";
-            this.Inativado.Name = "Inativado";
-            this.Inativado.ReadOnly = true;
-            // 
             // UctAgendaOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -308,14 +308,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtv_listar_os);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.labNT);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UctAgendaOS";
             this.Size = new System.Drawing.Size(661, 597);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtv_listar_os)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -325,7 +325,7 @@
         #endregion
         private System.Windows.Forms.Label labNT;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtv_listar_os;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEditar;

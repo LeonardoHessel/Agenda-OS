@@ -12,7 +12,8 @@ namespace Agenda_OS
 {
     public partial class UctClientes : UserControl
     {
-        private static UctClientes _instancia;        
+        private static UctClientes _instancia;
+        
 
         public static UctClientes instancia
         {
@@ -60,5 +61,19 @@ namespace Agenda_OS
             frmclientes.ShowDialog();
         }
 
+        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int linha = dgvClientes.CurrentRow.Index;
+            long id = Convert.ToInt64(dgvClientes.CurrentRow.Cells["ID"].Value);
+            FormClientes frm = new FormClientes(Empresa, "Show");
+            frm.ShowDialog();
+            CarregarEmpresa();
+            dgvClientes.ClearSelection();
+            dgvClientes.CurrentCell = dgvClientes[0, linha];
+            dgvClientes.Rows[linha].Selected = true;
+
+        }
+
+        
     }
 }

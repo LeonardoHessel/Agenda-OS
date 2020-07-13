@@ -364,6 +364,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Usuário";
+           
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmTecnico_KeyDown);
             this.gbxAcesso.ResumeLayout(false);
             this.gbxAcesso.PerformLayout();

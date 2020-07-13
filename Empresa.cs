@@ -43,8 +43,30 @@ namespace Agenda_OS
             }
             return false;
         }
-        
-        
+        private bool Atualizar()
+        {
+            string sql = 
+                "UPDATE `empresa` SET `cnpj`= @cnpj, `razao`= @razao, `nome`= @nome,`endereco`= @endereco," +
+                "`cep`= @cep,`telefone`= @telefone,`celular`= @celular WHERE `id`= @id";
+
+            NewCMD(sql, CommandType.Text);
+            AddPar("id", this.ID);
+            AddPar("cnpj", this.CNPJ);
+            AddPar("razao", this.Razao);
+            AddPar("nome", this.Nome);
+            AddPar("endereco", this.Endereco);
+            AddPar("cep", this.CEP);
+            AddPar("telefone", this.Telefone);
+            AddPar("celular", this.Celular);
+            
+            if (ExecuteNQ())
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         //listagem das empresas
         public static List<Empresa> ListaEmpresa()
         {
@@ -71,6 +93,21 @@ namespace Agenda_OS
                              }).ToList();
             return listarempresa;
  
+        }
+
+        //tipo de ação
+        public bool SalvarEmpresa(string action)
+        {
+
+            if (action == "New")
+            {
+                return Cadastrar();
+            }
+            else if (action == "Edit")
+            {
+                return Atualizar();
+            }
+            return false;
         }
     }
 }
