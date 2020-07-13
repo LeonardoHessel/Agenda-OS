@@ -15,8 +15,8 @@ namespace Agenda_OS
         public string Razao { get; set; }
         public string Nome { get; set; }
         public string Regime { get; set; }
-        public long ID_Contador { get; set; }
         public Contador Contador { get; set; }
+        public long ID_Contador { get; set; }
         public string Logradouro { get; set; }
         public string Numero { get; set; }
         public string Complemento { get; set; }
@@ -80,7 +80,7 @@ namespace Agenda_OS
         public bool SalvarEmpresa(string action)
         {
 
-            if (action == "Noo")
+            if (action == "Novo")
             {
                 return Cadastrar();
             }
@@ -119,7 +119,10 @@ namespace Agenda_OS
                 this.ID = Conexao.lastId;
                 return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
 
         private bool Atualizar()
@@ -149,7 +152,6 @@ namespace Agenda_OS
             AddPar("del", this.Del);
             if (ExeGetId())
             {
-                this.ID = Conexao.lastId;
                 return true;
             }
             return false;

@@ -26,9 +26,12 @@ namespace Agenda_OS
             }
         }
 
+        public List<Empresa> ListaEmpresas { get; set; }
+
         public UctClientes()
         {
             InitializeComponent();
+            CarregarEmpresas();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -36,6 +39,13 @@ namespace Agenda_OS
             FormEmpresa emp = new FormEmpresa();
             emp.Acao = "Novo";
             emp.ShowDialog();
+        }
+        private void CarregarEmpresas()
+        {
+            string busca = txtBuscaEmpresa.Text;
+            bool status = cbInativos.Checked;
+            this.ListaEmpresas = Empresa.BuscaEmpresa(busca, status);
+            dgvClientes.DataSource = this.ListaEmpresas;
         }
     }
 }

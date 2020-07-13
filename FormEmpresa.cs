@@ -64,13 +64,14 @@ namespace Agenda_OS
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             btnSalvar.Enabled = false;
-            this.Acao = "Visualizar";
             if (true) // Verificar Permisao
             {
                 SetEmpresa();
+                MessageBox.Show(this.Acao);
                 if (this.Empresa.SalvarEmpresa(this.Acao))
                 {
-                    
+                    MessageBox.Show(this.Empresa.ID.ToString());
+                    labID.Text = this.Empresa.ID.ToString();
                 }
                 else
                 {
@@ -87,8 +88,9 @@ namespace Agenda_OS
 
         private void SetEmpresa()
         {
-            this.Empresa.CNPJ = rtnNoMask(txtCNPJ);
-            this.Empresa.IE = rtnNoMask(txtIE);
+            this.Empresa = new Empresa();
+            this.Empresa.CNPJ = rtnNoMask(mtbCNPJ);
+            this.Empresa.IE = rtnNoMask(mtbIE);
             this.Empresa.Razao = txtRazao.Text;
             this.Empresa.Nome = txtNome.Text;
             this.Empresa.Regime = cbRegime.Text;

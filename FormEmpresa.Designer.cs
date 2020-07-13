@@ -38,10 +38,10 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.labRazao = new System.Windows.Forms.Label();
-            this.txtCNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.mtbCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.txtRazao = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtIE = new System.Windows.Forms.MaskedTextBox();
+            this.mtbIE = new System.Windows.Forms.MaskedTextBox();
             this.labFantasia = new System.Windows.Forms.Label();
             this.labCNPJ = new System.Windows.Forms.Label();
             this.labIE = new System.Windows.Forms.Label();
@@ -181,14 +181,16 @@
             this.labRazao.TabIndex = 38;
             this.labRazao.Text = "Razão";
             // 
-            // txtCNPJ
+            // mtbCNPJ
             // 
-            this.txtCNPJ.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.txtCNPJ.Location = new System.Drawing.Point(298, 80);
-            this.txtCNPJ.Mask = " 99,999,999/9999-99";
-            this.txtCNPJ.Name = "txtCNPJ";
-            this.txtCNPJ.Size = new System.Drawing.Size(154, 25);
-            this.txtCNPJ.TabIndex = 39;
+            this.mtbCNPJ.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.mtbCNPJ.Location = new System.Drawing.Point(298, 80);
+            this.mtbCNPJ.Mask = " 99,999,999/9999-99";
+            this.mtbCNPJ.Name = "mtbCNPJ";
+            this.mtbCNPJ.Size = new System.Drawing.Size(154, 25);
+            this.mtbCNPJ.TabIndex = 39;
+            this.mtbCNPJ.Text = "45913696000185";
+            this.mtbCNPJ.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txtRazao
             // 
@@ -196,6 +198,7 @@
             this.txtRazao.Name = "txtRazao";
             this.txtRazao.Size = new System.Drawing.Size(280, 25);
             this.txtRazao.TabIndex = 40;
+            this.txtRazao.Text = "SOROCABA REFRESCOS S.A.";
             // 
             // txtNome
             // 
@@ -203,15 +206,18 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(280, 25);
             this.txtNome.TabIndex = 42;
+            this.txtNome.Text = "SOROCABA REFRESCOS S.A.";
             // 
-            // txtIE
+            // mtbIE
             // 
-            this.txtIE.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.txtIE.Location = new System.Drawing.Point(458, 80);
-            this.txtIE.Mask = " 999,999,999,999";
-            this.txtIE.Name = "txtIE";
-            this.txtIE.Size = new System.Drawing.Size(154, 25);
-            this.txtIE.TabIndex = 41;
+            this.mtbIE.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.mtbIE.Location = new System.Drawing.Point(458, 80);
+            this.mtbIE.Mask = " 999,999,999,999";
+            this.mtbIE.Name = "mtbIE";
+            this.mtbIE.Size = new System.Drawing.Size(154, 25);
+            this.mtbIE.TabIndex = 41;
+            this.mtbIE.Text = "459136960001";
+            this.mtbIE.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // labFantasia
             // 
@@ -358,9 +364,9 @@
             this.Controls.Add(this.labCNPJ);
             this.Controls.Add(this.labFantasia);
             this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.txtIE);
+            this.Controls.Add(this.mtbIE);
             this.Controls.Add(this.txtRazao);
-            this.Controls.Add(this.txtCNPJ);
+            this.Controls.Add(this.mtbCNPJ);
             this.Controls.Add(this.labRazao);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnEditar);
@@ -395,10 +401,10 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label labRazao;
-        private System.Windows.Forms.MaskedTextBox txtCNPJ;
+        private System.Windows.Forms.MaskedTextBox mtbCNPJ;
         private System.Windows.Forms.TextBox txtRazao;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.MaskedTextBox txtIE;
+        private System.Windows.Forms.MaskedTextBox mtbIE;
         private System.Windows.Forms.Label labFantasia;
         private System.Windows.Forms.Label labCNPJ;
         private System.Windows.Forms.Label labIE;
