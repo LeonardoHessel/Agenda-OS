@@ -36,16 +36,30 @@ namespace Agenda_OS
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            FormEmpresa emp = new FormEmpresa();
-            emp.Acao = "Novo";
+            FormEmpresa emp = new FormEmpresa(null,"Novo");
             emp.ShowDialog();
         }
+
+
         private void CarregarEmpresas()
         {
             string busca = txtBuscaEmpresa.Text;
             bool status = cbInativos.Checked;
             this.ListaEmpresas = Empresa.BuscaEmpresa(busca, status);
             dgvClientes.DataSource = this.ListaEmpresas;
+        }
+
+        private void dgvClientes_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int linha = dgvClientes.CurrentRow.Index;
+            long id = Convert.ToInt64(dgvClientes.CurrentRow.Cells["colID"].Value);
+            Empresa emp = this.ListaEmpresas.Find(empresa => empresa.ID == id);
+            FormEmpresa frmEmp = new FormEmpresa(emp, "Visualizar");
+            frmEmp.ShowDialog();
+            CarregarEmpresas();
+            dgvClientes.ClearSelection();
+            dgvClientes.CurrentCell = dgvClientes[0, linha];
+            dgvClientes.Rows[linha].Selected = true;
         }
     }
 }

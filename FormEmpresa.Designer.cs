@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pTittulo = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Button();
             this.labID = new System.Windows.Forms.Label();
             this.labNum = new System.Windows.Forms.Label();
             this.labTitulo = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pFooter = new System.Windows.Forms.Panel();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -55,22 +55,22 @@
             this.cbContador = new System.Windows.Forms.ComboBox();
             this.txtObservacao = new System.Windows.Forms.TextBox();
             this.labObservacao = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.pTittulo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pTittulo
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.panel1.Controls.Add(this.btnFechar);
-            this.panel1.Controls.Add(this.labID);
-            this.panel1.Controls.Add(this.labNum);
-            this.panel1.Controls.Add(this.labTitulo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(624, 50);
-            this.panel1.TabIndex = 0;
+            this.pTittulo.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pTittulo.Controls.Add(this.btnFechar);
+            this.pTittulo.Controls.Add(this.labID);
+            this.pTittulo.Controls.Add(this.labNum);
+            this.pTittulo.Controls.Add(this.labTitulo);
+            this.pTittulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pTittulo.Location = new System.Drawing.Point(0, 0);
+            this.pTittulo.Margin = new System.Windows.Forms.Padding(5);
+            this.pTittulo.Name = "pTittulo";
+            this.pTittulo.Size = new System.Drawing.Size(624, 50);
+            this.pTittulo.TabIndex = 0;
             // 
             // btnFechar
             // 
@@ -121,15 +121,15 @@
             this.labTitulo.TabIndex = 2;
             this.labTitulo.Text = "Empresa";
             // 
-            // panel2
+            // pFooter
             // 
-            this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 458);
-            this.panel2.Margin = new System.Windows.Forms.Padding(5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(624, 20);
-            this.panel2.TabIndex = 1;
+            this.pFooter.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pFooter.Location = new System.Drawing.Point(0, 458);
+            this.pFooter.Margin = new System.Windows.Forms.Padding(5);
+            this.pFooter.Name = "pFooter";
+            this.pFooter.Size = new System.Drawing.Size(624, 20);
+            this.pFooter.TabIndex = 1;
             // 
             // btnDeletar
             // 
@@ -141,7 +141,7 @@
             this.btnDeletar.Location = new System.Drawing.Point(450, 400);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(50, 50);
-            this.btnDeletar.TabIndex = 37;
+            this.btnDeletar.TabIndex = 9;
             this.btnDeletar.UseVisualStyleBackColor = false;
             // 
             // btnEditar
@@ -154,8 +154,9 @@
             this.btnEditar.Location = new System.Drawing.Point(506, 400);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
-            this.btnEditar.TabIndex = 36;
+            this.btnEditar.TabIndex = 10;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnSalvar
             // 
@@ -167,7 +168,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(562, 400);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(50, 50);
-            this.btnSalvar.TabIndex = 35;
+            this.btnSalvar.TabIndex = 11;
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -188,8 +189,7 @@
             this.mtbCNPJ.Mask = " 99,999,999/9999-99";
             this.mtbCNPJ.Name = "mtbCNPJ";
             this.mtbCNPJ.Size = new System.Drawing.Size(154, 25);
-            this.mtbCNPJ.TabIndex = 39;
-            this.mtbCNPJ.Text = "45913696000185";
+            this.mtbCNPJ.TabIndex = 1;
             this.mtbCNPJ.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txtRazao
@@ -197,16 +197,14 @@
             this.txtRazao.Location = new System.Drawing.Point(12, 80);
             this.txtRazao.Name = "txtRazao";
             this.txtRazao.Size = new System.Drawing.Size(280, 25);
-            this.txtRazao.TabIndex = 40;
-            this.txtRazao.Text = "SOROCABA REFRESCOS S.A.";
+            this.txtRazao.TabIndex = 0;
             // 
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(12, 133);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(280, 25);
-            this.txtNome.TabIndex = 42;
-            this.txtNome.Text = "SOROCABA REFRESCOS S.A.";
+            this.txtNome.TabIndex = 3;
             // 
             // mtbIE
             // 
@@ -215,8 +213,7 @@
             this.mtbIE.Mask = " 999,999,999,999";
             this.mtbIE.Name = "mtbIE";
             this.mtbIE.Size = new System.Drawing.Size(154, 25);
-            this.mtbIE.TabIndex = 41;
-            this.mtbIE.Text = "459136960001";
+            this.mtbIE.TabIndex = 2;
             this.mtbIE.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // labFantasia
@@ -259,7 +256,7 @@
             this.cbRegime.Location = new System.Drawing.Point(298, 133);
             this.cbRegime.Name = "cbRegime";
             this.cbRegime.Size = new System.Drawing.Size(154, 25);
-            this.cbRegime.TabIndex = 48;
+            this.cbRegime.TabIndex = 4;
             // 
             // labRegime
             // 
@@ -276,7 +273,7 @@
             this.txtTelefone.Location = new System.Drawing.Point(12, 186);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(280, 25);
-            this.txtTelefone.TabIndex = 50;
+            this.txtTelefone.TabIndex = 6;
             // 
             // labTelefone
             // 
@@ -293,7 +290,7 @@
             this.txtEmail.Location = new System.Drawing.Point(298, 186);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(314, 25);
-            this.txtEmail.TabIndex = 52;
+            this.txtEmail.TabIndex = 7;
             // 
             // labEmail
             // 
@@ -325,7 +322,7 @@
             this.cbContador.Location = new System.Drawing.Point(458, 133);
             this.cbContador.Name = "cbContador";
             this.cbContador.Size = new System.Drawing.Size(154, 25);
-            this.cbContador.TabIndex = 54;
+            this.cbContador.TabIndex = 5;
             // 
             // txtObservacao
             // 
@@ -333,7 +330,7 @@
             this.txtObservacao.Multiline = true;
             this.txtObservacao.Name = "txtObservacao";
             this.txtObservacao.Size = new System.Drawing.Size(600, 150);
-            this.txtObservacao.TabIndex = 56;
+            this.txtObservacao.TabIndex = 8;
             // 
             // labObservacao
             // 
@@ -371,8 +368,8 @@
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pFooter);
+            this.Controls.Add(this.pTittulo);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -382,8 +379,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empresa";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormEmpresa_KeyDown);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pTittulo.ResumeLayout(false);
+            this.pTittulo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,8 +388,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pTittulo;
+        private System.Windows.Forms.Panel pFooter;
         private System.Windows.Forms.Label labTitulo;
         private System.Windows.Forms.Label labID;
         private System.Windows.Forms.Label labNum;

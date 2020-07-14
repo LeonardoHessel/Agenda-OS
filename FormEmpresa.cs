@@ -17,9 +17,11 @@ namespace Agenda_OS
 
         private string acao;
 
-        public FormEmpresa()
+        public FormEmpresa(Empresa empresa, string acao)
         {
             InitializeComponent();
+            this.Empresa = empresa;
+            this.Acao = acao;
         }
 
         public string Acao
@@ -36,15 +38,26 @@ namespace Agenda_OS
         {
             if (this.Acao == "Novo")
             {
-                
+                HabilitarCampos(true);
+                btnDeletar.Enabled = false;
+                btnEditar.Enabled = false;
+                btnSalvar.Enabled = true;
             }
             else if (this.Acao == "Editar")
             {
-                MessageBox.Show("Editar Empresa");
+                ExibirEmpresa();
+                HabilitarCampos(true);
+                btnEditar.Enabled = false;
+                btnDeletar.Enabled = false;
+                btnSalvar.Enabled = true;
             }
             else if (this.Acao == "Visualizar")
             {
-                MessageBox.Show("Nova Empresa");
+                ExibirEmpresa();
+                HabilitarCampos(false);
+                btnDeletar.Enabled = false;
+                btnSalvar.Enabled = false;
+                btnEditar.Enabled = true;
             }
         }
 
@@ -67,11 +80,10 @@ namespace Agenda_OS
             if (true) // Verificar Permisao
             {
                 SetEmpresa();
-                MessageBox.Show(this.Acao);
                 if (this.Empresa.SalvarEmpresa(this.Acao))
                 {
-                    MessageBox.Show(this.Empresa.ID.ToString());
-                    labID.Text = this.Empresa.ID.ToString();
+                    ExibirEmpresa();
+                    this.Acao = "Visualizar";
                 }
                 else
                 {
@@ -88,16 +100,44 @@ namespace Agenda_OS
 
         private void SetEmpresa()
         {
-            this.Empresa = new Empresa();
+            //this.Empresa = new Empresa();
             this.Empresa.CNPJ = rtnNoMask(mtbCNPJ);
             this.Empresa.IE = rtnNoMask(mtbIE);
             this.Empresa.Razao = txtRazao.Text;
             this.Empresa.Nome = txtNome.Text;
             this.Empresa.Regime = cbRegime.Text;
-            this.Empresa.ID_Contador = 0;
+            this.Empresa.ID_Contador = 0; // Contador definico como 0 -----------
             this.Empresa.Telefone = txtTelefone.Text;
             this.Empresa.Email = txtEmail.Text;
             this.Empresa.Observacao = txtObservacao.Text;
+        }
+
+        private void ExibirEmpresa()
+        {
+            labID.Text = this.Empresa.ID.ToString();
+            mtbCNPJ.Text = this.Empresa.CNPJ;
+            mtbIE.Text = this.Empresa.IE;
+            txtRazao.Text = this.Empresa.Razao;
+            txtNome.Text = this.Empresa.Nome;
+            cbRegime.Text = this.Empresa.Regime;
+            //cbContador.Text = this.Empresa.Contador.Nome;
+            txtTelefone.Text = this.Empresa.Telefone;
+            txtEmail.Text = this.Empresa.Email;
+            txtObservacao.Text = this.Empresa.Observacao;
+        }
+
+        private void HabilitarCampos(bool vf)
+        {
+            labID.Enabled = vf;
+            mtbCNPJ.Enabled = vf;
+            mtbIE.Enabled = vf;
+            txtRazao.Enabled = vf;
+            txtNome.Enabled = vf;
+            cbRegime.Enabled = vf;
+            cbContador.Enabled = vf;
+            txtTelefone.Enabled = vf;
+            txtEmail.Enabled = vf;
+            txtObservacao.Enabled = vf;
         }
 
         private string rtnNoMask(MaskedTextBox mtb)
@@ -106,6 +146,11 @@ namespace Agenda_OS
             string rtn = mtb.Text;
             mtb.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
             return rtn;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            this.Acao = "Editar";
         }
     }
 }

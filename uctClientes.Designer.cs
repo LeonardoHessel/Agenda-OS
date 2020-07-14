@@ -40,7 +40,6 @@
             this.ilBotoes = new System.Windows.Forms.ImageList(this.components);
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.cbInativos = new System.Windows.Forms.CheckBox();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCNPJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +59,7 @@
             this.colTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbInativos = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,6 +164,8 @@
             // 
             this.dgvClientes.AllowUserToAddRows = false;
             this.dgvClientes.AllowUserToDeleteRows = false;
+            this.dgvClientes.AllowUserToOrderColumns = true;
+            this.dgvClientes.AllowUserToResizeRows = false;
             this.dgvClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -190,20 +192,12 @@
             this.colObservacao,
             this.colDel});
             this.dgvClientes.Location = new System.Drawing.Point(8, 43);
+            this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.Size = new System.Drawing.Size(784, 408);
             this.dgvClientes.TabIndex = 9;
-            // 
-            // cbInativos
-            // 
-            this.cbInativos.AutoSize = true;
-            this.cbInativos.Location = new System.Drawing.Point(364, 13);
-            this.cbInativos.Name = "cbInativos";
-            this.cbInativos.Size = new System.Drawing.Size(106, 21);
-            this.cbInativos.TabIndex = 10;
-            this.cbInativos.Text = "Listar inativos";
-            this.cbInativos.UseVisualStyleBackColor = true;
+            this.dgvClientes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClientes_MouseDoubleClick);
             // 
             // colID
             // 
@@ -348,6 +342,16 @@
             this.colDel.Name = "colDel";
             this.colDel.ReadOnly = true;
             this.colDel.Visible = false;
+            // 
+            // cbInativos
+            // 
+            this.cbInativos.AutoSize = true;
+            this.cbInativos.Location = new System.Drawing.Point(364, 13);
+            this.cbInativos.Name = "cbInativos";
+            this.cbInativos.Size = new System.Drawing.Size(106, 21);
+            this.cbInativos.TabIndex = 10;
+            this.cbInativos.Text = "Listar inativos";
+            this.cbInativos.UseVisualStyleBackColor = true;
             // 
             // UctClientes
             // 
