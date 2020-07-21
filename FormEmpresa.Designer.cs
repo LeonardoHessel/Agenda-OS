@@ -316,9 +316,6 @@
             // 
             this.cbContador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbContador.FormattingEnabled = true;
-            this.cbContador.Items.AddRange(new object[] {
-            "Lucro",
-            "Simples"});
             this.cbContador.Location = new System.Drawing.Point(458, 133);
             this.cbContador.Name = "cbContador";
             this.cbContador.Size = new System.Drawing.Size(154, 25);

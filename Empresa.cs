@@ -15,17 +15,7 @@ namespace Agenda_OS
         public string Razao { get; set; }
         public string Nome { get; set; }
         public string Regime { get; set; }
-        public Contador Contador { get; set; }
-        public long ID_Contador
-        {
-            get { return Contador.ID; }
-            set
-            {
-                Contador = new Contador();
-                Contador.Acao = "get";
-                Contador.ID = value;
-            }
-        }
+        public long ID_Contador { get; set; }
         public string Logradouro { get; set; }
         public string Numero { get; set; }
         public string Complemento { get; set; }

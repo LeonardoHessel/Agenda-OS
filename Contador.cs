@@ -14,27 +14,26 @@ namespace Agenda_OS
         public string Telefone { get; set; }
         public string Email { get; set; }
 
-        private string acao;
 
-        public string Acao
+        public static List<Contador> CarregarContadores()
         {
-            get { return acao; }
-            set 
+            Contador cont = new Contador();
+            string sql = "SELECT * FROM `contador`";
+            cont.NewCMD(sql, CommandType.Text);
+            DataTable contador = cont.GetTable();
+            List<Contador> lista = new List<Contador>();
+            if (contador != null)
             {
-                acao = value;
-                //CarregarContador();
+                lista = (from DataRow dr in contador.Rows select new Contador()
+                {
+                    ID = Convert.ToInt64(dr["id"]),
+                    Nome = dr["nome"].ToString(),
+                    Telefone = dr["telefone"].ToString(),
+                    Email = dr["email"].ToString()
+                }).ToList();
+                return lista;
             }
-        }
-
-        public void CarregarContador()
-        {
-            if (this.Acao == "get")
-            {
-                string sql = "SELECT * FROM `contador` WHERE `id` = :@id";
-                NewCMD(sql, CommandType.Text);
-                AddPar("id", this.ID);
-                DataTable contador = GetTable();
-            }
+            return null;
         }
     }
 }

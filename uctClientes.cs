@@ -58,8 +58,8 @@ namespace Agenda_OS
             frmEmp.ShowDialog();
             CarregarEmpresas();
             dgvClientes.ClearSelection();
-            dgvClientes.CurrentCell = dgvClientes[0, linha];
-            dgvClientes.Rows[linha].Selected = true;
+            // dgvClientes.CurrentCell = dgvClientes[0, linha];
+            // dgvClientes.Rows[linha].Selected = true;
         }
     }
 }

@@ -15,13 +15,38 @@ namespace Agenda_OS
         public Empresa Empresa { get; set; }
         public Usuario Usuario { get; set; }
 
+        public List<Contador> contadores;
+        public List<Contador> Contadores
+        {
+            get { return contadores; }
+            set
+            {
+                contadores = value;
+                cbContador.Items.Clear();
+                cbContador.Items.Add("Selecione o Contador:");
+                if (value != null)
+                {
+                    foreach (Contador contador in contadores)
+                    {
+                        cbContador.Items.Add(contador.Nome);
+                    }
+                }
+            }
+        }
+
         private string acao;
 
         public FormEmpresa(Empresa empresa, string acao)
         {
             InitializeComponent();
+            LoadContadores();
             this.Empresa = empresa;
             this.Acao = acao;
+        }
+
+        private void LoadContadores()
+        {
+            this.Contadores = Contador.CarregarContadores();
         }
 
         public string Acao
@@ -39,6 +64,7 @@ namespace Agenda_OS
             if (this.Acao == "Novo")
             {
                 HabilitarCampos(true);
+                cbContador.SelectedIndex = 0;
                 btnDeletar.Enabled = false;
                 btnEditar.Enabled = false;
                 btnSalvar.Enabled = true;
@@ -106,7 +132,13 @@ namespace Agenda_OS
             this.Empresa.Razao = txtRazao.Text;
             this.Empresa.Nome = txtNome.Text;
             this.Empresa.Regime = cbRegime.Text;
-            this.Empresa.ID_Contador = 0; // Contador definico como 0 -----------
+            this.Empresa.ID_Contador = default;
+            string nome = cbContador.Text;
+            Contador cont = Contadores.Find(x => x.Nome == nome);
+            if (cont != null)
+            {
+                this.Empresa.ID_Contador = cont.ID;
+            }
             this.Empresa.Telefone = txtTelefone.Text;
             this.Empresa.Email = txtEmail.Text;
             this.Empresa.Observacao = txtObservacao.Text;
@@ -120,7 +152,14 @@ namespace Agenda_OS
             txtRazao.Text = this.Empresa.Razao;
             txtNome.Text = this.Empresa.Nome;
             cbRegime.Text = this.Empresa.Regime;
-            //cbContador.Text = this.Empresa.Contador.Nome;
+            cbContador.SelectedIndex = 0;
+            long idc = this.Empresa.ID_Contador;
+            if (idc != 0)
+            {
+                Contador cont = Contadores.Find(x => x.ID == idc);
+                int idx = cbContador.FindStringExact(cont.Nome);
+                cbContador.SelectedIndex = idx;
+            }
             txtTelefone.Text = this.Empresa.Telefone;
             txtEmail.Text = this.Empresa.Email;
             txtObservacao.Text = this.Empresa.Observacao;
@@ -128,7 +167,6 @@ namespace Agenda_OS
 
         private void HabilitarCampos(bool vf)
         {
-            labID.Enabled = vf;
             mtbCNPJ.Enabled = vf;
             mtbIE.Enabled = vf;
             txtRazao.Enabled = vf;

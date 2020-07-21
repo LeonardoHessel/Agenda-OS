@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `permissao`(
 
 DROP TABLE IF EXISTS `contador`;
 CREATE TABLE IF NOT EXISTS `contador`(
-	`id` INT,
+	`id` INT AUTO_INCREMENT,
     `nome` VARCHAR(250),
     `telefone` VARCHAR(250),
     `email` VARCHAR(250),
