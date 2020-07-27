@@ -24,7 +24,7 @@ namespace Agenda_OS
                 return _instancia;
             }
         }
-        
+
         private List<Usuario> ListaTecnico { get; set; }
 
         public UctUsuario()
@@ -38,7 +38,7 @@ namespace Agenda_OS
         {
             int rcBefore = dgvTecnico.Rows.Count;
             Usuario tec = new Usuario();
-            FormUsuario frm = new FormUsuario(tec,"New");
+            FormUsuario frm = new FormUsuario(tec, "New");
             frm.ShowDialog();
             CarregarUsuarios();
             int rcAfter = dgvTecnico.Rows.Count;
@@ -79,12 +79,13 @@ namespace Agenda_OS
             int linha = dgvTecnico.CurrentRow.Index;
             long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
             Usuario tecnico = this.ListaTecnico.Find(usuario => usuario.ID == id);
-            FormUsuario frm = new FormUsuario(tecnico, "Show");
+            FormUsuario frm = new FormUsuario(tecnico, "edit");
             frm.ShowDialog();
             CarregarUsuarios();
             dgvTecnico.ClearSelection();
             dgvTecnico.CurrentCell = dgvTecnico[0, linha];
             dgvTecnico.Rows[linha].Selected = true;
+            
         }
 
         private void txtBusca_TextChanged(object sender, EventArgs e)

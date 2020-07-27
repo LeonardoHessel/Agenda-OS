@@ -106,7 +106,6 @@
             // 
             this.dgvTecnico.AllowUserToAddRows = false;
             this.dgvTecnico.AllowUserToDeleteRows = false;
-            this.dgvTecnico.AllowUserToResizeRows = false;
             this.dgvTecnico.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -118,7 +117,6 @@
             this.dgvTecnico.ReadOnly = true;
             this.dgvTecnico.Size = new System.Drawing.Size(660, 398);
             this.dgvTecnico.TabIndex = 5;
-            
             this.dgvTecnico.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvTecnico_MouseDoubleClick);
             // 
             // label1
@@ -198,6 +196,7 @@
             this.Name = "UctUsuario";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(660, 597);
+            
             ((System.ComponentModel.ISupportInitialize)(this.dgvTecnico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Agenda_OS
 {
-    public class Permissao:Conexao
+    public class Permissao : Conexao
     {
         private long ID_Usuario { get; set; }
         public long ID_Modulo { get; set; }
@@ -27,11 +27,13 @@ namespace Agenda_OS
             List<Permissao> listaPermissoes = new List<Permissao>();
             if (tabela != null)
             {
-                listaPermissoes = (from DataRow dr in tabela.Rows select new Permissao() {
-                    ID_Usuario = Convert.ToInt64(dr["id_usuario"]),
-                    ID_Modulo = Convert.ToInt64(dr["id_modulo"]),
-                    Acesso = Convert.ToBoolean(dr["acesso"])
-                }).ToList();
+                listaPermissoes = (from DataRow dr in tabela.Rows
+                                   select new Permissao()
+                                   {
+                                       ID_Usuario = Convert.ToInt64(dr["id_usuario"]),
+                                       ID_Modulo = Convert.ToInt64(dr["id_modulo"]),
+                                       Acesso = Convert.ToBoolean(dr["acesso"])
+                                   }).ToList();
                 return listaPermissoes;
             }
             return null;

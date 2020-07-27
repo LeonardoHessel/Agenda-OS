@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Agenda_OS
 {
-    class Empresa:Conexao
+    public class Empresa : Conexao
     {
         public long ID { get; set; }
         public string CNPJ { get; set; }
@@ -18,14 +18,14 @@ namespace Agenda_OS
         public string CEP { get; set; }
         public string Telefone { get; set; }
         public string Celular { get; set; }
-        public bool Deletado { get; set; }
+        //public bool Deletado { get; set; }
         public List<Permissao> Permissoes { get; set; }
 
         //cadastro de empresas
         private bool Cadastrar()
         {
-            string sql = "INSERT INTO `empresa` (`0`,`cnpj`,`razao`,`nome`,`endereco`,`cep`,`telefone`,`celular`,`del`)" + " VALUES(@CNPJ,@Razao,@Nome,@Endereco,@CEP,@Telefone,@Celular,@Deletado)";
-            
+            string sql = "INSERT INTO `empresa` (`cnpj`,`razao`,`nome`,`endereco`,`cep`,`telefone`,`celular`)" + " VALUES(@CNPJ,@Razao,@Nome,@Endereco,@CEP,@Telefone,@Celular)";
+
             NewCMD(sql, CommandType.Text);
             AddPar("cnpj", this.CNPJ);
             AddPar("razao", this.Razao);
@@ -34,18 +34,19 @@ namespace Agenda_OS
             AddPar("cep", this.CEP);
             AddPar("telefone", this.Telefone);
             AddPar("celular", this.Celular);
-            AddPar("del", this.Deletado);
-            
+            //AddPar("del", this.Deletado);
+
             if (ExeGetId())
             {
                 this.ID = Conexao.lastId;
                 return true;
             }
+            
             return false;
         }
         private bool Atualizar()
         {
-            string sql = 
+            string sql =
                 "UPDATE `empresa` SET `cnpj`= @cnpj, `razao`= @razao, `nome`= @nome,`endereco`= @endereco," +
                 "`cep`= @cep,`telefone`= @telefone,`celular`= @celular WHERE `id`= @id";
 
@@ -58,7 +59,7 @@ namespace Agenda_OS
             AddPar("cep", this.CEP);
             AddPar("telefone", this.Telefone);
             AddPar("celular", this.Celular);
-            
+
             if (ExecuteNQ())
             {
                 return true;
@@ -72,10 +73,10 @@ namespace Agenda_OS
         {
             string sql;
             Empresa empresa = new Empresa();
-           
+
             sql = "SELECT id, cnpj, razao, nome, endereco, cep, telefone, celular FROM empresa";
             empresa.NewCMD(sql, CommandType.Text);
-            
+
             DataTable table = empresa.GetTable();
             List<Empresa> listarempresa = new List<Empresa>();
 
@@ -92,7 +93,7 @@ namespace Agenda_OS
                                  Celular = dr["celular"].ToString(),
                              }).ToList();
             return listarempresa;
- 
+
         }
 
         //tipo de ação

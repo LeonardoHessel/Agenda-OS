@@ -20,18 +20,8 @@ namespace Agenda_OS
     {
         private Usuario tecnico;
         private String imagem;
-        private String EnderecoIMG
-        {
-            get { return imagem; }
-            set
-            {
-                this.imagem = value;
-                var stream = File.OpenRead(this.imagem);
-                pbxFoto.Image = Image.FromStream(stream);
-                stream.Dispose();
-            }
-        }
-        
+       
+
         private string action;
         private string Action
         {
@@ -42,7 +32,7 @@ namespace Agenda_OS
                 SetForm();
             }
         }
-        
+
         public FormUsuario(Usuario tecnico, string action)
         {
             InitializeComponent();
@@ -115,15 +105,6 @@ namespace Agenda_OS
             this.tecnico.RG = rtnNoMask(mtbRG);
             this.tecnico.CPF = rtnNoMask(mtbCPF);
             this.tecnico.CNH = rtnNoMask(mtbCNH);
-            // Foto Perfil
-            string caminho = @"..\..\Imagens\usuarios\";
-            string nome = this.tecnico.ID.ToString();
-            if (caminho + nome != this.EnderecoIMG)
-            {
-                File.Copy(EnderecoIMG, caminho + nome, true);
-                this.tecnico.PerfilIMG = caminho + nome;
-            }
-            // fim
         }
 
         private void VerificarUsuario()
@@ -156,7 +137,7 @@ namespace Agenda_OS
             mtbRG.Text = this.tecnico.RG;
             mtbCPF.Text = this.tecnico.CPF;
             mtbCNH.Text = this.tecnico.CNH;
-            EnderecoIMG = this.tecnico.PerfilIMG;
+            
         }
 
         private string rtnNoMask(MaskedTextBox mtb)
@@ -202,6 +183,23 @@ namespace Agenda_OS
             }
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private void frmTecnico_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -229,6 +227,7 @@ namespace Agenda_OS
             }
         }
 
+
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             MessageBox.Show("btnExcluir");
@@ -239,17 +238,6 @@ namespace Agenda_OS
             txtSenha.Text = "";
         }
 
-        private void pbxFoto_Click(object sender, EventArgs e)
-        {
-            if (this.Action == "Edit")
-            {
-                DialogResult res = ofdImagenPerfil.ShowDialog();
-                if (res == DialogResult.OK)
-                {
-                    EnderecoIMG = ofdImagenPerfil.FileName;
-                }
-            }
-        }
 
       
     }

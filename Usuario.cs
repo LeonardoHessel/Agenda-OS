@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Agenda_OS
 {
-    public class Usuario:Conexao
+    public class Usuario : Conexao
     {
         public long ID { get; set; }
         public string Login { get; set; }
@@ -41,7 +41,7 @@ namespace Agenda_OS
 
         public bool SalvarUsuario(string action)
         {
-            
+
             if (action == "New")
             {
                 return Cadastrar();
@@ -122,7 +122,7 @@ namespace Agenda_OS
                 usuario.NewCMD(sql, CommandType.Text);
                 usuario.AddPar("busca", busca);
                 usuario.AddPar("del", deletados);
-            } 
+            }
             else
             {
                 sql = "SELECT * FROM `usuario`";
@@ -133,18 +133,20 @@ namespace Agenda_OS
 
             if (table != null)
             {
-                listaUsuario = (from DataRow dr in table.Rows select new Usuario() {
-                    ID = Convert.ToInt64(dr["id"]),
-                    Login = dr["login"].ToString(),
-                    Senha = dr["senha"].ToString(),
-                    Nome = dr["nome"].ToString(),
-                    Nasc = DateTime.Parse(dr["nasc"].ToString()),
-                    Sexo = dr["sexo"].ToString(),
-                    RG = dr["rg"].ToString(),
-                    CPF = dr["cpf"].ToString(),
-                    CNH = dr["cnh"].ToString(),
-                    PerfilIMG = dr["imgperfil"].ToString(),
-                }).ToList();
+                listaUsuario = (from DataRow dr in table.Rows
+                                select new Usuario()
+                                {
+                                    ID = Convert.ToInt64(dr["id"]),
+                                    Login = dr["login"].ToString(),
+                                    Senha = dr["senha"].ToString(),
+                                    Nome = dr["nome"].ToString(),
+                                    Nasc = DateTime.Parse(dr["nasc"].ToString()),
+                                    Sexo = dr["sexo"].ToString(),
+                                    RG = dr["rg"].ToString(),
+                                    CPF = dr["cpf"].ToString(),
+                                    CNH = dr["cnh"].ToString(),
+                                    PerfilIMG = dr["imgperfil"].ToString(),
+                                }).ToList();
                 return listaUsuario;
             }
             return null;

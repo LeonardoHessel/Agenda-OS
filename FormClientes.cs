@@ -19,7 +19,7 @@ namespace Agenda_OS
 {
     public partial class FormClientes : Form
     {
-        private Empresa empresa;
+        private Empresa cliente;
         private string action;
         private string Action
         {
@@ -31,13 +31,28 @@ namespace Agenda_OS
             }
         }
 
+        public FormClientes(Empresa cliente, string action)
+        {
+            InitializeComponent();
+            this.cliente = cliente;
+            this.Action = action;
+        }
+
         private void SetForm()
         {
+            if (this.Action == "New")
+            {
+                btnSalvar.Text = "Cadastrar";
+            }
+            else if (this.Action == "Show")
+            {
+                btnSalvar.Text = "Salvar";
+                btnEditar.Text = "Editar";
+            }
 
-            if (this.Action == "Edit")
+            else if (this.Action == "Edit")
             {
                 MostrarEmpresa();
-               
                 txt_razao.Enabled = false;
                 txt_endereco.Enabled = false;
                 txt_nome.Enabled = true;
@@ -45,39 +60,38 @@ namespace Agenda_OS
                 mtb_cep.Enabled = true;
                 mtb_telefone.Enabled = true;
                 mtb_cnpj.Enabled = true;
-               
                 btnEditar.Enabled = true;
                 btnExcluir.Enabled = false;
                 btnSalvar.Enabled = true;
                 btnSalvar.Text = "Salvar";
                 btnEditar.Text = "Cancelar";
-                
             }
         }
         //essa função vai mostrar no formulario com os dados da empresa
         private void MostrarEmpresa()
         {
-            lbl_id.Text = this.empresa.ID.ToString();
-            txt_razao.Text = this.empresa.Razao;
-            txt_nome.Text = this.empresa.Nome;
-            mtb_cnpj.Text = this.empresa.CNPJ;
+            lbl_id.Text = this.cliente.ID.ToString();
+            txt_razao.Text = this.cliente.Razao;
+            txt_nome.Text = this.cliente.Nome;
+            mtb_cnpj.Text = this.cliente.CNPJ;
 
             //DataBindings.Value = this.tecnico.Nasc;
-            txt_endereco.Text = this.empresa.Endereco;
-            mtb_cep.Text = this.empresa.CEP;
-            mtb_telefone.Text = this.empresa.Telefone;
-            mtb_celular.Text = this.empresa.Celular;
+            txt_endereco.Text = this.cliente.Endereco;
+            mtb_cep.Text = this.cliente.CEP;
+            mtb_telefone.Text = this.cliente.Telefone;
+            mtb_celular.Text = this.cliente.Celular;
+            MessageBox.Show("Cheguei");
         }
 
-        private void SetUsuario()
+        private void SetEmpresa()
         {
-            this.empresa.CNPJ = rtnNoMask(mtb_cnpj);
-            this.empresa.Razao = txt_razao.Text;
-            this.empresa.Nome = txt_nome.Text;
-            this.empresa.Endereco = txt_endereco.Text;
-            this.empresa.CEP = rtnNoMask(mtb_cep);
-            this.empresa.Telefone = rtnNoMask(mtb_telefone);
-            this.empresa.Celular = rtnNoMask(mtb_celular);
+            this.cliente.CNPJ = rtnNoMask(mtb_cnpj);
+            this.cliente.Razao = txt_razao.Text;
+            this.cliente.Nome = txt_nome.Text;
+            this.cliente.Endereco = txt_endereco.Text;
+            this.cliente.CEP = rtnNoMask(mtb_cep);
+            this.cliente.Telefone = rtnNoMask(mtb_telefone);
+            this.cliente.Celular = rtnNoMask(mtb_celular);
         }
 
         private string rtnNoMask(MaskedTextBox mtb)
@@ -90,19 +104,9 @@ namespace Agenda_OS
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            btnSalvar.Enabled = false;
-            SetUsuario();
-            if (this.Action == "Edit")
-            {
-                if (this.empresa.SalvarEmpresa(this.Action))
-                {
-                    this.Action = "Show";
-                }
-                else
-                {
-                    MessageBox.Show(Conexao.msg);
-                    btnSalvar.Enabled = true;
-                }
+            SetEmpresa();
+            if (this.cliente.SalvarEmpresa(this.Action)) {
+                this.action = "New";
             }
         }
 
@@ -118,9 +122,6 @@ namespace Agenda_OS
             }
         }
 
-        private void FormClientes_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

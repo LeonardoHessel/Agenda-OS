@@ -30,7 +30,7 @@ namespace Agenda_OS
             if (e.KeyCode == Keys.Escape)
             {
                 btnFechar.PerformClick();
-            } 
+            }
             else if (e.KeyCode == Keys.Enter)
             {
                 btnAcessar.PerformClick();

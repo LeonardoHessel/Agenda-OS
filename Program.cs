@@ -25,7 +25,7 @@ namespace Agenda_OS
                 login.ID_Modulo = 1;
                 login.Action = "Login";
                 DialogResult respLog = login.ShowDialog();
-                
+
                 if (respLog == DialogResult.Yes)
                 {
                     FormAgenda Agenda = new FormAgenda();

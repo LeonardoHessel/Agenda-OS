@@ -13,7 +13,7 @@ namespace Agenda_OS
     public partial class UctClientes : UserControl
     {
         private static UctClientes _instancia;
-        
+
 
         public static UctClientes instancia
         {
@@ -29,7 +29,8 @@ namespace Agenda_OS
 
         private List<Empresa> listarempresa { get; set; }
 
-        private void RemoverCampos() {
+        private void RemoverCampos()
+        {
             dgvClientes.Columns.Remove("id");
             dgvClientes.Columns.Remove("razao");
             dgvClientes.Columns.Remove("cnpj");
@@ -50,30 +51,65 @@ namespace Agenda_OS
             InitializeComponent();
             CarregarEmpresa();
             RemoverCampos();
-
-
-
         }
 
+        //adicionar empresa
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            FormClientes frmclientes = new FormClientes();
+            Empresa empresa = new Empresa();
+            FormClientes frmclientes = new FormClientes(empresa, "New");
             frmclientes.ShowDialog();
         }
 
-        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //editar
+        private void btnEditar_Click(object sender, EventArgs e)
         {
             int linha = dgvClientes.CurrentRow.Index;
             long id = Convert.ToInt64(dgvClientes.CurrentRow.Cells["ID"].Value);
-            FormClientes frm = new FormClientes(Empresa, "Show");
+
+            Empresa empresa = this.listarempresa.Find(cliente => cliente.ID == id);
+            FormClientes frm = new FormClientes(empresa, "Edit");
             frm.ShowDialog();
             CarregarEmpresa();
             dgvClientes.ClearSelection();
             dgvClientes.CurrentCell = dgvClientes[0, linha];
             dgvClientes.Rows[linha].Selected = true;
+        }
+        //puxa a tela com os registros se der duplo click na linha selecionada
+        private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int linha = dgvClientes.CurrentRow.Index;
+            long id = Convert.ToInt64(dgvClientes.CurrentRow.Cells["ID"].Value);
 
+            Empresa empresa = this.listarempresa.Find(cliente => cliente.ID == id);
+            FormClientes frm = new FormClientes(empresa, "Edit");
+            frm.ShowDialog();
+            CarregarEmpresa();
+            dgvClientes.ClearSelection();
+            dgvClientes.CurrentCell = dgvClientes[0, linha];
+            dgvClientes.Rows[linha].Selected = true;
         }
 
-        
+       
     }
 }

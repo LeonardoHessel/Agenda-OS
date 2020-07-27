@@ -108,7 +108,7 @@ namespace Agenda_OS
             }
             UctServicos.instancia.BringToFront();
 
-            
+
         }
 
         private void frmAgendaOs_KeyDown(object sender, KeyEventArgs e)
@@ -116,7 +116,7 @@ namespace Agenda_OS
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
-            } 
+            }
             else if (e.KeyCode == Keys.F12)
             {
                 btnLogout.PerformClick();
