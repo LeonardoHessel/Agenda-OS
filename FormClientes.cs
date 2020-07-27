@@ -61,10 +61,13 @@ namespace Agenda_OS
                 mtb_telefone.Enabled = true;
                 mtb_cnpj.Enabled = true;
                 btnEditar.Enabled = true;
-                btnExcluir.Enabled = false;
                 btnSalvar.Enabled = true;
                 btnSalvar.Text = "Salvar";
                 btnEditar.Text = "Cancelar";
+            }
+            else if (this.action == "Delete") {
+                MostrarEmpresa();
+                btnExcluir.Enabled = true;
             }
         }
         //essa função vai mostrar no formulario com os dados da empresa
@@ -80,7 +83,6 @@ namespace Agenda_OS
             mtb_cep.Text = this.cliente.CEP;
             mtb_telefone.Text = this.cliente.Telefone;
             mtb_celular.Text = this.cliente.Celular;
-            MessageBox.Show("Cheguei");
         }
 
         private void SetEmpresa()
@@ -122,6 +124,11 @@ namespace Agenda_OS
             }
         }
 
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            
+            this.Action = "Delete";
 
+        }
     }
 }

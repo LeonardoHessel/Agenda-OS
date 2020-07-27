@@ -13,8 +13,6 @@ namespace Agenda_OS
     public partial class UctClientes : UserControl
     {
         private static UctClientes _instancia;
-
-
         public static UctClientes instancia
         {
             get
@@ -110,6 +108,6 @@ namespace Agenda_OS
             dgvClientes.Rows[linha].Selected = true;
         }
 
-       
+      
     }
 }

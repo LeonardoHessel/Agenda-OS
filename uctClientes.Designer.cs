@@ -150,6 +150,7 @@
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.Size = new System.Drawing.Size(660, 398);
             this.dgvClientes.TabIndex = 9;
+            
             this.dgvClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellDoubleClick);
             // 
             // cblinativos
@@ -216,7 +217,6 @@
             this.Name = "UctClientes";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(660, 597);
-            
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

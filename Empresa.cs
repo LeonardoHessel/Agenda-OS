@@ -67,7 +67,20 @@ namespace Agenda_OS
             return false;
         }
 
+        //excluir empresa
+        private bool Excluir(){
+            string sql =
+                "DELETE from `empresa` WHERE `empresa`.`id`= @id";
 
+            NewCMD(sql, CommandType.Text);
+            AddPar("id", this.ID);
+
+            if (ExecuteNQ())
+            {
+                return true;
+            }
+            return false;
+        }
         //listagem das empresas
         public static List<Empresa> ListaEmpresa()
         {
@@ -95,7 +108,7 @@ namespace Agenda_OS
             return listarempresa;
 
         }
-
+        
         //tipo de ação
         public bool SalvarEmpresa(string action)
         {
@@ -107,6 +120,10 @@ namespace Agenda_OS
             else if (action == "Edit")
             {
                 return Atualizar();
+            }
+            else if (action == "Delete") 
+            {
+                return Excluir();
             }
             return false;
         }
