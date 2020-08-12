@@ -113,6 +113,16 @@ namespace Agenda_OS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EditX321 {
+            get {
+                object obj = ResourceManager.GetObject("EditX321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_user_64px {
             get {
                 object obj = ResourceManager.GetObject("icons8_user_64px", resourceCulture);
@@ -133,9 +143,29 @@ namespace Agenda_OS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NewX32 {
+            get {
+                object obj = ResourceManager.GetObject("NewX32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SaveX32 {
             get {
                 object obj = ResourceManager.GetObject("SaveX32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveX321 {
+            get {
+                object obj = ResourceManager.GetObject("SaveX321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

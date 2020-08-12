@@ -61,5 +61,10 @@ namespace Agenda_OS
             // dgvClientes.CurrentCell = dgvClientes[0, linha];
             // dgvClientes.Rows[linha].Selected = true;
         }
+
+        private void txtBuscaEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            CarregarEmpresas();
+        }
     }
 }

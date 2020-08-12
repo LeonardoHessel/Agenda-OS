@@ -126,3 +126,4 @@ C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormOS.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormEmpresa.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csprojAssemblyReference.cache
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.SplashScreen.resources
+C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormBuscaCliente.resources

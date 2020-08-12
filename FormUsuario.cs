@@ -18,17 +18,20 @@ namespace Agenda_OS
 {
     public partial class FormUsuario : Form
     {
-        private Usuario tecnico;
-        private String imagem;
+        private Usuario usuario;
+        private String endImagem;
         private String EnderecoIMG
         {
-            get { return imagem; }
+            get { return endImagem; }
             set
             {
-                this.imagem = value;
-                var stream = File.OpenRead(this.imagem);
-                pbxFoto.Image = Image.FromStream(stream);
-                stream.Dispose();
+                this.endImagem = value;
+                if (value != null)
+                {
+                    var stream = File.OpenRead(value);
+                    pbxFoto.Image = Image.FromStream(stream);
+                    stream.Dispose();
+                }
             }
         }
         
@@ -43,10 +46,10 @@ namespace Agenda_OS
             }
         }
         
-        public FormUsuario(Usuario tecnico, string action)
+        public FormUsuario(Usuario usuario, string action)
         {
             InitializeComponent();
-            this.tecnico = tecnico;
+            this.usuario = usuario;
             this.Action = action;
         }
 
@@ -107,28 +110,31 @@ namespace Agenda_OS
 
         private void SetUsuario()
         {
-            this.tecnico.Login = txtLogin.Text;
-            this.tecnico.Senha = txtSenha.Text;
-            this.tecnico.Nome = txtNome.Text;
-            this.tecnico.Nasc = dtpNasc.Value;
-            this.tecnico.Sexo = cmbSexo.Text;
-            this.tecnico.RG = rtnNoMask(mtbRG);
-            this.tecnico.CPF = rtnNoMask(mtbCPF);
-            this.tecnico.CNH = rtnNoMask(mtbCNH);
+            this.usuario.Login = txtLogin.Text;
+            this.usuario.Senha = txtSenha.Text;
+            this.usuario.Nome = txtNome.Text;
+            this.usuario.Nasc = dtpNasc.Value;
+            this.usuario.Sexo = cmbSexo.Text;
+            this.usuario.RG = rtnNoMask(mtbRG);
+            this.usuario.CPF = rtnNoMask(mtbCPF);
+            this.usuario.CNH = rtnNoMask(mtbCNH);
             // Foto Perfil
             string caminho = @"..\..\Imagens\usuarios\";
-            string nome = this.tecnico.ID.ToString();
+            string nome = this.usuario.ID.ToString();
             if (caminho + nome != this.EnderecoIMG)
             {
-                File.Copy(EnderecoIMG, caminho + nome, true);
-                this.tecnico.PerfilIMG = caminho + nome;
+                if (ofdImagenPerfil.FileName != "")
+                {
+                    File.Copy(EnderecoIMG, caminho + nome, true);
+                    this.usuario.PerfilIMG = caminho + nome;
+                }
             }
             // fim
         }
 
         private void VerificarUsuario()
         {
-            if (FormAgenda.usuario.ID == tecnico.ID)
+            if (FormAgenda.usuario.ID == usuario.ID)
             {
                 labResetarLoginSenha.Hide();
                 labResetarLoginSenha.Enabled = false;
@@ -139,24 +145,24 @@ namespace Agenda_OS
 
         private void ShowUsuario()
         {
-            labCOD.Text = this.tecnico.ID.ToString();
-            txtLogin.Text = this.tecnico.Login;
-            txtSenha.Text = this.tecnico.Senha;
-            txtNome.Text = this.tecnico.Nome;
-            if (this.tecnico.Sexo == "")
+            labCOD.Text = this.usuario.ID.ToString();
+            txtLogin.Text = this.usuario.Login;
+            txtSenha.Text = this.usuario.Senha;
+            txtNome.Text = this.usuario.Nome;
+            if (this.usuario.Sexo == "")
             {
                 cmbSexo.SelectedIndex = 0;
             }
             else
             {
-                cmbSexo.Text = this.tecnico.Sexo;
+                cmbSexo.Text = this.usuario.Sexo;
             }
 
-            dtpNasc.Value = this.tecnico.Nasc;
-            mtbRG.Text = this.tecnico.RG;
-            mtbCPF.Text = this.tecnico.CPF;
-            mtbCNH.Text = this.tecnico.CNH;
-            EnderecoIMG = this.tecnico.PerfilIMG;
+            dtpNasc.Value = this.usuario.Nasc;
+            mtbRG.Text = this.usuario.RG;
+            mtbCPF.Text = this.usuario.CPF;
+            mtbCNH.Text = this.usuario.CNH;
+            EnderecoIMG = this.usuario.PerfilIMG;
         }
 
         private string rtnNoMask(MaskedTextBox mtb)
@@ -171,9 +177,9 @@ namespace Agenda_OS
         {
             btnSalvar.Enabled = false;
             SetUsuario();
-            if (this.tecnico.VerificarLogin() == 0 || this.Action == "Edit")
+            if (this.usuario.VerificarLogin() == 0 || this.Action == "Edit")
             {
-                if (this.tecnico.SalvarUsuario(this.Action))
+                if (this.usuario.SalvarUsuario(this.Action))
                 {
                     this.Action = "Show";
                 }

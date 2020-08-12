@@ -70,6 +70,7 @@
             this.txtBuscaEmpresa.Name = "txtBuscaEmpresa";
             this.txtBuscaEmpresa.Size = new System.Drawing.Size(300, 29);
             this.txtBuscaEmpresa.TabIndex = 0;
+            this.txtBuscaEmpresa.TextChanged += new System.EventHandler(this.txtBuscaEmpresa_TextChanged);
             // 
             // Busca
             // 

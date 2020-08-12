@@ -30,21 +30,22 @@
         {
             this.cbUsuario = new System.Windows.Forms.ComboBox();
             this.txtAssunto = new System.Windows.Forms.TextBox();
-            this.txtEmpresa = new System.Windows.Forms.TextBox();
+            this.txtCliente = new System.Windows.Forms.TextBox();
             this.txtCNPJ = new System.Windows.Forms.TextBox();
             this.pTitulo = new System.Windows.Forms.Panel();
             this.labId = new System.Windows.Forms.Label();
             this.labTitulo = new System.Windows.Forms.Label();
             this.labOSid = new System.Windows.Forms.Label();
+            this.btnFechar = new System.Windows.Forms.Button();
             this.pRodape = new System.Windows.Forms.Panel();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtQuem = new System.Windows.Forms.TextBox();
             this.cbProduto = new System.Windows.Forms.ComboBox();
             this.cbSituacao = new System.Windows.Forms.ComboBox();
             this.labUsuario = new System.Windows.Forms.Label();
-            this.labEmpresa = new System.Windows.Forms.Label();
+            this.labCliente = new System.Windows.Forms.Label();
             this.labAssunto = new System.Windows.Forms.Label();
-            this.labCNPJ = new System.Windows.Forms.Label();
+            this.labCPFCNPJ = new System.Windows.Forms.Label();
             this.labQuem = new System.Windows.Forms.Label();
             this.labDescricao = new System.Windows.Forms.Label();
             this.labSolucao = new System.Windows.Forms.Label();
@@ -60,19 +61,20 @@
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnPesquisa = new System.Windows.Forms.Button();
-            this.btnFechar = new System.Windows.Forms.Button();
+            this.btnPesquisaCliente = new System.Windows.Forms.Button();
             this.pTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbUsuario
             // 
+            this.cbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUsuario.FormattingEnabled = true;
             this.cbUsuario.Location = new System.Drawing.Point(338, 81);
             this.cbUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbUsuario.Name = "cbUsuario";
             this.cbUsuario.Size = new System.Drawing.Size(320, 25);
             this.cbUsuario.TabIndex = 0;
+            this.cbUsuario.SelectedIndexChanged += new System.EventHandler(this.cbUsuario_SelectedIndexChanged);
             // 
             // txtAssunto
             // 
@@ -80,15 +82,15 @@
             this.txtAssunto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAssunto.Name = "txtAssunto";
             this.txtAssunto.Size = new System.Drawing.Size(320, 25);
-            this.txtAssunto.TabIndex = 1;
+            this.txtAssunto.TabIndex = 3;
             // 
-            // txtEmpresa
+            // txtCliente
             // 
-            this.txtEmpresa.Location = new System.Drawing.Point(12, 81);
-            this.txtEmpresa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtEmpresa.Name = "txtEmpresa";
-            this.txtEmpresa.Size = new System.Drawing.Size(289, 25);
-            this.txtEmpresa.TabIndex = 2;
+            this.txtCliente.Location = new System.Drawing.Point(12, 81);
+            this.txtCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(289, 25);
+            this.txtCliente.TabIndex = 1;
             // 
             // txtCNPJ
             // 
@@ -148,6 +150,20 @@
             this.labOSid.TabIndex = 2;
             this.labOSid.Text = "OS nº";
             // 
+            // btnFechar
+            // 
+            this.btnFechar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnFechar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnFechar.FlatAppearance.BorderSize = 0;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Image = global::Agenda_OS.Properties.Resources.CloseX32;
+            this.btnFechar.Location = new System.Drawing.Point(620, 0);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(50, 50);
+            this.btnFechar.TabIndex = 0;
+            this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            // 
             // pRodape
             // 
             this.pRodape.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -163,7 +179,7 @@
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(320, 90);
-            this.txtDescricao.TabIndex = 6;
+            this.txtDescricao.TabIndex = 4;
             // 
             // txtQuem
             // 
@@ -171,7 +187,7 @@
             this.txtQuem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtQuem.Name = "txtQuem";
             this.txtQuem.Size = new System.Drawing.Size(174, 25);
-            this.txtQuem.TabIndex = 7;
+            this.txtQuem.TabIndex = 2;
             // 
             // cbProduto
             // 
@@ -180,11 +196,17 @@
             this.cbProduto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbProduto.Name = "cbProduto";
             this.cbProduto.Size = new System.Drawing.Size(261, 25);
-            this.cbProduto.TabIndex = 9;
+            this.cbProduto.TabIndex = 6;
             // 
             // cbSituacao
             // 
+            this.cbSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSituacao.FormattingEnabled = true;
+            this.cbSituacao.Items.AddRange(new object[] {
+            "Agendado",
+            "Cancelado",
+            "Finalizado",
+            "Pendente"});
             this.cbSituacao.Location = new System.Drawing.Point(458, 309);
             this.cbSituacao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbSituacao.Name = "cbSituacao";
@@ -201,15 +223,15 @@
             this.labUsuario.TabIndex = 11;
             this.labUsuario.Text = "Usuário";
             // 
-            // labEmpresa
+            // labCliente
             // 
-            this.labEmpresa.AutoSize = true;
-            this.labEmpresa.Location = new System.Drawing.Point(9, 60);
-            this.labEmpresa.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.labEmpresa.Name = "labEmpresa";
-            this.labEmpresa.Size = new System.Drawing.Size(59, 17);
-            this.labEmpresa.TabIndex = 13;
-            this.labEmpresa.Text = "Empresa";
+            this.labCliente.AutoSize = true;
+            this.labCliente.Location = new System.Drawing.Point(9, 60);
+            this.labCliente.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.labCliente.Name = "labCliente";
+            this.labCliente.Size = new System.Drawing.Size(59, 17);
+            this.labCliente.TabIndex = 13;
+            this.labCliente.Text = "Empresa";
             // 
             // labAssunto
             // 
@@ -221,15 +243,15 @@
             this.labAssunto.TabIndex = 14;
             this.labAssunto.Text = "Assunto";
             // 
-            // labCNPJ
+            // labCPFCNPJ
             // 
-            this.labCNPJ.AutoSize = true;
-            this.labCNPJ.Location = new System.Drawing.Point(9, 115);
-            this.labCNPJ.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.labCNPJ.Name = "labCNPJ";
-            this.labCNPJ.Size = new System.Drawing.Size(37, 17);
-            this.labCNPJ.TabIndex = 15;
-            this.labCNPJ.Text = "CNPJ";
+            this.labCPFCNPJ.AutoSize = true;
+            this.labCPFCNPJ.Location = new System.Drawing.Point(9, 115);
+            this.labCPFCNPJ.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.labCPFCNPJ.Name = "labCPFCNPJ";
+            this.labCPFCNPJ.Size = new System.Drawing.Size(37, 17);
+            this.labCPFCNPJ.TabIndex = 15;
+            this.labCPFCNPJ.Text = "CNPJ";
             // 
             // labQuem
             // 
@@ -267,7 +289,7 @@
             this.txtSolucao.Multiline = true;
             this.txtSolucao.Name = "txtSolucao";
             this.txtSolucao.Size = new System.Drawing.Size(320, 90);
-            this.txtSolucao.TabIndex = 19;
+            this.txtSolucao.TabIndex = 5;
             // 
             // dtpAbertura
             // 
@@ -276,7 +298,7 @@
             this.dtpAbertura.Location = new System.Drawing.Point(279, 309);
             this.dtpAbertura.Name = "dtpAbertura";
             this.dtpAbertura.Size = new System.Drawing.Size(173, 25);
-            this.dtpAbertura.TabIndex = 22;
+            this.dtpAbertura.TabIndex = 8;
             // 
             // dtpFinalizado
             // 
@@ -285,7 +307,7 @@
             this.dtpFinalizado.Location = new System.Drawing.Point(279, 364);
             this.dtpFinalizado.Name = "dtpFinalizado";
             this.dtpFinalizado.Size = new System.Drawing.Size(173, 25);
-            this.dtpFinalizado.TabIndex = 23;
+            this.dtpFinalizado.TabIndex = 8;
             // 
             // labAbertura
             // 
@@ -340,6 +362,7 @@
             // cbAtendimento
             // 
             this.cbAtendimento.FormattingEnabled = true;
+            this.cbAtendimento.ItemHeight = 17;
             this.cbAtendimento.Location = new System.Drawing.Point(12, 364);
             this.cbAtendimento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbAtendimento.Name = "cbAtendimento";
@@ -355,7 +378,7 @@
             this.btnDeletar.Location = new System.Drawing.Point(496, 364);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(50, 50);
-            this.btnDeletar.TabIndex = 34;
+            this.btnDeletar.TabIndex = 11;
             this.btnDeletar.UseVisualStyleBackColor = false;
             // 
             // btnEditar
@@ -367,7 +390,7 @@
             this.btnEditar.Location = new System.Drawing.Point(552, 364);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
-            this.btnEditar.TabIndex = 33;
+            this.btnEditar.TabIndex = 12;
             this.btnEditar.UseVisualStyleBackColor = false;
             // 
             // btnSalvar
@@ -379,34 +402,21 @@
             this.btnSalvar.Location = new System.Drawing.Point(608, 364);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(50, 50);
-            this.btnSalvar.TabIndex = 32;
+            this.btnSalvar.TabIndex = 13;
             this.btnSalvar.UseVisualStyleBackColor = false;
             // 
-            // btnPesquisa
+            // btnPesquisaCliente
             // 
-            this.btnPesquisa.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnPesquisa.FlatAppearance.BorderSize = 0;
-            this.btnPesquisa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPesquisa.Image = global::Agenda_OS.Properties.Resources.SearchX16;
-            this.btnPesquisa.Location = new System.Drawing.Point(307, 81);
-            this.btnPesquisa.Name = "btnPesquisa";
-            this.btnPesquisa.Size = new System.Drawing.Size(25, 25);
-            this.btnPesquisa.TabIndex = 8;
-            this.btnPesquisa.UseVisualStyleBackColor = false;
-            // 
-            // btnFechar
-            // 
-            this.btnFechar.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnFechar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnFechar.FlatAppearance.BorderSize = 0;
-            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechar.Image = global::Agenda_OS.Properties.Resources.CloseX32;
-            this.btnFechar.Location = new System.Drawing.Point(620, 0);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(50, 50);
-            this.btnFechar.TabIndex = 0;
-            this.btnFechar.UseVisualStyleBackColor = false;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            this.btnPesquisaCliente.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnPesquisaCliente.FlatAppearance.BorderSize = 0;
+            this.btnPesquisaCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisaCliente.Image = global::Agenda_OS.Properties.Resources.SearchX16;
+            this.btnPesquisaCliente.Location = new System.Drawing.Point(307, 81);
+            this.btnPesquisaCliente.Name = "btnPesquisaCliente";
+            this.btnPesquisaCliente.Size = new System.Drawing.Size(25, 25);
+            this.btnPesquisaCliente.TabIndex = 8;
+            this.btnPesquisaCliente.UseVisualStyleBackColor = false;
+            this.btnPesquisaCliente.Click += new System.EventHandler(this.btnPesquisaCliente_Click);
             // 
             // FormOS
             // 
@@ -428,19 +438,19 @@
             this.Controls.Add(this.txtSolucao);
             this.Controls.Add(this.labDescricao);
             this.Controls.Add(this.labQuem);
-            this.Controls.Add(this.labCNPJ);
+            this.Controls.Add(this.labCPFCNPJ);
             this.Controls.Add(this.labAssunto);
-            this.Controls.Add(this.labEmpresa);
+            this.Controls.Add(this.labCliente);
             this.Controls.Add(this.labUsuario);
             this.Controls.Add(this.cbSituacao);
             this.Controls.Add(this.cbProduto);
-            this.Controls.Add(this.btnPesquisa);
+            this.Controls.Add(this.btnPesquisaCliente);
             this.Controls.Add(this.txtQuem);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.pRodape);
             this.Controls.Add(this.pTitulo);
             this.Controls.Add(this.txtCNPJ);
-            this.Controls.Add(this.txtEmpresa);
+            this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.txtAssunto);
             this.Controls.Add(this.cbUsuario);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -464,20 +474,20 @@
 
         private System.Windows.Forms.ComboBox cbUsuario;
         private System.Windows.Forms.TextBox txtAssunto;
-        private System.Windows.Forms.TextBox txtEmpresa;
+        private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.TextBox txtCNPJ;
         private System.Windows.Forms.Panel pTitulo;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Panel pRodape;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.TextBox txtQuem;
-        private System.Windows.Forms.Button btnPesquisa;
+        private System.Windows.Forms.Button btnPesquisaCliente;
         private System.Windows.Forms.ComboBox cbProduto;
         private System.Windows.Forms.ComboBox cbSituacao;
         private System.Windows.Forms.Label labUsuario;
-        private System.Windows.Forms.Label labEmpresa;
+        private System.Windows.Forms.Label labCliente;
         private System.Windows.Forms.Label labAssunto;
-        private System.Windows.Forms.Label labCNPJ;
+        private System.Windows.Forms.Label labCPFCNPJ;
         private System.Windows.Forms.Label labQuem;
         private System.Windows.Forms.Label labDescricao;
         private System.Windows.Forms.Label labSolucao;

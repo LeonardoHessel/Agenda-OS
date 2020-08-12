@@ -34,6 +34,7 @@ namespace Agenda_OS
         private void btnNovo_Click(object sender, EventArgs e)
         {
             FormOS os = new FormOS();
+            os.Action = "Novo";
             os.ShowDialog();
         }
     }

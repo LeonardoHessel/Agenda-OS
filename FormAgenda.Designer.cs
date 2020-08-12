@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.btnUsuario = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.labUsuarioMone = new System.Windows.Forms.Label();
             this.btnServicos = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnOS = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
+            this.btnUsuario = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.labUsuarioMone = new System.Windows.Forms.Label();
             this.pnlUC = new System.Windows.Forms.Panel();
             this.pPerfilUsuario = new System.Windows.Forms.Panel();
             this.btnEditarUsuario = new System.Windows.Forms.Button();
@@ -47,6 +47,7 @@
             // 
             // pnlMenu
             // 
+            this.pnlMenu.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlMenu.Controls.Add(this.btnServicos);
             this.pnlMenu.Controls.Add(this.btnUsuarios);
             this.pnlMenu.Controls.Add(this.btnOS);
@@ -56,47 +57,6 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(557, 75);
             this.pnlMenu.TabIndex = 0;
-            // 
-            // btnUsuario
-            // 
-            this.btnUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUsuario.BackColor = System.Drawing.Color.DarkGray;
-            this.btnUsuario.FlatAppearance.BorderSize = 0;
-            this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuario.Image = global::Agenda_OS.Properties.Resources.icons8_user_64px;
-            this.btnUsuario.Location = new System.Drawing.Point(725, 0);
-            this.btnUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(75, 75);
-            this.btnUsuario.TabIndex = 7;
-            this.btnUsuario.UseVisualStyleBackColor = false;
-            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.BackColor = System.Drawing.Color.DarkGray;
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(0, 149);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(0);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(124, 29);
-            this.btnLogout.TabIndex = 2;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // labUsuarioMone
-            // 
-            this.labUsuarioMone.AutoSize = true;
-            this.labUsuarioMone.ForeColor = System.Drawing.Color.White;
-            this.labUsuarioMone.Location = new System.Drawing.Point(3, 9);
-            this.labUsuarioMone.Name = "labUsuarioMone";
-            this.labUsuarioMone.Size = new System.Drawing.Size(93, 17);
-            this.labUsuarioMone.TabIndex = 6;
-            this.labUsuarioMone.Text = "Usuario Nome";
             // 
             // btnServicos
             // 
@@ -141,6 +101,47 @@
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnCliente_Click);
+            // 
+            // btnUsuario
+            // 
+            this.btnUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUsuario.BackColor = System.Drawing.Color.DarkGray;
+            this.btnUsuario.FlatAppearance.BorderSize = 0;
+            this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuario.Image = global::Agenda_OS.Properties.Resources.icons8_user_64px;
+            this.btnUsuario.Location = new System.Drawing.Point(725, 0);
+            this.btnUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Size = new System.Drawing.Size(75, 75);
+            this.btnUsuario.TabIndex = 7;
+            this.btnUsuario.UseVisualStyleBackColor = false;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(0, 149);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(0);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(124, 29);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // labUsuarioMone
+            // 
+            this.labUsuarioMone.AutoSize = true;
+            this.labUsuarioMone.ForeColor = System.Drawing.Color.White;
+            this.labUsuarioMone.Location = new System.Drawing.Point(3, 9);
+            this.labUsuarioMone.Name = "labUsuarioMone";
+            this.labUsuarioMone.Size = new System.Drawing.Size(93, 17);
+            this.labUsuarioMone.TabIndex = 6;
+            this.labUsuarioMone.Text = "Usuario Nome";
             // 
             // pnlUC
             // 
@@ -194,7 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(800, 591);
             this.Controls.Add(this.pPerfilUsuario);
             this.Controls.Add(this.pnlUC);
