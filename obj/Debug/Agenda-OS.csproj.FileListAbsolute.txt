@@ -109,7 +109,6 @@ C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormAgenda.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.Properties.Resources.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.uctAgendaOS.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.uctClientes.resources
-C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.uctServicos.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csproj.GenerateResource.cache
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csproj.CoreCompileInputs.cache
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csproj.CopyComplete
@@ -127,3 +126,5 @@ C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormEmpresa.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csprojAssemblyReference.cache
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.SplashScreen.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormBuscaCliente.resources
+C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.UctProdutos.resources
+C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormProduto.resources

@@ -94,6 +94,12 @@
     <Compile Include="FormOS.Designer.cs">
       <DependentUpon>FormOS.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProduto.Designer.cs">
+      <DependentUpon>FormProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,7 @@
     </Compile>
     <Compile Include="Modulo.cs" />
     <Compile Include="Permissao.cs" />
+    <Compile Include="Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -134,11 +141,11 @@
     <Compile Include="UctClientes.Designer.cs">
       <DependentUpon>UctClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="UctServicos.cs">
+    <Compile Include="UctProdutos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UctServicos.Designer.cs">
-      <DependentUpon>UctServicos.cs</DependentUpon>
+    <Compile Include="UctProdutos.Designer.cs">
+      <DependentUpon>UctProdutos.cs</DependentUpon>
     </Compile>
     <Compile Include="UctUsuario.cs">
       <SubType>UserControl</SubType>
@@ -161,6 +168,9 @@
     <EmbeddedResource Include="FormOS.resx">
       <DependentUpon>FormOS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormProduto.resx">
+      <DependentUpon>FormProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,8 +188,8 @@
     <EmbeddedResource Include="UctClientes.resx">
       <DependentUpon>UctClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UctServicos.resx">
-      <DependentUpon>UctServicos.cs</DependentUpon>
+    <EmbeddedResource Include="UctProdutos.resx">
+      <DependentUpon>UctProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UctUsuario.resx">
       <DependentUpon>UctUsuario.cs</DependentUpon>

@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `empresa`(
 
 DROP TABLE IF EXISTS `os`;
 CREATE TABLE IF NOT EXISTS `os`(
-	`id` INT,
+	`id` INT AUTO_INCREMENT,
     `empresa` INT,
     `solicitante` VARCHAR(45),
     `usuario` INT,
@@ -96,7 +96,12 @@ CREATE TABLE IF NOT EXISTS `os`(
     FOREIGN KEY (`usuario`) REFERENCES `usuario`(`id`)
 )ENGINE = InnoDB;
 
-
+DROP TABLE IF EXISTS `produto`;
+CREATE TABLE IF NOT EXISTS `produto`(
+	`id` INT AUTO_INCREMENT,
+    `nome` VARCHAR(100),
+    PRIMARY KEY(`id`)
+)ENGINE = InnoDB;
 
 
 -- Procedimentos --
@@ -177,6 +182,8 @@ BEGIN
 	CALL `AdcPermissoes` (new.id,'U');
 END $$
 DELIMITER ;
+
+
 
 
 

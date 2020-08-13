@@ -46,7 +46,7 @@ namespace Agenda_OS
             }
             else if (e.KeyChar == '4')
             {
-                btnServicos.PerformClick();
+                btnProdutos.PerformClick();
             }
         }
 
@@ -99,16 +99,14 @@ namespace Agenda_OS
             UctUsuario.instancia.BringToFront();
         }
 
-        private void btnServicos_Click(object sender, EventArgs e)
+        private void btnProdutos_Click(object sender, EventArgs e)
         {
-            if (!pnlUC.Controls.Contains(UctServicos.instancia))
+            if (!pnlUC.Controls.Contains(UctProdutos.instancia))
             {
-                pnlUC.Controls.Add(UctServicos.instancia);
-                UctServicos.instancia.Dock = DockStyle.Fill;
+                pnlUC.Controls.Add(UctProdutos.instancia);
+                UctProdutos.instancia.Dock = DockStyle.Fill;
             }
-            UctServicos.instancia.BringToFront();
-
-            
+            UctProdutos.instancia.BringToFront();
         }
 
         private void frmAgendaOs_KeyDown(object sender, KeyEventArgs e)

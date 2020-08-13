@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.btnServicos = new System.Windows.Forms.Button();
+            this.btnProdutos = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnOS = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
@@ -48,26 +48,26 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.Gainsboro;
-            this.pnlMenu.Controls.Add(this.btnServicos);
+            this.pnlMenu.Controls.Add(this.btnProdutos);
             this.pnlMenu.Controls.Add(this.btnUsuarios);
             this.pnlMenu.Controls.Add(this.btnOS);
             this.pnlMenu.Controls.Add(this.btnClientes);
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(557, 75);
+            this.pnlMenu.Size = new System.Drawing.Size(673, 75);
             this.pnlMenu.TabIndex = 0;
             // 
-            // btnServicos
+            // btnProdutos
             // 
-            this.btnServicos.Location = new System.Drawing.Point(338, 0);
-            this.btnServicos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnServicos.Name = "btnServicos";
-            this.btnServicos.Size = new System.Drawing.Size(75, 75);
-            this.btnServicos.TabIndex = 4;
-            this.btnServicos.Text = "Serviços";
-            this.btnServicos.UseVisualStyleBackColor = true;
-            this.btnServicos.Click += new System.EventHandler(this.btnServicos_Click);
+            this.btnProdutos.Location = new System.Drawing.Point(338, 0);
+            this.btnProdutos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProdutos.Name = "btnProdutos";
+            this.btnProdutos.Size = new System.Drawing.Size(75, 75);
+            this.btnProdutos.TabIndex = 4;
+            this.btnProdutos.Text = "Produtos";
+            this.btnProdutos.UseVisualStyleBackColor = true;
+            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
             // 
             // btnUsuarios
             // 
@@ -225,7 +225,7 @@
         private System.Windows.Forms.Button btnOS;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Panel pnlUC;
-        private System.Windows.Forms.Button btnServicos;
+        private System.Windows.Forms.Button btnProdutos;
         private System.Windows.Forms.Label labUsuarioMone;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnUsuario;
