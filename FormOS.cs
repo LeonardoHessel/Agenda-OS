@@ -12,23 +12,20 @@ namespace Agenda_OS
 {
     public partial class FormOS : Form
     {
+        public FormOS()
+        {
+            InitializeComponent();
+            SetupFormulário();
+        }
+
         private string action;
         private Empresa cliente;
         //private Usuario usuario;
-        private List<Usuario> listaUsuarios
-        {
-            set
-            {
-                cbUsuario.DisplayMember = "Nome";
-                cbUsuario.ValueMember = "ID";
-                cbUsuario.Items.AddRange(value.ToArray());
-            }
-        }
 
         public string Action
         {
-            get { return action; }
-            set 
+            get { return this.action; }
+            set
             {
                 action = value;
                 SetupFormulário();
@@ -46,17 +43,56 @@ namespace Agenda_OS
             }
         }
 
-        public Usuario Usuario { get; set; }
-
-        public FormOS()
+        private List<Produto> listaProdutos
         {
-            InitializeComponent();
-            SetupFormulário();
+            set
+            {
+                cbProduto.DisplayMember = "Nome";
+                cbProduto.ValueMember = "ID";
+                cbProduto.Items.AddRange(value.ToArray());
+            }
         }
 
-        private void FormOS_Load(object sender, EventArgs e)
+        private List<Usuario> listaUsuarios
         {
+            set
+            {
+                cbUsuario.DisplayMember = "Nome";
+                cbUsuario.ValueMember = "ID";
+                cbUsuario.Items.AddRange(value.ToArray());
+            }
+        }
 
+        public OrdemServico OrdemServico { get; set; }
+
+        private Produto Produto { get; set; }
+
+        public Usuario Usuario { get; set; }
+
+        private void GetInfoOS()
+        {
+            this.OrdemServico.ID_Cliente = this.Cliente.ID;
+            this.OrdemServico.Solicitante = txtQuem.Text;
+            this.OrdemServico.ID_Usuario = this.Usuario.ID;
+            this.OrdemServico.Assunto = txtAssunto.Text;
+            this.OrdemServico.Descricao = txtDescricao.Text;
+            this.OrdemServico.Solucao = txtSolucao.Text;
+            this.OrdemServico.ID_Produto = this.Produto.ID;
+            this.OrdemServico.Atendimento = this.cbAtendimento.Text;
+            this.OrdemServico.Abertura = dtpAbertura.Value;
+            this.OrdemServico.Fechamento = dtpFinalizado.Value;
+            this.OrdemServico.Situacao = cbSituacao.Text;
+        }
+
+        private void SetupFormulário()
+        {
+            if (this.Action == "Novo")
+            {
+                this.listaUsuarios = Usuario.TodosUsuarios("", false);
+                cbUsuario.Text = FormAgenda.usuario.Nome;
+                this.listaProdutos = Produto.TodosProdutos("");
+                cbSituacao.Text = "Pendente";
+            }
         }
 
         private void FormOS_KeyDown(object sender, KeyEventArgs e)
@@ -104,14 +140,25 @@ namespace Agenda_OS
             }
         }
 
-        private void SetupFormulário()
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
+            GetInfoOS();
             if (this.Action == "Novo")
             {
-                this.listaUsuarios = Usuario.TodosUsuarios("", false);
-                cbUsuario.Text = FormAgenda.usuario.Nome;
-                cbSituacao.Text = "Pendente";
+                if (this.OrdemServico.Inserir())
+                {
+                    MessageBox.Show("Ordem de Serviço Inserida com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Erro: " + this.OrdemServico.Erro);
+                }
             }
+        }
+
+        private void cbProduto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Produto = (Produto)cbProduto.SelectedItem;
         }
     }
 }

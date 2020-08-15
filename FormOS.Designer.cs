@@ -86,11 +86,11 @@
             // 
             // txtCliente
             // 
-            this.txtCliente.Location = new System.Drawing.Point(12, 81);
+            this.txtCliente.Location = new System.Drawing.Point(12, 82);
             this.txtCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(289, 25);
-            this.txtCliente.TabIndex = 1;
+            this.txtCliente.TabIndex = 0;
             // 
             // txtCNPJ
             // 
@@ -168,7 +168,7 @@
             // 
             this.pRodape.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pRodape.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pRodape.Location = new System.Drawing.Point(0, 424);
+            this.pRodape.Location = new System.Drawing.Point(0, 408);
             this.pRodape.Name = "pRodape";
             this.pRodape.Size = new System.Drawing.Size(670, 20);
             this.pRodape.TabIndex = 5;
@@ -187,16 +187,18 @@
             this.txtQuem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtQuem.Name = "txtQuem";
             this.txtQuem.Size = new System.Drawing.Size(174, 25);
-            this.txtQuem.TabIndex = 2;
+            this.txtQuem.TabIndex = 1;
             // 
             // cbProduto
             // 
+            this.cbProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProduto.FormattingEnabled = true;
             this.cbProduto.Location = new System.Drawing.Point(12, 309);
             this.cbProduto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbProduto.Name = "cbProduto";
-            this.cbProduto.Size = new System.Drawing.Size(261, 25);
+            this.cbProduto.Size = new System.Drawing.Size(224, 25);
             this.cbProduto.TabIndex = 6;
+            this.cbProduto.SelectedIndexChanged += new System.EventHandler(this.cbProduto_SelectedIndexChanged);
             // 
             // cbSituacao
             // 
@@ -207,10 +209,10 @@
             "Cancelado",
             "Finalizado",
             "Pendente"});
-            this.cbSituacao.Location = new System.Drawing.Point(458, 309);
+            this.cbSituacao.Location = new System.Drawing.Point(448, 309);
             this.cbSituacao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbSituacao.Name = "cbSituacao";
-            this.cbSituacao.Size = new System.Drawing.Size(200, 25);
+            this.cbSituacao.Size = new System.Drawing.Size(210, 25);
             this.cbSituacao.TabIndex = 10;
             // 
             // labUsuario
@@ -295,24 +297,24 @@
             // 
             this.dtpAbertura.CustomFormat = "  dd/MM/yyyy  hh:mm:s";
             this.dtpAbertura.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAbertura.Location = new System.Drawing.Point(279, 309);
+            this.dtpAbertura.Location = new System.Drawing.Point(12, 363);
             this.dtpAbertura.Name = "dtpAbertura";
-            this.dtpAbertura.Size = new System.Drawing.Size(173, 25);
+            this.dtpAbertura.Size = new System.Drawing.Size(196, 25);
             this.dtpAbertura.TabIndex = 8;
             // 
             // dtpFinalizado
             // 
             this.dtpFinalizado.CustomFormat = "  dd/MM/yyyy  hh:mm:s";
             this.dtpFinalizado.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFinalizado.Location = new System.Drawing.Point(279, 364);
+            this.dtpFinalizado.Location = new System.Drawing.Point(242, 363);
             this.dtpFinalizado.Name = "dtpFinalizado";
-            this.dtpFinalizado.Size = new System.Drawing.Size(173, 25);
+            this.dtpFinalizado.Size = new System.Drawing.Size(188, 25);
             this.dtpFinalizado.TabIndex = 8;
             // 
             // labAbertura
             // 
             this.labAbertura.AutoSize = true;
-            this.labAbertura.Location = new System.Drawing.Point(276, 289);
+            this.labAbertura.Location = new System.Drawing.Point(9, 343);
             this.labAbertura.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labAbertura.Name = "labAbertura";
             this.labAbertura.Size = new System.Drawing.Size(59, 17);
@@ -322,7 +324,7 @@
             // labFechamento
             // 
             this.labFechamento.AutoSize = true;
-            this.labFechamento.Location = new System.Drawing.Point(276, 343);
+            this.labFechamento.Location = new System.Drawing.Point(239, 343);
             this.labFechamento.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labFechamento.Name = "labFechamento";
             this.labFechamento.Size = new System.Drawing.Size(78, 17);
@@ -332,7 +334,7 @@
             // labSituacao
             // 
             this.labSituacao.AutoSize = true;
-            this.labSituacao.Location = new System.Drawing.Point(455, 288);
+            this.labSituacao.Location = new System.Drawing.Point(445, 288);
             this.labSituacao.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labSituacao.Name = "labSituacao";
             this.labSituacao.Size = new System.Drawing.Size(57, 17);
@@ -352,7 +354,7 @@
             // labAtendimento
             // 
             this.labAtendimento.AutoSize = true;
-            this.labAtendimento.Location = new System.Drawing.Point(9, 343);
+            this.labAtendimento.Location = new System.Drawing.Point(239, 288);
             this.labAtendimento.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labAtendimento.Name = "labAtendimento";
             this.labAtendimento.Size = new System.Drawing.Size(82, 17);
@@ -361,21 +363,30 @@
             // 
             // cbAtendimento
             // 
+            this.cbAtendimento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAtendimento.FormattingEnabled = true;
             this.cbAtendimento.ItemHeight = 17;
-            this.cbAtendimento.Location = new System.Drawing.Point(12, 364);
+            this.cbAtendimento.Items.AddRange(new object[] {
+            "WhatsApp",
+            "Teelefone",
+            "E-mail",
+            "Skype",
+            "Local Cliente",
+            "Local DR Sitemas"});
+            this.cbAtendimento.Location = new System.Drawing.Point(242, 309);
             this.cbAtendimento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbAtendimento.Name = "cbAtendimento";
-            this.cbAtendimento.Size = new System.Drawing.Size(261, 25);
+            this.cbAtendimento.Size = new System.Drawing.Size(200, 25);
             this.cbAtendimento.TabIndex = 29;
             // 
             // btnDeletar
             // 
+            this.btnDeletar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeletar.BackColor = System.Drawing.Color.DarkRed;
             this.btnDeletar.FlatAppearance.BorderSize = 0;
             this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletar.Image = global::Agenda_OS.Properties.Resources.TrashX32;
-            this.btnDeletar.Location = new System.Drawing.Point(496, 364);
+            this.btnDeletar.Location = new System.Drawing.Point(496, 348);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(50, 50);
             this.btnDeletar.TabIndex = 11;
@@ -383,11 +394,12 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.DarkKhaki;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Image = global::Agenda_OS.Properties.Resources.EditX32;
-            this.btnEditar.Location = new System.Drawing.Point(552, 364);
+            this.btnEditar.Location = new System.Drawing.Point(552, 348);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
             this.btnEditar.TabIndex = 12;
@@ -395,15 +407,17 @@
             // 
             // btnSalvar
             // 
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvar.BackColor = System.Drawing.Color.DarkGreen;
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Image = global::Agenda_OS.Properties.Resources.SaveX32;
-            this.btnSalvar.Location = new System.Drawing.Point(608, 364);
+            this.btnSalvar.Location = new System.Drawing.Point(608, 348);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(50, 50);
             this.btnSalvar.TabIndex = 13;
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnPesquisaCliente
             // 
@@ -422,7 +436,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 444);
+            this.ClientSize = new System.Drawing.Size(670, 428);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnSalvar);
@@ -461,7 +475,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OS";
-            this.Load += new System.EventHandler(this.FormOS_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormOS_KeyDown);
             this.pTitulo.ResumeLayout(false);
             this.pTitulo.PerformLayout();

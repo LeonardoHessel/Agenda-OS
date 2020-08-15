@@ -44,7 +44,7 @@ namespace Agenda_OS
         {
             string sql;
             Produto Con = new Produto();
-            sql = @"SELECT * FROM `produtos` 
+            sql = @"SELECT * FROM `produto` 
                 WHERE `id` like CONCAT('%', @busca, '%') 
                 OR `nome` like CONCAT('%', @busca, '%')";
             Con.NewCMD(sql, CommandType.Text);

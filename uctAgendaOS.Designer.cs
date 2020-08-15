@@ -30,16 +30,16 @@
         {
             this.Busca = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvOS = new System.Windows.Forms.DataGridView();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuário = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Assunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Abertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situação = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNovo = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOS)).BeginInit();
             this.SuspendLayout();
             // 
             // Busca
@@ -59,29 +59,29 @@
             this.txtBusca.Size = new System.Drawing.Size(400, 29);
             this.txtBusca.TabIndex = 5;
             // 
-            // dataGridView1
+            // dgvOS
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvOS.AllowUserToAddRows = false;
+            this.dgvOS.AllowUserToDeleteRows = false;
+            this.dgvOS.AllowUserToOrderColumns = true;
+            this.dgvOS.AllowUserToResizeRows = false;
+            this.dgvOS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvOS.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Empresa,
+            this.Cliente,
             this.Usuário,
             this.Assunto,
             this.Abertura,
             this.Situação});
-            this.dataGridView1.Location = new System.Drawing.Point(8, 43);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(784, 408);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvOS.Location = new System.Drawing.Point(8, 43);
+            this.dgvOS.Name = "dgvOS";
+            this.dgvOS.ReadOnly = true;
+            this.dgvOS.Size = new System.Drawing.Size(784, 408);
+            this.dgvOS.TabIndex = 6;
             // 
             // btnEditar
             // 
@@ -95,45 +95,6 @@
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
             this.btnEditar.TabIndex = 9;
             this.btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
-            // 
-            // Empresa
-            // 
-            this.Empresa.HeaderText = "Empresa";
-            this.Empresa.Name = "Empresa";
-            this.Empresa.ReadOnly = true;
-            this.Empresa.Width = 150;
-            // 
-            // Usuário
-            // 
-            this.Usuário.HeaderText = "Usuário";
-            this.Usuário.Name = "Usuário";
-            this.Usuário.ReadOnly = true;
-            // 
-            // Assunto
-            // 
-            this.Assunto.HeaderText = "Assunto";
-            this.Assunto.Name = "Assunto";
-            this.Assunto.ReadOnly = true;
-            this.Assunto.Width = 200;
-            // 
-            // Abertura
-            // 
-            this.Abertura.HeaderText = "Abertura";
-            this.Abertura.Name = "Abertura";
-            this.Abertura.ReadOnly = true;
-            // 
-            // Situação
-            // 
-            this.Situação.HeaderText = "Situação";
-            this.Situação.Name = "Situação";
-            this.Situação.ReadOnly = true;
             // 
             // btnNovo
             // 
@@ -149,6 +110,51 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 50;
+            // 
+            // Cliente
+            // 
+            this.Cliente.DataPropertyName = "ID_Cliente";
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Width = 150;
+            // 
+            // Usuário
+            // 
+            this.Usuário.DataPropertyName = "ID_Usuario";
+            this.Usuário.HeaderText = "Usuário";
+            this.Usuário.Name = "Usuário";
+            this.Usuário.ReadOnly = true;
+            // 
+            // Assunto
+            // 
+            this.Assunto.DataPropertyName = "Assunto";
+            this.Assunto.HeaderText = "Assunto";
+            this.Assunto.Name = "Assunto";
+            this.Assunto.ReadOnly = true;
+            this.Assunto.Width = 200;
+            // 
+            // Abertura
+            // 
+            this.Abertura.DataPropertyName = "Abertura";
+            this.Abertura.HeaderText = "Abertura";
+            this.Abertura.Name = "Abertura";
+            this.Abertura.ReadOnly = true;
+            // 
+            // Situação
+            // 
+            this.Situação.DataPropertyName = "Situacao";
+            this.Situação.HeaderText = "Situação";
+            this.Situação.Name = "Situação";
+            this.Situação.ReadOnly = true;
+            // 
             // UctAgendaOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -156,7 +162,7 @@
             this.BackColor = System.Drawing.Color.LightGray;
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvOS);
             this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.Busca);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,7 +170,7 @@
             this.Name = "UctAgendaOS";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(800, 515);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,11 +180,11 @@
 
         private System.Windows.Forms.Label Busca;
         private System.Windows.Forms.TextBox txtBusca;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvOS;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Empresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuário;
         private System.Windows.Forms.DataGridViewTextBoxColumn Assunto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Abertura;

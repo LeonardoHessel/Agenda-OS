@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `os`(
     `assunto` VARCHAR(50),
     `descricao` TEXT,
     `solucao` TEXT,
-    `produto` VARCHAR(20),
+    `produto` INT,
     `atendimento` VARCHAR(20),
     `abertura` DATETIME,
     `fechamento` DATETIME,
@@ -93,7 +93,8 @@ CREATE TABLE IF NOT EXISTS `os`(
     `del` BOOL,
     PRIMARY KEY(`id`),
     FOREIGN KEY (`empresa`) REFERENCES `empresa`(`id`),
-    FOREIGN KEY (`usuario`) REFERENCES `usuario`(`id`)
+    FOREIGN KEY (`usuario`) REFERENCES `usuario`(`id`),
+    FOREIGN KEY (`produto`) REFERENCES `produto`(`id`)
 )ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `produto`;

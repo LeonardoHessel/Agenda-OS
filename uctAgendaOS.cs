@@ -29,13 +29,24 @@ namespace Agenda_OS
         public UctAgendaOS()
         {
             InitializeComponent();
+            CarregarOS();
+        }
+
+        private List<OrdemServico> ListaOS { get; set; }
+
+        private void CarregarOS()
+        {
+            this.ListaOS = OrdemServico.TodasOrdenServico(txtBusca.Text);
+            dgvOS.DataSource = this.ListaOS;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            FormOS os = new FormOS();
-            os.Action = "Novo";
-            os.ShowDialog();
+            FormOS frmOS = new FormOS();
+            frmOS.OrdemServico = new OrdemServico();
+            frmOS.Usuario = FormAgenda.usuario;
+            frmOS.Action = "Novo";
+            frmOS.ShowDialog();
         }
     }
 }

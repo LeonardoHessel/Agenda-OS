@@ -31,10 +31,10 @@
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.lblBusca = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,6 +42,9 @@
             // 
             this.dgvProdutos.AllowUserToAddRows = false;
             this.dgvProdutos.AllowUserToDeleteRows = false;
+            this.dgvProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -70,18 +73,6 @@
             this.txtBusca.TabIndex = 3;
             this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            // 
             // btnEditar
             // 
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -108,6 +99,20 @@
             this.btnNovo.TabIndex = 9;
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
             // 
             // UctProdutos
             // 

@@ -17,7 +17,17 @@ namespace Agenda_OS
             InitializeComponent();
         }
 
+        private String action;
         private Produto produto;
+        public String Action
+        {
+            get { return this.action; }
+            set
+            {
+                this.action = value;
+                //DefinirFormulario();
+            }
+        }
         public Produto Produto
         {
             get { return this.produto; }
@@ -41,6 +51,10 @@ namespace Agenda_OS
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            if (true)
+            {
+                this.produto = new Produto();
+            }
             RecuperarInfoProduto();
             this.Produto.Inserir();
         }
