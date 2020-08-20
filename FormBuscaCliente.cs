@@ -30,7 +30,12 @@ namespace Agenda_OS
 
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
-            if (this.Cliente != null)
+            if (dgvClientes.Rows.Count == 1)
+            {
+                this.Cliente = (Empresa)dgvClientes.Rows[0].DataBoundItem;
+                this.DialogResult = DialogResult.OK;
+            }
+            else if (this.Cliente != null)
             {
                 this.DialogResult = DialogResult.OK;
             }

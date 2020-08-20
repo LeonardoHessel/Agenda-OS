@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,13 +16,12 @@ namespace Agenda_OS
         public FormOS()
         {
             InitializeComponent();
+            this.ListaUsuarios = Usuario.TodosUsuarios("", false);
+            this.ListaProdutos = Produto.TodosProdutos("");
             SetupFormulário();
         }
 
         private string action;
-        private Empresa cliente;
-        //private Usuario usuario;
-
         public string Action
         {
             get { return this.action; }
@@ -32,6 +32,7 @@ namespace Agenda_OS
             }
         }
 
+        private Empresa cliente;
         public Empresa Cliente
         {
             get { return this.cliente; }
@@ -43,23 +44,29 @@ namespace Agenda_OS
             }
         }
 
-        private List<Produto> listaProdutos
+        private List<Produto> listaProdutos;
+        private List<Produto> ListaProdutos
         {
+            get { return listaProdutos; }
             set
             {
+                listaProdutos = value;
                 cbProduto.DisplayMember = "Nome";
                 cbProduto.ValueMember = "ID";
                 cbProduto.Items.AddRange(value.ToArray());
             }
         }
 
-        private List<Usuario> listaUsuarios
+        private List<Usuario> listaUsuarios;
+        private List<Usuario> ListaUsuarios
         {
+            get { return listaUsuarios; }
             set
             {
+                listaUsuarios = value;
                 cbUsuario.DisplayMember = "Nome";
                 cbUsuario.ValueMember = "ID";
-                cbUsuario.Items.AddRange(value.ToArray());
+                cbUsuario.Items.AddRange(this.listaUsuarios.ToArray());
             }
         }
 
@@ -68,6 +75,21 @@ namespace Agenda_OS
         private Produto Produto { get; set; }
 
         public Usuario Usuario { get; set; }
+
+        private void ShowInfoOS()
+        {
+            this.Cliente = Empresa.BuscaEmpresaByID(this.OrdemServico.ID_Cliente);
+            txtQuem.Text = this.OrdemServico.Solicitante;
+            cbUsuario.SelectedItem = ListaUsuarios.Find(x => x.ID == this.OrdemServico.ID_Usuario);
+            txtAssunto.Text = this.OrdemServico.Assunto;
+            txtDescricao.Text = this.OrdemServico.Descricao;
+            txtSolucao.Text = this.OrdemServico.Solucao;
+            cbProduto.SelectedItem = ListaProdutos.Find(x => x.ID == this.OrdemServico.ID_Produto);
+            cbAtendimento.Text = this.OrdemServico.Atendimento;
+            dtpAbertura.Value = this.OrdemServico.Abertura;
+            dtpFinalizado.Value = this.OrdemServico.Fechamento;
+            cbSituacao.Text = this.OrdemServico.Situacao;
+        }
 
         private void GetInfoOS()
         {
@@ -88,10 +110,25 @@ namespace Agenda_OS
         {
             if (this.Action == "Novo")
             {
-                this.listaUsuarios = Usuario.TodosUsuarios("", false);
                 cbUsuario.Text = FormAgenda.usuario.Nome;
-                this.listaProdutos = Produto.TodosProdutos("");
                 cbSituacao.Text = "Pendente";
+                btnDeletar.Enabled = false;
+                btnEditar.Enabled = false;
+                btnSalvar.Enabled = true;
+            }
+            else if (this.Action == "Visualizar")
+            {
+                ShowInfoOS();
+                btnDeletar.Enabled = true;
+                btnEditar.Enabled = true;
+                btnSalvar.Enabled = false;
+            }
+            else if (this.Action == "Editar")
+            {
+                ShowInfoOS();
+                btnDeletar.Enabled = false;
+                btnEditar.Enabled = false;
+                btnSalvar.Enabled = true;
             }
         }
 
@@ -148,10 +185,23 @@ namespace Agenda_OS
                 if (this.OrdemServico.Inserir())
                 {
                     MessageBox.Show("Ordem de Serviço Inserida com sucesso!");
+                    this.Action = "Visualizar";
                 }
                 else
                 {
-                    MessageBox.Show("Erro: " + this.OrdemServico.Erro);
+                    MessageBox.Show("Erro: " + this.OrdemServico.MSG);
+                }
+            }
+            else if (this.Action == "Editar")
+            {
+                if (this.OrdemServico.Atualizar())
+                {
+                    MessageBox.Show("Ordem de Serviço Alterada com sucesso");
+                    this.Action = "Visualizar";
+                }
+                else
+                {
+                    MessageBox.Show("Erro: " + this.OrdemServico.MSG);
                 }
             }
         }
@@ -159,6 +209,11 @@ namespace Agenda_OS
         private void cbProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.Produto = (Produto)cbProduto.SelectedItem;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            this.Action = "Editar";
         }
     }
 }

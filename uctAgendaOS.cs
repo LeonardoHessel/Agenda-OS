@@ -47,6 +47,32 @@ namespace Agenda_OS
             frmOS.Usuario = FormAgenda.usuario;
             frmOS.Action = "Novo";
             frmOS.ShowDialog();
+            CarregarOS();
+        }
+
+        private void dgvOS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            OrdemServico osSelecionado = (OrdemServico)dgvOS.CurrentRow.DataBoundItem;
+            FormOS formOS = new FormOS();
+            formOS.OrdemServico = osSelecionado;
+            formOS.Action = "Visualizar";
+            formOS.ShowDialog();
+            CarregarOS();
+        }
+
+        private void txtBusca_TextChanged(object sender, EventArgs e)
+        {
+            CarregarOS();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            OrdemServico osSelecionado = (OrdemServico)dgvOS.CurrentRow.DataBoundItem;
+            FormOS formOS = new FormOS();
+            formOS.OrdemServico = osSelecionado;
+            formOS.Action = "Editar";
+            formOS.ShowDialog();
+            CarregarOS();
         }
     }
 }

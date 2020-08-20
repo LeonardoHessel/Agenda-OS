@@ -73,7 +73,7 @@
             this.cbUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbUsuario.Name = "cbUsuario";
             this.cbUsuario.Size = new System.Drawing.Size(320, 25);
-            this.cbUsuario.TabIndex = 0;
+            this.cbUsuario.TabIndex = 1;
             this.cbUsuario.SelectedIndexChanged += new System.EventHandler(this.cbUsuario_SelectedIndexChanged);
             // 
             // txtAssunto
@@ -160,7 +160,7 @@
             this.btnFechar.Location = new System.Drawing.Point(620, 0);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(50, 50);
-            this.btnFechar.TabIndex = 0;
+            this.btnFechar.TabIndex = 14;
             this.btnFechar.UseVisualStyleBackColor = false;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
@@ -187,7 +187,7 @@
             this.txtQuem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtQuem.Name = "txtQuem";
             this.txtQuem.Size = new System.Drawing.Size(174, 25);
-            this.txtQuem.TabIndex = 1;
+            this.txtQuem.TabIndex = 2;
             // 
             // cbProduto
             // 
@@ -213,7 +213,7 @@
             this.cbSituacao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbSituacao.Name = "cbSituacao";
             this.cbSituacao.Size = new System.Drawing.Size(210, 25);
-            this.cbSituacao.TabIndex = 10;
+            this.cbSituacao.TabIndex = 8;
             // 
             // labUsuario
             // 
@@ -295,21 +295,21 @@
             // 
             // dtpAbertura
             // 
-            this.dtpAbertura.CustomFormat = "  dd/MM/yyyy  hh:mm:s";
+            this.dtpAbertura.CustomFormat = "dd/MM/yyyy  hh:mm:s";
             this.dtpAbertura.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpAbertura.Location = new System.Drawing.Point(12, 363);
             this.dtpAbertura.Name = "dtpAbertura";
             this.dtpAbertura.Size = new System.Drawing.Size(196, 25);
-            this.dtpAbertura.TabIndex = 8;
+            this.dtpAbertura.TabIndex = 9;
             // 
             // dtpFinalizado
             // 
-            this.dtpFinalizado.CustomFormat = "  dd/MM/yyyy  hh:mm:s";
+            this.dtpFinalizado.CustomFormat = "dd/MM/yyyy  hh:mm:s";
             this.dtpFinalizado.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFinalizado.Location = new System.Drawing.Point(242, 363);
             this.dtpFinalizado.Name = "dtpFinalizado";
             this.dtpFinalizado.Size = new System.Drawing.Size(188, 25);
-            this.dtpFinalizado.TabIndex = 8;
+            this.dtpFinalizado.TabIndex = 10;
             // 
             // labAbertura
             // 
@@ -377,7 +377,7 @@
             this.cbAtendimento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbAtendimento.Name = "cbAtendimento";
             this.cbAtendimento.Size = new System.Drawing.Size(200, 25);
-            this.cbAtendimento.TabIndex = 29;
+            this.cbAtendimento.TabIndex = 7;
             // 
             // btnDeletar
             // 
@@ -404,6 +404,7 @@
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
             this.btnEditar.TabIndex = 12;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnSalvar
             // 

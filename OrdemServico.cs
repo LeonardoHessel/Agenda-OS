@@ -12,12 +12,10 @@ namespace Agenda_OS
         public long ID { get; set; }
         // public string Categoria { get; set; }
         public long ID_Cliente { get; set; }
-
-        public string Nome_Cliente;
+        public string Nome_Cliente { get; set; }
         public string Solicitante { get; set; }
         public long ID_Usuario { get; set; }
-
-        public string Nome_Usuario;
+        public string Nome_Usuario { get; set; }
         public string Assunto { get; set; }
         public string Descricao { get; set; }
         public string Solucao { get; set; }
@@ -28,7 +26,7 @@ namespace Agenda_OS
         public string Situacao { get; set; }
         //public bool Deletado { get; set; }
 
-        public string Erro { get; set; }
+        public string MSG { get; set; }
 
         public bool Inserir()
         {
@@ -58,38 +56,70 @@ namespace Agenda_OS
             }
             else
             {
-                this.Erro = msg;
+                this.MSG = msg;
                 return false;
             }
-
         }
 
-        public void Update()
+        public bool Atualizar()
         {
-
+            string sql = @"UPDATE `OS` 
+            SET 
+            `empresa` = @id_cliente,
+            `solicitante` = @solicitante,
+            `usuario` = @id_usuario,
+            `assunto` = @assunto,
+            `descricao` = @descricao,
+            `solucao` = @solucao,
+            `produto` = @id_produto,
+            `atendimento` = @atendimento,
+            `abertura` = @abertura,
+            `fechamento` = @fechamento,
+            `situacao` = @situacao
+            WHERE 
+            `id` = @id";
+            NewCMD(sql, CommandType.Text);
+            AddPar("id_cliente", ID_Cliente);
+            AddPar("solicitante", Solicitante);
+            AddPar("id_usuario", ID_Usuario);
+            AddPar("assunto", Assunto);
+            AddPar("descricao", Descricao);
+            AddPar("solucao", Solucao);
+            AddPar("id_produto", ID_Produto);
+            AddPar("atendimento", Atendimento);
+            AddPar("abertura", Abertura);
+            AddPar("fechamento", Fechamento);
+            AddPar("situacao", Situacao);
+            AddPar("id", ID);
+            if (ExecuteNQ())
+            {
+                return true;
+            }
+            else
+            {
+                this.MSG = msg;
+                return false;
+            }
         }
 
         public static List<OrdemServico> TodasOrdenServico(string busca)
         {
             string sql;
             OrdemServico Con = new OrdemServico();
-            sql = @"SELECT `os`.*, `empresa`.`nome` AS `nome_empresa`, `usuario`.`nome` AS `nome_usuario` 
-                FROM `os` 
-                JOIN `empresa`
-                JOIN `usuario` 
-                ON `empresa`.`id` = `os`.`empresa`,
-                AND `usuario`.`id` = `os`.`usuario` 
-                WHERE `id` like CONCAT('%', @busca, '%') 
-                OR `empresa` like CONCAT('%', @busca, '%')
-                OR `solicitante` like CONCAT('%', @busca, '%')
-                OR `usuario` like CONCAT('%', @busca, '%')
-                OR `assunto` like CONCAT('%', @busca, '%')
-                OR `descricao` like CONCAT('%', @busca, '%')
-                OR `solucao` like CONCAT('%', @busca, '%')
-                OR `produto` like CONCAT('%', @busca, '%')
-                OR `atendimento` like CONCAT('%', @busca, '%')
-                OR `situacao` like CONCAT('%', @busca, '%')
-                ";
+            sql = @"SELECT `os`.*, `e`.`nome` AS `nome_empresa`, `u`.`nome` AS `nome_usuario` FROM `os` 
+            JOIN `empresa` AS `e` 
+            JOIN `usuario` as `u` 
+            ON `e`.`id` = `os`.`empresa` 
+            AND `u`.`id` = `os`.`usuario` 
+            WHERE `os`.`id` like CONCAT('%', @busca, '%') 
+            OR `empresa` like CONCAT('%', @busca, '%')
+            OR `solicitante` like CONCAT('%', @busca, '%')
+            OR `assunto` like CONCAT('%', @busca, '%')
+            OR `descricao` like CONCAT('%', @busca, '%')
+            OR `solucao` like CONCAT('%', @busca, '%')
+            OR `e`.`nome` like CONCAT('%', @busca, '%')
+            OR `u`.`nome` like CONCAT('%', @busca, '%')
+            ";
             Con.NewCMD(sql, CommandType.Text);
             Con.AddPar("busca", busca);
             DataTable tabela = Con.GetTable();

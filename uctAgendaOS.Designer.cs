@@ -31,14 +31,16 @@
             this.Busca = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.dgvOS = new System.Windows.Forms.DataGridView();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuário = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Assunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Abertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuário = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situação = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +60,7 @@
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(400, 29);
             this.txtBusca.TabIndex = 5;
+            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
             // dgvOS
             // 
@@ -73,42 +76,18 @@
             this.dgvOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Cliente,
-            this.Usuário,
+            this.Nome_Cliente,
             this.Assunto,
             this.Abertura,
+            this.Usuário,
+            this.Nome_Usuario,
             this.Situação});
             this.dgvOS.Location = new System.Drawing.Point(8, 43);
             this.dgvOS.Name = "dgvOS";
             this.dgvOS.ReadOnly = true;
             this.dgvOS.Size = new System.Drawing.Size(784, 408);
             this.dgvOS.TabIndex = 6;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Image = global::Agenda_OS.Properties.Resources.EditX32;
-            this.btnEditar.Location = new System.Drawing.Point(686, 457);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(50, 50);
-            this.btnEditar.TabIndex = 9;
-            this.btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNovo.BackColor = System.Drawing.Color.DarkGreen;
-            this.btnNovo.FlatAppearance.BorderSize = 0;
-            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovo.Image = global::Agenda_OS.Properties.Resources.NewX32;
-            this.btnNovo.Location = new System.Drawing.Point(742, 457);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(50, 50);
-            this.btnNovo.TabIndex = 7;
-            this.btnNovo.UseVisualStyleBackColor = false;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            this.dgvOS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOS_CellDoubleClick);
             // 
             // ID
             // 
@@ -124,14 +103,16 @@
             this.Cliente.HeaderText = "Cliente";
             this.Cliente.Name = "Cliente";
             this.Cliente.ReadOnly = true;
-            this.Cliente.Width = 150;
+            this.Cliente.Visible = false;
+            this.Cliente.Width = 50;
             // 
-            // Usuário
+            // Nome_Cliente
             // 
-            this.Usuário.DataPropertyName = "ID_Usuario";
-            this.Usuário.HeaderText = "Usuário";
-            this.Usuário.Name = "Usuário";
-            this.Usuário.ReadOnly = true;
+            this.Nome_Cliente.DataPropertyName = "Nome_Cliente";
+            this.Nome_Cliente.HeaderText = "Cliente";
+            this.Nome_Cliente.Name = "Nome_Cliente";
+            this.Nome_Cliente.ReadOnly = true;
+            this.Nome_Cliente.Width = 150;
             // 
             // Assunto
             // 
@@ -148,12 +129,56 @@
             this.Abertura.Name = "Abertura";
             this.Abertura.ReadOnly = true;
             // 
+            // Usuário
+            // 
+            this.Usuário.DataPropertyName = "ID_Usuario";
+            this.Usuário.HeaderText = "Usuário";
+            this.Usuário.Name = "Usuário";
+            this.Usuário.ReadOnly = true;
+            this.Usuário.Visible = false;
+            this.Usuário.Width = 50;
+            // 
+            // Nome_Usuario
+            // 
+            this.Nome_Usuario.DataPropertyName = "Nome_Usuario";
+            this.Nome_Usuario.HeaderText = "Usuário";
+            this.Nome_Usuario.Name = "Nome_Usuario";
+            this.Nome_Usuario.ReadOnly = true;
+            // 
             // Situação
             // 
             this.Situação.DataPropertyName = "Situacao";
             this.Situação.HeaderText = "Situação";
             this.Situação.Name = "Situação";
             this.Situação.ReadOnly = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Image = global::Agenda_OS.Properties.Resources.EditX32;
+            this.btnEditar.Location = new System.Drawing.Point(686, 457);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(50, 50);
+            this.btnEditar.TabIndex = 9;
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNovo.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnNovo.FlatAppearance.BorderSize = 0;
+            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovo.Image = global::Agenda_OS.Properties.Resources.NewX32;
+            this.btnNovo.Location = new System.Drawing.Point(742, 457);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(50, 50);
+            this.btnNovo.TabIndex = 7;
+            this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // UctAgendaOS
             // 
@@ -185,9 +210,11 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Usuário;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Assunto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Abertura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuário;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome_Usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Situação;
     }
 }

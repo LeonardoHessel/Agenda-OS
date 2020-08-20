@@ -28,6 +28,43 @@ namespace Agenda_OS
         public string Observacao { get; set; }
         public bool Del { get; set; }
 
+        public static Empresa BuscaEmpresaByID(long empresaId)
+        {
+            Empresa con = new Empresa();
+            string sql = @"SELECT * FROM `empresa` WHERE `id`=@id";
+            con.NewCMD(sql, CommandType.Text);
+            con.AddPar("id", empresaId);
+            DataTable table = con.GetTable();
+            List<Empresa> lista = new List<Empresa>();
+            if (table != null)
+            {
+                lista = (from DataRow dr in table.Rows
+                         select new Empresa()
+                         {
+                             ID = Convert.ToInt64(dr["id"]),
+                             CNPJ = dr["cnpj"].ToString(),
+                             IE = dr["ie"].ToString(),
+                             Razao = dr["razao"].ToString(),
+                             Nome = dr["nome"].ToString(),
+                             Regime = dr["regime"].ToString(),
+                             ID_Contador = Convert.ToInt64(dr["contador"]),
+                             Logradouro = dr["logradouro"].ToString(),
+                             Numero = dr["numero"].ToString(),
+                             Complemento = dr["complemento"].ToString(),
+                             CEP = dr["cep"].ToString(),
+                             Bairro = dr["bairro"].ToString(),
+                             Municipio = dr["municipio"].ToString(),
+                             UF = dr["uf"].ToString(),
+                             Email = dr["email"].ToString(),
+                             Telefone = dr["telefone"].ToString(),
+                             Observacao = dr["observacao"].ToString(),
+                             Del = Convert.ToBoolean(dr["del"])
+                         }).ToList();
+                return lista[0];
+            }
+            return null;
+        }
+
         public static List<Empresa> BuscaEmpresa(string busca, bool ativo)
         {
             string sql;
