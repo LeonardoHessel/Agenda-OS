@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Windows.Forms.VisualStyles;
 using System.Windows.Media.Imaging;
+using Agenda_OS.Properties;
 
 namespace Agenda_OS
 {
@@ -26,7 +27,11 @@ namespace Agenda_OS
             set
             {
                 this.endImagem = value;
-                if (value != null)
+                if (value == null || value == "")
+                {
+                    pbxFoto.Image = Resources.AddFoto_48px;
+                }
+                else
                 {
                     var stream = File.OpenRead(value);
                     pbxFoto.Image = Image.FromStream(stream);
@@ -55,7 +60,7 @@ namespace Agenda_OS
 
         private void SetForm()
         {
-            if (this.Action == "New")
+            if (this.Action == "Novo")
             {
                 cmbSexo.SelectedIndex = 0;
                 labResetarLoginSenha.Hide();
@@ -63,11 +68,11 @@ namespace Agenda_OS
                 txtLogin.Enabled = true;
                 txtSenha.Enabled = true;
                 btnEditar.Enabled = false;
-                btnExcluir.Enabled = false;
+                btnInativarAtivar.Enabled = false;
                 btnSalvar.Enabled = true;
                 btnSalvar.Text = "Cadastrar";
             }
-            else if (this.Action == "Show")
+            else if (this.Action == "Visualizar")
             {
                 ShowUsuario();
                 labResetarLoginSenha.Hide();
@@ -81,12 +86,12 @@ namespace Agenda_OS
                 mtbCPF.Enabled = false;
                 mtbCNH.Enabled = false;
                 btnEditar.Enabled = true;
-                btnExcluir.Enabled = true;
+                btnInativarAtivar.Enabled = true;
                 btnSalvar.Enabled = false;
                 btnSalvar.Text = "Salvar";
                 btnEditar.Text = "Editar";
             }
-            else if (this.Action == "Edit")
+            else if (this.Action == "Editar")
             {
                 ShowUsuario();
                 labResetarLoginSenha.Show();
@@ -100,7 +105,7 @@ namespace Agenda_OS
                 mtbCPF.Enabled = true;
                 mtbCNH.Enabled = true;
                 btnEditar.Enabled = true;
-                btnExcluir.Enabled = false;
+                btnInativarAtivar.Enabled = false;
                 btnSalvar.Enabled = true;
                 btnSalvar.Text = "Salvar";
                 btnEditar.Text = "Cancelar";
@@ -118,18 +123,12 @@ namespace Agenda_OS
             this.usuario.RG = rtnNoMask(mtbRG);
             this.usuario.CPF = rtnNoMask(mtbCPF);
             this.usuario.CNH = rtnNoMask(mtbCNH);
-            // Foto Perfil
-            string caminho = @"..\..\Imagens\usuarios\";
-            string nome = this.usuario.ID.ToString();
-            if (caminho + nome != this.EnderecoIMG)
+
+            string imgEndereco = this.EnderecoIMG;
+            if (imgEndereco == "" || imgEndereco == null)
             {
-                if (ofdImagenPerfil.FileName != "")
-                {
-                    File.Copy(EnderecoIMG, caminho + nome, true);
-                    this.usuario.PerfilIMG = caminho + nome;
-                }
+                this.usuario.PerfilIMG = null;
             }
-            // fim
         }
 
         private void VerificarUsuario()
@@ -145,7 +144,7 @@ namespace Agenda_OS
 
         private void ShowUsuario()
         {
-            labCOD.Text = this.usuario.ID.ToString();
+            txtID.Text = this.usuario.ID.ToString();
             txtLogin.Text = this.usuario.Login;
             txtSenha.Text = this.usuario.Senha;
             txtNome.Text = this.usuario.Nome;
@@ -177,16 +176,31 @@ namespace Agenda_OS
         {
             btnSalvar.Enabled = false;
             SetUsuario();
-            if (this.usuario.VerificarLogin() == 0 || this.Action == "Edit")
+            if (this.usuario.VerificarLogin() == 0)
             {
-                if (this.usuario.SalvarUsuario(this.Action))
+                if (this.Action == "Novo")
                 {
-                    this.Action = "Show";
+                    if (this.usuario.Inserir())
+                    {
+                        this.Action = "Visualizar";
+                    }
+                    else
+                    {
+                        MessageBox.Show(Conexao.msg);
+                        btnSalvar.Enabled = true;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(Conexao.msg);
-                    btnSalvar.Enabled = true;
+                    if (this.usuario.Atualizar())
+                    {
+                        this.Action = "Visualizar";
+                    }
+                    else
+                    {
+                        MessageBox.Show(Conexao.msg);
+                        btnSalvar.Enabled = true;
+                    }
                 }
             }
             else
@@ -198,13 +212,13 @@ namespace Agenda_OS
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (this.Action == "Edit")
+            if (this.Action == "Editar")
             {
-                this.Action = "Show";
+                this.Action = "Visualizar";
             }
             else
             {
-                this.Action = "Edit";
+                this.Action = "Editar";
             }
         }
 
@@ -231,13 +245,8 @@ namespace Agenda_OS
             }
             else if (e.KeyCode == Keys.Delete)
             {
-                btnExcluir.PerformClick();
+                btnInativarAtivar.PerformClick();
             }
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("btnExcluir");
         }
 
         private void labResetarLoginSenha_Click(object sender, EventArgs e)
@@ -247,14 +256,41 @@ namespace Agenda_OS
 
         private void pbxFoto_Click(object sender, EventArgs e)
         {
-            if (this.Action == "Edit")
+            if (this.Action == "Editar")
             {
-                DialogResult res = ofdImagenPerfil.ShowDialog();
+                DialogResult res = ofdBuscaArquivo.ShowDialog();
                 if (res == DialogResult.OK)
                 {
-                    EnderecoIMG = ofdImagenPerfil.FileName;
+                    EnderecoIMG = ofdBuscaArquivo.FileName;
                 }
             }
+        }
+
+        private void btnInativarAtivar_Click(object sender, EventArgs e)
+        {
+            if (this.usuario.ID != FormAgenda.usuario.ID)
+            {
+                FormAgenda.usuario.LoadPermissoesUsuario();
+                Permissao permissao = FormAgenda.usuario.Permissoes.Find(x => x.ID_Modulo == 4);
+                if (permissao.Acesso)
+                {
+                    MessageBox.Show("Exemplo: Usuario inativado");
+                    // Processo de inativar usuário
+                }
+                else
+                {
+                    MessageBox.Show("Exemplo: O seu usuário não possue a permissão para inativar outros usuários");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Não é possivel inativar o um usuário logado");
+            }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

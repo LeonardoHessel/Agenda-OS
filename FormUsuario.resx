@@ -117,7 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ofdImagenPerfil.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="ofdBuscaArquivo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="pFormulario.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnFechar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAO5JREFUSEvt
+        lM0KwkAQg2sPvqae9Dks6kHBn6O/r7omOxlRlmq3WvHQDwbabJKxFVr0/B8hhCFmpNvGIDNmVrf1wDTF
+        kJWkt8C7tkiYSHoNjEvzhwNmIDmBZ5gjjWAhuRkI+BIWJEuo6YzklTsMWv55Ca5LaaRducMC64mFLH4s
+        n8vWHpTwVexjXQgbzNYuo1b7/2TBIhU6O8x3ygnK+FrObBYnTKnjz0BRd68IBfzlF7aBSjL1yqT4VO2e
+        hEGMl88k34HmS+jJW8KAgiQpd3hmlowlNGKuTIHacoceszZcAlO3HzuYuv1c9/yYorgB4QuI5JQkRIkA
+        AAAASUVORK5CYII=
+</value>
+  </data>
 </root>

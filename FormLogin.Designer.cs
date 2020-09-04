@@ -92,6 +92,7 @@
             // 
             // cbLogin
             // 
+            this.cbLogin.DisplayMember = "Login";
             this.cbLogin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLogin.FormattingEnabled = true;
             this.cbLogin.Location = new System.Drawing.Point(57, 270);

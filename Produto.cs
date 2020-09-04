@@ -11,12 +11,13 @@ namespace Agenda_OS
     {
         public long ID { get; set; }
         public string Nome { get; set; }
+        public bool Ativo { get; set; }
+
+        
 
         public bool Atualizar()
         {
-            string sql = @"UPDATE `produto` 
-                SET `nome` = @nome 
-                WHERE `id` = @id";
+            string sql = @"UPDATE `produto` SET `nome` = @nome WHERE `id` = @id";
             NewCMD(sql, CommandType.Text);
             AddPar("nome", this.Nome);
             AddPar("id", this.ID);
@@ -57,10 +58,29 @@ namespace Agenda_OS
                 {
                     ID = Convert.ToInt64(row["id"]),
                     Nome = row["nome"].ToString(),
+                    Ativo = Convert.ToBoolean(row["ativo"]),
                 }).ToList();
                 return produtos;
             }
             return null;
+        }
+
+        public bool AlterarStatus()
+        {
+            string sql = "UPDATE `produto` SET `ativo` = @status WHERE `id` = @id";
+            NewCMD(sql, CommandType.Text);
+            AddPar("status", !this.Ativo);
+            AddPar("id", this.ID);
+
+            if (ExecuteNQ())
+            {
+                this.Ativo = !this.Ativo;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -31,25 +31,16 @@ namespace Agenda_OS
         {
             InitializeComponent();
             CarregarUsuarios();
-            labNT.Text = Usuario.TodosUsuarios(null, true).Count.ToString();
+            labNT.Text = Usuario.TodosUsuarios("Todos").Count.ToString();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
             int rcBefore = dgvTecnico.Rows.Count;
             Usuario tec = new Usuario();
-            FormUsuario frm = new FormUsuario(tec,"New");
+            FormUsuario frm = new FormUsuario(tec,"Novo");
             frm.ShowDialog();
             CarregarUsuarios();
-            int rcAfter = dgvTecnico.Rows.Count;
-            if (rcAfter > rcBefore)
-            {
-                int lasInserted = rcAfter - 1;
-                dgvTecnico.ClearSelection();
-                dgvTecnico.CurrentCell = dgvTecnico[0, lasInserted];
-                dgvTecnico.Rows[lasInserted].Selected = true;
-            }
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -57,7 +48,7 @@ namespace Agenda_OS
             int linha = dgvTecnico.CurrentRow.Index;
             long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
             Usuario tecnico = this.ListaTecnico.Find(usuario => usuario.ID == id);
-            FormUsuario frm = new FormUsuario(tecnico, "Edit");
+            FormUsuario frm = new FormUsuario(tecnico, "Editar");
             frm.ShowDialog();
             CarregarUsuarios();
             dgvTecnico.ClearSelection();
@@ -68,8 +59,12 @@ namespace Agenda_OS
         private void CarregarUsuarios()
         {
             string busca = txtBusca.Text;
-            bool checkDeletados = chbDeletados.Checked;
-            this.ListaTecnico = Usuario.TodosUsuarios(busca, checkDeletados);
+            string status;
+            if (chbDeletados.Checked)
+                status = "Inativos";
+            else
+                status = "Ativos";
+            this.ListaTecnico = Usuario.TodosUsuarios(status, busca);
             labNS.Text = this.ListaTecnico.Count.ToString();
             dgvTecnico.DataSource = this.ListaTecnico;
         }
@@ -79,7 +74,7 @@ namespace Agenda_OS
             int linha = dgvTecnico.CurrentRow.Index;
             long id = Convert.ToInt64(dgvTecnico.CurrentRow.Cells["ID"].Value);
             Usuario tecnico = this.ListaTecnico.Find(usuario => usuario.ID == id);
-            FormUsuario frm = new FormUsuario(tecnico, "Show");
+            FormUsuario frm = new FormUsuario(tecnico, "Visualizar");
             frm.ShowDialog();
             CarregarUsuarios();
             dgvTecnico.ClearSelection();

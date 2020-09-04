@@ -108,7 +108,6 @@
             this.btnUsuario.BackColor = System.Drawing.Color.DarkGray;
             this.btnUsuario.FlatAppearance.BorderSize = 0;
             this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuario.Image = global::Agenda_OS.Properties.Resources.icons8_user_64px;
             this.btnUsuario.Location = new System.Drawing.Point(725, 0);
             this.btnUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUsuario.Name = "btnUsuario";

@@ -53,5 +53,26 @@ namespace Agenda_OS
             }
             tMinus.Start();
         }
+
+        private void SplashScreen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F12)
+            {
+                tMinus.Stop();
+            }
+            else if (e.KeyCode == Keys.F5)
+            {
+                TesteDeConexao();
+                if (Acao == DialogResult.OK)
+                {
+                    this.DialogResult = Acao;
+                    this.Close();
+                }
+                else if (Acao == DialogResult.Cancel)
+                {
+                    this.Close();
+                }
+            }
+        }
     }
 }

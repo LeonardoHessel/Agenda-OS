@@ -124,7 +124,7 @@
   <data name="EditX321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\icones\EditX32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="baseline_add_a_photo_black_48dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="AddFoto_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\baseline_add_a_photo_black_48dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TrashX32" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -135,12 +135,6 @@
   </data>
   <data name="SaveX32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\icones\SaveX32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\usuarios\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\usuarios\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SearchX16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\icones\SearchX16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -153,9 +147,6 @@
   </data>
   <data name="SaveX321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\icones\SaveX32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_user_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_user_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EditX32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\icones\EditX32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

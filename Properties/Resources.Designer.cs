@@ -63,9 +63,9 @@ namespace Agenda_OS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Agenda_OS {
+        internal static System.Drawing.Bitmap AddFoto_48px {
             get {
-                object obj = ResourceManager.GetObject("Agenda OS", resourceCulture);
+                object obj = ResourceManager.GetObject("AddFoto_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Agenda_OS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap baseline_add_a_photo_black_48dp {
+        internal static System.Drawing.Bitmap Agenda_OS {
             get {
-                object obj = ResourceManager.GetObject("baseline_add_a_photo_black_48dp", resourceCulture);
+                object obj = ResourceManager.GetObject("Agenda OS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,16 +116,6 @@ namespace Agenda_OS.Properties {
         internal static System.Drawing.Bitmap EditX321 {
             get {
                 object obj = ResourceManager.GetObject("EditX321", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_user_64px {
-            get {
-                object obj = ResourceManager.GetObject("icons8_user_64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,26 +176,6 @@ namespace Agenda_OS.Properties {
         internal static System.Drawing.Bitmap TrashX32 {
             get {
                 object obj = ResourceManager.GetObject("TrashX32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap user {
-            get {
-                object obj = ResourceManager.GetObject("user", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap user1 {
-            get {
-                object obj = ResourceManager.GetObject("user1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

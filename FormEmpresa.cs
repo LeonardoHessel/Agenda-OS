@@ -64,6 +64,7 @@ namespace Agenda_OS
             if (this.Acao == "Novo")
             {
                 HabilitarCampos(true);
+                this.Empresa = new Empresa();
                 cbContador.SelectedIndex = 0;
                 btnDeletar.Enabled = false;
                 btnEditar.Enabled = false;
@@ -117,11 +118,11 @@ namespace Agenda_OS
                     btnSalvar.Enabled = true;
                 }
             }
-            else
-            {
-                MessageBox.Show("Login não disponivel.\n Escolha outro para continuar o cadastro.");
-                btnSalvar.Enabled = true;
-            }
+            //else
+            //{
+            //    MessageBox.Show("Login não disponivel.\n Escolha outro para continuar o cadastro.");
+            //    btnSalvar.Enabled = true;
+            //}
         }
 
         private void SetEmpresa()

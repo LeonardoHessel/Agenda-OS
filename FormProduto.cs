@@ -38,6 +38,49 @@ namespace Agenda_OS
             }
         }
 
+        private void DefinirFormulario()
+        {
+            if (this.Action == "Novo")
+            {
+                btnSalvar.Enabled = true;
+                btnEditar.Enabled = false;
+                btnInativarAtivar.Enabled = false;
+                // Renomeação de botoês
+                btnEditar.Text = "Editar";
+                // Alteração da visualização dos campos
+                txtNome.Enabled = true;
+            }
+            else if (this.Action == "Editar")
+            {
+                btnSalvar.Enabled = true;
+                btnEditar.Enabled = true;
+                btnInativarAtivar.Enabled = false;
+                // Renomeação de botoês
+                btnEditar.Text = "Cancelar";
+                // Alteração da visualização dos campos
+                txtNome.Enabled = false;
+            }
+            else if (this.Action == "Visualizar")
+            {
+                btnSalvar.Enabled = false;
+                btnInativarAtivar.Enabled = true;
+                // Renomeação de botoês
+                btnEditar.Text = "Editar";
+                // Alteração da visualização dos campos
+                txtNome.Enabled = false;
+                if (this.Produto.Ativo)
+                {
+                    btnEditar.Enabled = true;
+                    btnInativarAtivar.Text = "Inativar";
+                }
+                else
+                {
+                    btnEditar.Enabled = false;
+                    btnInativarAtivar.Text = "Ativar";
+                }
+            }
+        }
+
         private void ExibirInfoProduto()
         {
             txtID.Text = this.Produto.ID.ToString();
@@ -51,12 +94,50 @@ namespace Agenda_OS
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (true)
+            btnSalvar.Enabled = false;
+            RecuperarInfoProduto();
+            if (this.Action == "Novo")
             {
                 this.produto = new Produto();
+                if (this.Produto.Inserir())
+                {
+                    this.Action = "Visualizar";
+                }
+                else
+                {
+                    MessageBox.Show(Conexao.msg);
+                    btnSalvar.Enabled = true;
+                }
             }
-            RecuperarInfoProduto();
-            this.Produto.Inserir();
+            else
+            {
+                if (this.Produto.Atualizar())
+                {
+                    this.Action = "Visualizar";
+                }
+                else
+                {
+                    MessageBox.Show(Conexao.msg);
+                    btnSalvar.Enabled = true;
+                }
+            }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnInativarAtivar_Click(object sender, EventArgs e)
+        {
+            // Configurar permisão de acesso
+            if (true)
+            {
+                if (this.Produto.AlterarStatus())
+                {
+                    this.Action = "Visualizar";
+                }
+            }
         }
     }
 }

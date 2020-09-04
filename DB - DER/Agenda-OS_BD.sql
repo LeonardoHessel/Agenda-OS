@@ -22,9 +22,10 @@ CREATE TABLE IF NOT EXISTS `usuario`(
     `cpf` CHAR(11),
     `cnh` CHAR(11),
     `imgperfil` varchar(250),
-    `del` BOOL DEFAULT FALSE
+    `ativo` BOOL DEFAULT TRUE
 )ENGINE = InnoDB;
 
+alter table usuario rename column active to ativo;
 DROP TABLE IF EXISTS `modulo`;
 CREATE TABLE IF NOT EXISTS `modulo`(
 	`id` INT PRIMARY KEY AUTO_INCREMENT,
@@ -76,32 +77,33 @@ CREATE TABLE IF NOT EXISTS `empresa`(
     -- FOREIGN KEY (`contador`) REFERENCES `contador`(`id`)
 )ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `os`;
-CREATE TABLE IF NOT EXISTS `os`(
-	`id` INT AUTO_INCREMENT,
-    `empresa` INT,
-    `solicitante` VARCHAR(45),
-    `usuario` INT,
-    `assunto` VARCHAR(50),
-    `descricao` TEXT,
-    `solucao` TEXT,
-    `produto` INT,
-    `atendimento` VARCHAR(20),
-    `abertura` DATETIME,
-    `fechamento` DATETIME,
-    `situacao` VARCHAR(20),
-    `del` BOOL,
-    PRIMARY KEY(`id`),
-    FOREIGN KEY (`empresa`) REFERENCES `empresa`(`id`),
-    FOREIGN KEY (`usuario`) REFERENCES `usuario`(`id`),
-    FOREIGN KEY (`produto`) REFERENCES `produto`(`id`)
-)ENGINE = InnoDB;
-
 DROP TABLE IF EXISTS `produto`;
 CREATE TABLE IF NOT EXISTS `produto`(
 	`id` INT AUTO_INCREMENT,
     `nome` VARCHAR(100),
+    `ativo` BOOL DEFAULT TRUE,
     PRIMARY KEY(`id`)
+)ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `os`;
+CREATE TABLE IF NOT EXISTS `os`(
+	`id` INT AUTO_INCREMENT,
+    `id_cliente` INT NOT NULL,
+    `solicitante` VARCHAR(45),
+    `id_usuario` INT,
+    `assunto` VARCHAR(100),
+    `descricao` TEXT,
+    `solucao` TEXT,
+    `id_produto` INT,
+    `atendimento` VARCHAR(20),
+    `abertura` DATETIME,
+    `fechamento` DATETIME,
+    `status` VARCHAR(20),
+    `ativo` BOOL DEFAULT TRUE,
+    PRIMARY KEY(`id`),
+    FOREIGN KEY (`id_cliente`) REFERENCES `empresa`(`id`),
+    FOREIGN KEY (`id_usuario`) REFERENCES `usuario`(`id`),
+    FOREIGN KEY (`id_produto`) REFERENCES `produto`(`id`)
 )ENGINE = InnoDB;
 
 
@@ -189,12 +191,14 @@ DELIMITER ;
 
 
 -- Inserts --
-INSERT INTO `usuario` VALUES (0,'Default','123','Default','2020-01-01','','000000000','00000000000','00000000000','..\\..\\Imagens\\usuarios\\user.png',FALSE);
+INSERT INTO `usuario` VALUES (0,'Default','123','Default','2020-01-01','','000000000','00000000000','00000000000', NULL,TRUE);
 
 INSERT INTO `modulo` VALUES (0,'Geral','Login',true);
-INSERT INTO `modulo` VALUES (0,'Usuários','Ler Usuários',false);
-INSERT INTO `modulo` VALUES (0,'Usuários','Gravar Usuários',false);
-INSERT INTO `modulo` VALUES (0,'Usuários','Inativar Usuários',false);
+INSERT INTO `modulo` VALUES (0,'Geral','Usuário',false);
+INSERT INTO `modulo` VALUES (0,'Usuários','Adicionar',false);
+INSERT INTO `modulo` VALUES (0,'Usuários','Editar',false);
+INSERT INTO `modulo` VALUES (0,'Usuários','Resetar Login',false);
+INSERT INTO `modulo` VALUES (0,'Usuários','Ativar ou Inativar',false);
 
 
 

@@ -70,11 +70,8 @@ namespace Agenda_OS
         {
             labNotificacao.Hide();
             labTitulo.Text = this.Action;
-            TodosUsuarios = Usuario.TodosUsuarios(null, false);
-            foreach (Usuario user in TodosUsuarios)
-            {
-                cbLogin.Items.Add(user.Login);
-            }
+            TodosUsuarios = Usuario.TodosUsuarios("Ativos");
+            cbLogin.DataSource = this.TodosUsuarios;
         }
     }
 }

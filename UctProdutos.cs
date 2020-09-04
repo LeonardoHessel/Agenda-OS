@@ -49,6 +49,7 @@ namespace Agenda_OS
         {
             FormProduto form = new FormProduto();
             form.ShowDialog();
+            CarregarProdutos();
         }
     }
 }

@@ -22,38 +22,18 @@ namespace Agenda_OS
         public string PerfilIMG { get; set; }
         public List<Permissao> Permissoes { get; set; }
 
-        public void LoadPermissoesUsuario()
+        
+        public int VerificarLogin()
         {
-            this.Permissoes = Permissao.CarregarPermissoes(this.ID);
+            string sql = "SELECT * FROM `usuario` WHERE `login`= @login";
+            NewCMD(sql, CommandType.Text);
+            AddPar("login", this.Login);
+            DataTable table = GetTable();
+            int cadastro = table.Rows.Count;
+            return cadastro;
         }
 
-        public bool VerifPermissao(long ID_modulo)
-        {
-            foreach (Permissao permissao in Permissoes)
-            {
-                if (permissao.ID_Modulo == ID_modulo)
-                {
-                    return permissao.Acesso;
-                }
-            }
-            return false;
-        }
-
-        public bool SalvarUsuario(string action)
-        {
-            
-            if (action == "New")
-            {
-                return Cadastrar();
-            }
-            else if (action == "Edit")
-            {
-                return Atualizar();
-            }
-            return false;
-        }
-
-        private bool Cadastrar()
+        public bool Inserir()
         {
             string sql = "INSERT INTO `usuario` (`login`,`senha`,`nome`,`nasc`,`sexo`,`rg`,`cpf`,`cnh`,`imgperfil`) VALUES(@login,@senha,@nome,@nasc,@sexo,@rg,@cpf,@cnh,@img)";
             NewCMD(sql, CommandType.Text);
@@ -74,17 +54,7 @@ namespace Agenda_OS
             return false;
         }
 
-        public int VerificarLogin()
-        {
-            string sql = "SELECT * FROM `usuario` WHERE `login`= @login";
-            NewCMD(sql, CommandType.Text);
-            AddPar("login", this.Login);
-            DataTable table = GetTable();
-            int cadastro = table.Rows.Count;
-            return cadastro;
-        }
-
-        private bool Atualizar()
+        public bool Atualizar()
         {
             string sql = "UPDATE `usuario` SET `login`= @login, `senha`= @senha, `nome`= @nome,`nasc`= @nasc,`sexo`= @sexo,`rg`= @rg,`cpf`= @cpf,`cnh`= @cnh, `imgperfil`= @img WHERE `id`= @id";
             NewCMD(sql, CommandType.Text);
@@ -105,34 +75,39 @@ namespace Agenda_OS
             return false;
         }
 
-        public static List<Usuario> TodosUsuarios(string busca, bool deletados)
+        public static List<Usuario> TodosUsuarios(string status = "Ativos", string busca = "", bool addTodos = false)
         {
             string sql;
-            Usuario usuario = new Usuario();
-            if (busca != null)
-            {
-                sql = "SELECT * FROM `usuario` WHERE `del`= @del AND " +
-                    "(`login` like CONCAT('%',@busca,'%') OR " +
-                    "`nome` like CONCAT('%',@busca,'%') OR " +
-                    "`nasc` like CONCAT('%',@busca,'%') OR " +
-                    "`sexo` like CONCAT('%',@busca,'%') OR " +
-                    "`rg` like CONCAT('%',@busca,'%') OR " +
-                    "`cpf` like CONCAT('%',@busca,'%') OR " +
-                    "`cnh` like CONCAT('%',@busca,'%'));";
-                usuario.NewCMD(sql, CommandType.Text);
-                usuario.AddPar("busca", busca);
-                usuario.AddPar("del", deletados);
-            } 
-            else
-            {
-                sql = "SELECT * FROM `usuario`";
-                usuario.NewCMD(sql, CommandType.Text);
-            }
-            DataTable table = usuario.GetTable();
+            Usuario con = new Usuario();
+            sql = @"SELECT * FROM `usuario` 
+            WHERE (`login` like CONCAT('%',@busca,'%') OR
+            `nome` like CONCAT('%',@busca,'%') OR 
+            `nasc` like CONCAT('%',@busca,'%') OR 
+            `sexo` like CONCAT('%',@busca,'%') OR 
+            `rg` like CONCAT('%',@busca,'%') OR 
+            `cpf` like CONCAT('%',@busca,'%') OR 
+            `cnh` like CONCAT('%',@busca,'%')) 
+            ";
+            
+            if (status != "Todos")
+                sql += "AND `ativo` = @ativo";
+
+            con.NewCMD(sql, CommandType.Text);
+            con.AddPar("busca", busca);
+
+            if (status == "Ativos")
+                con.AddPar("ativo", true);
+            else if (status == "Inativos")
+                con.AddPar("ativo", false);
+
+            DataTable table = con.GetTable();
+
+
             List<Usuario> listaUsuario = new List<Usuario>();
             if (table != null)
             {
-                listaUsuario = (from DataRow dr in table.Rows select new Usuario() {
+                listaUsuario = (from DataRow dr in table.Rows select new Usuario()
+                {
                     ID = Convert.ToInt64(dr["id"]),
                     Login = dr["login"].ToString(),
                     Senha = dr["senha"].ToString(),
@@ -144,9 +119,35 @@ namespace Agenda_OS
                     CNH = dr["cnh"].ToString(),
                     PerfilIMG = dr["imgperfil"].ToString(),
                 }).ToList();
+                
+                if (addTodos)
+                {
+                    Usuario todos = new Usuario();
+                    todos.ID = 0;
+                    todos.Nome = "Todos";
+                    listaUsuario.Insert(0,todos);
+                }
                 return listaUsuario;
             }
             return null;
+        }
+
+
+        public void LoadPermissoesUsuario()
+        {
+            this.Permissoes = Permissao.CarregarPermissoes(this.ID);
+        }
+
+        public bool VerifPermissao(long ID_modulo)
+        {
+            foreach (Permissao permissao in Permissoes)
+            {
+                if (permissao.ID_Modulo == ID_modulo)
+                {
+                    return permissao.Acesso;
+                }
+            }
+            return false;
         }
     }
 }
