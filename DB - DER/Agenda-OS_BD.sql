@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS `usuario`(
     `ativo` BOOL DEFAULT TRUE
 )ENGINE = InnoDB;
 
-alter table usuario rename column active to ativo;
 DROP TABLE IF EXISTS `modulo`;
 CREATE TABLE IF NOT EXISTS `modulo`(
 	`id` INT PRIMARY KEY AUTO_INCREMENT,

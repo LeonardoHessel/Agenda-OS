@@ -42,6 +42,7 @@ namespace Agenda_OS
         {
             if (this.Action == "Novo")
             {
+                this.Produto = new Produto();
                 btnSalvar.Enabled = true;
                 btnEditar.Enabled = false;
                 btnInativarAtivar.Enabled = false;
@@ -97,7 +98,6 @@ namespace Agenda_OS
             RecuperarInfoProduto();
             if (this.Action == "Novo")
             {
-                this.produto = new Produto();
                 if (this.Produto.Inserir())
                 {
                     this.Action = "Visualizar";

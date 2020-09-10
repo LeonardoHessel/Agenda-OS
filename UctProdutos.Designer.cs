@@ -63,7 +63,6 @@
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(784, 348);
             this.dgvProdutos.TabIndex = 1;
-            this.dgvProdutos.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProdutos_ColumnHeaderMouseClick);
             this.dgvProdutos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvProdutos_MouseDoubleClick);
             // 
             // lblBusca
@@ -168,6 +167,7 @@
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // Nome
             // 
@@ -175,6 +175,7 @@
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
             this.Nome.ReadOnly = true;
+            this.Nome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // Ativo
             // 
@@ -183,7 +184,7 @@
             this.Ativo.Name = "Ativo";
             this.Ativo.ReadOnly = true;
             this.Ativo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Ativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Ativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // UctProdutos
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using System.Linq
 
 namespace Agenda_OS
 {
@@ -21,6 +22,7 @@ namespace Agenda_OS
         private static UctProdutos instancia;
         private string buscaStatus;
         private string buscaString;
+        //private List<Produto> listaProdutos;
         
         public static UctProdutos Instancia
         {
@@ -52,9 +54,16 @@ namespace Agenda_OS
             }
         }
 
+        public List<Produto> ListaProdutos { get; set; }
+
         public void CarregarProdutos()
         {
-            dgvProdutos.DataSource = Produto.TodosProdutos(this.BuscaStatus,this.BuscaString);
+            this.ListaProdutos = Produto.TodosProdutos(this.BuscaStatus, this.BuscaString);
+            //dgvProdutos.DataSource = this.ListaProdutos;
+            
+            var bindingList = new BindingList<Produto>(this.ListaProdutos);
+            var source = new BindingSource(bindingList, null);
+            dgvProdutos.DataSource = source;
         }
 
         private void rbStatus_CheckedChanged(object sender, EventArgs e)
@@ -94,22 +103,6 @@ namespace Agenda_OS
             formProd.Action = "Visualizar";
             formProd.ShowDialog();
             CarregarProdutos();
-        }
-
-        private void dgvProdutos_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            //e.ColumnIndex;
-            DataGridViewColumn colunaParaReordenar = dgvProdutos.Columns[e.ColumnIndex];
-            DataGridViewColumn colunaOrdenada = dgvProdutos.SortedColumn;
-            if (colunaOrdenada.Index == colunaParaReordenar.Index)
-            {
-                if (colunaOrdenada.SortMode == SortOrder.Ascending)
-                    colunaOrdenada.SortMode = SortOrder.Descending;
-                else
-                    colunaOrdenada.SortMode = SortOrder.Ascending;
-                dgvProdutos.SortOrder;
-                SortOrder.Ascending
-            }
         }
     }
 }
