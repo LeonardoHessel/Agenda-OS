@@ -59,23 +59,19 @@ namespace Agenda_OS
 
         private void BuscarClientes()
         {
-            this.Clientes = Empresa.BuscaEmpresa(txtBusca.Text, false);
+            this.Clientes = Empresa.BuscaEmpresa("Ativo",txtBusca.Text);
             dgvClientes.DataSource = this.Clientes;
         }
 
         private void dgvClientes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.Cliente = (Empresa)dgvClientes.CurrentRow.DataBoundItem;
-            //long idClienteSelecionado = Convert.ToInt64(dgvClientes.CurrentRow.Cells["ID"].Value);
-            //this.Cliente = this.Clientes.Find(Empresa => Empresa.ID == idClienteSelecionado);
+            this.Cliente = dgvClientes.CurrentRow.DataBoundItem as Empresa;
             btnSelecionar.PerformClick();
         }
 
         private void dgvClientes_MouseClick(object sender, MouseEventArgs e)
         {
             this.Cliente = (Empresa)dgvClientes.CurrentRow.DataBoundItem;
-            //long id = Convert.ToInt64(dgvClientes.CurrentRow.Cells["ID"].Value);
-            //this.Cliente = this.Clientes.Find(Empresa => Empresa.ID == id);
         }
 
         private void btnFechar_Click(object sender, EventArgs e)

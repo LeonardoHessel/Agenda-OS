@@ -32,10 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UctClientes));
             this.txtBuscaEmpresa = new System.Windows.Forms.TextBox();
             this.Busca = new System.Windows.Forms.Label();
-            this.Total = new System.Windows.Forms.Label();
-            this.Filtrados = new System.Windows.Forms.Label();
-            this.labNT = new System.Windows.Forms.Label();
-            this.labNF = new System.Windows.Forms.Label();
             this.btnNovo = new System.Windows.Forms.Button();
             this.ilBotoes = new System.Windows.Forms.ImageList(this.components);
             this.btnEditar = new System.Windows.Forms.Button();
@@ -59,14 +55,18 @@
             this.colTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbInativos = new System.Windows.Forms.CheckBox();
+            this.gbFiltroStatus = new System.Windows.Forms.GroupBox();
+            this.rbtnInativo = new System.Windows.Forms.RadioButton();
+            this.rbtnAtivos = new System.Windows.Forms.RadioButton();
+            this.rbtnTodos = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            this.gbFiltroStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtBuscaEmpresa
             // 
             this.txtBuscaEmpresa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscaEmpresa.Location = new System.Drawing.Point(58, 8);
+            this.txtBuscaEmpresa.Location = new System.Drawing.Point(97, 28);
             this.txtBuscaEmpresa.Name = "txtBuscaEmpresa";
             this.txtBuscaEmpresa.Size = new System.Drawing.Size(300, 29);
             this.txtBuscaEmpresa.TabIndex = 0;
@@ -75,63 +75,21 @@
             // Busca
             // 
             this.Busca.AutoSize = true;
-            this.Busca.Location = new System.Drawing.Point(8, 14);
+            this.Busca.Location = new System.Drawing.Point(97, 8);
             this.Busca.Name = "Busca";
             this.Busca.Size = new System.Drawing.Size(44, 17);
             this.Busca.TabIndex = 1;
             this.Busca.Text = "Busca:";
             // 
-            // Total
-            // 
-            this.Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Total.AutoSize = true;
-            this.Total.Location = new System.Drawing.Point(553, 14);
-            this.Total.Name = "Total";
-            this.Total.Size = new System.Drawing.Size(39, 17);
-            this.Total.TabIndex = 2;
-            this.Total.Text = "Total:";
-            // 
-            // Filtrados
-            // 
-            this.Filtrados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Filtrados.AutoSize = true;
-            this.Filtrados.Location = new System.Drawing.Point(675, 14);
-            this.Filtrados.Name = "Filtrados";
-            this.Filtrados.Size = new System.Drawing.Size(61, 17);
-            this.Filtrados.TabIndex = 3;
-            this.Filtrados.Text = "Filtrados:";
-            // 
-            // labNT
-            // 
-            this.labNT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labNT.AutoSize = true;
-            this.labNT.Location = new System.Drawing.Point(598, 14);
-            this.labNT.Name = "labNT";
-            this.labNT.Size = new System.Drawing.Size(15, 17);
-            this.labNT.TabIndex = 4;
-            this.labNT.Text = "0";
-            this.labNT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // labNF
-            // 
-            this.labNF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labNF.AutoSize = true;
-            this.labNF.Location = new System.Drawing.Point(742, 14);
-            this.labNF.Name = "labNF";
-            this.labNF.Size = new System.Drawing.Size(15, 17);
-            this.labNF.TabIndex = 5;
-            this.labNF.Text = "0";
-            this.labNF.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // btnNovo
             // 
-            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNovo.BackColor = System.Drawing.Color.DarkGreen;
             this.btnNovo.FlatAppearance.BorderSize = 0;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.ImageIndex = 0;
             this.btnNovo.ImageList = this.ilBotoes;
-            this.btnNovo.Location = new System.Drawing.Point(742, 457);
+            this.btnNovo.Location = new System.Drawing.Point(742, 49);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(50, 50);
             this.btnNovo.TabIndex = 6;
@@ -149,13 +107,13 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.ImageIndex = 1;
             this.btnEditar.ImageList = this.ilBotoes;
-            this.btnEditar.Location = new System.Drawing.Point(686, 457);
+            this.btnEditar.Location = new System.Drawing.Point(686, 49);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
             this.btnEditar.TabIndex = 7;
@@ -192,11 +150,11 @@
             this.colTelefone,
             this.colObservacao,
             this.colDel});
-            this.dgvClientes.Location = new System.Drawing.Point(8, 43);
+            this.dgvClientes.Location = new System.Drawing.Point(8, 105);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(784, 408);
+            this.dgvClientes.Size = new System.Drawing.Size(784, 402);
             this.dgvClientes.TabIndex = 9;
             this.dgvClientes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClientes_MouseDoubleClick);
             // 
@@ -344,29 +302,66 @@
             this.colDel.ReadOnly = true;
             this.colDel.Visible = false;
             // 
-            // cbInativos
+            // gbFiltroStatus
             // 
-            this.cbInativos.AutoSize = true;
-            this.cbInativos.Location = new System.Drawing.Point(364, 13);
-            this.cbInativos.Name = "cbInativos";
-            this.cbInativos.Size = new System.Drawing.Size(106, 21);
-            this.cbInativos.TabIndex = 10;
-            this.cbInativos.Text = "Listar inativos";
-            this.cbInativos.UseVisualStyleBackColor = true;
+            this.gbFiltroStatus.Controls.Add(this.rbtnInativo);
+            this.gbFiltroStatus.Controls.Add(this.rbtnAtivos);
+            this.gbFiltroStatus.Controls.Add(this.rbtnTodos);
+            this.gbFiltroStatus.Location = new System.Drawing.Point(8, 8);
+            this.gbFiltroStatus.Name = "gbFiltroStatus";
+            this.gbFiltroStatus.Padding = new System.Windows.Forms.Padding(1);
+            this.gbFiltroStatus.Size = new System.Drawing.Size(83, 91);
+            this.gbFiltroStatus.TabIndex = 10;
+            this.gbFiltroStatus.TabStop = false;
+            this.gbFiltroStatus.Text = "Status";
+            // 
+            // rbtnInativo
+            // 
+            this.rbtnInativo.AutoSize = true;
+            this.rbtnInativo.Location = new System.Drawing.Point(4, 67);
+            this.rbtnInativo.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.rbtnInativo.Name = "rbtnInativo";
+            this.rbtnInativo.Size = new System.Drawing.Size(70, 21);
+            this.rbtnInativo.TabIndex = 2;
+            this.rbtnInativo.Text = "Inativos";
+            this.rbtnInativo.UseVisualStyleBackColor = true;
+            this.rbtnInativo.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
+            // 
+            // rbtnAtivos
+            // 
+            this.rbtnAtivos.AutoSize = true;
+            this.rbtnAtivos.Location = new System.Drawing.Point(4, 43);
+            this.rbtnAtivos.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.rbtnAtivos.Name = "rbtnAtivos";
+            this.rbtnAtivos.Size = new System.Drawing.Size(61, 21);
+            this.rbtnAtivos.TabIndex = 1;
+            this.rbtnAtivos.Text = "Ativos";
+            this.rbtnAtivos.UseVisualStyleBackColor = true;
+            this.rbtnAtivos.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
+            // 
+            // rbtnTodos
+            // 
+            this.rbtnTodos.AutoSize = true;
+            this.rbtnTodos.Checked = true;
+            this.rbtnTodos.Location = new System.Drawing.Point(4, 19);
+            this.rbtnTodos.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.rbtnTodos.Name = "rbtnTodos";
+            this.rbtnTodos.Size = new System.Drawing.Size(62, 21);
+            this.rbtnTodos.TabIndex = 0;
+            this.rbtnTodos.TabStop = true;
+            this.rbtnTodos.Text = "Todos";
+            this.rbtnTodos.UseVisualStyleBackColor = true;
+            this.rbtnTodos.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
             // 
             // UctClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.Controls.Add(this.cbInativos);
+            this.Controls.Add(this.gbFiltroStatus);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.labNF);
-            this.Controls.Add(this.labNT);
-            this.Controls.Add(this.Filtrados);
-            this.Controls.Add(this.Total);
             this.Controls.Add(this.Busca);
             this.Controls.Add(this.txtBuscaEmpresa);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -375,6 +370,8 @@
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(800, 515);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            this.gbFiltroStatus.ResumeLayout(false);
+            this.gbFiltroStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,15 +381,10 @@
 
         private System.Windows.Forms.TextBox txtBuscaEmpresa;
         private System.Windows.Forms.Label Busca;
-        private System.Windows.Forms.Label Total;
-        private System.Windows.Forms.Label Filtrados;
-        private System.Windows.Forms.Label labNT;
-        private System.Windows.Forms.Label labNF;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.ImageList ilBotoes;
-        private System.Windows.Forms.CheckBox cbInativos;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCNPJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIE;
@@ -412,5 +404,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTelefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn colObservacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDel;
+        private System.Windows.Forms.GroupBox gbFiltroStatus;
+        private System.Windows.Forms.RadioButton rbtnInativo;
+        private System.Windows.Forms.RadioButton rbtnAtivos;
+        private System.Windows.Forms.RadioButton rbtnTodos;
     }
 }

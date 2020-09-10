@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Agenda_OS
 {
-    public partial class FormEmpresa : Form
+    public partial class FormCliente : Form
     {
         public Empresa Empresa { get; set; }
         public Usuario Usuario { get; set; }
@@ -36,7 +36,7 @@ namespace Agenda_OS
 
         private string acao;
 
-        public FormEmpresa(Empresa empresa, string acao)
+        public FormCliente(Empresa empresa, string acao)
         {
             InitializeComponent();
             LoadContadores();
@@ -66,7 +66,7 @@ namespace Agenda_OS
                 HabilitarCampos(true);
                 this.Empresa = new Empresa();
                 cbContador.SelectedIndex = 0;
-                btnDeletar.Enabled = false;
+                btnInativarAtivar.Enabled = false;
                 btnEditar.Enabled = false;
                 btnSalvar.Enabled = true;
             }
@@ -75,14 +75,14 @@ namespace Agenda_OS
                 ExibirEmpresa();
                 HabilitarCampos(true);
                 btnEditar.Enabled = false;
-                btnDeletar.Enabled = false;
+                btnInativarAtivar.Enabled = false;
                 btnSalvar.Enabled = true;
             }
             else if (this.Acao == "Visualizar")
             {
                 ExibirEmpresa();
                 HabilitarCampos(false);
-                btnDeletar.Enabled = false;
+                btnInativarAtivar.Enabled = false;
                 btnSalvar.Enabled = false;
                 btnEditar.Enabled = true;
             }
@@ -107,15 +107,31 @@ namespace Agenda_OS
             if (true) // Verificar Permisao
             {
                 SetEmpresa();
-                if (this.Empresa.SalvarEmpresa(this.Acao))
+                if (this.Acao == "Novo")
                 {
-                    ExibirEmpresa();
-                    this.Acao = "Visualizar";
+                    if (this.Empresa.Inserir())
+                    {
+                        ExibirEmpresa();
+                        this.Acao = "Visualizar";
+                    }
+                    else
+                    {
+                        MessageBox.Show(Conexao.msg);
+                        btnSalvar.Enabled = true;
+                    }
                 }
-                else
+                else if (this.Acao == "Editar")
                 {
-                    MessageBox.Show(Conexao.msg);
-                    btnSalvar.Enabled = true;
+                    if (this.Empresa.Atualizar())
+                    {
+                        ExibirEmpresa();
+                        this.Acao = "Visualizar";
+                    }
+                    else
+                    {
+                        MessageBox.Show(Conexao.msg);
+                        btnSalvar.Enabled = true;
+                    }
                 }
             }
             //else
@@ -147,7 +163,7 @@ namespace Agenda_OS
 
         private void ExibirEmpresa()
         {
-            labID.Text = this.Empresa.ID.ToString();
+            txtID.Text = this.Empresa.ID.ToString();
             mtbCNPJ.Text = this.Empresa.CNPJ;
             mtbIE.Text = this.Empresa.IE;
             txtRazao.Text = this.Empresa.Razao;
@@ -190,6 +206,14 @@ namespace Agenda_OS
         private void btnEditar_Click(object sender, EventArgs e)
         {
             this.Acao = "Editar";
+        }
+
+        private void btnInativarAtivar_Click(object sender, EventArgs e)
+        {
+            if (this.Empresa.AtivarDesativar())
+            {
+                this.Acao = "Visualizar";
+            }
         }
     }
 }

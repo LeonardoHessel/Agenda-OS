@@ -25,7 +25,7 @@ namespace Agenda_OS
             set
             {
                 this.action = value;
-                //DefinirFormulario();
+                DefinirFormulario();
             }
         }
         public Produto Produto
@@ -58,16 +58,14 @@ namespace Agenda_OS
                 // Renomeação de botoês
                 btnEditar.Text = "Cancelar";
                 // Alteração da visualização dos campos
-                txtNome.Enabled = false;
+                txtNome.Enabled = true;
             }
             else if (this.Action == "Visualizar")
             {
-                btnSalvar.Enabled = false;
-                btnInativarAtivar.Enabled = true;
-                // Renomeação de botoês
-                btnEditar.Text = "Editar";
-                // Alteração da visualização dos campos
                 txtNome.Enabled = false;
+                btnSalvar.Enabled = false;
+                btnEditar.Text = "Editar";
+                btnInativarAtivar.Enabled = true;
                 if (this.Produto.Ativo)
                 {
                     btnEditar.Enabled = true;
@@ -78,6 +76,7 @@ namespace Agenda_OS
                     btnEditar.Enabled = false;
                     btnInativarAtivar.Text = "Ativar";
                 }
+                ExibirInfoProduto();
             }
         }
 
@@ -137,6 +136,18 @@ namespace Agenda_OS
                 {
                     this.Action = "Visualizar";
                 }
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (this.Action == "Editar")
+            {
+                this.Action = "Visualizar";
+            }
+            else
+            {
+                this.Action = "Editar";
             }
         }
     }

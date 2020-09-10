@@ -13,7 +13,18 @@ namespace Agenda_OS
         public string Nome { get; set; }
         public bool Ativo { get; set; }
 
-        
+        public bool Inserir()
+        {
+            string sql = "INSERT INTO `produto` (`nome`) values (@nome)";
+            NewCMD(sql, CommandType.Text);
+            AddPar("nome", this.Nome);
+            if (ExeGetId())
+            {
+                this.ID = Conexao.lastId;
+                return true;
+            }
+            return false;
+        }
 
         public bool Atualizar()
         {
@@ -28,29 +39,31 @@ namespace Agenda_OS
             return false;
         }
 
-        public bool Inserir()
+        public static List<Produto> TodosProdutos(string status = "Todos", string busca = "", bool addTodos = false)
         {
-            string sql = "INSERT INTO `produto` (`nome`) values (@nome)";
-            NewCMD(sql, CommandType.Text);
-            AddPar("nome", this.Nome);
-            if (ExeGetId())
-            {
-                this.ID = Conexao.lastId;
-                return true;
-            }
-            return false;
-        }
+            bool ativo = true;
+            if (status == "Inativos")
+                ativo = false;
 
-        public static List<Produto> TodosProdutos(string busca)
-        {
+            if (busca == null)
+                busca = "";
+
             string sql;
-            Produto Con = new Produto();
             sql = @"SELECT * FROM `produto` 
-                WHERE `id` like CONCAT('%', @busca, '%') 
-                OR `nome` like CONCAT('%', @busca, '%')";
-            Con.NewCMD(sql, CommandType.Text);
-            Con.AddPar("busca", busca);
-            DataTable tabela = Con.GetTable();
+            WHERE (`id` like CONCAT('%', @busca, '%') 
+            OR `nome` like CONCAT('%', @busca, '%'))";
+
+            if (status != "Todos")
+                sql += " AND `ativo` = @ativo";
+
+            Produto con = new Produto();
+            con.NewCMD(sql, CommandType.Text);
+            con.AddPar("busca", busca);
+
+            if (status != "Todos" && status != null)
+                con.AddPar("ativo", ativo);
+
+            DataTable tabela = con.GetTable();
             List<Produto> produtos = new List<Produto>();
             if (tabela != null)
             {
@@ -60,6 +73,14 @@ namespace Agenda_OS
                     Nome = row["nome"].ToString(),
                     Ativo = Convert.ToBoolean(row["ativo"]),
                 }).ToList();
+
+                if (addTodos)
+                {
+                    con.ID = 0;
+                    con.Nome = "Todos";
+                    produtos.Add(con);
+                }
+
                 return produtos;
             }
             return null;

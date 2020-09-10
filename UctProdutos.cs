@@ -12,44 +12,104 @@ namespace Agenda_OS
 {
     public partial class UctProdutos : UserControl
     {
-        private static UctProdutos _instancia;
-
-        private List<Produto> listaProdutos;
-
-        public static UctProdutos instancia
-        {
-            get
-            {
-                if (_instancia == null)
-                {
-                    _instancia = new UctProdutos();
-                }
-                return _instancia;
-            }
-        }
-
         public UctProdutos()
         {
             InitializeComponent();
-            CarregarProdutos();
+            this.BuscaStatus = "Ativos";
+        }
+
+        private static UctProdutos instancia;
+        private string buscaStatus;
+        private string buscaString;
+        
+        public static UctProdutos Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                    instancia = new UctProdutos();
+                return instancia;
+            }
+        }
+
+        public string BuscaStatus
+        {
+            get { return buscaStatus; }
+            set
+            {
+                buscaStatus = value;
+                CarregarProdutos();
+            }
+        }
+
+        public string BuscaString
+        {
+            get { return buscaString; }
+            set
+            {
+                buscaString = value;
+                CarregarProdutos();
+            }
         }
 
         public void CarregarProdutos()
         {
-            this.listaProdutos = Produto.TodosProdutos(txtBusca.Text);
-            dgvProdutos.DataSource = this.listaProdutos;
+            dgvProdutos.DataSource = Produto.TodosProdutos(this.BuscaStatus,this.BuscaString);
+        }
+
+        private void rbStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (Control control in this.gbFiltroStatus.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton rb = (RadioButton)control;
+                    if (rb.Checked && rb.Text != this.BuscaStatus)
+                    {
+                        this.BuscaStatus = rb.Text;
+                    }
+                }
+            }
         }
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
-            CarregarProdutos();
+            this.BuscaString = txtBusca.Text;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            FormProduto form = new FormProduto();
-            form.ShowDialog();
+            //int linha = dgvProdutos.CurrentRow.Index;
+            FormProduto formProd = new FormProduto();
+            formProd.Action = "Novo";
+            formProd.ShowDialog();
             CarregarProdutos();
+        }
+
+        private void dgvProdutos_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            //int linha = dgvProdutos.CurrentRow.Index;
+            FormProduto formProd = new FormProduto();
+            formProd.Produto = dgvProdutos.CurrentRow.DataBoundItem as Produto;
+            formProd.Action = "Visualizar";
+            formProd.ShowDialog();
+            CarregarProdutos();
+        }
+
+        private void dgvProdutos_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //e.ColumnIndex;
+            DataGridViewColumn colunaParaReordenar = dgvProdutos.Columns[e.ColumnIndex];
+            DataGridViewColumn colunaOrdenada = dgvProdutos.SortedColumn;
+            if (colunaOrdenada.Index == colunaParaReordenar.Index)
+            {
+                if (colunaOrdenada.SortMode == SortOrder.Ascending)
+                    colunaOrdenada.SortMode = SortOrder.Descending;
+                else
+                    colunaOrdenada.SortMode = SortOrder.Ascending;
+                dgvProdutos.SortOrder;
+                SortOrder.Ascending
+            }
         }
     }
 }

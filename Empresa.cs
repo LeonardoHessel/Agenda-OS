@@ -26,7 +26,7 @@ namespace Agenda_OS
         public string Email { get; set; }
         public string Telefone { get; set; }
         public string Observacao { get; set; }
-        public bool Del { get; set; }
+        public bool Ativo { get; set; }
 
         public static Empresa BuscaEmpresaByID(long empresaId)
         {
@@ -58,32 +58,37 @@ namespace Agenda_OS
                              Email = dr["email"].ToString(),
                              Telefone = dr["telefone"].ToString(),
                              Observacao = dr["observacao"].ToString(),
-                             Del = Convert.ToBoolean(dr["del"])
+                             Ativo = Convert.ToBoolean(dr["ativo"])
                          }).ToList();
                 return lista[0];
             }
             return null;
         }
 
-        public static List<Empresa> BuscaEmpresa(string busca, bool ativo)
+        public static List<Empresa> BuscaEmpresa(string status, string busca)
         {
-            string sql;
+            bool ativo = false;
+            if (status == "Ativos")
+                ativo = true;
+
+            string sqladd = " WHERE ";
+            string sql = "SELECT * FROM `empresa`";
+            if (status != "Todos")
+            {
+                sql += sqladd + "`ativo` = @ativo";
+                sqladd = " AND ";
+            }
+
+            sql += sqladd + @"(`cnpj` like CONCAT('%',@busca,'%') 
+            OR `razao` like CONCAT('%',@busca,'%') OR
+            `nome` like CONCAT('%',@busca,'%'))";
+
             Empresa con = new Empresa();
-            if (busca != null)
-            {
-                sql = "SELECT * FROM `empresa` WHERE `del`= @del AND " +
-                    "(`cnpj` like CONCAT('%',@busca,'%') OR " +
-                    "`razao` like CONCAT('%',@busca,'%') OR " +
-                    "`nome` like CONCAT('%',@busca,'%'));";
-                con.NewCMD(sql, CommandType.Text);
-                con.AddPar("busca", busca);
-                con.AddPar("del", ativo);
-            }
-            else
-            {
-                sql = "SELECT * FROM `usuario`";
-                con.NewCMD(sql, CommandType.Text);
-            }
+
+            con.NewCMD(sql, CommandType.Text);
+            con.AddPar("busca", busca);
+            con.AddPar("ativo", ativo);
+
             DataTable table = con.GetTable();
             List<Empresa> lista = new List<Empresa>();
             if (table != null)
@@ -106,28 +111,14 @@ namespace Agenda_OS
                     Email = dr["email"].ToString(),
                     Telefone = dr["telefone"].ToString(),
                     Observacao = dr["observacao"].ToString(),
-                    Del = Convert.ToBoolean(dr["del"])
+                    Ativo = Convert.ToBoolean(dr["ativo"])
                 }).ToList();
                 return lista;
             }
             return null;
         }
 
-        public bool SalvarEmpresa(string acao)
-        {
-
-            if (acao == "Novo")
-            {
-                return Cadastrar();
-            }
-            else if (acao == "Editar")
-            {
-                return Atualizar();
-            }
-            return false;
-        }
-
-        private bool Cadastrar()
+        public bool Inserir()
         {
             string sql = "INSERT INTO `empresa` (`cnpj`,`ie`,`razao`,`nome`,`regime`,`contador`,`logradouro`," +
                 "`numero`,`complemento`,`cep`,`bairro`,`municipio`,`uf`,`email`,`telefone`,`observacao`) VALUES (" +
@@ -161,12 +152,12 @@ namespace Agenda_OS
             }
         }
 
-        private bool Atualizar()
+        public bool Atualizar()
         {
             string sql = "UPDATE `empresa` SET `cnpj`=@cnpj,`ie`=@ie,`razao`=@razao,`nome`=@nome,`regime`=@regime," +
                 "`contador`=@contador,`logradouro`=@logradouro,`numero`=@numero,`complemento`=@complemento,`cep`=@cep," +
-                "`bairro`=@bairro,`municipio`=@municipio,`uf`=@uf,`email`=@email,`telefone`=@telefone,`observacao`=@observacao," +
-                "`del`=@del WHERE `id`=@id";
+                "`bairro`=@bairro,`municipio`=@municipio,`uf`=@uf,`email`=@email,`telefone`=@telefone,`observacao`=@observacao" +
+                "WHERE `id`=@id";
             NewCMD(sql, CommandType.Text);
             AddPar("id", this.ID);
             AddPar("cnpj", this.CNPJ);
@@ -185,12 +176,28 @@ namespace Agenda_OS
             AddPar("email", this.Email);
             AddPar("telefone", this.Telefone);
             AddPar("observacao", this.Observacao);
-            AddPar("del", this.Del);
             if (ExeGetId())
             {
                 return true;
             }
             return false;
+        }
+
+        public bool AtivarDesativar()
+        {
+            string sql = "UPDATE `empresa` SET `ativo` = @ativo WHERE `id` = @id";
+            NewCMD(sql, CommandType.Text);
+            AddPar("ativo", !this.Ativo);
+            AddPar("id", this.ID);
+            if (ExecuteNQ())
+            {
+                this.Ativo = !this.Ativo;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

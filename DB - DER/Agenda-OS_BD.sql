@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `empresa`(
     `email` VARCHAR(250),
     `telefone` VARCHAR(60),
     `observacao` TEXT,
-    `del` BOOL DEFAULT FALSE,
+    `ativo` BOOL DEFAULT TRUE,
     PRIMARY KEY(`id`)
     -- FOREIGN KEY (`contador`) REFERENCES `contador`(`id`)
 )ENGINE = InnoDB;

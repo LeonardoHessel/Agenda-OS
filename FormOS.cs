@@ -17,7 +17,7 @@ namespace Agenda_OS
         {
             InitializeComponent();
             this.ListaUsuarios = Usuario.TodosUsuarios();
-            this.ListaProdutos = Produto.TodosProdutos("");
+            this.ListaProdutos = Produto.TodosProdutos("Todos");
             SetupFormulário();
         }
 

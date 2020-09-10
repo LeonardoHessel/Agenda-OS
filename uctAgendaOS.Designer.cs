@@ -89,10 +89,10 @@
             this.Usuário,
             this.Nome_Usuario,
             this.Situação});
-            this.dgvOS.Location = new System.Drawing.Point(8, 123);
+            this.dgvOS.Location = new System.Drawing.Point(8, 103);
             this.dgvOS.Name = "dgvOS";
             this.dgvOS.ReadOnly = true;
-            this.dgvOS.Size = new System.Drawing.Size(784, 328);
+            this.dgvOS.Size = new System.Drawing.Size(784, 348);
             this.dgvOS.TabIndex = 6;
             this.dgvOS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOS_CellDoubleClick);
             // 

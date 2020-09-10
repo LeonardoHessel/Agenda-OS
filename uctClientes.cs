@@ -26,26 +26,39 @@ namespace Agenda_OS
             }
         }
 
+        private string buscaStatus;
+
+        public string BuscaStatus
+        {
+            get { return buscaStatus; }
+            set 
+            {
+                buscaStatus = value;
+                CarregarClientes();
+            }
+        }
+
+
         public List<Empresa> ListaEmpresas { get; set; }
 
         public UctClientes()
         {
             InitializeComponent();
-            CarregarEmpresas();
+            this.BuscaStatus = "Todos";
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            FormEmpresa emp = new FormEmpresa(null,"Novo");
+            FormCliente emp = new FormCliente(null,"Novo");
             emp.ShowDialog();
         }
 
 
-        private void CarregarEmpresas()
+        private void CarregarClientes()
         {
             string busca = txtBuscaEmpresa.Text;
-            bool status = cbInativos.Checked;
-            this.ListaEmpresas = Empresa.BuscaEmpresa(busca, status);
+            //bool status = cbInativos.Checked;
+            this.ListaEmpresas = Empresa.BuscaEmpresa(this.BuscaStatus,busca);
             dgvClientes.DataSource = this.ListaEmpresas;
         }
 
@@ -54,17 +67,30 @@ namespace Agenda_OS
             int linha = dgvClientes.CurrentRow.Index;
             long id = Convert.ToInt64(dgvClientes.CurrentRow.Cells["colID"].Value);
             Empresa emp = this.ListaEmpresas.Find(empresa => empresa.ID == id);
-            FormEmpresa frmEmp = new FormEmpresa(emp, "Visualizar");
+            FormCliente frmEmp = new FormCliente(emp, "Visualizar");
             frmEmp.ShowDialog();
-            CarregarEmpresas();
+            CarregarClientes();
             dgvClientes.ClearSelection();
-            // dgvClientes.CurrentCell = dgvClientes[0, linha];
-            // dgvClientes.Rows[linha].Selected = true;
         }
 
         private void txtBuscaEmpresa_TextChanged(object sender, EventArgs e)
         {
-            CarregarEmpresas();
+            CarregarClientes();
+        }
+
+        private void rbStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (Control control in this.gbFiltroStatus.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton rb = (RadioButton)control;
+                    if (rb.Checked)
+                    {
+                        this.BuscaStatus = rb.Text;
+                    }
+                }
+            }
         }
     }
 }

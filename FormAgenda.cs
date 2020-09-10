@@ -101,12 +101,12 @@ namespace Agenda_OS
 
         private void btnProdutos_Click(object sender, EventArgs e)
         {
-            if (!pnlUC.Controls.Contains(UctProdutos.instancia))
+            if (!pnlUC.Controls.Contains(UctProdutos.Instancia))
             {
-                pnlUC.Controls.Add(UctProdutos.instancia);
-                UctProdutos.instancia.Dock = DockStyle.Fill;
+                pnlUC.Controls.Add(UctProdutos.Instancia);
+                UctProdutos.Instancia.Dock = DockStyle.Fill;
             }
-            UctProdutos.instancia.BringToFront();
+            UctProdutos.Instancia.BringToFront();
         }
 
         private void frmAgendaOs_KeyDown(object sender, KeyEventArgs e)
