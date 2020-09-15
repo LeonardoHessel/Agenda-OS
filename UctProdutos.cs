@@ -104,5 +104,14 @@ namespace Agenda_OS
             formProd.ShowDialog();
             CarregarProdutos();
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            FormProduto formProd = new FormProduto();
+            formProd.Produto = dgvProdutos.CurrentRow.DataBoundItem as Produto;
+            formProd.Action = "Editar";
+            formProd.ShowDialog();
+            CarregarProdutos();
+        }
     }
 }

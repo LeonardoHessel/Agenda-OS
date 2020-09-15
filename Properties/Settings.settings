@@ -9,10 +9,10 @@
       <Value Profile="(Default)">agenda</Value>
     </Setting>
     <Setting Name="usuariobd" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">root</Value>
+      <Value Profile="(Default)">user</Value>
     </Setting>
     <Setting Name="senhabd" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">user</Value>
     </Setting>
     <Setting Name="porta" Type="System.String" Scope="Application">
       <Value Profile="(Default)">3306</Value>

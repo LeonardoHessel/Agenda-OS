@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblBusca = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -37,9 +40,6 @@
             this.rbTodos = new System.Windows.Forms.RadioButton();
             this.rbInativos = new System.Windows.Forms.RadioButton();
             this.rbAtivos = new System.Windows.Forms.RadioButton();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.gbFiltroStatus.SuspendLayout();
             this.SuspendLayout();
@@ -56,110 +56,14 @@
             this.ID,
             this.Nome,
             this.Ativo});
-            this.dgvProdutos.Location = new System.Drawing.Point(8, 103);
+            this.dgvProdutos.Location = new System.Drawing.Point(8, 64);
             this.dgvProdutos.MultiSelect = false;
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.ReadOnly = true;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProdutos.Size = new System.Drawing.Size(784, 348);
+            this.dgvProdutos.Size = new System.Drawing.Size(784, 443);
             this.dgvProdutos.TabIndex = 1;
             this.dgvProdutos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvProdutos_MouseDoubleClick);
-            // 
-            // lblBusca
-            // 
-            this.lblBusca.AutoSize = true;
-            this.lblBusca.Location = new System.Drawing.Point(97, 8);
-            this.lblBusca.Name = "lblBusca";
-            this.lblBusca.Size = new System.Drawing.Size(44, 17);
-            this.lblBusca.TabIndex = 2;
-            this.lblBusca.Text = "Busca:";
-            // 
-            // txtBusca
-            // 
-            this.txtBusca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusca.Location = new System.Drawing.Point(100, 28);
-            this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(300, 29);
-            this.txtBusca.TabIndex = 3;
-            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Image = global::Agenda_OS.Properties.Resources.EditX32;
-            this.btnEditar.Location = new System.Drawing.Point(686, 8);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(50, 50);
-            this.btnEditar.TabIndex = 10;
-            this.btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNovo.BackColor = System.Drawing.Color.DarkGreen;
-            this.btnNovo.FlatAppearance.BorderSize = 0;
-            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovo.Image = global::Agenda_OS.Properties.Resources.NewX32;
-            this.btnNovo.Location = new System.Drawing.Point(742, 8);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(50, 50);
-            this.btnNovo.TabIndex = 9;
-            this.btnNovo.UseVisualStyleBackColor = false;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // gbFiltroStatus
-            // 
-            this.gbFiltroStatus.Controls.Add(this.rbTodos);
-            this.gbFiltroStatus.Controls.Add(this.rbInativos);
-            this.gbFiltroStatus.Controls.Add(this.rbAtivos);
-            this.gbFiltroStatus.Location = new System.Drawing.Point(8, 8);
-            this.gbFiltroStatus.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.gbFiltroStatus.Name = "gbFiltroStatus";
-            this.gbFiltroStatus.Size = new System.Drawing.Size(83, 89);
-            this.gbFiltroStatus.TabIndex = 14;
-            this.gbFiltroStatus.TabStop = false;
-            this.gbFiltroStatus.Text = "Status";
-            // 
-            // rbTodos
-            // 
-            this.rbTodos.AutoSize = true;
-            this.rbTodos.Location = new System.Drawing.Point(6, 21);
-            this.rbTodos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rbTodos.Name = "rbTodos";
-            this.rbTodos.Size = new System.Drawing.Size(62, 21);
-            this.rbTodos.TabIndex = 10;
-            this.rbTodos.Text = "Todos";
-            this.rbTodos.UseVisualStyleBackColor = true;
-            this.rbTodos.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
-            // 
-            // rbInativos
-            // 
-            this.rbInativos.AutoSize = true;
-            this.rbInativos.Location = new System.Drawing.Point(6, 63);
-            this.rbInativos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rbInativos.Name = "rbInativos";
-            this.rbInativos.Size = new System.Drawing.Size(70, 21);
-            this.rbInativos.TabIndex = 11;
-            this.rbInativos.Text = "Inativos";
-            this.rbInativos.UseVisualStyleBackColor = true;
-            this.rbInativos.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
-            // 
-            // rbAtivos
-            // 
-            this.rbAtivos.AutoSize = true;
-            this.rbAtivos.Checked = true;
-            this.rbAtivos.Location = new System.Drawing.Point(6, 42);
-            this.rbAtivos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rbAtivos.Name = "rbAtivos";
-            this.rbAtivos.Size = new System.Drawing.Size(61, 21);
-            this.rbAtivos.TabIndex = 12;
-            this.rbAtivos.TabStop = true;
-            this.rbAtivos.Text = "Ativos";
-            this.rbAtivos.UseVisualStyleBackColor = true;
-            this.rbAtivos.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
             // 
             // ID
             // 
@@ -185,6 +89,103 @@
             this.Ativo.ReadOnly = true;
             this.Ativo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Ativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // lblBusca
+            // 
+            this.lblBusca.AutoSize = true;
+            this.lblBusca.Location = new System.Drawing.Point(8, 5);
+            this.lblBusca.Name = "lblBusca";
+            this.lblBusca.Size = new System.Drawing.Size(44, 17);
+            this.lblBusca.TabIndex = 2;
+            this.lblBusca.Text = "Busca:";
+            // 
+            // txtBusca
+            // 
+            this.txtBusca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusca.Location = new System.Drawing.Point(8, 25);
+            this.txtBusca.Name = "txtBusca";
+            this.txtBusca.Size = new System.Drawing.Size(300, 29);
+            this.txtBusca.TabIndex = 3;
+            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Image = global::Agenda_OS.Properties.Resources.EditX32;
+            this.btnEditar.Location = new System.Drawing.Point(686, 8);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(50, 50);
+            this.btnEditar.TabIndex = 10;
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNovo.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnNovo.FlatAppearance.BorderSize = 0;
+            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovo.Image = global::Agenda_OS.Properties.Resources.NewX32;
+            this.btnNovo.Location = new System.Drawing.Point(742, 8);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(50, 50);
+            this.btnNovo.TabIndex = 9;
+            this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // gbFiltroStatus
+            // 
+            this.gbFiltroStatus.Controls.Add(this.rbTodos);
+            this.gbFiltroStatus.Controls.Add(this.rbInativos);
+            this.gbFiltroStatus.Controls.Add(this.rbAtivos);
+            this.gbFiltroStatus.Location = new System.Drawing.Point(314, 8);
+            this.gbFiltroStatus.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.gbFiltroStatus.Name = "gbFiltroStatus";
+            this.gbFiltroStatus.Size = new System.Drawing.Size(210, 50);
+            this.gbFiltroStatus.TabIndex = 14;
+            this.gbFiltroStatus.TabStop = false;
+            this.gbFiltroStatus.Text = "Status";
+            // 
+            // rbTodos
+            // 
+            this.rbTodos.AutoSize = true;
+            this.rbTodos.Location = new System.Drawing.Point(6, 21);
+            this.rbTodos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rbTodos.Name = "rbTodos";
+            this.rbTodos.Size = new System.Drawing.Size(62, 21);
+            this.rbTodos.TabIndex = 10;
+            this.rbTodos.Text = "Todos";
+            this.rbTodos.UseVisualStyleBackColor = true;
+            this.rbTodos.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
+            // 
+            // rbInativos
+            // 
+            this.rbInativos.AutoSize = true;
+            this.rbInativos.Location = new System.Drawing.Point(135, 21);
+            this.rbInativos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rbInativos.Name = "rbInativos";
+            this.rbInativos.Size = new System.Drawing.Size(70, 21);
+            this.rbInativos.TabIndex = 11;
+            this.rbInativos.Text = "Inativos";
+            this.rbInativos.UseVisualStyleBackColor = true;
+            this.rbInativos.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
+            // 
+            // rbAtivos
+            // 
+            this.rbAtivos.AutoSize = true;
+            this.rbAtivos.Checked = true;
+            this.rbAtivos.Location = new System.Drawing.Point(71, 21);
+            this.rbAtivos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rbAtivos.Name = "rbAtivos";
+            this.rbAtivos.Size = new System.Drawing.Size(61, 21);
+            this.rbAtivos.TabIndex = 12;
+            this.rbAtivos.TabStop = true;
+            this.rbAtivos.Text = "Ativos";
+            this.rbAtivos.UseVisualStyleBackColor = true;
+            this.rbAtivos.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
             // 
             // UctProdutos
             // 

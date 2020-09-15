@@ -124,7 +124,16 @@ namespace Agenda_OS
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (this.Action == "Editar")
+            {
+                DialogResult drMSG = MessageBox.Show("Deseja cancelar a edição?", "Cancelar", MessageBoxButtons.YesNo);
+                if (drMSG == DialogResult.Yes)
+                    this.Close();
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void btnInativarAtivar_Click(object sender, EventArgs e)
@@ -148,6 +157,14 @@ namespace Agenda_OS
             else
             {
                 this.Action = "Editar";
+            }
+        }
+
+        private void FormProduto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                btnFechar.PerformClick();
             }
         }
     }

@@ -217,6 +217,7 @@
             this.Name = "FormProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormProduto";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormProduto_KeyDown);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tpProduto.ResumeLayout(false);
