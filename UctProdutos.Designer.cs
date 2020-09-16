@@ -51,6 +51,7 @@
             this.dgvProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProdutos.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -60,6 +61,7 @@
             this.dgvProdutos.MultiSelect = false;
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.ReadOnly = true;
+            this.dgvProdutos.RowHeadersVisible = false;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(784, 443);
             this.dgvProdutos.TabIndex = 1;
@@ -141,7 +143,7 @@
             this.gbFiltroStatus.Controls.Add(this.rbTodos);
             this.gbFiltroStatus.Controls.Add(this.rbInativos);
             this.gbFiltroStatus.Controls.Add(this.rbAtivos);
-            this.gbFiltroStatus.Location = new System.Drawing.Point(314, 8);
+            this.gbFiltroStatus.Location = new System.Drawing.Point(314, 5);
             this.gbFiltroStatus.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.gbFiltroStatus.Name = "gbFiltroStatus";
             this.gbFiltroStatus.Size = new System.Drawing.Size(210, 50);

@@ -67,5 +67,16 @@ namespace Agenda_OS.Properties {
                 return ((string)(this["porta"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;user id=user;password=user;database=agenda;persistsecurityinfo=T" +
+            "rue")]
+        public string Agenda {
+            get {
+                return ((string)(this["Agenda"]));
+            }
+        }
     }
 }

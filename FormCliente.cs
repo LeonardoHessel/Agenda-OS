@@ -12,10 +12,25 @@ namespace Agenda_OS
 {
     public partial class FormCliente : Form
     {
-        public Empresa Empresa { get; set; }
-        public Usuario Usuario { get; set; }
+        public FormCliente()
+        {
+            InitializeComponent();
+            LoadContadores();
+        }
 
+        private string acao;
         public List<Contador> contadores;
+
+        public string Acao
+        {
+            get { return acao; }
+            set
+            {
+                acao = value;
+                DefinirFormulario();
+            }
+        }
+
         public List<Contador> Contadores
         {
             get { return contadores; }
@@ -34,29 +49,11 @@ namespace Agenda_OS
             }
         }
 
-        private string acao;
-
-        public FormCliente(Empresa empresa, string acao)
-        {
-            InitializeComponent();
-            LoadContadores();
-            this.Empresa = empresa;
-            this.Acao = acao;
-        }
+        public Empresa Empresa { get; set; }
 
         private void LoadContadores()
         {
             this.Contadores = Contador.CarregarContadores();
-        }
-
-        public string Acao
-        {
-            get { return acao; }
-            set
-            {
-                acao = value;
-                DefinirFormulario();
-            }
         }
 
         private void DefinirFormulario()
@@ -82,9 +79,18 @@ namespace Agenda_OS
             {
                 ExibirEmpresa();
                 HabilitarCampos(false);
-                btnInativarAtivar.Enabled = false;
                 btnSalvar.Enabled = false;
-                btnEditar.Enabled = true;
+                btnInativarAtivar.Enabled = true;
+                if (this.Empresa.Ativo)
+                {
+                    btnInativarAtivar.Text = "Inativar";
+                    btnEditar.Enabled = true;
+                }
+                else
+                {
+                    btnInativarAtivar.Text = "Ativar";
+                    btnEditar.Enabled = false;
+                }
             }
         }
 

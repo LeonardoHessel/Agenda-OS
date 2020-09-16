@@ -13,20 +13,6 @@ namespace Agenda_OS
 {
     public partial class UctAgendaOS : UserControl
     {
-        private static UctAgendaOS _instancia;
-
-        public static UctAgendaOS instancia
-        {
-            get
-            {
-                if (_instancia == null)
-                {
-                    _instancia = new UctAgendaOS();
-                }
-                return _instancia;
-            }
-        }
-
         public UctAgendaOS()
         {
             InitializeComponent();
@@ -34,33 +20,34 @@ namespace Agenda_OS
             CarregarOS();
         }
 
-        private List<OrdemServico> ListaOS { get; set; }
+        private static UctAgendaOS instancia;
 
-        private Usuario buscaUsuario;
-        private string buscaStatus;
-        private string BuscaStatus
+        public static UctAgendaOS Instancia
         {
-            get { return this.buscaStatus; }
-            set
+            get
             {
-                this.buscaStatus = value;
-                CarregarOS();
+                if (instancia == null)
+                {
+                    instancia = new UctAgendaOS();
+                }
+                return instancia;
             }
         }
-        
-        private Usuario BuscaUsuario
-        {
-            get { return this.buscaUsuario; }
-            set
-            {
-                this.buscaUsuario = value;
-                CarregarOS();
-            }
-        }
+
+        private List<OrdemServico> ListaOS { get; set; }
 
         private void CarregarOS()
         {
-            this.ListaOS = OrdemServico.TodasOrdenServico(txtBusca.Text, this.BuscaStatus, this.BuscaUsuario.ID);
+            string status = "Todos";
+            if (rbAtivos.Checked)
+                status = "Ativos";
+            else if (rbInativos.Checked)
+                status = "Inativos";
+
+            Usuario user = cbUsuario.SelectedItem as Usuario;
+            string busca = txtBusca.Text;
+
+            this.ListaOS = OrdemServico.TodasOrdenServico(busca, status, user.ID);
             dgvOS.DataSource = this.ListaOS;
         }
 
@@ -83,11 +70,6 @@ namespace Agenda_OS
             CarregarOS();
         }
 
-        private void txtBusca_TextChanged(object sender, EventArgs e)
-        {
-            CarregarOS();
-        }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             OrdemServico osSelecionado = (OrdemServico)dgvOS.CurrentRow.DataBoundItem;
@@ -98,24 +80,9 @@ namespace Agenda_OS
             CarregarOS();
         }
 
-        private void rbStatus_CheckedChanged(object sender, EventArgs e)
+        private void option_Changed(object sender, EventArgs e)
         {
-            foreach (Control control in this.gbFiltroStatus.Controls)
-            {
-                if (control is RadioButton)
-                {
-                    RadioButton rb = (RadioButton)control;
-                    if (rb.Checked)
-                    {
-                        this.BuscaStatus = rb.Text;
-                    }
-                }
-            }
-        }
-
-        private void cbUsuario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.BuscaUsuario = (Usuario)cbUsuario.SelectedItem;
+            CarregarOS();
         }
     }
 }

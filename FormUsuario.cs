@@ -19,9 +19,26 @@ namespace Agenda_OS
 {
     public partial class FormUsuario : Form
     {
+        public FormUsuario()
+        {
+            InitializeComponent();
+        }
+
+        private string action;
         private Usuario usuario;
-        private String endImagem;
-        private String EnderecoIMG
+        private string endImagem;
+        
+        public string Action
+        {
+            get { return this.action; }
+            set
+            {
+                this.action = value;
+                SetForm();
+            }
+        }
+
+        private string EnderecoIMG
         {
             get { return endImagem; }
             set
@@ -39,23 +56,11 @@ namespace Agenda_OS
                 }
             }
         }
-        
-        private string action;
-        private string Action
+
+        public Usuario Usuario
         {
-            get { return this.action; }
-            set
-            {
-                this.action = value;
-                SetForm();
-            }
-        }
-        
-        public FormUsuario(Usuario usuario, string action)
-        {
-            InitializeComponent();
-            this.usuario = usuario;
-            this.Action = action;
+            get { return this.usuario; }
+            set { this.usuario = value; }
         }
 
         private void SetForm()
@@ -75,8 +80,10 @@ namespace Agenda_OS
             else if (this.Action == "Visualizar")
             {
                 ShowUsuario();
+                
                 labResetarLoginSenha.Hide();
                 labResetarLoginSenha.Enabled = false;
+                
                 txtLogin.Enabled = false;
                 txtSenha.Enabled = false;
                 txtNome.Enabled = false;
@@ -85,11 +92,23 @@ namespace Agenda_OS
                 mtbRG.Enabled = false;
                 mtbCPF.Enabled = false;
                 mtbCNH.Enabled = false;
-                btnEditar.Enabled = true;
+                
                 btnInativarAtivar.Enabled = true;
                 btnSalvar.Enabled = false;
                 btnSalvar.Text = "Salvar";
                 btnEditar.Text = "Editar";
+                
+                if (this.Usuario.Ativo)
+                {
+                    btnInativarAtivar.Text = "Inativar";
+                    btnEditar.Enabled = true;
+                }
+                else
+                {
+                    btnInativarAtivar.Text = "Ativar";
+                    btnEditar.Enabled = false;
+                }
+                
             }
             else if (this.Action == "Editar")
             {
@@ -268,23 +287,25 @@ namespace Agenda_OS
 
         private void btnInativarAtivar_Click(object sender, EventArgs e)
         {
-            if (this.usuario.ID != FormAgenda.usuario.ID)
+            FormAgenda.usuario.LoadPermissoesUsuario();
+            Permissao permissao = FormAgenda.usuario.Permissoes.Find(x => x.ID_Modulo == 4);
+            if (permissao.Acesso)
             {
-                FormAgenda.usuario.LoadPermissoesUsuario();
-                Permissao permissao = FormAgenda.usuario.Permissoes.Find(x => x.ID_Modulo == 4);
-                if (permissao.Acesso)
+                if (this.Usuario.ID != FormAgenda.usuario.ID)
                 {
-                    MessageBox.Show("Exemplo: Usuario inativado");
-                    // Processo de inativar usuário
+                    if (this.Usuario.AlterarStatus())
+                    {
+                        this.Action = "Visualizar";
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Exemplo: O seu usuário não possue a permissão para inativar outros usuários");
+                    MessageBox.Show("Não é possivel inativar o um usuário logado");
                 }
             }
             else
             {
-                MessageBox.Show("Não é possivel inativar o um usuário logado");
+                MessageBox.Show("Exemplo: O seu usuário não possue a permissão para inativar outros usuários");
             }
         }
 

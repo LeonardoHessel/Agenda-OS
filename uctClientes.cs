@@ -12,17 +12,23 @@ namespace Agenda_OS
 {
     public partial class UctClientes : UserControl
     {
-        private static UctClientes _instancia;
+        public UctClientes()
+        {
+            InitializeComponent();
+            this.BuscaStatus = "Todos";
+        }
 
-        public static UctClientes instancia
+        private static UctClientes instancia;
+
+        public static UctClientes Instancia
         {
             get
             {
-                if (_instancia == null)
+                if (instancia == null)
                 {
-                    _instancia = new UctClientes();
+                    instancia = new UctClientes();
                 }
-                return _instancia;
+                return instancia;
             }
         }
 
@@ -41,56 +47,51 @@ namespace Agenda_OS
 
         public List<Empresa> ListaEmpresas { get; set; }
 
-        public UctClientes()
-        {
-            InitializeComponent();
-            this.BuscaStatus = "Todos";
-        }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            FormCliente emp = new FormCliente(null,"Novo");
-            emp.ShowDialog();
+            FormCliente frm = new FormCliente();
+            frm.Empresa = new Empresa();
+            frm.Acao = "Visualizar";
+            frm.ShowDialog();
+            CarregarClientes();
         }
 
 
         private void CarregarClientes()
         {
+            string status = "Todos";
+            if (rbAtivos.Checked)
+                status = "Ativos";
+            else if (rbInativos.Checked)
+                status = "Inativos";
+            
             string busca = txtBuscaEmpresa.Text;
-            //bool status = cbInativos.Checked;
-            this.ListaEmpresas = Empresa.BuscaEmpresa(this.BuscaStatus,busca);
-            dgvClientes.DataSource = this.ListaEmpresas;
+            
+            dgvClientes.DataSource = Empresa.BuscaEmpresa(status, busca);
         }
 
         private void dgvClientes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int linha = dgvClientes.CurrentRow.Index;
-            long id = Convert.ToInt64(dgvClientes.CurrentRow.Cells["colID"].Value);
-            Empresa emp = this.ListaEmpresas.Find(empresa => empresa.ID == id);
-            FormCliente frmEmp = new FormCliente(emp, "Visualizar");
-            frmEmp.ShowDialog();
+            FormCliente frm = new FormCliente();
+            frm.Empresa = dgvClientes.CurrentRow.DataBoundItem as Empresa;
+            frm.Acao = "Visualizar";
+            frm.ShowDialog();
             CarregarClientes();
-            dgvClientes.ClearSelection();
         }
 
-        private void txtBuscaEmpresa_TextChanged(object sender, EventArgs e)
+        private void option_Changed(object sender, EventArgs e)
         {
             CarregarClientes();
         }
 
-        private void rbStatus_CheckedChanged(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
-            foreach (Control control in this.gbFiltroStatus.Controls)
-            {
-                if (control is RadioButton)
-                {
-                    RadioButton rb = (RadioButton)control;
-                    if (rb.Checked)
-                    {
-                        this.BuscaStatus = rb.Text;
-                    }
-                }
-            }
+            FormCliente frm = new FormCliente();
+            frm.Empresa = dgvClientes.CurrentRow.DataBoundItem as Empresa;
+            frm.Acao = "Editar";
+            frm.ShowDialog();
+            CarregarClientes();
         }
     }
 }

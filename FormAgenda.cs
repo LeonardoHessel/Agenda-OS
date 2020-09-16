@@ -32,42 +32,27 @@ namespace Agenda_OS
 
         private void frmAgendaOs_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '1')
-            {
-                btnOS.PerformClick();
-            }
-            else if (e.KeyChar == '2')
-            {
-                btnClientes.PerformClick();
-            }
-            else if (e.KeyChar == '3')
-            {
-                btnUsuarios.PerformClick();
-            }
-            else if (e.KeyChar == '4')
-            {
-                btnProdutos.PerformClick();
-            }
+            
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            if (!pnlUC.Controls.Contains(UctClientes.instancia))
+            if (!pnlUC.Controls.Contains(UctClientes.Instancia))
             {
-                pnlUC.Controls.Add(UctClientes.instancia);
-                UctClientes.instancia.Dock = DockStyle.Fill;
+                pnlUC.Controls.Add(UctClientes.Instancia);
+                UctClientes.Instancia.Dock = DockStyle.Fill;
             }
-            UctClientes.instancia.BringToFront();
+            UctClientes.Instancia.BringToFront();
         }
 
         private void btnAgendaOS_Click(object sender, EventArgs e)
         {
-            if (!pnlUC.Controls.Contains(UctAgendaOS.instancia))
+            if (!pnlUC.Controls.Contains(UctAgendaOS.Instancia))
             {
-                pnlUC.Controls.Add(UctAgendaOS.instancia);
-                UctAgendaOS.instancia.Dock = DockStyle.Fill;
+                pnlUC.Controls.Add(UctAgendaOS.Instancia);
+                UctAgendaOS.Instancia.Dock = DockStyle.Fill;
             }
-            UctAgendaOS.instancia.BringToFront();
+            UctAgendaOS.Instancia.BringToFront();
         }
 
         private void btnTecnicos_Click(object sender, EventArgs e)
@@ -91,12 +76,12 @@ namespace Agenda_OS
 
         private void UctUsuarios()
         {
-            if (!pnlUC.Controls.Contains(UctUsuario.instancia))
+            if (!pnlUC.Controls.Contains(UctUsuario.Instancia))
             {
-                pnlUC.Controls.Add(UctUsuario.instancia);
-                UctUsuario.instancia.Dock = DockStyle.Fill;
+                pnlUC.Controls.Add(UctUsuario.Instancia);
+                UctUsuario.Instancia.Dock = DockStyle.Fill;
             }
-            UctUsuario.instancia.BringToFront();
+            UctUsuario.Instancia.BringToFront();
         }
 
         private void btnProdutos_Click(object sender, EventArgs e)

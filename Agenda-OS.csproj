@@ -67,6 +67,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="agendaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>agendaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Conexao.cs" />
     <Compile Include="Contador.cs" />
     <Compile Include="Empresa.cs" />
@@ -195,6 +200,17 @@
     <EmbeddedResource Include="UctUsuario.resx">
       <DependentUpon>UctUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="agendaDataSet.xsc">
+      <DependentUpon>agendaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="agendaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>agendaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="agendaDataSet.xss">
+      <DependentUpon>agendaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

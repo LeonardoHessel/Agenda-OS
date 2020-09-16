@@ -22,6 +22,7 @@ namespace Agenda_OS
         public string PerfilIMG { get; set; }
         public List<Permissao> Permissoes { get; set; }
 
+        public bool Ativo;
         
         public int VerificarLogin()
         {
@@ -118,6 +119,7 @@ namespace Agenda_OS
                     CPF = dr["cpf"].ToString(),
                     CNH = dr["cnh"].ToString(),
                     PerfilIMG = dr["imgperfil"].ToString(),
+                    Ativo = Convert.ToBoolean(dr["ativo"]),
                 }).ToList();
                 
                 if (addTodos)
@@ -148,6 +150,24 @@ namespace Agenda_OS
                 }
             }
             return false;
+        }
+
+        public bool AlterarStatus()
+        {
+            string sql = "UPDATE `usuario` SET `ativo` = @status WHERE `id` = @id";
+            NewCMD(sql, CommandType.Text);
+            AddPar("status", !this.Ativo);
+            AddPar("id", this.ID);
+
+            if (ExecuteNQ())
+            {
+                this.Ativo = !this.Ativo;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

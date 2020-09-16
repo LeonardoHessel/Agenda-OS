@@ -33,7 +33,6 @@
             this.txtBuscaEmpresa = new System.Windows.Forms.TextBox();
             this.Busca = new System.Windows.Forms.Label();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.ilBotoes = new System.Windows.Forms.ImageList(this.components);
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,26 +55,31 @@
             this.colObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbFiltroStatus = new System.Windows.Forms.GroupBox();
-            this.rbtnInativo = new System.Windows.Forms.RadioButton();
-            this.rbtnAtivos = new System.Windows.Forms.RadioButton();
-            this.rbtnTodos = new System.Windows.Forms.RadioButton();
+            this.rbTodos = new System.Windows.Forms.RadioButton();
+            this.rbInativos = new System.Windows.Forms.RadioButton();
+            this.rbAtivos = new System.Windows.Forms.RadioButton();
+            this.agendaDataSet = new Agenda_OS.agendaDataSet();
+            this.empresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empresaTableAdapter = new Agenda_OS.agendaDataSetTableAdapters.empresaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.gbFiltroStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.agendaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBuscaEmpresa
             // 
             this.txtBuscaEmpresa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscaEmpresa.Location = new System.Drawing.Point(97, 28);
+            this.txtBuscaEmpresa.Location = new System.Drawing.Point(8, 25);
             this.txtBuscaEmpresa.Name = "txtBuscaEmpresa";
             this.txtBuscaEmpresa.Size = new System.Drawing.Size(300, 29);
             this.txtBuscaEmpresa.TabIndex = 0;
-            this.txtBuscaEmpresa.TextChanged += new System.EventHandler(this.txtBuscaEmpresa_TextChanged);
+            this.txtBuscaEmpresa.TextChanged += new System.EventHandler(this.option_Changed);
             // 
             // Busca
             // 
             this.Busca.AutoSize = true;
-            this.Busca.Location = new System.Drawing.Point(97, 8);
+            this.Busca.Location = new System.Drawing.Point(8, 5);
             this.Busca.Name = "Busca";
             this.Busca.Size = new System.Drawing.Size(44, 17);
             this.Busca.TabIndex = 1;
@@ -87,23 +91,13 @@
             this.btnNovo.BackColor = System.Drawing.Color.DarkGreen;
             this.btnNovo.FlatAppearance.BorderSize = 0;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovo.ImageIndex = 0;
-            this.btnNovo.ImageList = this.ilBotoes;
-            this.btnNovo.Location = new System.Drawing.Point(742, 49);
+            this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
+            this.btnNovo.Location = new System.Drawing.Point(742, 8);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(50, 50);
             this.btnNovo.TabIndex = 6;
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // ilBotoes
-            // 
-            this.ilBotoes.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ilBotoes.ImageStream")));
-            this.ilBotoes.TransparentColor = System.Drawing.Color.Transparent;
-            this.ilBotoes.Images.SetKeyName(0, "icons8_add_file.ico");
-            this.ilBotoes.Images.SetKeyName(1, "icons8_edit.ico");
-            this.ilBotoes.Images.SetKeyName(2, "icons8_save.ico");
-            this.ilBotoes.Images.SetKeyName(3, "icons8_trash.ico");
             // 
             // btnEditar
             // 
@@ -111,13 +105,13 @@
             this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.ImageIndex = 1;
-            this.btnEditar.ImageList = this.ilBotoes;
-            this.btnEditar.Location = new System.Drawing.Point(686, 49);
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.Location = new System.Drawing.Point(686, 8);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
             this.btnEditar.TabIndex = 7;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // dgvClientes
             // 
@@ -150,11 +144,13 @@
             this.colTelefone,
             this.colObservacao,
             this.colDel});
-            this.dgvClientes.Location = new System.Drawing.Point(8, 105);
+            this.dgvClientes.Location = new System.Drawing.Point(8, 64);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(784, 402);
+            this.dgvClientes.RowHeadersVisible = false;
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClientes.Size = new System.Drawing.Size(784, 443);
             this.dgvClientes.TabIndex = 9;
             this.dgvClientes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClientes_MouseDoubleClick);
             // 
@@ -304,54 +300,68 @@
             // 
             // gbFiltroStatus
             // 
-            this.gbFiltroStatus.Controls.Add(this.rbtnInativo);
-            this.gbFiltroStatus.Controls.Add(this.rbtnAtivos);
-            this.gbFiltroStatus.Controls.Add(this.rbtnTodos);
-            this.gbFiltroStatus.Location = new System.Drawing.Point(8, 8);
+            this.gbFiltroStatus.Controls.Add(this.rbTodos);
+            this.gbFiltroStatus.Controls.Add(this.rbInativos);
+            this.gbFiltroStatus.Controls.Add(this.rbAtivos);
+            this.gbFiltroStatus.Location = new System.Drawing.Point(314, 5);
+            this.gbFiltroStatus.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.gbFiltroStatus.Name = "gbFiltroStatus";
-            this.gbFiltroStatus.Padding = new System.Windows.Forms.Padding(1);
-            this.gbFiltroStatus.Size = new System.Drawing.Size(83, 91);
-            this.gbFiltroStatus.TabIndex = 10;
+            this.gbFiltroStatus.Size = new System.Drawing.Size(210, 50);
+            this.gbFiltroStatus.TabIndex = 15;
             this.gbFiltroStatus.TabStop = false;
             this.gbFiltroStatus.Text = "Status";
             // 
-            // rbtnInativo
+            // rbTodos
             // 
-            this.rbtnInativo.AutoSize = true;
-            this.rbtnInativo.Location = new System.Drawing.Point(4, 67);
-            this.rbtnInativo.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.rbtnInativo.Name = "rbtnInativo";
-            this.rbtnInativo.Size = new System.Drawing.Size(70, 21);
-            this.rbtnInativo.TabIndex = 2;
-            this.rbtnInativo.Text = "Inativos";
-            this.rbtnInativo.UseVisualStyleBackColor = true;
-            this.rbtnInativo.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
+            this.rbTodos.AutoSize = true;
+            this.rbTodos.Location = new System.Drawing.Point(6, 21);
+            this.rbTodos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rbTodos.Name = "rbTodos";
+            this.rbTodos.Size = new System.Drawing.Size(62, 21);
+            this.rbTodos.TabIndex = 10;
+            this.rbTodos.Text = "Todos";
+            this.rbTodos.UseVisualStyleBackColor = true;
+            this.rbTodos.CheckedChanged += new System.EventHandler(this.option_Changed);
             // 
-            // rbtnAtivos
+            // rbInativos
             // 
-            this.rbtnAtivos.AutoSize = true;
-            this.rbtnAtivos.Location = new System.Drawing.Point(4, 43);
-            this.rbtnAtivos.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.rbtnAtivos.Name = "rbtnAtivos";
-            this.rbtnAtivos.Size = new System.Drawing.Size(61, 21);
-            this.rbtnAtivos.TabIndex = 1;
-            this.rbtnAtivos.Text = "Ativos";
-            this.rbtnAtivos.UseVisualStyleBackColor = true;
-            this.rbtnAtivos.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
+            this.rbInativos.AutoSize = true;
+            this.rbInativos.Location = new System.Drawing.Point(135, 21);
+            this.rbInativos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rbInativos.Name = "rbInativos";
+            this.rbInativos.Size = new System.Drawing.Size(70, 21);
+            this.rbInativos.TabIndex = 11;
+            this.rbInativos.Text = "Inativos";
+            this.rbInativos.UseVisualStyleBackColor = true;
+            this.rbInativos.CheckedChanged += new System.EventHandler(this.option_Changed);
             // 
-            // rbtnTodos
+            // rbAtivos
             // 
-            this.rbtnTodos.AutoSize = true;
-            this.rbtnTodos.Checked = true;
-            this.rbtnTodos.Location = new System.Drawing.Point(4, 19);
-            this.rbtnTodos.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.rbtnTodos.Name = "rbtnTodos";
-            this.rbtnTodos.Size = new System.Drawing.Size(62, 21);
-            this.rbtnTodos.TabIndex = 0;
-            this.rbtnTodos.TabStop = true;
-            this.rbtnTodos.Text = "Todos";
-            this.rbtnTodos.UseVisualStyleBackColor = true;
-            this.rbtnTodos.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
+            this.rbAtivos.AutoSize = true;
+            this.rbAtivos.Checked = true;
+            this.rbAtivos.Location = new System.Drawing.Point(71, 21);
+            this.rbAtivos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rbAtivos.Name = "rbAtivos";
+            this.rbAtivos.Size = new System.Drawing.Size(61, 21);
+            this.rbAtivos.TabIndex = 12;
+            this.rbAtivos.TabStop = true;
+            this.rbAtivos.Text = "Ativos";
+            this.rbAtivos.UseVisualStyleBackColor = true;
+            this.rbAtivos.CheckedChanged += new System.EventHandler(this.option_Changed);
+            // 
+            // agendaDataSet
+            // 
+            this.agendaDataSet.DataSetName = "agendaDataSet";
+            this.agendaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // empresaBindingSource
+            // 
+            this.empresaBindingSource.DataMember = "empresa";
+            this.empresaBindingSource.DataSource = this.agendaDataSet;
+            // 
+            // empresaTableAdapter
+            // 
+            this.empresaTableAdapter.ClearBeforeFill = true;
             // 
             // UctClientes
             // 
@@ -372,6 +382,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.gbFiltroStatus.ResumeLayout(false);
             this.gbFiltroStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.agendaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,7 +396,6 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridView dgvClientes;
-        private System.Windows.Forms.ImageList ilBotoes;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCNPJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIE;
@@ -405,8 +416,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colObservacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDel;
         private System.Windows.Forms.GroupBox gbFiltroStatus;
-        private System.Windows.Forms.RadioButton rbtnInativo;
-        private System.Windows.Forms.RadioButton rbtnAtivos;
-        private System.Windows.Forms.RadioButton rbtnTodos;
+        private System.Windows.Forms.RadioButton rbTodos;
+        private System.Windows.Forms.RadioButton rbInativos;
+        private System.Windows.Forms.RadioButton rbAtivos;
+        private System.Windows.Forms.BindingSource empresaBindingSource;
+        private agendaDataSet agendaDataSet;
+        private agendaDataSetTableAdapters.empresaTableAdapter empresaTableAdapter;
     }
 }
