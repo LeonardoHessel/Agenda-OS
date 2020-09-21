@@ -88,11 +88,10 @@
             this.txtNome.Margin = new System.Windows.Forms.Padding(5);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(305, 25);
-            this.txtNome.TabIndex = 3;
+            this.txtNome.TabIndex = 0;
             // 
             // dtpNasc
             // 
-            this.dtpNasc.Checked = false;
             this.dtpNasc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNasc.Location = new System.Drawing.Point(60, 28);
             this.dtpNasc.Margin = new System.Windows.Forms.Padding(5);
@@ -119,8 +118,7 @@
             this.cmbSexo.Items.AddRange(new object[] {
             "Selecione:",
             "Feminino",
-            "Masculino",
-            "Outros"});
+            "Masculino"});
             this.cmbSexo.Location = new System.Drawing.Point(321, 28);
             this.cmbSexo.Margin = new System.Windows.Forms.Padding(5);
             this.cmbSexo.Name = "cmbSexo";
@@ -192,7 +190,7 @@
             // 
             this.mtbRG.Location = new System.Drawing.Point(60, 63);
             this.mtbRG.Margin = new System.Windows.Forms.Padding(5);
-            this.mtbRG.Mask = " 99,999,999-9";
+            this.mtbRG.Mask = "99,999,999-9";
             this.mtbRG.Name = "mtbRG";
             this.mtbRG.Size = new System.Drawing.Size(91, 25);
             this.mtbRG.TabIndex = 6;
@@ -201,7 +199,7 @@
             // 
             this.mtbCPF.Location = new System.Drawing.Point(204, 63);
             this.mtbCPF.Margin = new System.Windows.Forms.Padding(5);
-            this.mtbCPF.Mask = " 999,999,999-99";
+            this.mtbCPF.Mask = "999,999,999-99";
             this.mtbCPF.Name = "mtbCPF";
             this.mtbCPF.Size = new System.Drawing.Size(101, 25);
             this.mtbCPF.TabIndex = 7;

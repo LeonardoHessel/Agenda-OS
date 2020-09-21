@@ -52,7 +52,7 @@ namespace Agenda_OS
         {
             FormCliente frm = new FormCliente();
             frm.Empresa = new Empresa();
-            frm.Acao = "Visualizar";
+            frm.Acao = "Novo";
             frm.ShowDialog();
             CarregarClientes();
         }

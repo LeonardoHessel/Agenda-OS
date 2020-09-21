@@ -94,6 +94,8 @@ namespace Agenda_OS
             if (this.Action == "Novo")
             {
                 this.OrdemServico = new OrdemServico();
+                //cbUsuario.SelectedItem = FormAgenda.usuario;
+
                 btnAtivarInativar.Enabled = false;
                 btnEditar.Enabled = false;
                 btnSalvar.Enabled = true;
@@ -160,7 +162,7 @@ namespace Agenda_OS
             cbAtendimento.Text = this.OrdemServico.Atendimento;
             dtpAbertura.Value = this.OrdemServico.Abertura;
             dtpFinalizado.Value = this.OrdemServico.Fechamento;
-            cbSituacao.Text = this.OrdemServico.Status;
+            cbSituacao.Text = this.OrdemServico.Situacao;
         }
 
         private void GetInfoOS()
@@ -175,7 +177,7 @@ namespace Agenda_OS
             this.OrdemServico.Atendimento = this.cbAtendimento.Text;
             this.OrdemServico.Abertura = dtpAbertura.Value;
             this.OrdemServico.Fechamento = dtpFinalizado.Value;
-            this.OrdemServico.Status = cbSituacao.Text;
+            this.OrdemServico.Situacao = cbSituacao.Text;
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -236,15 +238,16 @@ namespace Agenda_OS
         private void cbUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             Usuario usuario = (Usuario)cbUsuario.SelectedItem;
-            if (false || usuario.ID != FormAgenda.usuario.ID)
-            {
-                cbUsuario.Text = FormAgenda.usuario.Nome;
-                MessageBox.Show("Você não tem permissão para\ncriar OS para outros Usuários");
-            }
-            else
-            {
-                this.Usuario = usuario;
-            }
+            //if (false || usuario.ID != FormAgenda.usuario.ID)
+            //{
+            //    cbUsuario.Text = FormAgenda.usuario.Nome;
+            //    MessageBox.Show("Você não tem permissão para\ncriar OS para outros Usuários");
+            //}
+            //else
+            //{
+            //    this.Usuario = usuario;
+            //}
+            this.Usuario = usuario;
         }
 
         private void cbProduto_SelectedIndexChanged(object sender, EventArgs e)

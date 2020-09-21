@@ -59,7 +59,7 @@ namespace Agenda_OS
 
         private void BuscarClientes()
         {
-            this.Clientes = Empresa.BuscaEmpresa("Ativo",txtBusca.Text);
+            this.Clientes = Empresa.BuscaEmpresa("Ativos",txtBusca.Text);
             dgvClientes.DataSource = this.Clientes;
         }
 

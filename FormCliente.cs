@@ -211,7 +211,10 @@ namespace Agenda_OS
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            this.Acao = "Editar";
+            if (this.Acao == "Visualizar")
+                this.Acao = "Editar";
+            else
+                this.Acao = "Visualizar";
         }
 
         private void btnInativarAtivar_Click(object sender, EventArgs e)

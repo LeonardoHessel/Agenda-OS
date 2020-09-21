@@ -55,8 +55,8 @@ CREATE TABLE IF NOT EXISTS `contador`(
 DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE IF NOT EXISTS `empresa`(
 	`id` INT AUTO_INCREMENT,
-    `cnpj` CHAR(14) UNIQUE,
-    `ie` CHAR(12) UNIQUE,
+    `cnpj` CHAR(14),
+    `ie` VARCHAR(12),
     `razao` VARCHAR(60),
     `nome` VARCHAR(60),
     `regime` SET('Lucro','Simples'),
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `os`(
     `atendimento` VARCHAR(20),
     `abertura` DATETIME,
     `fechamento` DATETIME,
-    `status` VARCHAR(20),
+    `situacao` VARCHAR(20),
     `ativo` BOOL DEFAULT TRUE,
     PRIMARY KEY(`id`),
     FOREIGN KEY (`id_cliente`) REFERENCES `empresa`(`id`),
@@ -105,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `os`(
     FOREIGN KEY (`id_produto`) REFERENCES `produto`(`id`)
 )ENGINE = InnoDB;
 
+alter table os change `status` situacao varchar(20);
 
 -- Procedimentos --
 DROP PROCEDURE IF EXISTS `AdcPermissoes`;

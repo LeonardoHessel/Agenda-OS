@@ -50,6 +50,7 @@ namespace Agenda_OS
             if (ExeGetId())
             {
                 this.ID = Conexao.lastId;
+                this.Ativo = true;
                 return true;
             }
             return false;

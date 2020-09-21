@@ -26,7 +26,7 @@ namespace Agenda_OS
         public string Atendimento { get; set; }
         public DateTime Abertura { get; set; }
         public DateTime Fechamento { get; set; }
-        public string Status { get; set; }
+        public string Situacao { get; set; }
         public bool Ativo { get; private set; }
 
         public string MSG { get; set; }
@@ -35,10 +35,10 @@ namespace Agenda_OS
         {
             string sql = @"INSERT INTO `os` (
             `id_cliente`,`solicitante`,`id_usuario`,`assunto`,`descricao`,`solucao`,`id_produto`,
-            `atendimento`,`abertura`,`fechamento`,`status`
+            `atendimento`,`abertura`,`fechamento`,`situacao`
             ) VALUES (
             @id_cliente, @solicitante, @id_usuario, @assunto, @descricao, @solucao, @id_produto,
-            @atendimento, @abertura, @fechamento, @status
+            @atendimento, @abertura, @fechamento, @situacao
             )";
             NewCMD(sql, CommandType.Text);
             AddPar("id_cliente", ID_Cliente);
@@ -51,7 +51,7 @@ namespace Agenda_OS
             AddPar("atendimento", Atendimento);
             AddPar("abertura", Abertura);
             AddPar("fechamento", Fechamento);
-            AddPar("status", Status);
+            AddPar("situacao", Situacao);
             if (ExeGetId())
             {
                 this.ID = lastId;
@@ -71,7 +71,7 @@ namespace Agenda_OS
             `id_cliente` = @id_cliente, `solicitante` = @solicitante, `id_usuario` = @id_usuario,
             `assunto` = @assunto, `descricao` = @descricao, `solucao` = @solucao,
             `id_produto` = @id_produto, `atendimento` = @atendimento, `abertura` = @abertura,
-            `fechamento` = @fechamento, `status` = @status
+            `fechamento` = @fechamento, `situacao` = @situacao
             WHERE  `id` = @id";
             NewCMD(sql, CommandType.Text);
             AddPar("id_cliente", ID_Cliente);
@@ -84,7 +84,7 @@ namespace Agenda_OS
             AddPar("atendimento", Atendimento);
             AddPar("abertura", Abertura);
             AddPar("fechamento", Fechamento);
-            AddPar("status", Status);
+            AddPar("situacao", Situacao);
             AddPar("id", ID);
             if (ExecuteNQ())
             {
@@ -119,7 +119,8 @@ namespace Agenda_OS
         {
             string sql;
             OrdemServico Con = new OrdemServico();
-            sql = @"SELECT `os`.*, `e`.`nome` AS `nome_empresa`, `u`.`nome` AS `nome_usuario` 
+            sql = @"
+            SELECT `os`.*, `e`.`nome` AS `nome_empresa`, `u`.`nome` AS `nome_usuario` 
             FROM `os` JOIN `empresa` AS `e` JOIN `usuario` as `u` 
             ON `e`.`id` = `os`.`id_cliente` AND `u`.`id` = `os`.`id_usuario` 
             WHERE (`os`.`id` like CONCAT('%', @busca, '%') 
@@ -128,15 +129,17 @@ namespace Agenda_OS
             OR `descricao` like CONCAT('%', @busca, '%')
             OR `solucao` like CONCAT('%', @busca, '%')
             OR `e`.`nome` like CONCAT('%', @busca, '%')
-            OR `u`.`nome` like CONCAT('%', @busca, '%'))
-            ";
+            OR `u`.`nome` like CONCAT('%', @busca, '%')) ";
             
             if (status == "Ativos" || status == "Inativos")
-                sql += "AND `os`.`ativo` = @ativo";
+                sql += "AND `os`.`ativo` = @ativo ";
             
             if (id_usuario != 0)
-                sql += "AND `os`.`id_usuario` = @id_usuario";
-            
+                sql += "AND `os`.`id_usuario` = @id_usuario ";
+
+            sql += " ORDER BY `os`.`id` DESC";
+
+
             Con.NewCMD(sql, CommandType.Text);
             Con.AddPar("busca", busca);
             
@@ -167,7 +170,7 @@ namespace Agenda_OS
                     Atendimento = row["atendimento"].ToString(),
                     Abertura = DateTime.Parse(row["abertura"].ToString()),
                     Fechamento = DateTime.Parse(row["fechamento"].ToString()),
-                    Status = row["status"].ToString(),
+                    Situacao = row["situacao"].ToString(),
                     Ativo = Convert.ToBoolean(row["ativo"]),
                 }).ToList();
                 return os;

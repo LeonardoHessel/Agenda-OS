@@ -138,7 +138,13 @@ namespace Agenda_OS
             this.usuario.Senha = txtSenha.Text;
             this.usuario.Nome = txtNome.Text;
             this.usuario.Nasc = dtpNasc.Value;
-            this.usuario.Sexo = cmbSexo.Text;
+            
+            string sexo = cmbSexo.Text;
+            if (sexo == "Masculino" || sexo == "Feminino")
+                this.usuario.Sexo = sexo;
+            else
+                this.usuario.Sexo = null;
+            
             this.usuario.RG = rtnNoMask(mtbRG);
             this.usuario.CPF = rtnNoMask(mtbCPF);
             this.usuario.CNH = rtnNoMask(mtbCNH);
@@ -167,7 +173,7 @@ namespace Agenda_OS
             txtLogin.Text = this.usuario.Login;
             txtSenha.Text = this.usuario.Senha;
             txtNome.Text = this.usuario.Nome;
-            if (this.usuario.Sexo == "")
+            if (this.usuario.Sexo == null)
             {
                 cmbSexo.SelectedIndex = 0;
             }
@@ -175,7 +181,7 @@ namespace Agenda_OS
             {
                 cmbSexo.Text = this.usuario.Sexo;
             }
-
+            
             dtpNasc.Value = this.usuario.Nasc;
             mtbRG.Text = this.usuario.RG;
             mtbCPF.Text = this.usuario.CPF;
@@ -195,7 +201,7 @@ namespace Agenda_OS
         {
             btnSalvar.Enabled = false;
             SetUsuario();
-            if (this.usuario.VerificarLogin() == 0)
+            if (true)
             {
                 if (this.Action == "Novo")
                 {
@@ -222,11 +228,11 @@ namespace Agenda_OS
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Login não disponivel.\n Escolha outro para continuar o cadastro.");
-                btnSalvar.Enabled = true;
-            }
+            //else
+            //{
+            //    MessageBox.Show("Login não disponivel.\n Escolha outro para continuar o cadastro.");
+            //    btnSalvar.Enabled = true;
+            //}
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -275,14 +281,14 @@ namespace Agenda_OS
 
         private void pbxFoto_Click(object sender, EventArgs e)
         {
-            if (this.Action == "Editar")
-            {
-                DialogResult res = ofdBuscaArquivo.ShowDialog();
-                if (res == DialogResult.OK)
-                {
-                    EnderecoIMG = ofdBuscaArquivo.FileName;
-                }
-            }
+            //if (this.Action == "Editar")
+            //{
+            //    DialogResult res = ofdBuscaArquivo.ShowDialog();
+            //    if (res == DialogResult.OK)
+            //    {
+            //        EnderecoIMG = ofdBuscaArquivo.FileName;
+            //    }
+            //}
         }
 
         private void btnInativarAtivar_Click(object sender, EventArgs e)

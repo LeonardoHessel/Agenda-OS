@@ -682,7 +682,6 @@ namespace Agenda_OS.agendaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Agenda_OS.Properties.Settings.Default.Agenda;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

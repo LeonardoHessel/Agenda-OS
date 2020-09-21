@@ -35,6 +35,13 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.gbFiltroStatus = new System.Windows.Forms.GroupBox();
+            this.rbTodos = new System.Windows.Forms.RadioButton();
+            this.rbInativos = new System.Windows.Forms.RadioButton();
+            this.rbAtivos = new System.Windows.Forms.RadioButton();
+            this.agendaDataSet = new Agenda_OS.agendaDataSet();
+            this.empresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empresaTableAdapter = new Agenda_OS.agendaDataSetTableAdapters.empresaTableAdapter();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCNPJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,17 +57,10 @@
             this.colBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMunicipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gbFiltroStatus = new System.Windows.Forms.GroupBox();
-            this.rbTodos = new System.Windows.Forms.RadioButton();
-            this.rbInativos = new System.Windows.Forms.RadioButton();
-            this.rbAtivos = new System.Windows.Forms.RadioButton();
-            this.agendaDataSet = new Agenda_OS.agendaDataSet();
-            this.empresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.empresaTableAdapter = new Agenda_OS.agendaDataSetTableAdapters.empresaTableAdapter();
+            this.colDel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.gbFiltroStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agendaDataSet)).BeginInit();
@@ -140,8 +140,8 @@
             this.colBairro,
             this.colMunicipio,
             this.colUF,
-            this.colEmail,
             this.colTelefone,
+            this.colEmail,
             this.colObservacao,
             this.colDel});
             this.dgvClientes.Location = new System.Drawing.Point(8, 64);
@@ -153,150 +153,6 @@
             this.dgvClientes.Size = new System.Drawing.Size(784, 443);
             this.dgvClientes.TabIndex = 9;
             this.dgvClientes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClientes_MouseDoubleClick);
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "id";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Width = 50;
-            // 
-            // colCNPJ
-            // 
-            this.colCNPJ.DataPropertyName = "cnpj";
-            this.colCNPJ.HeaderText = "CNPJ";
-            this.colCNPJ.Name = "colCNPJ";
-            this.colCNPJ.ReadOnly = true;
-            // 
-            // colIE
-            // 
-            this.colIE.DataPropertyName = "ie";
-            this.colIE.HeaderText = "IE";
-            this.colIE.Name = "colIE";
-            this.colIE.ReadOnly = true;
-            // 
-            // colRazao
-            // 
-            this.colRazao.DataPropertyName = "razao";
-            this.colRazao.HeaderText = "Razão";
-            this.colRazao.Name = "colRazao";
-            this.colRazao.ReadOnly = true;
-            // 
-            // colNome
-            // 
-            this.colNome.DataPropertyName = "nome";
-            this.colNome.HeaderText = "Nome";
-            this.colNome.Name = "colNome";
-            this.colNome.ReadOnly = true;
-            // 
-            // colRegime
-            // 
-            this.colRegime.DataPropertyName = "regime";
-            this.colRegime.HeaderText = "Regime";
-            this.colRegime.Name = "colRegime";
-            this.colRegime.ReadOnly = true;
-            // 
-            // colContador
-            // 
-            this.colContador.DataPropertyName = "contador";
-            this.colContador.HeaderText = "Contador";
-            this.colContador.Name = "colContador";
-            this.colContador.ReadOnly = true;
-            this.colContador.Visible = false;
-            // 
-            // colID_Contador
-            // 
-            this.colID_Contador.DataPropertyName = "ID_Contador";
-            this.colID_Contador.HeaderText = "ID_Contador";
-            this.colID_Contador.Name = "colID_Contador";
-            this.colID_Contador.ReadOnly = true;
-            this.colID_Contador.Visible = false;
-            // 
-            // colLogradouro
-            // 
-            this.colLogradouro.DataPropertyName = "logradouro";
-            this.colLogradouro.HeaderText = "Logradouro";
-            this.colLogradouro.Name = "colLogradouro";
-            this.colLogradouro.ReadOnly = true;
-            this.colLogradouro.Visible = false;
-            // 
-            // colNumero
-            // 
-            this.colNumero.DataPropertyName = "numero";
-            this.colNumero.HeaderText = "Número";
-            this.colNumero.Name = "colNumero";
-            this.colNumero.ReadOnly = true;
-            this.colNumero.Visible = false;
-            // 
-            // colComplemento
-            // 
-            this.colComplemento.DataPropertyName = "complemento";
-            this.colComplemento.HeaderText = "Complemento";
-            this.colComplemento.Name = "colComplemento";
-            this.colComplemento.ReadOnly = true;
-            this.colComplemento.Visible = false;
-            // 
-            // colCEP
-            // 
-            this.colCEP.DataPropertyName = "cep";
-            this.colCEP.HeaderText = "CEP";
-            this.colCEP.Name = "colCEP";
-            this.colCEP.ReadOnly = true;
-            this.colCEP.Visible = false;
-            // 
-            // colBairro
-            // 
-            this.colBairro.DataPropertyName = "bairro";
-            this.colBairro.HeaderText = "Bairro";
-            this.colBairro.Name = "colBairro";
-            this.colBairro.ReadOnly = true;
-            this.colBairro.Visible = false;
-            // 
-            // colMunicipio
-            // 
-            this.colMunicipio.DataPropertyName = "municipio";
-            this.colMunicipio.HeaderText = "Município";
-            this.colMunicipio.Name = "colMunicipio";
-            this.colMunicipio.ReadOnly = true;
-            this.colMunicipio.Visible = false;
-            // 
-            // colUF
-            // 
-            this.colUF.DataPropertyName = "uf";
-            this.colUF.HeaderText = "UF";
-            this.colUF.Name = "colUF";
-            this.colUF.ReadOnly = true;
-            this.colUF.Visible = false;
-            // 
-            // colEmail
-            // 
-            this.colEmail.DataPropertyName = "telefone";
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.Name = "colEmail";
-            this.colEmail.ReadOnly = true;
-            // 
-            // colTelefone
-            // 
-            this.colTelefone.DataPropertyName = "telefone";
-            this.colTelefone.HeaderText = "Telefone";
-            this.colTelefone.Name = "colTelefone";
-            this.colTelefone.ReadOnly = true;
-            // 
-            // colObservacao
-            // 
-            this.colObservacao.DataPropertyName = "obsevacao";
-            this.colObservacao.HeaderText = "Observação";
-            this.colObservacao.Name = "colObservacao";
-            this.colObservacao.ReadOnly = true;
-            // 
-            // colDel
-            // 
-            this.colDel.DataPropertyName = "del";
-            this.colDel.HeaderText = "Ativo";
-            this.colDel.Name = "colDel";
-            this.colDel.ReadOnly = true;
-            this.colDel.Visible = false;
             // 
             // gbFiltroStatus
             // 
@@ -363,6 +219,160 @@
             // 
             this.empresaTableAdapter.ClearBeforeFill = true;
             // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Width = 50;
+            // 
+            // colCNPJ
+            // 
+            this.colCNPJ.DataPropertyName = "CNPJ";
+            this.colCNPJ.HeaderText = "CNPJ";
+            this.colCNPJ.Name = "colCNPJ";
+            this.colCNPJ.ReadOnly = true;
+            this.colCNPJ.Width = 110;
+            // 
+            // colIE
+            // 
+            this.colIE.DataPropertyName = "IE";
+            this.colIE.HeaderText = "IE";
+            this.colIE.Name = "colIE";
+            this.colIE.ReadOnly = true;
+            this.colIE.Visible = false;
+            // 
+            // colRazao
+            // 
+            this.colRazao.DataPropertyName = "Razao";
+            this.colRazao.HeaderText = "Razão";
+            this.colRazao.Name = "colRazao";
+            this.colRazao.ReadOnly = true;
+            this.colRazao.Visible = false;
+            // 
+            // colNome
+            // 
+            this.colNome.DataPropertyName = "nome";
+            this.colNome.HeaderText = "Nome";
+            this.colNome.Name = "colNome";
+            this.colNome.ReadOnly = true;
+            this.colNome.Width = 200;
+            // 
+            // colRegime
+            // 
+            this.colRegime.DataPropertyName = "Regime";
+            this.colRegime.HeaderText = "Regime";
+            this.colRegime.Name = "colRegime";
+            this.colRegime.ReadOnly = true;
+            this.colRegime.Visible = false;
+            // 
+            // colContador
+            // 
+            this.colContador.DataPropertyName = "Contador";
+            this.colContador.HeaderText = "Contador";
+            this.colContador.Name = "colContador";
+            this.colContador.ReadOnly = true;
+            this.colContador.Visible = false;
+            // 
+            // colID_Contador
+            // 
+            this.colID_Contador.DataPropertyName = "ID_Contador";
+            this.colID_Contador.HeaderText = "ID_Contador";
+            this.colID_Contador.Name = "colID_Contador";
+            this.colID_Contador.ReadOnly = true;
+            this.colID_Contador.Visible = false;
+            // 
+            // colLogradouro
+            // 
+            this.colLogradouro.DataPropertyName = "Logradouro";
+            this.colLogradouro.HeaderText = "Logradouro";
+            this.colLogradouro.Name = "colLogradouro";
+            this.colLogradouro.ReadOnly = true;
+            this.colLogradouro.Visible = false;
+            // 
+            // colNumero
+            // 
+            this.colNumero.DataPropertyName = "numero";
+            this.colNumero.HeaderText = "Número";
+            this.colNumero.Name = "colNumero";
+            this.colNumero.ReadOnly = true;
+            this.colNumero.Visible = false;
+            // 
+            // colComplemento
+            // 
+            this.colComplemento.DataPropertyName = "complemento";
+            this.colComplemento.HeaderText = "Complemento";
+            this.colComplemento.Name = "colComplemento";
+            this.colComplemento.ReadOnly = true;
+            this.colComplemento.Visible = false;
+            // 
+            // colCEP
+            // 
+            this.colCEP.DataPropertyName = "cep";
+            this.colCEP.HeaderText = "CEP";
+            this.colCEP.Name = "colCEP";
+            this.colCEP.ReadOnly = true;
+            this.colCEP.Visible = false;
+            // 
+            // colBairro
+            // 
+            this.colBairro.DataPropertyName = "bairro";
+            this.colBairro.HeaderText = "Bairro";
+            this.colBairro.Name = "colBairro";
+            this.colBairro.ReadOnly = true;
+            this.colBairro.Visible = false;
+            // 
+            // colMunicipio
+            // 
+            this.colMunicipio.DataPropertyName = "municipio";
+            this.colMunicipio.HeaderText = "Município";
+            this.colMunicipio.Name = "colMunicipio";
+            this.colMunicipio.ReadOnly = true;
+            this.colMunicipio.Visible = false;
+            // 
+            // colUF
+            // 
+            this.colUF.DataPropertyName = "uf";
+            this.colUF.HeaderText = "UF";
+            this.colUF.Name = "colUF";
+            this.colUF.ReadOnly = true;
+            this.colUF.Visible = false;
+            // 
+            // colTelefone
+            // 
+            this.colTelefone.DataPropertyName = "Telefone";
+            this.colTelefone.HeaderText = "Telefone";
+            this.colTelefone.Name = "colTelefone";
+            this.colTelefone.ReadOnly = true;
+            this.colTelefone.Width = 150;
+            // 
+            // colEmail
+            // 
+            this.colEmail.DataPropertyName = "Email";
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.Name = "colEmail";
+            this.colEmail.ReadOnly = true;
+            this.colEmail.Width = 150;
+            // 
+            // colObservacao
+            // 
+            this.colObservacao.DataPropertyName = "Observacao";
+            this.colObservacao.HeaderText = "Observação";
+            this.colObservacao.Name = "colObservacao";
+            this.colObservacao.ReadOnly = true;
+            this.colObservacao.Width = 200;
+            // 
+            // colDel
+            // 
+            this.colDel.DataPropertyName = "Ativo";
+            this.colDel.HeaderText = "Ativo";
+            this.colDel.Name = "colDel";
+            this.colDel.ReadOnly = true;
+            this.colDel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colDel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colDel.Visible = false;
+            // 
             // UctClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -396,6 +406,13 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.GroupBox gbFiltroStatus;
+        private System.Windows.Forms.RadioButton rbTodos;
+        private System.Windows.Forms.RadioButton rbInativos;
+        private System.Windows.Forms.RadioButton rbAtivos;
+        private System.Windows.Forms.BindingSource empresaBindingSource;
+        private agendaDataSet agendaDataSet;
+        private agendaDataSetTableAdapters.empresaTableAdapter empresaTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCNPJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIE;
@@ -411,16 +428,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colBairro;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMunicipio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTelefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colObservacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDel;
-        private System.Windows.Forms.GroupBox gbFiltroStatus;
-        private System.Windows.Forms.RadioButton rbTodos;
-        private System.Windows.Forms.RadioButton rbInativos;
-        private System.Windows.Forms.RadioButton rbAtivos;
-        private System.Windows.Forms.BindingSource empresaBindingSource;
-        private agendaDataSet agendaDataSet;
-        private agendaDataSetTableAdapters.empresaTableAdapter empresaTableAdapter;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colDel;
     }
 }

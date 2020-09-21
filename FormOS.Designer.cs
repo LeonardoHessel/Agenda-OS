@@ -187,9 +187,9 @@
             // 
             this.mtbDoc.Enabled = false;
             this.mtbDoc.Location = new System.Drawing.Point(86, 48);
-            this.mtbDoc.Mask = "  00,000,000/0000-00";
+            this.mtbDoc.Mask = "00,000,000/0000-00";
             this.mtbDoc.Name = "mtbDoc";
-            this.mtbDoc.Size = new System.Drawing.Size(146, 25);
+            this.mtbDoc.Size = new System.Drawing.Size(131, 25);
             this.mtbDoc.TabIndex = 76;
             // 
             // labID
@@ -216,16 +216,16 @@
             // 
             // txtSolicitante
             // 
-            this.txtSolicitante.Location = new System.Drawing.Point(307, 50);
+            this.txtSolicitante.Location = new System.Drawing.Point(292, 50);
             this.txtSolicitante.Margin = new System.Windows.Forms.Padding(5);
             this.txtSolicitante.Name = "txtSolicitante";
-            this.txtSolicitante.Size = new System.Drawing.Size(146, 25);
+            this.txtSolicitante.Size = new System.Drawing.Size(161, 25);
             this.txtSolicitante.TabIndex = 58;
             // 
             // labSolicitante
             // 
             this.labSolicitante.AutoSize = true;
-            this.labSolicitante.Location = new System.Drawing.Point(235, 53);
+            this.labSolicitante.Location = new System.Drawing.Point(220, 53);
             this.labSolicitante.Margin = new System.Windows.Forms.Padding(0);
             this.labSolicitante.Name = "labSolicitante";
             this.labSolicitante.Size = new System.Drawing.Size(67, 17);
@@ -386,11 +386,11 @@
             this.cbAtendimento.Items.AddRange(new object[] {
             "Selecione a forma de Atendimento:",
             "WhatsApp",
-            "Ligação telefônica",
+            "Ligação",
             "E-mail",
             "Skype",
-            "Local Cliente",
-            "Local DR Sitemas"});
+            "Cliente",
+            "In loco"});
             this.cbAtendimento.Location = new System.Drawing.Point(97, 23);
             this.cbAtendimento.Margin = new System.Windows.Forms.Padding(5);
             this.cbAtendimento.Name = "cbAtendimento";

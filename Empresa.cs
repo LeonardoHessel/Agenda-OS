@@ -154,12 +154,12 @@ namespace Agenda_OS
 
         public bool Atualizar()
         {
-            string sql = "UPDATE `empresa` SET `cnpj`=@cnpj,`ie`=@ie,`razao`=@razao,`nome`=@nome,`regime`=@regime," +
-                "`contador`=@contador,`logradouro`=@logradouro,`numero`=@numero,`complemento`=@complemento,`cep`=@cep," +
-                "`bairro`=@bairro,`municipio`=@municipio,`uf`=@uf,`email`=@email,`telefone`=@telefone,`observacao`=@observacao" +
-                "WHERE `id`=@id";
+            string sql = @"
+            UPDATE `empresa` SET `cnpj` = @cnpj, `ie` = @ie, `razao` = @razao, `nome` = @nome, `regime` = @regime, 
+            `contador` = @contador, `logradouro` = @logradouro, `numero` = @numero,`complemento` = @complemento, 
+            `cep` = @cep, `bairro` = @bairro, `municipio` = @municipio, `uf` = @uf, `email` = @email, 
+            `telefone` = @telefone, `observacao` = @observacao WHERE `id` = @id";
             NewCMD(sql, CommandType.Text);
-            AddPar("id", this.ID);
             AddPar("cnpj", this.CNPJ);
             AddPar("ie", this.IE);
             AddPar("razao", this.Razao);
@@ -176,6 +176,7 @@ namespace Agenda_OS
             AddPar("email", this.Email);
             AddPar("telefone", this.Telefone);
             AddPar("observacao", this.Observacao);
+            AddPar("id", this.ID);
             if (ExeGetId())
             {
                 return true;

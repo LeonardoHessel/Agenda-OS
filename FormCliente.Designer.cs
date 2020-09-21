@@ -76,9 +76,9 @@
             // 
             this.mtbCNPJ.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.mtbCNPJ.Location = new System.Drawing.Point(400, 11);
-            this.mtbCNPJ.Mask = " 99,999,999/9999-99";
+            this.mtbCNPJ.Mask = "99,999,999/9999-99";
             this.mtbCNPJ.Name = "mtbCNPJ";
-            this.mtbCNPJ.Size = new System.Drawing.Size(118, 25);
+            this.mtbCNPJ.Size = new System.Drawing.Size(136, 25);
             this.mtbCNPJ.TabIndex = 1;
             this.mtbCNPJ.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
@@ -100,7 +100,7 @@
             // 
             this.mtbIE.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.mtbIE.Location = new System.Drawing.Point(400, 39);
-            this.mtbIE.Mask = " 999,999,999,999";
+            this.mtbIE.Mask = "999,999,999,999";
             this.mtbIE.Name = "mtbIE";
             this.mtbIE.Size = new System.Drawing.Size(118, 25);
             this.mtbIE.TabIndex = 2;
@@ -205,6 +205,7 @@
             // cbContador
             // 
             this.cbContador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbContador.Enabled = false;
             this.cbContador.FormattingEnabled = true;
             this.cbContador.Location = new System.Drawing.Point(426, 74);
             this.cbContador.Name = "cbContador";
@@ -379,9 +380,9 @@
             this.labTitulo.ForeColor = System.Drawing.SystemColors.Control;
             this.labTitulo.Location = new System.Drawing.Point(5, 5);
             this.labTitulo.Name = "labTitulo";
-            this.labTitulo.Size = new System.Drawing.Size(86, 25);
+            this.labTitulo.Size = new System.Drawing.Size(79, 25);
             this.labTitulo.TabIndex = 59;
-            this.labTitulo.Text = "Usuário";
+            this.labTitulo.Text = "Cliente";
             // 
             // FormCliente
             // 

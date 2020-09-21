@@ -31,14 +31,22 @@
             this.labBusca = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.dgvOS = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Assunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Abertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuário = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Situação = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNome_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAssunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNome_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAtendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAbertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colID_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colID_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colID_Usuário = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colMSG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.cbUsuario = new System.Windows.Forms.ComboBox();
@@ -73,7 +81,6 @@
             // 
             this.dgvOS.AllowUserToAddRows = false;
             this.dgvOS.AllowUserToDeleteRows = false;
-            this.dgvOS.AllowUserToOrderColumns = true;
             this.dgvOS.AllowUserToResizeRows = false;
             this.dgvOS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -81,14 +88,22 @@
             this.dgvOS.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Cliente,
-            this.Nome_Cliente,
-            this.Assunto,
-            this.Abertura,
-            this.Usuário,
-            this.Nome_Usuario,
-            this.Situação});
+            this.colID,
+            this.colNome_Cliente,
+            this.colAssunto,
+            this.colSituacao,
+            this.colNome_Usuario,
+            this.colAtendimento,
+            this.colAbertura,
+            this.colFechamento,
+            this.colDescricao,
+            this.colSolucao,
+            this.colSolicitante,
+            this.colID_Cliente,
+            this.colID_Produto,
+            this.colID_Usuário,
+            this.colAtivo,
+            this.colMSG});
             this.dgvOS.Location = new System.Drawing.Point(8, 64);
             this.dgvOS.Name = "dgvOS";
             this.dgvOS.ReadOnly = true;
@@ -98,72 +113,138 @@
             this.dgvOS.TabIndex = 6;
             this.dgvOS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOS_CellDoubleClick);
             // 
-            // ID
+            // colID
             // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Width = 50;
             // 
-            // Cliente
+            // colNome_Cliente
             // 
-            this.Cliente.DataPropertyName = "ID_Cliente";
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            this.Cliente.Visible = false;
-            this.Cliente.Width = 50;
+            this.colNome_Cliente.DataPropertyName = "Nome_Cliente";
+            this.colNome_Cliente.HeaderText = "Cliente";
+            this.colNome_Cliente.Name = "colNome_Cliente";
+            this.colNome_Cliente.ReadOnly = true;
+            this.colNome_Cliente.Width = 200;
             // 
-            // Nome_Cliente
+            // colAssunto
             // 
-            this.Nome_Cliente.DataPropertyName = "Nome_Cliente";
-            this.Nome_Cliente.HeaderText = "Cliente";
-            this.Nome_Cliente.Name = "Nome_Cliente";
-            this.Nome_Cliente.ReadOnly = true;
-            this.Nome_Cliente.Width = 150;
+            this.colAssunto.DataPropertyName = "Assunto";
+            this.colAssunto.HeaderText = "Assunto";
+            this.colAssunto.Name = "colAssunto";
+            this.colAssunto.ReadOnly = true;
+            this.colAssunto.Width = 200;
             // 
-            // Assunto
+            // colSituacao
             // 
-            this.Assunto.DataPropertyName = "Assunto";
-            this.Assunto.HeaderText = "Assunto";
-            this.Assunto.Name = "Assunto";
-            this.Assunto.ReadOnly = true;
-            this.Assunto.Width = 200;
+            this.colSituacao.DataPropertyName = "Situacao";
+            this.colSituacao.HeaderText = "Situação";
+            this.colSituacao.Name = "colSituacao";
+            this.colSituacao.ReadOnly = true;
+            this.colSituacao.Width = 75;
             // 
-            // Abertura
+            // colNome_Usuario
             // 
-            this.Abertura.DataPropertyName = "Abertura";
-            this.Abertura.HeaderText = "Abertura";
-            this.Abertura.Name = "Abertura";
-            this.Abertura.ReadOnly = true;
+            this.colNome_Usuario.DataPropertyName = "Nome_Usuario";
+            this.colNome_Usuario.HeaderText = "Usuário";
+            this.colNome_Usuario.Name = "colNome_Usuario";
+            this.colNome_Usuario.ReadOnly = true;
+            this.colNome_Usuario.Width = 75;
             // 
-            // Usuário
+            // colAtendimento
             // 
-            this.Usuário.DataPropertyName = "ID_Usuario";
-            this.Usuário.HeaderText = "Usuário";
-            this.Usuário.Name = "Usuário";
-            this.Usuário.ReadOnly = true;
-            this.Usuário.Visible = false;
-            this.Usuário.Width = 50;
+            this.colAtendimento.DataPropertyName = "Atendimento";
+            this.colAtendimento.HeaderText = "Atendimento";
+            this.colAtendimento.Name = "colAtendimento";
+            this.colAtendimento.ReadOnly = true;
             // 
-            // Nome_Usuario
+            // colAbertura
             // 
-            this.Nome_Usuario.DataPropertyName = "Nome_Usuario";
-            this.Nome_Usuario.HeaderText = "Usuário";
-            this.Nome_Usuario.Name = "Nome_Usuario";
-            this.Nome_Usuario.ReadOnly = true;
+            this.colAbertura.DataPropertyName = "Abertura";
+            this.colAbertura.HeaderText = "Abertura";
+            this.colAbertura.Name = "colAbertura";
+            this.colAbertura.ReadOnly = true;
+            this.colAbertura.Width = 115;
             // 
-            // Situação
+            // colFechamento
             // 
-            this.Situação.DataPropertyName = "Situacao";
-            this.Situação.HeaderText = "Situação";
-            this.Situação.Name = "Situação";
-            this.Situação.ReadOnly = true;
+            this.colFechamento.DataPropertyName = "Fechamento";
+            this.colFechamento.HeaderText = "Fechamento";
+            this.colFechamento.Name = "colFechamento";
+            this.colFechamento.ReadOnly = true;
+            this.colFechamento.Width = 115;
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.DataPropertyName = "Descricao";
+            this.colDescricao.HeaderText = "Descricao";
+            this.colDescricao.Name = "colDescricao";
+            this.colDescricao.ReadOnly = true;
+            this.colDescricao.Visible = false;
+            // 
+            // colSolucao
+            // 
+            this.colSolucao.DataPropertyName = "Solucao";
+            this.colSolucao.HeaderText = "Solução";
+            this.colSolucao.Name = "colSolucao";
+            this.colSolucao.ReadOnly = true;
+            this.colSolucao.Visible = false;
+            // 
+            // colSolicitante
+            // 
+            this.colSolicitante.DataPropertyName = "Solicitante";
+            this.colSolicitante.HeaderText = "Solicitante";
+            this.colSolicitante.Name = "colSolicitante";
+            this.colSolicitante.ReadOnly = true;
+            this.colSolicitante.Visible = false;
+            // 
+            // colID_Cliente
+            // 
+            this.colID_Cliente.DataPropertyName = "ID_Cliente";
+            this.colID_Cliente.HeaderText = "ID Cliente";
+            this.colID_Cliente.Name = "colID_Cliente";
+            this.colID_Cliente.ReadOnly = true;
+            this.colID_Cliente.Visible = false;
+            // 
+            // colID_Produto
+            // 
+            this.colID_Produto.DataPropertyName = "ID_Produto";
+            this.colID_Produto.HeaderText = "ID Produto";
+            this.colID_Produto.Name = "colID_Produto";
+            this.colID_Produto.ReadOnly = true;
+            this.colID_Produto.Visible = false;
+            // 
+            // colID_Usuário
+            // 
+            this.colID_Usuário.DataPropertyName = "ID_Usuario";
+            this.colID_Usuário.HeaderText = "ID Usuário";
+            this.colID_Usuário.Name = "colID_Usuário";
+            this.colID_Usuário.ReadOnly = true;
+            this.colID_Usuário.Visible = false;
+            // 
+            // colAtivo
+            // 
+            this.colAtivo.DataPropertyName = "Ativo";
+            this.colAtivo.HeaderText = "Ativo";
+            this.colAtivo.Name = "colAtivo";
+            this.colAtivo.ReadOnly = true;
+            this.colAtivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colAtivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colAtivo.Visible = false;
+            // 
+            // colMSG
+            // 
+            this.colMSG.DataPropertyName = "MSG";
+            this.colMSG.HeaderText = "Mensagem";
+            this.colMSG.Name = "colMSG";
+            this.colMSG.ReadOnly = true;
+            this.colMSG.Visible = false;
             // 
             // btnEditar
             // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -177,7 +258,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNovo.BackColor = System.Drawing.Color.DarkGreen;
             this.btnNovo.FlatAppearance.BorderSize = 0;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -206,9 +287,9 @@
             this.labUsuario.AutoSize = true;
             this.labUsuario.Location = new System.Drawing.Point(530, 5);
             this.labUsuario.Name = "labUsuario";
-            this.labUsuario.Size = new System.Drawing.Size(75, 17);
+            this.labUsuario.Size = new System.Drawing.Size(53, 17);
             this.labUsuario.TabIndex = 15;
-            this.labUsuario.Text = "Criado por:";
+            this.labUsuario.Text = "Usuário";
             // 
             // gbFiltroStatus
             // 
@@ -294,19 +375,27 @@
         private System.Windows.Forms.DataGridView dgvOS;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome_Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Assunto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Abertura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Usuário;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome_Usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Situação;
         private System.Windows.Forms.ComboBox cbUsuario;
         private System.Windows.Forms.Label labUsuario;
         private System.Windows.Forms.GroupBox gbFiltroStatus;
         private System.Windows.Forms.RadioButton rbTodos;
         private System.Windows.Forms.RadioButton rbInativos;
         private System.Windows.Forms.RadioButton rbAtivos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNome_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAssunto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSituacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNome_Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAtendimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAbertura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFechamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSolucao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSolicitante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID_Produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID_Usuário;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colAtivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMSG;
     }
 }

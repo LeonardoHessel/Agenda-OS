@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows.Ink;
@@ -59,6 +60,9 @@ namespace Agenda_OS
             if (e.KeyCode == Keys.F12)
             {
                 tMinus.Stop();
+                FormConfiguracao frm = new FormConfiguracao();
+                frm.ShowDialog();
+                tMinus.Start();
             }
             else if (e.KeyCode == Keys.F5)
             {

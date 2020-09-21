@@ -87,6 +87,7 @@ namespace Agenda_OS
             }
             catch (Exception e)
             {
+                this.con.Close();
                 msg = e.Message;
                 return false;
             }
@@ -105,6 +106,7 @@ namespace Agenda_OS
             }
             catch (Exception e)
             {
+                this.con.Close();
                 msg = e.Message;
                 return false;
             }
@@ -122,6 +124,7 @@ namespace Agenda_OS
             }
             catch (Exception e)
             {
+                this.con.Close();
                 msg = e.Message;
                 return false;
             }
@@ -141,6 +144,7 @@ namespace Agenda_OS
             }
             catch (Exception e)
             {
+                this.con.Close();
                 msg = e.Message;
                 return null;
             }
