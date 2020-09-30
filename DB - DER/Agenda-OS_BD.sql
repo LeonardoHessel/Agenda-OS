@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS `agenda`;
 CREATE DATABASE `agenda`;
 USE `agenda`;
 
-DROP TABLE IF EXISTS `log`;
+-- DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log` (
 	`id` INT AUTO_INCREMENT,
     `datahora` DATETIME NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE `log` (
 	PRIMARY KEY (`id`)
 )ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `usuario`;
+-- DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario`(
 	`id` INT PRIMARY KEY AUTO_INCREMENT,
     `login` VARCHAR(45) NOT NULL UNIQUE,
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `usuario`(
     `ativo` BOOL DEFAULT TRUE
 )ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `modulo`;
+-- DROP TABLE IF EXISTS `modulo`;
 CREATE TABLE IF NOT EXISTS `modulo`(
 	`id` INT PRIMARY KEY AUTO_INCREMENT,
     `grupo` VARCHAR(20),
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `modulo`(
     `restricao` BOOL DEFAULT FALSE
 )ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `permissao`;
+-- DROP TABLE IF EXISTS `permissao`;
 CREATE TABLE IF NOT EXISTS `permissao`(
 	`usuario` INT,
     `modulo` INT,
@@ -43,7 +43,22 @@ CREATE TABLE IF NOT EXISTS `permissao`(
     FOREIGN KEY (`modulo`) REFERENCES `modulo`(`id`)
 )ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `contador`;
+-- DROP TABLE IF EXISTS `address`;
+CREATE TABLE IF NOT EXISTS `address`(
+	`id` INT AUTO_INCREMENT,
+    `cep` CHAR(8),
+    `uf` CHAR(2),
+    `city` VARCHAR(50),
+    `ibge` CHAR(7),
+    `district` VARCHAR(50),
+    `street` VARCHAR(50),
+    `number` VARCHAR(10),
+    `obs` TEXT,
+    `active` BOOL DEFAULT TRUE,
+    PRIMARY KEY(`id`)
+)ENGINE = InnoDB;
+
+-- DROP TABLE IF EXISTS `contador`;
 CREATE TABLE IF NOT EXISTS `contador`(
 	`id` INT AUTO_INCREMENT,
     `nome` VARCHAR(250),
@@ -52,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `contador`(
     PRIMARY KEY(`id`)
 )ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `empresa`;
+-- DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE IF NOT EXISTS `empresa`(
 	`id` INT AUTO_INCREMENT,
     `cnpj` CHAR(14),
@@ -61,22 +76,19 @@ CREATE TABLE IF NOT EXISTS `empresa`(
     `nome` VARCHAR(60),
     `regime` SET('Lucro','Simples'),
     `contador` INT,
-    `logradouro` VARCHAR(60),
-    `numero` VARCHAR(6),
-    `complemento` VARCHAR(20),
-    `cep` CHAR(8),
-    `bairro` VARCHAR(45),
-    `municipio` VARCHAR(45),
-    `uf` CHAR(2),
+    `address` INT,
     `email` VARCHAR(250),
     `telefone` VARCHAR(60),
     `observacao` TEXT,
     `ativo` BOOL DEFAULT TRUE,
-    PRIMARY KEY(`id`)
+    PRIMARY KEY(`id`),
+    FOREIGN KEY (`address`) REFERENCES `address`(`id`)
     -- FOREIGN KEY (`contador`) REFERENCES `contador`(`id`)
 )ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `produto`;
+alter table empresa drop column `uf`;
+
+-- DROP TABLE IF EXISTS `produto`;
 CREATE TABLE IF NOT EXISTS `produto`(
 	`id` INT AUTO_INCREMENT,
     `nome` VARCHAR(100),
@@ -84,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `produto`(
     PRIMARY KEY(`id`)
 )ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `os`;
+-- DROP TABLE IF EXISTS `os`;
 CREATE TABLE IF NOT EXISTS `os`(
 	`id` INT AUTO_INCREMENT,
     `id_cliente` INT NOT NULL,
@@ -105,7 +117,12 @@ CREATE TABLE IF NOT EXISTS `os`(
     FOREIGN KEY (`id_produto`) REFERENCES `produto`(`id`)
 )ENGINE = InnoDB;
 
-alter table os change `status` situacao varchar(20);
+
+
+
+
+
+
 
 -- Procedimentos --
 DROP PROCEDURE IF EXISTS `AdcPermissoes`;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UctAgendaOS));
             this.labBusca = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.dgvOS = new System.Windows.Forms.DataGridView();
@@ -55,23 +56,26 @@
             this.rbTodos = new System.Windows.Forms.RadioButton();
             this.rbInativos = new System.Windows.Forms.RadioButton();
             this.rbAtivos = new System.Windows.Forms.RadioButton();
+            this.pTitle = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOS)).BeginInit();
             this.gbFiltroStatus.SuspendLayout();
+            this.pTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // labBusca
             // 
             this.labBusca.AutoSize = true;
-            this.labBusca.Location = new System.Drawing.Point(8, 5);
+            this.labBusca.Location = new System.Drawing.Point(103, 113);
             this.labBusca.Name = "labBusca";
-            this.labBusca.Size = new System.Drawing.Size(41, 17);
+            this.labBusca.Size = new System.Drawing.Size(46, 15);
             this.labBusca.TabIndex = 0;
-            this.labBusca.Text = "Busca";
+            this.labBusca.Text = "Busca:";
             // 
             // txtBusca
             // 
             this.txtBusca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusca.Location = new System.Drawing.Point(8, 25);
+            this.txtBusca.Location = new System.Drawing.Point(103, 128);
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(300, 29);
             this.txtBusca.TabIndex = 5;
@@ -82,10 +86,8 @@
             this.dgvOS.AllowUserToAddRows = false;
             this.dgvOS.AllowUserToDeleteRows = false;
             this.dgvOS.AllowUserToResizeRows = false;
-            this.dgvOS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvOS.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvOS.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
+            this.dgvOS.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
@@ -104,12 +106,14 @@
             this.colID_Usuário,
             this.colAtivo,
             this.colMSG});
-            this.dgvOS.Location = new System.Drawing.Point(8, 64);
+            this.dgvOS.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvOS.Location = new System.Drawing.Point(0, 279);
+            this.dgvOS.Margin = new System.Windows.Forms.Padding(0);
             this.dgvOS.Name = "dgvOS";
             this.dgvOS.ReadOnly = true;
             this.dgvOS.RowHeadersVisible = false;
             this.dgvOS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOS.Size = new System.Drawing.Size(784, 443);
+            this.dgvOS.Size = new System.Drawing.Size(1100, 745);
             this.dgvOS.TabIndex = 6;
             this.dgvOS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOS_CellDoubleClick);
             // 
@@ -245,28 +249,32 @@
             // btnEditar
             // 
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(89)))));
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Image = global::Agenda_OS.Properties.Resources.EditX32;
-            this.btnEditar.Location = new System.Drawing.Point(686, 8);
+            this.btnEditar.Font = new System.Drawing.Font("Roboto Bk", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(26, 222);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(50, 50);
+            this.btnEditar.Size = new System.Drawing.Size(100, 35);
             this.btnEditar.TabIndex = 9;
+            this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNovo
             // 
             this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNovo.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(89)))));
             this.btnNovo.FlatAppearance.BorderSize = 0;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovo.Image = global::Agenda_OS.Properties.Resources.NewX32;
-            this.btnNovo.Location = new System.Drawing.Point(742, 8);
+            this.btnNovo.Font = new System.Drawing.Font("Roboto Bk", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovo.ForeColor = System.Drawing.Color.White;
+            this.btnNovo.Location = new System.Drawing.Point(134, 222);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(50, 50);
+            this.btnNovo.Size = new System.Drawing.Size(100, 35);
             this.btnNovo.TabIndex = 7;
+            this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
@@ -276,7 +284,7 @@
             this.cbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUsuario.FormattingEnabled = true;
-            this.cbUsuario.Location = new System.Drawing.Point(530, 25);
+            this.cbUsuario.Location = new System.Drawing.Point(486, 186);
             this.cbUsuario.Name = "cbUsuario";
             this.cbUsuario.Size = new System.Drawing.Size(150, 29);
             this.cbUsuario.TabIndex = 14;
@@ -285,21 +293,22 @@
             // labUsuario
             // 
             this.labUsuario.AutoSize = true;
-            this.labUsuario.Location = new System.Drawing.Point(530, 5);
+            this.labUsuario.Location = new System.Drawing.Point(481, 164);
             this.labUsuario.Name = "labUsuario";
-            this.labUsuario.Size = new System.Drawing.Size(53, 17);
+            this.labUsuario.Size = new System.Drawing.Size(51, 15);
             this.labUsuario.TabIndex = 15;
             this.labUsuario.Text = "Usuário";
             // 
             // gbFiltroStatus
             // 
+            this.gbFiltroStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbFiltroStatus.Controls.Add(this.rbTodos);
             this.gbFiltroStatus.Controls.Add(this.rbInativos);
             this.gbFiltroStatus.Controls.Add(this.rbAtivos);
-            this.gbFiltroStatus.Location = new System.Drawing.Point(314, 5);
+            this.gbFiltroStatus.Location = new System.Drawing.Point(863, 115);
             this.gbFiltroStatus.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.gbFiltroStatus.Name = "gbFiltroStatus";
-            this.gbFiltroStatus.Size = new System.Drawing.Size(210, 50);
+            this.gbFiltroStatus.Size = new System.Drawing.Size(210, 44);
             this.gbFiltroStatus.TabIndex = 16;
             this.gbFiltroStatus.TabStop = false;
             this.gbFiltroStatus.Text = "Status";
@@ -307,10 +316,10 @@
             // rbTodos
             // 
             this.rbTodos.AutoSize = true;
-            this.rbTodos.Location = new System.Drawing.Point(6, 21);
+            this.rbTodos.Location = new System.Drawing.Point(6, 19);
             this.rbTodos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.rbTodos.Name = "rbTodos";
-            this.rbTodos.Size = new System.Drawing.Size(62, 21);
+            this.rbTodos.Size = new System.Drawing.Size(61, 19);
             this.rbTodos.TabIndex = 10;
             this.rbTodos.Text = "Todos";
             this.rbTodos.UseVisualStyleBackColor = true;
@@ -319,10 +328,10 @@
             // rbInativos
             // 
             this.rbInativos.AutoSize = true;
-            this.rbInativos.Location = new System.Drawing.Point(135, 21);
+            this.rbInativos.Location = new System.Drawing.Point(135, 19);
             this.rbInativos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.rbInativos.Name = "rbInativos";
-            this.rbInativos.Size = new System.Drawing.Size(70, 21);
+            this.rbInativos.Size = new System.Drawing.Size(70, 19);
             this.rbInativos.TabIndex = 11;
             this.rbInativos.Text = "Inativos";
             this.rbInativos.UseVisualStyleBackColor = true;
@@ -332,21 +341,48 @@
             // 
             this.rbAtivos.AutoSize = true;
             this.rbAtivos.Checked = true;
-            this.rbAtivos.Location = new System.Drawing.Point(71, 21);
+            this.rbAtivos.Location = new System.Drawing.Point(71, 19);
             this.rbAtivos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.rbAtivos.Name = "rbAtivos";
-            this.rbAtivos.Size = new System.Drawing.Size(61, 21);
+            this.rbAtivos.Size = new System.Drawing.Size(60, 19);
             this.rbAtivos.TabIndex = 12;
             this.rbAtivos.TabStop = true;
             this.rbAtivos.Text = "Ativos";
             this.rbAtivos.UseVisualStyleBackColor = true;
             this.rbAtivos.CheckedChanged += new System.EventHandler(this.option_Changed);
             // 
+            // pTitle
+            // 
+            this.pTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
+            this.pTitle.Controls.Add(this.button1);
+            this.pTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pTitle.Location = new System.Drawing.Point(0, 0);
+            this.pTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.pTitle.Name = "pTitle";
+            this.pTitle.Size = new System.Drawing.Size(1100, 58);
+            this.pTitle.TabIndex = 17;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(1023, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(50, 50);
+            this.button1.TabIndex = 18;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UctAgendaOS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.pTitle);
             this.Controls.Add(this.gbFiltroStatus);
             this.Controls.Add(this.labUsuario);
             this.Controls.Add(this.cbUsuario);
@@ -355,14 +391,14 @@
             this.Controls.Add(this.dgvOS);
             this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.labBusca);
-            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Roboto Lt", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UctAgendaOS";
-            this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(800, 515);
+            this.Size = new System.Drawing.Size(1100, 1024);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOS)).EndInit();
             this.gbFiltroStatus.ResumeLayout(false);
             this.gbFiltroStatus.PerformLayout();
+            this.pTitle.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,5 +433,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colID_Usuário;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colAtivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMSG;
+        private System.Windows.Forms.Panel pTitle;
+        private System.Windows.Forms.Button button1;
     }
 }

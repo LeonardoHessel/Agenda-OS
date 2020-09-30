@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -67,6 +70,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
     <Compile Include="agendaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -269,6 +273,7 @@
     <None Include="Imagens\icones\CloseX64.png" />
     <None Include="Imagens\icones\CloseX32.png" />
     <None Include="Imagens\icones\EditX32.png" />
+    <Content Include="favicon.ico" />
     <Content Include="Imagens\icones\icons8_add_file.ico" />
     <Content Include="Imagens\icones\icons8_edit.ico" />
     <Content Include="Imagens\icones\icons8_save.ico" />

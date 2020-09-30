@@ -12,22 +12,22 @@ namespace Agenda_OS
 {
     public partial class FormAgenda : Form
     {
+        public FormAgenda()
+        {
+            InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+
         public static Usuario usuario;
         public static List<Permissao> Permissoes { get; set; }
         public Usuario Usuario
         {
-            get => FormAgenda.usuario;
+            get { return FormAgenda.usuario; }
             set
             {
                 FormAgenda.usuario = value;
-                labUsuarioMone.Text = value.Nome;
             }
-        }
-
-
-        public FormAgenda()
-        {
-            InitializeComponent();
         }
 
         private void frmAgendaOs_KeyPress(object sender, KeyPressEventArgs e)
@@ -37,22 +37,24 @@ namespace Agenda_OS
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            if (!pnlUC.Controls.Contains(UctClientes.Instancia))
+            if (!pForm.Controls.Contains(UctClientes.Instancia))
             {
-                pnlUC.Controls.Add(UctClientes.Instancia);
+                pForm.Controls.Add(UctClientes.Instancia);
                 UctClientes.Instancia.Dock = DockStyle.Fill;
             }
             UctClientes.Instancia.BringToFront();
+            UctClientes.Instancia.Visible = true;
         }
 
         private void btnAgendaOS_Click(object sender, EventArgs e)
         {
-            if (!pnlUC.Controls.Contains(UctAgendaOS.Instancia))
+            if (!pForm.Controls.Contains(UctAgendaOS.Instancia))
             {
-                pnlUC.Controls.Add(UctAgendaOS.Instancia);
+                pForm.Controls.Add(UctAgendaOS.Instancia);
                 UctAgendaOS.Instancia.Dock = DockStyle.Fill;
             }
             UctAgendaOS.Instancia.BringToFront();
+            UctAgendaOS.Instancia.Visible = true;
         }
 
         private void btnTecnicos_Click(object sender, EventArgs e)
@@ -76,71 +78,57 @@ namespace Agenda_OS
 
         private void UctUsuarios()
         {
-            if (!pnlUC.Controls.Contains(UctUsuario.Instancia))
+            if (!pForm.Controls.Contains(UctUsuario.Instancia))
             {
-                pnlUC.Controls.Add(UctUsuario.Instancia);
+                pForm.Controls.Add(UctUsuario.Instancia);
                 UctUsuario.Instancia.Dock = DockStyle.Fill;
             }
             UctUsuario.Instancia.BringToFront();
+            UctUsuario.Instancia.Visible = true;
         }
 
         private void btnProdutos_Click(object sender, EventArgs e)
         {
-            if (!pnlUC.Controls.Contains(UctProdutos.Instancia))
+            if (!pForm.Controls.Contains(UctProdutos.Instancia))
             {
-                pnlUC.Controls.Add(UctProdutos.Instancia);
+                pForm.Controls.Add(UctProdutos.Instancia);
                 UctProdutos.Instancia.Dock = DockStyle.Fill;
             }
             UctProdutos.Instancia.BringToFront();
+            UctProdutos.Instancia.Visible = true;
         }
 
         private void frmAgendaOs_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Close();
-            } 
-            else if (e.KeyCode == Keys.F12)
-            {
-                btnLogout.PerformClick();
+                btnFechar.PerformClick();
             }
         }
 
-        private void frmAgendaOs_FormClosing(object sender, FormClosingEventArgs e)
+        private void tHoraSistema_Tick(object sender, EventArgs e)
+        {
+            labHora.Text = DateTime.Now.ToString("HH:mm:ss tt");
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
         {
             DialogResult resp;
             resp = MessageBox.Show("Deseja realmente fechar o sistema?", "Sair", MessageBoxButtons.YesNo);
-            if (resp == DialogResult.No)
+            if (resp != DialogResult.No)
             {
-                e.Cancel = true;
+                this.Close();
             }
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Ignore;
-            this.Close();
-        }
-
-        private void btnUsuario_Click(object sender, EventArgs e)
-        {
-            pPerfilUsuario.Show();
-        }
-
-        private void pPerfilUsuario_MouseLeave(object sender, EventArgs e)
-        {
-            tPerfilHide.Start();
-        }
-
-        private void tPerfilHide_Tick(object sender, EventArgs e)
-        {
-            tPerfilHide.Stop();
-            pPerfilUsuario.Hide();
-        }
-
-        private void pPerfilUsuario_MouseEnter(object sender, EventArgs e)
-        {
-            tPerfilHide.Stop();
         }
     }
 }

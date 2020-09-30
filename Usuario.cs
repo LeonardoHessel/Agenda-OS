@@ -70,11 +70,8 @@ namespace Agenda_OS
             AddPar("cpf", this.CPF);
             AddPar("cnh", this.CNH);
             AddPar("img", this.PerfilIMG);
-            if (ExecuteNQ())
-            {
-                return true;
-            }
-            return false;
+            
+            return ExecuteNQ();
         }
 
         public static List<Usuario> TodosUsuarios(string status = "Ativos", string busca = "", bool addTodos = false)

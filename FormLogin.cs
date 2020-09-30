@@ -45,7 +45,6 @@ namespace Agenda_OS
         private void btnAcessar_Click(object sender, EventArgs e)
         {
             this.Permissao = false;
-            labNotificacao.Hide();
             string login = cbLogin.Text;
             string senha = txtSenha.Text;
             foreach (Usuario user in TodosUsuarios)
@@ -63,13 +62,10 @@ namespace Agenda_OS
                     }
                 }
             }
-            labNotificacao.Show();
         }
 
         private void CarregarUsuarios()
         {
-            labNotificacao.Hide();
-            labTitulo.Text = this.Action;
             TodosUsuarios = Usuario.TodosUsuarios("Ativos");
             cbLogin.DataSource = this.TodosUsuarios;
         }

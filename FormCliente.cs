@@ -60,10 +60,12 @@ namespace Agenda_OS
         {
             if (this.Acao == "Novo")
             {
-                HabilitarCampos(true);
                 this.Empresa = new Empresa();
+                this.Empresa.Address = new Address();
+                
+                HabilitarCampos(true);
+                
                 cbContador.SelectedIndex = 0;
-                btnInativarAtivar.Enabled = false;
                 btnEditar.Enabled = false;
                 btnSalvar.Enabled = true;
             }
@@ -72,7 +74,6 @@ namespace Agenda_OS
                 ExibirEmpresa();
                 HabilitarCampos(true);
                 btnEditar.Enabled = false;
-                btnInativarAtivar.Enabled = false;
                 btnSalvar.Enabled = true;
             }
             else if (this.Acao == "Visualizar")
@@ -80,17 +81,7 @@ namespace Agenda_OS
                 ExibirEmpresa();
                 HabilitarCampos(false);
                 btnSalvar.Enabled = false;
-                btnInativarAtivar.Enabled = true;
-                if (this.Empresa.Ativo)
-                {
-                    btnInativarAtivar.Text = "Inativar";
-                    btnEditar.Enabled = true;
-                }
-                else
-                {
-                    btnInativarAtivar.Text = "Ativar";
-                    btnEditar.Enabled = false;
-                }
+                btnEditar.Enabled = true;
             }
         }
 
@@ -149,27 +140,46 @@ namespace Agenda_OS
 
         private void SetEmpresa()
         {
-            //this.Empresa = new Empresa();
+            // Address
+            this.Empresa.Address.CEP = rtnNoMask(mtbCEP);
+            this.Empresa.Address.UF = cbUF.Text;
+            this.Empresa.Address.Street = txtRua.Text;
+            this.Empresa.Address.Number = txtNumero.Text;
+            this.Empresa.Address.District = txtBairro.Text;
+            this.Empresa.Address.City = txtCidade.Text;
+            // Customer
             this.Empresa.CNPJ = rtnNoMask(mtbCNPJ);
+            this.Empresa.Ativo = !chbInativar.Checked;
             this.Empresa.IE = rtnNoMask(mtbIE);
             this.Empresa.Razao = txtRazao.Text;
             this.Empresa.Nome = txtNome.Text;
             this.Empresa.Regime = cbRegime.Text;
             this.Empresa.ID_Contador = default;
-            string nome = cbContador.Text;
-            Contador cont = Contadores.Find(x => x.Nome == nome);
-            if (cont != null)
-            {
-                this.Empresa.ID_Contador = cont.ID;
-            }
+            //string nome = cbContador.Text;
+            //Contador cont = Contadores.Find(x => x.Nome == nome);
+            //if (cont != null)
+            //{
+            //    this.Empresa.ID_Contador = cont.ID;
+            //}
             this.Empresa.Telefone = txtTelefone.Text;
             this.Empresa.Email = txtEmail.Text;
             this.Empresa.Observacao = txtObservacao.Text;
+
+
         }
 
         private void ExibirEmpresa()
         {
+            // Address
+            mtbCEP.Text = this.Empresa.Address.CEP;
+            cbUF.Text = this.Empresa.Address.UF;
+            txtRua.Text = this.Empresa.Address.Street;
+            txtNumero.Text = this.Empresa.Address.Number;
+            txtBairro.Text = this.Empresa.Address.District;
+            txtCidade.Text = this.Empresa.Address.City;
+            // Customer
             txtID.Text = this.Empresa.ID.ToString();
+            chbInativar.Checked = !this.Empresa.Ativo;
             mtbCNPJ.Text = this.Empresa.CNPJ;
             mtbIE.Text = this.Empresa.IE;
             txtRazao.Text = this.Empresa.Razao;
@@ -188,17 +198,27 @@ namespace Agenda_OS
             txtObservacao.Text = this.Empresa.Observacao;
         }
 
-        private void HabilitarCampos(bool vf)
+        private void HabilitarCampos(bool set)
         {
-            mtbCNPJ.Enabled = vf;
-            mtbIE.Enabled = vf;
-            txtRazao.Enabled = vf;
-            txtNome.Enabled = vf;
-            cbRegime.Enabled = vf;
-            cbContador.Enabled = vf;
-            txtTelefone.Enabled = vf;
-            txtEmail.Enabled = vf;
-            txtObservacao.Enabled = vf;
+            // Address
+            mtbCEP.Enabled = set;
+            txtRua.Enabled = set;
+            txtNumero.Enabled = set;
+            txtBairro.Enabled = set;
+            txtCidade.Enabled = set;
+            cbUF.Enabled = set;
+            // Customer
+            chbInativar.Enabled = set;
+            mtbCNPJ.Enabled = set;
+            mtbIE.Enabled = set;
+            txtRazao.Enabled = set;
+            txtNome.Enabled = set;
+            cbRegime.Enabled = set;
+            cbContador.Enabled = set;
+            txtTelefone.Enabled = set;
+            txtEmail.Enabled = set;
+            txtObservacao.Enabled = set;
+
         }
 
         private string rtnNoMask(MaskedTextBox mtb)
@@ -215,14 +235,6 @@ namespace Agenda_OS
                 this.Acao = "Editar";
             else
                 this.Acao = "Visualizar";
-        }
-
-        private void btnInativarAtivar_Click(object sender, EventArgs e)
-        {
-            if (this.Empresa.AtivarDesativar())
-            {
-                this.Acao = "Visualizar";
-            }
         }
     }
 }

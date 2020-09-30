@@ -16,13 +16,7 @@ namespace Agenda_OS
         public string Nome { get; set; }
         public string Regime { get; set; }
         public long ID_Contador { get; set; }
-        public string Logradouro { get; set; }
-        public string Numero { get; set; }
-        public string Complemento { get; set; }
-        public string CEP { get; set; }
-        public string Bairro { get; set; }
-        public string Municipio { get; set; }
-        public string UF { get; set; }
+        public Address Address { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
         public string Observacao { get; set; }
@@ -34,35 +28,7 @@ namespace Agenda_OS
             string sql = @"SELECT * FROM `empresa` WHERE `id`=@id";
             con.NewCMD(sql, CommandType.Text);
             con.AddPar("id", empresaId);
-            DataTable table = con.GetTable();
-            List<Empresa> lista = new List<Empresa>();
-            if (table != null)
-            {
-                lista = (from DataRow dr in table.Rows
-                         select new Empresa()
-                         {
-                             ID = Convert.ToInt64(dr["id"]),
-                             CNPJ = dr["cnpj"].ToString(),
-                             IE = dr["ie"].ToString(),
-                             Razao = dr["razao"].ToString(),
-                             Nome = dr["nome"].ToString(),
-                             Regime = dr["regime"].ToString(),
-                             ID_Contador = Convert.ToInt64(dr["contador"]),
-                             Logradouro = dr["logradouro"].ToString(),
-                             Numero = dr["numero"].ToString(),
-                             Complemento = dr["complemento"].ToString(),
-                             CEP = dr["cep"].ToString(),
-                             Bairro = dr["bairro"].ToString(),
-                             Municipio = dr["municipio"].ToString(),
-                             UF = dr["uf"].ToString(),
-                             Email = dr["email"].ToString(),
-                             Telefone = dr["telefone"].ToString(),
-                             Observacao = dr["observacao"].ToString(),
-                             Ativo = Convert.ToBoolean(dr["ativo"])
-                         }).ToList();
-                return lista[0];
-            }
-            return null;
+            return con.TableToCustomers(con.GetTable())[0];
         }
 
         public static List<Empresa> BuscaEmpresa(string status, string busca)
@@ -89,97 +55,58 @@ namespace Agenda_OS
             con.AddPar("busca", busca);
             con.AddPar("ativo", ativo);
 
-            DataTable table = con.GetTable();
-            List<Empresa> lista = new List<Empresa>();
-            if (table != null)
-            {
-                lista = (from DataRow dr in table.Rows select new Empresa() {
-                    ID = Convert.ToInt64(dr["id"]),
-                    CNPJ = dr["cnpj"].ToString(),
-                    IE = dr["ie"].ToString(),
-                    Razao = dr["razao"].ToString(),
-                    Nome = dr["nome"].ToString(),
-                    Regime = dr["regime"].ToString(),
-                    ID_Contador = Convert.ToInt64(dr["contador"]),
-                    Logradouro = dr["logradouro"].ToString(),
-                    Numero = dr["numero"].ToString(),
-                    Complemento = dr["complemento"].ToString(),
-                    CEP = dr["cep"].ToString(),
-                    Bairro = dr["bairro"].ToString(),
-                    Municipio = dr["municipio"].ToString(),
-                    UF = dr["uf"].ToString(),
-                    Email = dr["email"].ToString(),
-                    Telefone = dr["telefone"].ToString(),
-                    Observacao = dr["observacao"].ToString(),
-                    Ativo = Convert.ToBoolean(dr["ativo"])
-                }).ToList();
-                return lista;
-            }
-            return null;
+            return con.TableToCustomers(con.GetTable());
         }
 
         public bool Inserir()
         {
-            string sql = "INSERT INTO `empresa` (`cnpj`,`ie`,`razao`,`nome`,`regime`,`contador`,`logradouro`," +
-                "`numero`,`complemento`,`cep`,`bairro`,`municipio`,`uf`,`email`,`telefone`,`observacao`) VALUES (" +
-                "@cnpj,@ie,@razao,@nome,@regime,@contador,@logradouro,@numero,@complemento,@cep,@bairro," +
-                "@municipio,@uf,@email,@telefone,@observacao)";
-            NewCMD(sql, CommandType.Text);
-            AddPar("cnpj", this.CNPJ);
-            AddPar("ie",this.IE);
-            AddPar("razao",this.Razao);
-            AddPar("nome", this.Nome);
-            AddPar("regime", this.Regime);
-            AddPar("contador", this.ID_Contador);
-            AddPar("logradouro", this.Logradouro);
-            AddPar("numero", this.Numero);
-            AddPar("complemento", this.Complemento);
-            AddPar("cep", this.CEP);
-            AddPar("bairro", this.Bairro);
-            AddPar("municipio", this.Municipio);
-            AddPar("uf", this.UF);
-            AddPar("email", this.Email);
-            AddPar("telefone", this.Telefone);
-            AddPar("observacao", this.Observacao);
-            if (ExeGetId())
+            if (this.Address.Insert())
             {
-                this.ID = Conexao.lastId;
-                return true;
+                string sql = @"INSERT INTO `empresa` (`cnpj`,`ie`,`razao`,`nome`,`regime`,`contador`,`address`,
+                `email`,`telefone`,`observacao`) VALUES (@cnpj,@ie,@razao,@nome,@regime,@contador,@address,
+                @email,@telefone,@observacao)";
+                NewCMD(sql, CommandType.Text);
+                AddPar("cnpj", this.CNPJ);
+                AddPar("ie", this.IE);
+                AddPar("razao", this.Razao);
+                AddPar("nome", this.Nome);
+                AddPar("regime", this.Regime);
+                AddPar("contador", this.ID_Contador);
+                AddPar("address", this.Address.Address_ID);
+                AddPar("email", this.Email);
+                AddPar("telefone", this.Telefone);
+                AddPar("observacao", this.Observacao);
+                if (ExeGetId())
+                {
+                    this.ID = Conexao.lastId;
+                    return true;
+                }
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         public bool Atualizar()
         {
-            string sql = @"
-            UPDATE `empresa` SET `cnpj` = @cnpj, `ie` = @ie, `razao` = @razao, `nome` = @nome, `regime` = @regime, 
-            `contador` = @contador, `logradouro` = @logradouro, `numero` = @numero,`complemento` = @complemento, 
-            `cep` = @cep, `bairro` = @bairro, `municipio` = @municipio, `uf` = @uf, `email` = @email, 
-            `telefone` = @telefone, `observacao` = @observacao WHERE `id` = @id";
-            NewCMD(sql, CommandType.Text);
-            AddPar("cnpj", this.CNPJ);
-            AddPar("ie", this.IE);
-            AddPar("razao", this.Razao);
-            AddPar("nome", this.Nome);
-            AddPar("regime", this.Regime);
-            AddPar("contador", this.ID_Contador);
-            AddPar("logradouro", this.Logradouro);
-            AddPar("numero", this.Numero);
-            AddPar("complemento", this.Complemento);
-            AddPar("cep", this.CEP);
-            AddPar("bairro", this.Bairro);
-            AddPar("municipio", this.Municipio);
-            AddPar("uf", this.UF);
-            AddPar("email", this.Email);
-            AddPar("telefone", this.Telefone);
-            AddPar("observacao", this.Observacao);
-            AddPar("id", this.ID);
-            if (ExeGetId())
+            if (this.Address.Update())
             {
-                return true;
+                string sql = @"UPDATE `empresa` SET `cnpj` = @cnpj, `ie` = @ie, `razao` = @razao, `nome` = @nome, 
+                `regime` = @regime, `contador` = @contador, `address` = @address, `email` = @email, 
+                `telefone` = @telefone, `observacao` = @observacao, `ativo` = @ativo WHERE `id` = @id";
+                NewCMD(sql, CommandType.Text);
+                AddPar("cnpj", this.CNPJ);
+                AddPar("ie", this.IE);
+                AddPar("razao", this.Razao);
+                AddPar("nome", this.Nome);
+                AddPar("regime", this.Regime);
+                AddPar("contador", this.ID_Contador);
+                AddPar("address", this.Address.Address_ID);
+                AddPar("email", this.Email);
+                AddPar("telefone", this.Telefone);
+                AddPar("observacao", this.Observacao);
+                AddPar("ativo", this.Ativo);
+                AddPar("id", this.ID);
+
+                return ExecuteNQ();
             }
             return false;
         }
@@ -199,6 +126,32 @@ namespace Agenda_OS
             {
                 return false;
             }
+        }
+
+        private List<Empresa> TableToCustomers(DataTable table)
+        {
+            List<Empresa> customers = new List<Empresa>();
+            if (table != null)
+            {
+                customers = (from DataRow dr in table.Rows select new Empresa()
+                {
+                    ID = Convert.ToInt64(dr["id"]),
+                    CNPJ = dr["cnpj"].ToString(),
+                    IE = dr["ie"].ToString(),
+                    Razao = dr["razao"].ToString(),
+                    Nome = dr["nome"].ToString(),
+                    Regime = dr["regime"].ToString(),
+                    ID_Contador = Convert.ToInt64(dr["contador"]),
+                    Address = Address.SearchByID(Convert.ToInt64(dr["address"])),
+                    Email = dr["email"].ToString(),
+                    Telefone = dr["telefone"].ToString(),
+                    Observacao = dr["observacao"].ToString(),
+                    Ativo = Convert.ToBoolean(dr["ativo"])
+                }).ToList();
+                
+                return customers;
+            }
+            return null;
         }
     }
 }
