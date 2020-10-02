@@ -152,7 +152,7 @@ namespace Agenda_OS
         private void ShowInfoOS()
         {
             txtID.Text = this.OrdemServico.ID.ToString();
-            this.Cliente = Empresa.BuscaEmpresaByID(this.OrdemServico.ID_Cliente);
+            this.Cliente = Empresa.GetCustomerByID(this.OrdemServico.ID_Cliente);
             txtSolicitante.Text = this.OrdemServico.Solicitante;
             cbUsuario.SelectedItem = ListaUsuarios.Find(x => x.ID == this.OrdemServico.ID_Usuario);
             txtAssunto.Text = this.OrdemServico.Assunto;

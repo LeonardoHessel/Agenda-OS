@@ -75,5 +75,10 @@ namespace Agenda_OS
         {
             CarregarUsuarios();
         }
+
+        private void btnHide_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+        }
     }
 }
