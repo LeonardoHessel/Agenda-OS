@@ -59,6 +59,7 @@ namespace Agenda_OS
                 status = "Ativos";
 
             string busca = txtBusca.Text;
+
             dgvTecnico.DataSource = Usuario.TodosUsuarios(status, busca);
         }
 

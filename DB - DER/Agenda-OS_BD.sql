@@ -83,8 +83,8 @@ CREATE TABLE IF NOT EXISTS `customer`(
     `product` INT,
     `productmodule` VARCHAR(60),
     `ativo` BOOL DEFAULT TRUE,
-    FOREIGN KEY (`address`) REFERENCES `address`(`id`)
-    -- FOREIGN KEY (`address`) REFERENCES `address`(`id`)
+    FOREIGN KEY (`address`) REFERENCES `address`(`id`),
+    FOREIGN KEY (`product`) REFERENCES `produto`(`id`)
 )ENGINE = InnoDB;
 
 
