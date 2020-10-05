@@ -87,7 +87,7 @@ namespace Agenda_OS
             `cpf` like CONCAT('%',@busca,'%') OR 
             `cnh` like CONCAT('%',@busca,'%')) 
             ";
-            
+
             if (status != "Todos")
                 sql += "AND `ativo` = @ativo";
 
@@ -105,27 +105,28 @@ namespace Agenda_OS
             if (table != null)
             {
                 List<Usuario> users = new List<Usuario>();
-                users = (from DataRow row in table.Rows select new Usuario()
-                {
-                    ID = Convert.ToInt64(row["id"]),
-                    Login = row["login"].ToString(),
-                    Senha = row["senha"].ToString(),
-                    Nome = row["nome"].ToString(),
-                    Nasc = DateTime.Parse(row["nasc"].ToString()),
-                    Sexo = row["sexo"].ToString(),
-                    RG = row["rg"].ToString(),
-                    CPF = row["cpf"].ToString(),
-                    CNH = row["cnh"].ToString(),
-                    PerfilIMG = row["imgperfil"].ToString(),
-                    Ativo = Convert.ToBoolean(row["ativo"]),
-                }).ToList();
-                
+                users = (from DataRow row in table.Rows
+                         select new Usuario()
+                         {
+                             ID = Convert.ToInt64(row["id"]),
+                             Login = row["login"].ToString(),
+                             Senha = row["senha"].ToString(),
+                             Nome = row["nome"].ToString(),
+                             Nasc = DateTime.Parse(row["nasc"].ToString()),
+                             Sexo = row["sexo"].ToString(),
+                             RG = row["rg"].ToString(),
+                             CPF = row["cpf"].ToString(),
+                             CNH = row["cnh"].ToString(),
+                             PerfilIMG = row["imgperfil"].ToString(),
+                             Ativo = Convert.ToBoolean(row["ativo"]),
+                         }).ToList();
+
                 if (addTodos)
                 {
                     Usuario todos = new Usuario();
                     todos.ID = 0;
                     todos.Nome = "Todos";
-                    users.Insert(0,todos);
+                    users.Insert(0, todos);
                 }
                 return users;
             }
