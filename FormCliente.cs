@@ -140,12 +140,12 @@ namespace Agenda_OS
             this.Empresa.Address.Number = txtNumero.Text;
             this.Empresa.Address.District = txtBairro.Text;
             this.Empresa.Address.City = txtCidade.Text;
-            //// Accountant
-            //this.Empresa.AccountantName = txtAccountantName.Text;
-            //this.Empresa.AccountantEmail = txtAccountantEmail.Text;
-            //// Product
-            //this.Empresa.Product = cbProduct.SelectedItem as Produto;
-            //this.Empresa.ProductModule = txtProductModule.Text;
+            // Accountant
+            this.Empresa.AccountantName = txtAccountantName.Text;
+            this.Empresa.AccountantEmail = txtAccountantEmail.Text;
+            // Product
+            this.Empresa.Product = cbProduct.SelectedItem as Produto;
+            this.Empresa.ProductModule = txtProductModule.Text;
         }
 
         private void ExibirEmpresa()

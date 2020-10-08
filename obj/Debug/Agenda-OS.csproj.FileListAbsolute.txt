@@ -107,6 +107,7 @@ C:\DevFiles\Agenda-OS\bin\Debug\K4os.Hash.xxHash.dll
 C:\DevFiles\Agenda-OS\bin\Debug\System.Memory.dll
 C:\DevFiles\Agenda-OS\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\DevFiles\Agenda-OS\bin\Debug\MySql.Data.xml
+C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.csprojAssemblyReference.cache
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda-OS.exe.config
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormAgenda.resources
 C:\DevFiles\Agenda-OS\obj\Debug\Agenda_OS.FormBuscaCliente.resources

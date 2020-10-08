@@ -63,8 +63,7 @@ namespace Agenda_OS
             
             string busca = txtBuscaEmpresa.Text;
 
-            dgvClientes.DataSource = Empresa.SearchCustomer();
-            //dgvClientes.DataSource = Usuario.TodosUsuarios();
+            dgvClientes.DataSource = Empresa.SearchCustomer(status, busca);
         }
 
         private void dgvClientes_MouseDoubleClick(object sender, MouseEventArgs e)

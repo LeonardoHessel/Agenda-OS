@@ -21,12 +21,12 @@ namespace Agenda_OS
         public string Observacao;
         // Address
         public Address Address;
-        //// Accountant
-        //public string AccountantName;
-        //public string AccountantEmail;
-        //// Product
-        //public Produto Product;
-        //public string ProductModule;
+        // Accountant
+        public string AccountantName;
+        public string AccountantEmail;
+        // Product
+        public Produto Product;
+        public string ProductModule;
         // Status
         public bool Ativo;
 
@@ -45,15 +45,15 @@ namespace Agenda_OS
             AddPar("telefone", this.Telefone);
             AddPar("observacao", this.Observacao);
             AddPar("address", this.Address.Address_ID);
-            //AddPar("accountantname", this.AccountantName);
-            //AddPar("accountantemail", this.AccountantEmail);
+            AddPar("accountantname", this.AccountantName);
+            AddPar("accountantemail", this.AccountantEmail);
 
-            //if (this.Product is Produto)
-            //    AddPar("product", this.Product.ID);
-            //else
-            //    AddPar("product", null);
+            if (this.Product is Produto)
+                AddPar("product", this.Product.ID);
+            else
+                AddPar("product", null);
 
-            //AddPar("productmodule", this.ProductModule);
+            AddPar("productmodule", this.ProductModule);
 
             if (mode != "Insert")
                 AddPar("ativo", this.Ativo);
@@ -65,23 +65,23 @@ namespace Agenda_OS
             if (table != null)
             {
                 customers = (from DataRow row in table.Rows
-                             select new Empresa()
-                             {
-                                 ID = Convert.ToInt64(row["id"]),
-                                 CNPJ = row["cnpj"].ToString(),
-                                 IE = row["ie"].ToString(),
-                                 Razao = row["razao"].ToString(),
-                                 Nome = row["nome"].ToString(),
-                                 Email = row["email"].ToString(),
-                                 Telefone = row["telefone"].ToString(),
-                                 Observacao = row["observacao"].ToString(),
-                                 Address = row["address"] is DBNull ? null : Address.SearchByID(Convert.ToInt64(row["address"])),
-                                 //AccountantName = row["accountantname"].ToString(),
-                                 //AccountantEmail = row["accountantemail"].ToString(),
-                                 //Product = row["product"] is DBNull ? null : Produto.GetProductByID(Convert.ToInt64(row["product"])),
-                                 //ProductModule = row["productmodule"].ToString(),
-                                 Ativo = Convert.ToBoolean(row["ativo"]),
-                             }).ToList();
+                select new Empresa()
+                {
+                    ID = Convert.ToInt64(row["id"]),
+                    CNPJ = row["cnpj"].ToString(),
+                    IE = row["ie"].ToString(),
+                    Razao = row["razao"].ToString(),
+                    Nome = row["nome"].ToString(),
+                    Email = row["email"].ToString(),
+                    Telefone = row["telefone"].ToString(),
+                    Observacao = row["observacao"].ToString(),
+                    Address = row["address"] is DBNull ? null : Address.SearchByID(Convert.ToInt64(row["address"])),
+                    AccountantName = row["accountantname"].ToString(),
+                    AccountantEmail = row["accountantemail"].ToString(),
+                    Product = row["product"] is DBNull ? null : Produto.GetProductByID(Convert.ToInt64(row["product"])),
+                    ProductModule = row["productmodule"].ToString(),
+                    Ativo = Convert.ToBoolean(row["ativo"]),
+                }).ToList();
 
                 return customers;
             }
@@ -122,45 +122,32 @@ namespace Agenda_OS
             return con.TableToList(con.GetTable())[0];
         }
 
-        public static List<Empresa> SearchCustomer()
+        public static List<Empresa> SearchCustomer(string status, string busca)
         {
-            Empresa empresa = new Empresa();
-            empresa.ID = 20;
-            empresa.Razao = "Teste";
-            empresa.Nome = "Teste";
-            empresa.Email = "Teste";
-            empresa.Telefone = "Teste";
-            empresa.Observacao = "Teste";
+            bool ativo = false;
+            if (status == "Ativos")
+                ativo = true;
 
-            List<Empresa> empresas = new List<Empresa>();
-            empresas.Add(empresa);
+            string sqladd = " WHERE ";
+            string sql = "SELECT * FROM `customer`";
 
-            return empresas;
+            if (status != "Todos")
+            {
+                sql += sqladd + "`ativo` = @ativo";
+                sqladd = " AND ";
+            }
 
-            ////bool ativo = false;
-            ////if (status == "Ativos")
-            ////    ativo = true;
+            sql += sqladd + @"(`cnpj` like CONCAT('%',@busca,'%') 
+            OR `razao` like CONCAT('%',@busca,'%') OR
+            `nome` like CONCAT('%',@busca,'%'))";
 
-            ////string sqladd = " WHERE ";
-            //string sql = "SELECT * FROM `customer`";
+            Empresa con = new Empresa();
 
-            ////if (status != "Todos")
-            ////{
-            ////    sql += sqladd + "`ativo` = @ativo";
-            ////    sqladd = " AND ";
-            ////}
+            con.NewCMD(sql, CommandType.Text);
+            con.AddPar("busca", busca);
+            con.AddPar("ativo", ativo);
 
-            ////sql += sqladd + @"(`cnpj` like CONCAT('%',@busca,'%') 
-            ////OR `razao` like CONCAT('%',@busca,'%') OR
-            ////`nome` like CONCAT('%',@busca,'%'))";
-
-            //Empresa con = new Empresa();
-
-            //con.NewCMD(sql, CommandType.Text);
-            ////con.AddPar("busca", busca);
-            ////con.AddPar("ativo", ativo);
-
-            //return con.TableToList(con.GetTable());
+            return con.TableToList(con.GetTable());
         }
 
         public bool Update()
