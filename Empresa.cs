@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -59,13 +58,12 @@ namespace Agenda_OS
                 AddPar("ativo", this.Ativo);
         }
 
-        private List<Empresa> TableToList(DataTable table)
+        private List<Empresa> TableToCustomers(DataTable table)
         {
             List<Empresa> customers = new List<Empresa>();
             if (table != null)
             {
-                customers = (from DataRow row in table.Rows
-                select new Empresa()
+                customers = (from DataRow row in table.Rows select new Empresa()
                 {
                     ID = Convert.ToInt64(row["id"]),
                     CNPJ = row["cnpj"].ToString(),
@@ -75,12 +73,12 @@ namespace Agenda_OS
                     Email = row["email"].ToString(),
                     Telefone = row["telefone"].ToString(),
                     Observacao = row["observacao"].ToString(),
-                    Address = row["address"] is DBNull ? null : Address.SearchByID(Convert.ToInt64(row["address"])),
+                    //Address = row["address"] is DBNull ? null : Address.SearchByID(Convert.ToInt64(row["address"])),
                     AccountantName = row["accountantname"].ToString(),
                     AccountantEmail = row["accountantemail"].ToString(),
-                    Product = row["product"] is DBNull ? null : Produto.GetProductByID(Convert.ToInt64(row["product"])),
+                    //Product = row["product"] is DBNull ? null : Produto.GetProductByID(Convert.ToInt64(row["product"])),
                     ProductModule = row["productmodule"].ToString(),
-                    Ativo = Convert.ToBoolean(row["ativo"]),
+                    Ativo = Convert.ToBoolean(row["ativo"])
                 }).ToList();
 
                 return customers;
@@ -119,7 +117,7 @@ namespace Agenda_OS
             string sql = @"SELECT * FROM `customer` WHERE `id` = @id";
             con.NewCMD(sql, CommandType.Text);
             con.AddPar("id", empresaId);
-            return con.TableToList(con.GetTable())[0];
+            return con.TableToCustomers(con.GetTable())[0];
         }
 
         public static List<Empresa> SearchCustomer(string status, string busca)
@@ -147,7 +145,7 @@ namespace Agenda_OS
             con.AddPar("busca", busca);
             con.AddPar("ativo", ativo);
 
-            return con.TableToList(con.GetTable());
+            return con.TableToCustomers(con.GetTable());
         }
 
         public bool Update()

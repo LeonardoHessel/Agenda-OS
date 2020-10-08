@@ -151,15 +151,12 @@ namespace Agenda_OS
         private void ExibirEmpresa()
         {
             // Address
-            if (Empresa.Address != null)
-            {
-                mtbCEP.Text = this.Empresa.Address.CEP;
-                cbUF.Text = this.Empresa.Address.UF;
-                txtRua.Text = this.Empresa.Address.Street;
-                txtNumero.Text = this.Empresa.Address.Number;
-                txtBairro.Text = this.Empresa.Address.District;
-                txtCidade.Text = this.Empresa.Address.City;
-            }
+            mtbCEP.Text = this.Empresa.Address.CEP;
+            cbUF.Text = this.Empresa.Address.UF;
+            txtRua.Text = this.Empresa.Address.Street;
+            txtNumero.Text = this.Empresa.Address.Number;
+            txtBairro.Text = this.Empresa.Address.District;
+            txtCidade.Text = this.Empresa.Address.City;
             // Customer
             txtID.Text = this.Empresa.ID.ToString();
             chbInativar.Checked = !this.Empresa.Ativo;

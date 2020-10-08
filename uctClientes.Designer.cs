@@ -28,13 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UctClientes));
             this.txtBuscaEmpresa = new System.Windows.Forms.TextBox();
             this.Busca = new System.Windows.Forms.Label();
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.gbFiltroStatus = new System.Windows.Forms.GroupBox();
+            this.rbTodos = new System.Windows.Forms.RadioButton();
+            this.rbInativos = new System.Windows.Forms.RadioButton();
+            this.rbAtivos = new System.Windows.Forms.RadioButton();
+            this.pTitle = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnHide = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCNPJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,18 +57,12 @@
             this.cProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cProductModule = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.gbFiltroStatus = new System.Windows.Forms.GroupBox();
-            this.rbTodos = new System.Windows.Forms.RadioButton();
-            this.rbInativos = new System.Windows.Forms.RadioButton();
-            this.rbAtivos = new System.Windows.Forms.RadioButton();
-            this.pTitle = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.btnHide = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.gbFiltroStatus.SuspendLayout();
             this.pTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBuscaEmpresa
@@ -121,14 +123,14 @@
             this.dgvClientes.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto Lt", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvClientes.ColumnHeadersHeight = 35;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -160,6 +162,105 @@
             this.dgvClientes.Size = new System.Drawing.Size(1100, 745);
             this.dgvClientes.TabIndex = 9;
             this.dgvClientes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClientes_MouseDoubleClick);
+            // 
+            // gbFiltroStatus
+            // 
+            this.gbFiltroStatus.Controls.Add(this.rbTodos);
+            this.gbFiltroStatus.Controls.Add(this.rbInativos);
+            this.gbFiltroStatus.Controls.Add(this.rbAtivos);
+            this.gbFiltroStatus.Location = new System.Drawing.Point(863, 115);
+            this.gbFiltroStatus.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.gbFiltroStatus.Name = "gbFiltroStatus";
+            this.gbFiltroStatus.Size = new System.Drawing.Size(210, 44);
+            this.gbFiltroStatus.TabIndex = 15;
+            this.gbFiltroStatus.TabStop = false;
+            this.gbFiltroStatus.Text = "Status";
+            // 
+            // rbTodos
+            // 
+            this.rbTodos.AutoSize = true;
+            this.rbTodos.Location = new System.Drawing.Point(6, 18);
+            this.rbTodos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rbTodos.Name = "rbTodos";
+            this.rbTodos.Size = new System.Drawing.Size(61, 19);
+            this.rbTodos.TabIndex = 10;
+            this.rbTodos.Text = "Todos";
+            this.rbTodos.UseVisualStyleBackColor = true;
+            this.rbTodos.CheckedChanged += new System.EventHandler(this.option_Changed);
+            // 
+            // rbInativos
+            // 
+            this.rbInativos.AutoSize = true;
+            this.rbInativos.Location = new System.Drawing.Point(135, 18);
+            this.rbInativos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rbInativos.Name = "rbInativos";
+            this.rbInativos.Size = new System.Drawing.Size(70, 19);
+            this.rbInativos.TabIndex = 11;
+            this.rbInativos.Text = "Inativos";
+            this.rbInativos.UseVisualStyleBackColor = true;
+            this.rbInativos.CheckedChanged += new System.EventHandler(this.option_Changed);
+            // 
+            // rbAtivos
+            // 
+            this.rbAtivos.AutoSize = true;
+            this.rbAtivos.Checked = true;
+            this.rbAtivos.Location = new System.Drawing.Point(71, 18);
+            this.rbAtivos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rbAtivos.Name = "rbAtivos";
+            this.rbAtivos.Size = new System.Drawing.Size(60, 19);
+            this.rbAtivos.TabIndex = 12;
+            this.rbAtivos.TabStop = true;
+            this.rbAtivos.Text = "Ativos";
+            this.rbAtivos.UseVisualStyleBackColor = true;
+            this.rbAtivos.CheckedChanged += new System.EventHandler(this.option_Changed);
+            // 
+            // pTitle
+            // 
+            this.pTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
+            this.pTitle.Controls.Add(this.lblTitle);
+            this.pTitle.Controls.Add(this.btnHide);
+            this.pTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pTitle.Location = new System.Drawing.Point(0, 0);
+            this.pTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.pTitle.Name = "pTitle";
+            this.pTitle.Size = new System.Drawing.Size(1100, 58);
+            this.pTitle.TabIndex = 18;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Roboto Bk", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(500, 15);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(101, 29);
+            this.lblTitle.TabIndex = 25;
+            this.lblTitle.Text = "Clientes";
+            // 
+            // btnHide
+            // 
+            this.btnHide.BackColor = System.Drawing.Color.Transparent;
+            this.btnHide.FlatAppearance.BorderSize = 0;
+            this.btnHide.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHide.Image = ((System.Drawing.Image)(resources.GetObject("btnHide.Image")));
+            this.btnHide.Location = new System.Drawing.Point(1023, 4);
+            this.btnHide.Margin = new System.Windows.Forms.Padding(0);
+            this.btnHide.Name = "btnHide";
+            this.btnHide.Size = new System.Drawing.Size(50, 50);
+            this.btnHide.TabIndex = 18;
+            this.btnHide.UseVisualStyleBackColor = false;
+            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(26, 93);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(63, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
             // 
             // colID
             // 
@@ -275,109 +376,19 @@
             this.colDel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colDel.Visible = false;
             // 
-            // gbFiltroStatus
+            // dataGridView1
             // 
-            this.gbFiltroStatus.Controls.Add(this.rbTodos);
-            this.gbFiltroStatus.Controls.Add(this.rbInativos);
-            this.gbFiltroStatus.Controls.Add(this.rbAtivos);
-            this.gbFiltroStatus.Location = new System.Drawing.Point(863, 115);
-            this.gbFiltroStatus.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.gbFiltroStatus.Name = "gbFiltroStatus";
-            this.gbFiltroStatus.Size = new System.Drawing.Size(210, 44);
-            this.gbFiltroStatus.TabIndex = 15;
-            this.gbFiltroStatus.TabStop = false;
-            this.gbFiltroStatus.Text = "Status";
-            // 
-            // rbTodos
-            // 
-            this.rbTodos.AutoSize = true;
-            this.rbTodos.Location = new System.Drawing.Point(6, 18);
-            this.rbTodos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rbTodos.Name = "rbTodos";
-            this.rbTodos.Size = new System.Drawing.Size(61, 19);
-            this.rbTodos.TabIndex = 10;
-            this.rbTodos.Text = "Todos";
-            this.rbTodos.UseVisualStyleBackColor = true;
-            this.rbTodos.CheckedChanged += new System.EventHandler(this.option_Changed);
-            // 
-            // rbInativos
-            // 
-            this.rbInativos.AutoSize = true;
-            this.rbInativos.Location = new System.Drawing.Point(135, 18);
-            this.rbInativos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rbInativos.Name = "rbInativos";
-            this.rbInativos.Size = new System.Drawing.Size(70, 19);
-            this.rbInativos.TabIndex = 11;
-            this.rbInativos.Text = "Inativos";
-            this.rbInativos.UseVisualStyleBackColor = true;
-            this.rbInativos.CheckedChanged += new System.EventHandler(this.option_Changed);
-            // 
-            // rbAtivos
-            // 
-            this.rbAtivos.AutoSize = true;
-            this.rbAtivos.Checked = true;
-            this.rbAtivos.Location = new System.Drawing.Point(71, 18);
-            this.rbAtivos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rbAtivos.Name = "rbAtivos";
-            this.rbAtivos.Size = new System.Drawing.Size(60, 19);
-            this.rbAtivos.TabIndex = 12;
-            this.rbAtivos.TabStop = true;
-            this.rbAtivos.Text = "Ativos";
-            this.rbAtivos.UseVisualStyleBackColor = true;
-            this.rbAtivos.CheckedChanged += new System.EventHandler(this.option_Changed);
-            // 
-            // pTitle
-            // 
-            this.pTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
-            this.pTitle.Controls.Add(this.lblTitle);
-            this.pTitle.Controls.Add(this.btnHide);
-            this.pTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pTitle.Location = new System.Drawing.Point(0, 0);
-            this.pTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.pTitle.Name = "pTitle";
-            this.pTitle.Size = new System.Drawing.Size(1100, 58);
-            this.pTitle.TabIndex = 18;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Roboto Bk", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(500, 15);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(101, 29);
-            this.lblTitle.TabIndex = 25;
-            this.lblTitle.Text = "Clientes";
-            // 
-            // btnHide
-            // 
-            this.btnHide.BackColor = System.Drawing.Color.Transparent;
-            this.btnHide.FlatAppearance.BorderSize = 0;
-            this.btnHide.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHide.Image = ((System.Drawing.Image)(resources.GetObject("btnHide.Image")));
-            this.btnHide.Location = new System.Drawing.Point(1023, 4);
-            this.btnHide.Margin = new System.Windows.Forms.Padding(0);
-            this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(50, 50);
-            this.btnHide.TabIndex = 18;
-            this.btnHide.UseVisualStyleBackColor = false;
-            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(26, 93);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(52, 349);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(989, 430);
+            this.dataGridView1.TabIndex = 20;
             // 
             // UctClientes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pTitle);
             this.Controls.Add(this.txtBuscaEmpresa);
@@ -396,6 +407,7 @@
             this.pTitle.ResumeLayout(false);
             this.pTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -430,5 +442,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn cProductModule;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colDel;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

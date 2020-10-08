@@ -102,22 +102,22 @@ namespace Agenda_OS
             DataTable table = con.GetTable();
 
 
+            List<Usuario> listaUsuario = new List<Usuario>();
             if (table != null)
             {
-                List<Usuario> users = new List<Usuario>();
-                users = (from DataRow row in table.Rows select new Usuario()
+                listaUsuario = (from DataRow dr in table.Rows select new Usuario()
                 {
-                    ID = Convert.ToInt64(row["id"]),
-                    Login = row["login"].ToString(),
-                    Senha = row["senha"].ToString(),
-                    Nome = row["nome"].ToString(),
-                    Nasc = DateTime.Parse(row["nasc"].ToString()),
-                    Sexo = row["sexo"].ToString(),
-                    RG = row["rg"].ToString(),
-                    CPF = row["cpf"].ToString(),
-                    CNH = row["cnh"].ToString(),
-                    PerfilIMG = row["imgperfil"].ToString(),
-                    Ativo = Convert.ToBoolean(row["ativo"]),
+                    ID = Convert.ToInt64(dr["id"]),
+                    Login = dr["login"].ToString(),
+                    Senha = dr["senha"].ToString(),
+                    Nome = dr["nome"].ToString(),
+                    Nasc = DateTime.Parse(dr["nasc"].ToString()),
+                    Sexo = dr["sexo"].ToString(),
+                    RG = dr["rg"].ToString(),
+                    CPF = dr["cpf"].ToString(),
+                    CNH = dr["cnh"].ToString(),
+                    PerfilIMG = dr["imgperfil"].ToString(),
+                    Ativo = Convert.ToBoolean(dr["ativo"]),
                 }).ToList();
                 
                 if (addTodos)
@@ -125,9 +125,9 @@ namespace Agenda_OS
                     Usuario todos = new Usuario();
                     todos.ID = 0;
                     todos.Nome = "Todos";
-                    users.Insert(0,todos);
+                    listaUsuario.Insert(0,todos);
                 }
-                return users;
+                return listaUsuario;
             }
             return null;
         }
