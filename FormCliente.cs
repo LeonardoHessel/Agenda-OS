@@ -15,12 +15,12 @@ namespace Agenda_OS
         public FormCliente()
         {
             InitializeComponent();
+            LoadContadores();
         }
 
         private string acao;
-        private Empresa empresa;
-        private Produto product;
-        
+        public List<Contador> contadores;
+
         public string Acao
         {
             get { return acao; }
@@ -31,16 +31,29 @@ namespace Agenda_OS
             }
         }
 
-        public Empresa Empresa
+        public List<Contador> Contadores
         {
-            get { return this.empresa; }
-            set { this.empresa = value; }
+            get { return contadores; }
+            set
+            {
+                contadores = value;
+                cbContador.Items.Clear();
+                cbContador.Items.Add("Selecione o Contador:");
+                if (value != null)
+                {
+                    foreach (Contador contador in contadores)
+                    {
+                        cbContador.Items.Add(contador.Nome);
+                    }
+                }
+            }
         }
 
-        public Produto Product
+        public Empresa Empresa { get; set; }
+
+        private void LoadContadores()
         {
-            get { return this.product; }
-            set { this.product = value; }
+            this.Contadores = Contador.CarregarContadores();
         }
 
         private void DefinirFormulario()
@@ -49,7 +62,10 @@ namespace Agenda_OS
             {
                 this.Empresa = new Empresa();
                 this.Empresa.Address = new Address();
+                
                 HabilitarCampos(true);
+                
+                cbContador.SelectedIndex = 0;
                 btnEditar.Enabled = false;
                 btnSalvar.Enabled = true;
             }
@@ -90,7 +106,7 @@ namespace Agenda_OS
                 SetEmpresa();
                 if (this.Acao == "Novo")
                 {
-                    if (this.Empresa.Insert())
+                    if (this.Empresa.Inserir())
                     {
                         ExibirEmpresa();
                         this.Acao = "Visualizar";
@@ -103,7 +119,7 @@ namespace Agenda_OS
                 }
                 else if (this.Acao == "Editar")
                 {
-                    if (this.Empresa.Update())
+                    if (this.Empresa.Atualizar())
                     {
                         ExibirEmpresa();
                         this.Acao = "Visualizar";
@@ -124,15 +140,6 @@ namespace Agenda_OS
 
         private void SetEmpresa()
         {
-            // Customer
-            this.Empresa.CNPJ = rtnNoMask(mtbCNPJ);
-            this.Empresa.IE = rtnNoMask(mtbIE);
-            this.Empresa.Razao = txtRazao.Text;
-            this.Empresa.Nome = txtNome.Text;
-            this.Empresa.Email = txtEmail.Text;
-            this.Empresa.Telefone = txtTelefone.Text;
-            this.Empresa.Observacao = txtObservacao.Text;
-            this.Empresa.Ativo = !chbInativar.Checked;
             // Address
             this.Empresa.Address.CEP = rtnNoMask(mtbCEP);
             this.Empresa.Address.UF = cbUF.Text;
@@ -140,12 +147,25 @@ namespace Agenda_OS
             this.Empresa.Address.Number = txtNumero.Text;
             this.Empresa.Address.District = txtBairro.Text;
             this.Empresa.Address.City = txtCidade.Text;
-            // Accountant
-            this.Empresa.AccountantName = txtAccountantName.Text;
-            this.Empresa.AccountantEmail = txtAccountantEmail.Text;
-            // Product
-            this.Empresa.Product = cbProduct.SelectedItem as Produto;
-            this.Empresa.ProductModule = txtProductModule.Text;
+            // Customer
+            this.Empresa.CNPJ = rtnNoMask(mtbCNPJ);
+            this.Empresa.Ativo = !chbInativar.Checked;
+            this.Empresa.IE = rtnNoMask(mtbIE);
+            this.Empresa.Razao = txtRazao.Text;
+            this.Empresa.Nome = txtNome.Text;
+            this.Empresa.Regime = cbRegime.Text;
+            this.Empresa.ID_Contador = default;
+            //string nome = cbContador.Text;
+            //Contador cont = Contadores.Find(x => x.Nome == nome);
+            //if (cont != null)
+            //{
+            //    this.Empresa.ID_Contador = cont.ID;
+            //}
+            this.Empresa.Telefone = txtTelefone.Text;
+            this.Empresa.Email = txtEmail.Text;
+            this.Empresa.Observacao = txtObservacao.Text;
+
+
         }
 
         private void ExibirEmpresa()
@@ -164,6 +184,15 @@ namespace Agenda_OS
             mtbIE.Text = this.Empresa.IE;
             txtRazao.Text = this.Empresa.Razao;
             txtNome.Text = this.Empresa.Nome;
+            cbRegime.Text = this.Empresa.Regime;
+            cbContador.SelectedIndex = 0;
+            long idc = this.Empresa.ID_Contador;
+            if (idc != 0)
+            {
+                Contador cont = Contadores.Find(x => x.ID == idc);
+                int idx = cbContador.FindStringExact(cont.Nome);
+                cbContador.SelectedIndex = idx;
+            }
             txtTelefone.Text = this.Empresa.Telefone;
             txtEmail.Text = this.Empresa.Email;
             txtObservacao.Text = this.Empresa.Observacao;
@@ -184,9 +213,12 @@ namespace Agenda_OS
             mtbIE.Enabled = set;
             txtRazao.Enabled = set;
             txtNome.Enabled = set;
+            cbRegime.Enabled = set;
+            cbContador.Enabled = set;
             txtTelefone.Enabled = set;
             txtEmail.Enabled = set;
             txtObservacao.Enabled = set;
+
         }
 
         private string rtnNoMask(MaskedTextBox mtb)

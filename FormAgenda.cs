@@ -43,8 +43,7 @@ namespace Agenda_OS
                 UctClientes.Instancia.Dock = DockStyle.Fill;
             }
             UctClientes.Instancia.BringToFront();
-            HideUserControlsOthersThan(UctClientes.Instancia);
-            //UctClientes.Instancia.Visible = true;
+            UctClientes.Instancia.Visible = true;
         }
 
         private void btnAgendaOS_Click(object sender, EventArgs e)
@@ -55,8 +54,7 @@ namespace Agenda_OS
                 UctAgendaOS.Instancia.Dock = DockStyle.Fill;
             }
             UctAgendaOS.Instancia.BringToFront();
-            HideUserControlsOthersThan(UctAgendaOS.Instancia);
-            //UctAgendaOS.Instancia.Visible = true;
+            UctAgendaOS.Instancia.Visible = true;
         }
 
         private void btnTecnicos_Click(object sender, EventArgs e)
@@ -86,8 +84,7 @@ namespace Agenda_OS
                 UctUsuario.Instancia.Dock = DockStyle.Fill;
             }
             UctUsuario.Instancia.BringToFront();
-            HideUserControlsOthersThan(UctUsuario.Instancia);
-            //UctUsuario.Instancia.Visible = true;
+            UctUsuario.Instancia.Visible = true;
         }
 
         private void btnProdutos_Click(object sender, EventArgs e)
@@ -98,8 +95,7 @@ namespace Agenda_OS
                 UctProdutos.Instancia.Dock = DockStyle.Fill;
             }
             UctProdutos.Instancia.BringToFront();
-            HideUserControlsOthersThan(UctProdutos.Instancia);
-            //UctProdutos.Instancia.Visible = true;
+            UctProdutos.Instancia.Visible = true;
         }
 
         private void frmAgendaOs_KeyDown(object sender, KeyEventArgs e)
@@ -133,25 +129,6 @@ namespace Agenda_OS
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Ignore;
-        }
-
-        private void HideUserControlsOthersThan(UserControl userControl = null)
-        {
-            foreach (object obj in pForm.Controls)
-            {
-                if (obj is UserControl)
-                {
-                    UserControl uc = obj as UserControl;
-                    uc.Visible = false;
-                }
-            }
-            if (userControl != null)
-                userControl.Visible = true;
-        }
-
-        private void pbLogo_Click(object sender, EventArgs e)
-        {
-            HideUserControlsOthersThan();
         }
     }
 }

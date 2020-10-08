@@ -113,10 +113,5 @@ namespace Agenda_OS
             formProd.ShowDialog();
             CarregarProdutos();
         }
-
-        private void btnHide_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-        }
     }
 }

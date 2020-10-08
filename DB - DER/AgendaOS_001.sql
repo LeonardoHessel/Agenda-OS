@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `contador`(
     PRIMARY KEY(`id`)
 )ENGINE = InnoDB;
 
--- DROP TABLE IF EXISTS `empresa`;
+DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE IF NOT EXISTS `empresa`(
 	`id` INT AUTO_INCREMENT,
     `cnpj` CHAR(14),
@@ -64,13 +64,18 @@ CREATE TABLE IF NOT EXISTS `empresa`(
     `nome` VARCHAR(60),
     `regime` SET('Lucro','Simples'),
     `contador` INT,
-    `address` INT,
+    `logradouro` VARCHAR(60),
+    `numero` VARCHAR(6),
+    `complemento` VARCHAR(20),
+    `cep` CHAR(8),
+    `bairro` VARCHAR(45),
+    `municipio` VARCHAR(45),
+    `uf` CHAR(2),
     `email` VARCHAR(250),
     `telefone` VARCHAR(60),
     `observacao` TEXT,
     `ativo` BOOL DEFAULT TRUE,
-    PRIMARY KEY(`id`),
-    FOREIGN KEY (`address`) REFERENCES `address`(`id`)
+    PRIMARY KEY(`id`)
     -- FOREIGN KEY (`contador`) REFERENCES `contador`(`id`)
 )ENGINE = InnoDB;
 

@@ -67,7 +67,7 @@
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(180, 1005);
+            this.pnlMenu.Size = new System.Drawing.Size(180, 1024);
             this.pnlMenu.TabIndex = 0;
             // 
             // labNomeUsuario
@@ -76,7 +76,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labNomeUsuario.AutoSize = true;
             this.labNomeUsuario.Font = new System.Drawing.Font("Roboto Bk", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labNomeUsuario.Location = new System.Drawing.Point(34, 954);
+            this.labNomeUsuario.Location = new System.Drawing.Point(34, 973);
             this.labNomeUsuario.Name = "labNomeUsuario";
             this.labNomeUsuario.Size = new System.Drawing.Size(115, 18);
             this.labNomeUsuario.TabIndex = 6;
@@ -88,7 +88,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labInfo.AutoSize = true;
             this.labInfo.Font = new System.Drawing.Font("Roboto Bk", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labInfo.Location = new System.Drawing.Point(48, 919);
+            this.labInfo.Location = new System.Drawing.Point(48, 938);
             this.labInfo.Name = "labInfo";
             this.labInfo.Size = new System.Drawing.Size(83, 18);
             this.labInfo.TabIndex = 5;
@@ -104,13 +104,11 @@
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 2;
             this.pbLogo.TabStop = false;
-            this.pbLogo.Click += new System.EventHandler(this.pbLogo_Click);
             // 
             // btnProdutos
             // 
             this.btnProdutos.FlatAppearance.BorderSize = 0;
             this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdutos.Image = ((System.Drawing.Image)(resources.GetObject("btnProdutos.Image")));
             this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProdutos.Location = new System.Drawing.Point(0, 356);
             this.btnProdutos.Margin = new System.Windows.Forms.Padding(0);
@@ -258,14 +256,14 @@
             this.pForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pForm.Location = new System.Drawing.Point(180, 0);
             this.pForm.Name = "pForm";
-            this.pForm.Size = new System.Drawing.Size(1100, 1005);
+            this.pForm.Size = new System.Drawing.Size(1100, 1024);
             this.pForm.TabIndex = 5;
             // 
             // FormAgenda
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1280, 1005);
+            this.ClientSize = new System.Drawing.Size(1280, 1024);
             this.Controls.Add(this.pForm);
             this.Controls.Add(this.pnlMenu);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

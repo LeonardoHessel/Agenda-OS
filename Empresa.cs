@@ -9,126 +9,36 @@ namespace Agenda_OS
 {
     public class Empresa:Conexao
     {
-        // Customer
-        public long ID;
-        public string CNPJ;
-        public string IE;
-        public string Razao;
-        public string Nome;
-        public string Email;
-        public string Telefone;
-        public string Observacao;
-        // Address
-        public Address Address;
-        // Accountant
-        public string AccountantName;
-        public string AccountantEmail;
-        // Product
-        public Produto Product;
-        public string ProductModule;
-        // Status
-        public bool Ativo;
+        public long ID { get; set; }
+        public string CNPJ { get; set; }
+        public string IE { get; set; }
+        public string Razao { get; set; }
+        public string Nome { get; set; }
+        public string Regime { get; set; }
+        public long ID_Contador { get; set; }
+        public Address Address { get; set; }
+        public string Email { get; set; }
+        public string Telefone { get; set; }
+        public string Observacao { get; set; }
+        public bool Ativo { get; set; }
 
-        // ---------- ---------- ---------- ---------- ---------- //
-
-        private void AddParameters(string mode)
-        {
-            if (mode != "Insert")
-                AddPar("id", this.ID);
-
-            AddPar("cnpj", this.CNPJ);
-            AddPar("ie", this.IE);
-            AddPar("razao", this.Razao);
-            AddPar("nome", this.Nome);
-            AddPar("email", this.Email);
-            AddPar("telefone", this.Telefone);
-            AddPar("observacao", this.Observacao);
-            AddPar("address", this.Address.Address_ID);
-            AddPar("accountantname", this.AccountantName);
-            AddPar("accountantemail", this.AccountantEmail);
-
-            if (this.Product is Produto)
-                AddPar("product", this.Product.ID);
-            else
-                AddPar("product", null);
-
-            AddPar("productmodule", this.ProductModule);
-
-            if (mode != "Insert")
-                AddPar("ativo", this.Ativo);
-        }
-
-        private List<Empresa> TableToCustomers(DataTable table)
-        {
-            List<Empresa> customers = new List<Empresa>();
-            if (table != null)
-            {
-                customers = (from DataRow row in table.Rows select new Empresa()
-                {
-                    ID = Convert.ToInt64(row["id"]),
-                    CNPJ = row["cnpj"].ToString(),
-                    IE = row["ie"].ToString(),
-                    Razao = row["razao"].ToString(),
-                    Nome = row["nome"].ToString(),
-                    Email = row["email"].ToString(),
-                    Telefone = row["telefone"].ToString(),
-                    Observacao = row["observacao"].ToString(),
-                    //Address = row["address"] is DBNull ? null : Address.SearchByID(Convert.ToInt64(row["address"])),
-                    AccountantName = row["accountantname"].ToString(),
-                    AccountantEmail = row["accountantemail"].ToString(),
-                    //Product = row["product"] is DBNull ? null : Produto.GetProductByID(Convert.ToInt64(row["product"])),
-                    ProductModule = row["productmodule"].ToString(),
-                    Ativo = Convert.ToBoolean(row["ativo"])
-                }).ToList();
-
-                return customers;
-            }
-            return null;
-        }
-
-        // ---------- ---------- ---------- ---------- ---------- //
-
-        public bool Insert()
-        {
-            if (this.Address.Insert())
-            {
-                string sql = @"INSERT INTO `customer` 
-                (`cnpj`,`ie`,`razao`,`nome`,`address`,`email`,`telefone`,`observacao`,
-                `accountantname`,`accountantemail`,`product`,`productmodule`)
-                VALUES (@cnpj,@ie,@razao,@nome,@address,@email,@telefone,@observacao,
-                `accountantname`,`accountantemail`,`product`,`productmodule`)";
-
-                NewCMD(sql, CommandType.Text);
-                AddParameters("Insert");
-                
-                if (ExeGetId())
-                {
-                    this.ID = Conexao.lastId;
-                    this.Ativo = true;
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public static Empresa GetCustomerByID(long empresaId)
+        public static Empresa BuscaEmpresaByID(long empresaId)
         {
             Empresa con = new Empresa();
-            string sql = @"SELECT * FROM `customer` WHERE `id` = @id";
+            string sql = @"SELECT * FROM `empresa` WHERE `id`=@id";
             con.NewCMD(sql, CommandType.Text);
             con.AddPar("id", empresaId);
             return con.TableToCustomers(con.GetTable())[0];
         }
 
-        public static List<Empresa> SearchCustomer(string status, string busca)
+        public static List<Empresa> BuscaEmpresa(string status, string busca)
         {
             bool ativo = false;
             if (status == "Ativos")
                 ativo = true;
 
             string sqladd = " WHERE ";
-            string sql = "SELECT * FROM `customer`";
-
+            string sql = "SELECT * FROM `empresa`";
             if (status != "Todos")
             {
                 sql += sqladd + "`ativo` = @ativo";
@@ -148,22 +58,100 @@ namespace Agenda_OS
             return con.TableToCustomers(con.GetTable());
         }
 
-        public bool Update()
+        public bool Inserir()
+        {
+            if (this.Address.Insert())
+            {
+                string sql = @"INSERT INTO `empresa` (`cnpj`,`ie`,`razao`,`nome`,`regime`,`contador`,`address`,
+                `email`,`telefone`,`observacao`) VALUES (@cnpj,@ie,@razao,@nome,@regime,@contador,@address,
+                @email,@telefone,@observacao)";
+                NewCMD(sql, CommandType.Text);
+                AddPar("cnpj", this.CNPJ);
+                AddPar("ie", this.IE);
+                AddPar("razao", this.Razao);
+                AddPar("nome", this.Nome);
+                AddPar("regime", this.Regime);
+                AddPar("contador", this.ID_Contador);
+                AddPar("address", this.Address.Address_ID);
+                AddPar("email", this.Email);
+                AddPar("telefone", this.Telefone);
+                AddPar("observacao", this.Observacao);
+                if (ExeGetId())
+                {
+                    this.ID = Conexao.lastId;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool Atualizar()
         {
             if (this.Address.Update())
             {
-                string sql = @"UPDATE `customer` 
-                SET `cnpj` = @cnpj, `ie` = @ie, `razao` = @razao, `nome` = @nome, `email` = @email, 
-                `telefone` = @telefone, `observacao` = @observacao, `address` = @address
-                `accountantname` = @accountantname, `accountantemail` = @accountantemail, 
-                `product` = @product, `productmodule` = @productmodule, `ativo` = @ativo WHERE `id` = @id";
-                
+                string sql = @"UPDATE `empresa` SET `cnpj` = @cnpj, `ie` = @ie, `razao` = @razao, `nome` = @nome, 
+                `regime` = @regime, `contador` = @contador, `address` = @address, `email` = @email, 
+                `telefone` = @telefone, `observacao` = @observacao, `ativo` = @ativo WHERE `id` = @id";
                 NewCMD(sql, CommandType.Text);
-                AddParameters("Update");
+                AddPar("cnpj", this.CNPJ);
+                AddPar("ie", this.IE);
+                AddPar("razao", this.Razao);
+                AddPar("nome", this.Nome);
+                AddPar("regime", this.Regime);
+                AddPar("contador", this.ID_Contador);
+                AddPar("address", this.Address.Address_ID);
+                AddPar("email", this.Email);
+                AddPar("telefone", this.Telefone);
+                AddPar("observacao", this.Observacao);
+                AddPar("ativo", this.Ativo);
+                AddPar("id", this.ID);
 
                 return ExecuteNQ();
             }
             return false;
+        }
+
+        public bool AtivarDesativar()
+        {
+            string sql = "UPDATE `empresa` SET `ativo` = @ativo WHERE `id` = @id";
+            NewCMD(sql, CommandType.Text);
+            AddPar("ativo", !this.Ativo);
+            AddPar("id", this.ID);
+            if (ExecuteNQ())
+            {
+                this.Ativo = !this.Ativo;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private List<Empresa> TableToCustomers(DataTable table)
+        {
+            List<Empresa> customers = new List<Empresa>();
+            if (table != null)
+            {
+                customers = (from DataRow dr in table.Rows select new Empresa()
+                {
+                    ID = Convert.ToInt64(dr["id"]),
+                    CNPJ = dr["cnpj"].ToString(),
+                    IE = dr["ie"].ToString(),
+                    Razao = dr["razao"].ToString(),
+                    Nome = dr["nome"].ToString(),
+                    Regime = dr["regime"].ToString(),
+                    ID_Contador = Convert.ToInt64(dr["contador"]),
+                    Address = Address.SearchByID(Convert.ToInt64(dr["address"])),
+                    Email = dr["email"].ToString(),
+                    Telefone = dr["telefone"].ToString(),
+                    Observacao = dr["observacao"].ToString(),
+                    Ativo = Convert.ToBoolean(dr["ativo"])
+                }).ToList();
+                
+                return customers;
+            }
+            return null;
         }
     }
 }

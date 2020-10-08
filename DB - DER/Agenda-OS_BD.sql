@@ -68,25 +68,25 @@ CREATE TABLE IF NOT EXISTS `contador`(
 )ENGINE = InnoDB;
 
 -- DROP TABLE IF EXISTS `empresa`;
-CREATE TABLE IF NOT EXISTS `customer`(
-	`id` INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `empresa`(
+	`id` INT AUTO_INCREMENT,
     `cnpj` CHAR(14),
     `ie` VARCHAR(12),
     `razao` VARCHAR(60),
     `nome` VARCHAR(60),
+    `regime` SET('Lucro','Simples'),
+    `contador` INT,
+    `address` INT,
     `email` VARCHAR(250),
     `telefone` VARCHAR(60),
     `observacao` TEXT,
-    `address` INT,
-    `accountantname` VARCHAR(60),
-    `accountantemail` VARCHAR(250),
-    `product` INT,
-    `productmodule` VARCHAR(60),
     `ativo` BOOL DEFAULT TRUE,
+    PRIMARY KEY(`id`),
     FOREIGN KEY (`address`) REFERENCES `address`(`id`)
-    -- FOREIGN KEY (`address`) REFERENCES `address`(`id`)
+    -- FOREIGN KEY (`contador`) REFERENCES `contador`(`id`)
 )ENGINE = InnoDB;
 
+alter table empresa drop column `uf`;
 
 -- DROP TABLE IF EXISTS `produto`;
 CREATE TABLE IF NOT EXISTS `produto`(

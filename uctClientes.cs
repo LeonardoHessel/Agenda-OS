@@ -44,6 +44,10 @@ namespace Agenda_OS
             }
         }
 
+
+        public List<Empresa> ListaEmpresas { get; set; }
+
+
         private void btnNovo_Click(object sender, EventArgs e)
         {
             FormCliente frm = new FormCliente();
@@ -52,6 +56,7 @@ namespace Agenda_OS
             frm.ShowDialog();
             CarregarClientes();
         }
+
 
         private void CarregarClientes()
         {
@@ -62,9 +67,8 @@ namespace Agenda_OS
                 status = "Inativos";
             
             string busca = txtBuscaEmpresa.Text;
-
-            //dgvClientes.DataSource = Empresa.SearchCustomer(status, busca);
-            dataGridView1.DataSource = Empresa.SearchCustomer(status, busca);
+            
+            dgvClientes.DataSource = Empresa.BuscaEmpresa(status, busca);
         }
 
         private void dgvClientes_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -88,11 +92,6 @@ namespace Agenda_OS
             frm.Acao = "Editar";
             frm.ShowDialog();
             CarregarClientes();
-        }
-
-        private void btnHide_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
         }
     }
 }

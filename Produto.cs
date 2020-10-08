@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -83,30 +82,6 @@ namespace Agenda_OS
                 }
 
                 return produtos;
-            }
-            return null;
-        }
-
-        public static Produto GetProductByID(long product_id)
-        {
-            Produto con = new Produto();
-            string sql = "SELECT * FROM `produto` WHERE `id` = @id";
-            
-            con.NewCMD(sql, CommandType.Text);
-            con.AddPar("id", product_id);
-            
-            DataTable tabela = con.GetTable();
-            
-            List<Produto> produtos = new List<Produto>();
-            if (tabela != null)
-            {
-                produtos = (from DataRow row in tabela.Rows select new Produto()
-                {
-                    ID = Convert.ToInt64(row["id"]),
-                    Nome = row["nome"].ToString(),
-                    Ativo = Convert.ToBoolean(row["ativo"]),
-                }).ToList();
-                return produtos[0];
             }
             return null;
         }
