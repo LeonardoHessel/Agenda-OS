@@ -130,5 +130,14 @@ namespace Agenda_OS
         {
             this.DialogResult = DialogResult.Ignore;
         }
+
+        private void btnOS_KeyDown(object sender, KeyEventArgs e)
+        {
+            //for ctrl + s
+            if (e.KeyData == Keys.ControlKey && e.Modifiers == Keys.S)
+            {
+                btnProdutos.PerformClick();
+            }
+        }
     }
 }

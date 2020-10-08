@@ -53,7 +53,7 @@
             this.pTitulo.Location = new System.Drawing.Point(0, 0);
             this.pTitulo.Name = "pTitulo";
             this.pTitulo.Size = new System.Drawing.Size(400, 250);
-            this.pTitulo.TabIndex = 3;
+            this.pTitulo.TabIndex = 0;
             // 
             // pbLogo
             // 
@@ -76,7 +76,7 @@
             this.btnFechar.Location = new System.Drawing.Point(350, 0);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(50, 50);
-            this.btnFechar.TabIndex = 0;
+            this.btnFechar.TabIndex = 3;
             this.btnFechar.Text = "X";
             this.btnFechar.UseVisualStyleBackColor = false;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
@@ -109,7 +109,7 @@
             this.btnAcessar.Location = new System.Drawing.Point(91, 347);
             this.btnAcessar.Name = "btnAcessar";
             this.btnAcessar.Size = new System.Drawing.Size(218, 40);
-            this.btnAcessar.TabIndex = 1;
+            this.btnAcessar.TabIndex = 2;
             this.btnAcessar.Text = "Acessar";
             this.btnAcessar.UseVisualStyleBackColor = false;
             this.btnAcessar.Click += new System.EventHandler(this.btnAcessar_Click);
